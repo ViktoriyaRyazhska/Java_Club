@@ -1,16 +1,16 @@
 # Java_Club
 
 ## Team 1
-Michael Romanyshyn
-Volodymyr  Medvedchuk
-Taras  Vandzhala
-Vitaliy  Yaroshevych
+Michael Romanyshyn  
+Volodymyr  Medvedchuk  
+Taras  Vandzhala  
+Vitaliy  Yaroshevych  
 
 ## Team 2
-Pavlo  Fedyk
-Volianskyi Ihor
-Halaibida Bohdan
-Andrii Kolodii
+Pavlo Fedyk  
+Volianskyi Ihor  
+Halaibida Bohdan  
+Andrii Kolodii  
 
 ## Team 3
 Ihor  Kukhar
