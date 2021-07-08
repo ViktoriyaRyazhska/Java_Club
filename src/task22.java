@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class task22 {
     public static String CalculateAge(int birth, int yearTo) {
         String yearOrYears;
@@ -19,5 +21,15 @@ public class task22 {
         } else {
             return "years";
         }
+    }
+
+    public static void execute(Scanner sc) {
+        System.out.println("This method calculates \"how old will you be\" or \"how many years are left before your birth\"");
+        System.out.println("Enter your birth year: ");
+        int birth = sc.nextInt();
+        System.out.println("Now, enter year in future or past");
+        int yearTo = sc.nextInt();
+        String result = CalculateAge(birth, yearTo);
+        System.out.println(result);
     }
 }
