@@ -1,5 +1,5 @@
 class Kata {
-    static getVolumeOfCuboid(length, width, height) {
+    public int  getVolumeOfCuboid(int length, int width, int height) {
         return  length*width*height;
     }
 }
