@@ -26,6 +26,7 @@ public class Main {
 
         switch (taskNumber) {
             case 2:  task2.execute(sc);  break;     case 6:  task6.execute(sc);  break;
+            case 8:  task8.execute(sc);  break;
             case 10: task10.execute(sc); break;     case 14: task14.execute(sc); break;
             case 18: task18.execute(sc); break;     case 22: task22.execute(sc); break;
             case 26: task26.execute(sc); break;     case 30: task30.execute(sc); break;
@@ -48,6 +49,7 @@ public class Main {
         Map<Integer, String> tasks = new LinkedHashMap<>();
         tasks.put(2, "Multiplying two numbers");
         tasks.put(6, "Convert to binary");
+        tasks.put(8, "Century from year");
         tasks.put(10, "Age range compatibility equation");
         tasks.put(14, "Fractions class");
         tasks.put(18, "Opposite number");
