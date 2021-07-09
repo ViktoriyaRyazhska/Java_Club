@@ -32,8 +32,11 @@ public class Main {
             case 34: task34.execute(sc); break;     case 38: task38.execute(sc); break;
             case 42: task42.execute(sc); break;     case 46: task46.execute(sc); break;
             case 50: task50.execute(sc); break;     case 54: task54.execute(sc); break;
-            case 58: task58.execute(sc); break;     case 62: task62.execute(sc); break;
+            case 58: task58.execute(sc); break;
+            case 60: Task60.execute(sc); break;
+            case 62: task62.execute(sc); break;
             case 66: task66.execute(sc); break;     case 70: task70.execute(sc); break;
+
             default:
                 System.out.println("You need to enter number from 1 to 72");
         }
