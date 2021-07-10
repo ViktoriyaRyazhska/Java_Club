@@ -29,7 +29,8 @@ public class Main {
             case 8:  task8.execute(sc);  break;
             case 10: task10.execute(sc); break;     case 12: task12.execute(sc); break;
             case 14: task14.execute(sc); break;     case 16: task16.execute(sc); break;
-            case 18: task18.execute(sc); break;     case 22: task22.execute(sc); break;
+            case 18: task18.execute(sc); break;     case 20: task20.execute(sc); break;
+            case 22: task22.execute(sc); break;
             case 26: task26.execute(sc); break;     case 30: task30.execute(sc); break;
             case 34: task34.execute(sc); break;     case 38: task38.execute(sc); break;
             case 42: task42.execute(sc); break;     case 46: task46.execute(sc); break;
@@ -56,6 +57,7 @@ public class Main {
         tasks.put(14, "Fractions class");
         tasks.put(16, "Two fighters, one winner.");
         tasks.put(18, "Opposite number");
+        tasks.put(20, "Convert a Boolean to a String");
         tasks.put(22, "How old will i be in 2099");
         tasks.put(26, "Convert boolean values to strings yes or no");
         tasks.put(30, "Thinkful logic drills traffic light");
