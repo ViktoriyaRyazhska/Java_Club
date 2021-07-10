@@ -14,6 +14,9 @@ public class task9 {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program makes negative number");
-
+        System.out.println("Pleas enter your number");
+        int number = sc.nextInt();
+        int result = makeNegative(number);
+        System.out.println(result);
     }
 }

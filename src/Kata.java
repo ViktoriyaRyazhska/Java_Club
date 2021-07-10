@@ -56,6 +56,10 @@ public class Kata {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program switch int to String");
+        System.out.println("Pleas enter your number");
+        int number = sc.nextInt();
+        String result = switchItUp(number);
+        System.out.println(result);
 
     }
 }

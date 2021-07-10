@@ -27,6 +27,9 @@ public class task33 {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program calculate human years, cat years and dog years");
-
+        System.out.println("Pleas enter your number");
+        int number = sc.nextInt();
+        int[] result = humanYearsCatYearsDogYears(number);
+        System.out.println(result);
     }
 }

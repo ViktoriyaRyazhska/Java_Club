@@ -7,6 +7,9 @@ public class task56 {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program deletes all spaces ");
-
+        System.out.println("Pleas enter your number");
+        String element = sc.nextLine();
+        String result = noSpace(element);
+        System.out.println(result);
     }
 }

@@ -12,7 +12,10 @@ public class Task1 {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program calculate double integer ");
-
+        System.out.println("Pleas enter your number");
+        int number = sc.nextInt();
+        int result = doubleInteger(number);
+        System.out.println(result);
     }
 }
 

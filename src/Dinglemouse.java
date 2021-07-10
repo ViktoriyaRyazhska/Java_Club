@@ -17,6 +17,9 @@ public class Dinglemouse {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program add one hundred to number ");
-
+        System.out.println("Pleas enter your number");
+        int number = sc.nextInt();
+        int result = INST.plus100(number);
+        System.out.println(result);
     }
 }

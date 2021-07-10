@@ -11,6 +11,13 @@ public class OppositesAttract {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program shows love when the petals on the flower are the exact number or not accurate ");
-
+        System.out.println("Pleas enter your first numbers");
+        int number = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Pleas enter your second number");
+        int number2 = sc.nextInt();
+        sc.nextLine();
+        boolean result = isLove(number,number2);
+        System.out.println(result);
     }
 }
