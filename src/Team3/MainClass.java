@@ -9,11 +9,12 @@ public class MainClass {
 
         while (!check.equals("E")){
             System.out.println("For read instruction push 'Y' ");
+            System.out.println("Or to go to tasks push any another button ");
 
             Scanner i = new Scanner(System.in);
             String s = i.nextLine();
 
-            if(s.equals("Y")){
+            if(s.equals("start") || s.equals("Start")){
                 Instruction.getInstruction();                    //Show instruction
             }
             System.out.println("Enter number of task : ");
@@ -22,6 +23,7 @@ public class MainClass {
             SwitchData.getSwitchData(num);                       // Void Switch
 
             System.out.println("If you want stop program - push 'E'");
+            System.out.println("Or to continue working with program push any another button");
             Scanner t = new Scanner(System.in);
             check = t.nextLine();
         }
