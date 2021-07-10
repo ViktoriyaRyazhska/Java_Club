@@ -28,7 +28,7 @@ public class Main {
             case 2:  task2.execute(sc);  break;     case 6:  task6.execute(sc);  break;
             case 8:  task8.execute(sc);  break;
             case 10: task10.execute(sc); break;     case 12: task12.execute(sc); break;
-            case 14: task14.execute(sc); break;
+            case 14: task14.execute(sc); break;     case 16: task16.execute(sc); break;
             case 18: task18.execute(sc); break;     case 22: task22.execute(sc); break;
             case 26: task26.execute(sc); break;     case 30: task30.execute(sc); break;
             case 34: task34.execute(sc); break;     case 38: task38.execute(sc); break;
@@ -54,6 +54,7 @@ public class Main {
         tasks.put(10, "Age range compatibility equation");
         tasks.put(12, "Lombok Encapsulation");
         tasks.put(14, "Fractions class");
+        tasks.put(16, "Two fighters, one winner.");
         tasks.put(18, "Opposite number");
         tasks.put(22, "How old will i be in 2099");
         tasks.put(26, "Convert boolean values to strings yes or no");
