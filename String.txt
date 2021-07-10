@@ -1,0 +1,20 @@
+https://www.codewars.com/kata/convert-a-number-to-a-string/
+https://www.codewars.com/kata/reversed-strings
+https://www.codewars.com/kata/welcome-to-the-city/
+https://www.codewars.com/kata/opposite-number/
+https://www.codewars.com/kata/fixme-replace-all-dots/
+https://www.codewars.com/kata/are-you-playing-banjo/
+https://www.codewars.com/kata/remove-string-spaces/
+https://www.codewars.com/kata/triple-trouble-2/
+https://www.codewars.com/kata/find-the-position/
+https://www.codewars.com/kata/fake-binary/
+https://www.codewars.com/kata/parse-nice-int-from-char-problem/
+https://www.codewars.com/kata/grasshopper-debug/
+https://www.codewars.com/kata/abbreviate-a-two-word-name/
+http://www.codewars.com/kata/all-star-code-challenge-number-18/
+https://www.codewars.com/kata/sort-and-star/
+https://www.codewars.com/kata/correct-the-mistakes-of-the-character-recognition-software/
+https://www.codewars.com/kata/alternating-case-<-equals->-alternating-case/
+https://www.codewars.com/kata/exclamation-marks-series-number-6-remove-n-exclamation-marks-in-the-sentence-from-left-to-right/
+
+18 Tasks
