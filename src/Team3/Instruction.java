@@ -58,7 +58,7 @@ public class Instruction {
         System.out.println(" 52.  ");
         System.out.println(" 53.  ");
         System.out.println(" 54.  ");
-        System.out.println(" 55.  ");
+        System.out.println(" 55. This program  replaces all the dots '.' in the specified String str with dashes '-' ");
         System.out.println(" 56.  ");
         System.out.println(" 57.  ");
         System.out.println(" 58.  ");
