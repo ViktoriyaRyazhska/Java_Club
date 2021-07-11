@@ -38,7 +38,7 @@ public class Instruction {
         System.out.println(" 32.  ");
         System.out.println(" 33.  ");
         System.out.println(" 34.  ");
-        System.out.println(" 35.  ");
+        System.out.println(" 35. This program returns your array with each value doubled. ");
         System.out.println(" 36.  ");
         System.out.println(" 37.  ");
         System.out.println(" 38.  ");
