@@ -127,6 +127,27 @@ public class SwitchData {
                 break;
             case (50):
                 break;
+            case (51):
+                Task51.showFunctionality();
+                break;
+            case (52):
+                break;
+            case (53):
+                break;
+            case (54):
+                break;
+            case (55):
+                break;
+            case (56):
+                break;
+            case (57):
+                break;
+            case (58):
+                break;
+            case (59):
+                break;
+            case (60):
+                break;
             default:
                 System.out.println("Main class don't have " + number + " task");
                 break;
