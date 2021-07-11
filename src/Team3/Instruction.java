@@ -42,7 +42,7 @@ public class Instruction {
         System.out.println(" 36.  ");
         System.out.println(" 37.  ");
         System.out.println(" 38.  ");
-        System.out.println(" 39.  ");
+        System.out.println(" 39. This program  returns the result of multiplying the values together in order ");
         System.out.println(" 40.  ");
         System.out.println(" 41.  ");
         System.out.println(" 42.  ");
