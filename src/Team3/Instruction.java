@@ -22,11 +22,11 @@ public class Instruction {
         System.out.println(" 16.   ");
         System.out.println(" 17. ");
         System.out.println(" 18.   ");
-        System.out.println(" 19.  ");
+        System.out.println(" 19.  This program checks if a number n is divisible by two numbers x AND y. All inputs must be a positive, non-zero digits.");
         System.out.println(" 20.  ");
         System.out.println(" 21.  ");
         System.out.println(" 22.  ");
-        System.out.println(" 23.  ");
+        System.out.println(" 23.  This program this program implements the game Rock Paper Scissors");
         System.out.println(" 24.  ");
         System.out.println(" 25.  ");
         System.out.println(" 26.  ");
