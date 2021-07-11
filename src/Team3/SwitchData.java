@@ -84,6 +84,7 @@ public class SwitchData {
             case (30):
                 break;
             case (31):
+                Task31.showFunctionality();
                 break;
             case (32):
                 break;

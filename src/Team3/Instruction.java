@@ -34,7 +34,7 @@ public class Instruction {
         System.out.println(" 28.  ");
         System.out.println(" 29.  ");
         System.out.println(" 30.  ");
-        System.out.println(" 31.  ");
+        System.out.println(" 31.  This program gives out the total amount for different days for rent a car");
         System.out.println(" 32.  ");
         System.out.println(" 33.  ");
         System.out.println(" 34.  ");
