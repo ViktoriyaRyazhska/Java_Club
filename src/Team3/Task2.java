@@ -10,6 +10,8 @@ public class Task2  {
     }
 
     public static void showFunctionality(){
+        System.out.println("This program multiplies two numbers " +
+                "enter first and second numbers");
         Scanner i = new Scanner(System.in);
         System.out.println("Enter first number :");
         double first = i.nextDouble();
