@@ -26,11 +26,11 @@ public class Instruction {
         System.out.println(" 20.  ");
         System.out.println(" 21.  ");
         System.out.println(" 22.  ");
-        System.out.println(" 23.  This program this program implements the game Rock Paper Scissors");
+        System.out.println(" 23.  This program this program implements the game 'Rock Paper Scissors'");
         System.out.println(" 24.  ");
         System.out.println(" 25.  ");
         System.out.println(" 26.  ");
-        System.out.println(" 27.  ");
+        System.out.println(" 27. This program telling the driver if he will be able to fit all the passengers. ");
         System.out.println(" 28.  ");
         System.out.println(" 29.  ");
         System.out.println(" 30.  ");
