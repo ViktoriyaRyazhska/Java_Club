@@ -54,7 +54,7 @@ public class Instruction {
         System.out.println(" 48.  ");
         System.out.println(" 49.  ");
         System.out.println(" 50.  ");
-        System.out.println(" 51.  ");
+        System.out.println(" 51. This program  transforms a number into a string ");
         System.out.println(" 52.  ");
         System.out.println(" 53.  ");
         System.out.println(" 54.  ");
