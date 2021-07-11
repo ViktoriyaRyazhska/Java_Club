@@ -137,6 +137,7 @@ public class SwitchData {
             case (54):
                 break;
             case (55):
+                Task55.showFunctionality();
                 break;
             case (56):
                 break;
