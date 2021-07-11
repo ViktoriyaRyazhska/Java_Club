@@ -22,6 +22,7 @@ public class MainClass {
             int num = i.nextInt();
             SwitchData.getSwitchData(num);                       // Void Switch
 
+            System.out.println();
             System.out.println("If you want stop program - push 'E'");
             System.out.println("Or to continue working with program push any another button");
             Scanner t = new Scanner(System.in);
