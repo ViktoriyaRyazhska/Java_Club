@@ -2,7 +2,7 @@ package Team3;
 
 import java.util.Scanner;
 
-public class Task59 {
+public class Tasl59 {
     public static int findPosition(char inputLetter)
     {
         // converting input letter in to uniform case.
