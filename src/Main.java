@@ -32,6 +32,7 @@ public class Main {
             case 18: task18.execute(sc); break;     case 20: task20.execute(sc); break;
             case 22: task22.execute(sc); break;     case 24: task24.execute(sc); break;
             case 26: task26.execute(sc); break;     case 30: task30.execute(sc); break;
+            case 32: task32.execute(sc); break;
             case 34: task34.execute(sc); break;     case 38: task38.execute(sc); break;
             case 42: task42.execute(sc); break;     case 46: task46.execute(sc); break;
             case 50: task50.execute(sc); break;     case 54: task54.execute(sc); break;
@@ -62,6 +63,7 @@ public class Main {
         tasks.put(24, "Basic Mathematical Operations");
         tasks.put(26, "Convert boolean values to strings yes or no");
         tasks.put(30, "Thinkful logic drills traffic light");
+        tasks.put(32, "String repeat");
         tasks.put(34, "Get the mean of an array");
         tasks.put(38, "How good are you really");
         tasks.put(42, "Twice as old");
