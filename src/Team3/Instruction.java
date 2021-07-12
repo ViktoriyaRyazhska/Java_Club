@@ -66,7 +66,7 @@ public class Instruction {
         System.out.println(" 60.  ");
         System.out.println(" 61.  ");
         System.out.println(" 62.  ");
-        System.out.println(" 63.  ");
+        System.out.println(" 63. This program converts a name into initials ");
         System.out.println(" 64.  ");
         System.out.println(" 65.  ");
         System.out.println(" 66.  ");
