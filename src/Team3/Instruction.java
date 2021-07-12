@@ -70,7 +70,7 @@ public class Instruction {
         System.out.println(" 64.  ");
         System.out.println(" 65.  ");
         System.out.println(" 66.  ");
-        System.out.println(" 67.  ");
+        System.out.println(" 67. In this program lowercase letter becomes uppercase and each uppercase letter becomes lowercase ");
         System.out.println(" 68.  ");
         System.out.println(" 69.  ");
         System.out.println(" 70.  ");

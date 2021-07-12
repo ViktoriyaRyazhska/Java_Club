@@ -20,7 +20,7 @@ public class Tasl59 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a letter: ");
         char letter= sc.next().charAt(0);
-        int position= Task59.findPosition(letter);
+        int position= Tasl59.findPosition(letter);
         System.out.println("Position of letter "+letter+" in alphabet is: "+position);
 
     }
