@@ -1,0 +1,17 @@
+https://www.codewars.com/kata/string-repeat
+https://www.codewars.com/kata/cat-years-dog-years/
+https://www.codewars.com/kata/get-the-mean-of-an-array
+https://www.codewars.com/kata/beginner-lost-without-a-map/
+https://www.codewars.com/kata/counting-sheep-dot-dot-dot/
+https://www.codewars.com/kata/reversed-sequence/
+https://www.codewars.com/kata/how-good-are-you-really/
+https://www.codewars.com/kata/beginner-reduce-but-grow
+https://www.codewars.com/kata/sum-of-positive
+https://www.codewars.com/kata/my-head-is-at-the-wrong-end/
+https://www.codewars.com/kata/twice-as-old/
+https://www.codewars.com/kata/find-nearest-square-number/
+https://www.codewars.com/kata/grasshopper-summation/
+https://www.codewars.com/kata/gap-in-primes/
+https://www.codewars.com/kata/21-sticks/
+
+15 Tasks
