@@ -74,7 +74,7 @@ public class Instruction {
         System.out.println(" 68.  ");
         System.out.println(" 69.  ");
         System.out.println(" 70.  ");
-        System.out.println(" 71.  ");
+        System.out.println(" 71. This program removes even numbers from the list and return a list that contains odd number. ");
         System.out.println(" 72.  ");
     }
 }
