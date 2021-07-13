@@ -16,7 +16,7 @@ public class Task2 implements Task {
 
     @Override
     public void execute() {
-        System.out.println("\t *** task 1 executed *** ");
+        System.out.println("\t *** Task 2 executed *** ");
 
         System.out.println("\tMultiply ");
 

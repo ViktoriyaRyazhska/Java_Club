@@ -1,7 +1,6 @@
 package com.team6.basic;
 
-import com.team6.basic.tasks.Task1;
-import com.team6.basic.tasks.Task2;
+import com.team6.basic.tasks.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +35,9 @@ public class Main {
         functions.add(() -> new Task1(scanner).execute());
         functions.add(() -> new Task2(scanner).execute());
         functions.add(() -> System.out.println("Task 3 is missing!..."));
-        functions.add(() -> System.out.println("Task 4 is missing!..."));
-        functions.add(() -> System.out.println("Task 5 is missing!..."));
-        functions.add(() -> System.out.println("Task 6 is missing!..."));
+        functions.add(() -> new Task4(scanner).execute());
+        functions.add(() -> new Task5(scanner).execute());
+        functions.add(() -> new Task6(scanner).execute());
         functions.add(() -> System.out.println("Task 7 is missing!..."));
         functions.add(() -> System.out.println("Task 8 is missing!..."));
     }

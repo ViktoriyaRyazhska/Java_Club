@@ -2,6 +2,8 @@ package com.team6.basic.tasks;
 
 import java.util.Scanner;
 
+
+
 public class Task3 implements Task {
 
     private final Scanner scanner;
@@ -12,7 +14,7 @@ public class Task3 implements Task {
 
     @Override
     public void execute() {
-        System.out.println(" *** Task 4 *** ");
+        System.out.println(" *** Task 3 *** ");
 
 
     }
