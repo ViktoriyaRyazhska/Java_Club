@@ -1,4 +1,4 @@
-package com.team1.tasks;
+package com.team1.tasks.classesTasks;
 
 public class Fraction implements Comparable<Fraction> {
     private final long top;

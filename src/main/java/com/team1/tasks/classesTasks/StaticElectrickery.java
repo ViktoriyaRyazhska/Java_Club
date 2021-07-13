@@ -1,4 +1,4 @@
-package com.team1.tasks;
+package com.team1.tasks.classesTasks;
 
 public class StaticElectrickery {
     public static final StaticElectrickery INST = new StaticElectrickery();

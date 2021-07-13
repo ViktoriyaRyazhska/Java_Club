@@ -1,4 +1,4 @@
-package com.team1.tasks;
+package com.team1.tasks.classesTasks;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

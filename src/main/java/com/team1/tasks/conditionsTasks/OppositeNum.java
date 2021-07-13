@@ -1,4 +1,4 @@
-package com.team1.tasks;
+package com.team1.tasks.conditionsTasks;
 
 public class OppositeNum {
     private OppositeNum() {
