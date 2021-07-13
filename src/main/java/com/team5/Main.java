@@ -1,4 +1,6 @@
-import Basic.BasicClass;
+package com.team5;
+
+import com.team5.Basic.BasicClass;
 
 import java.util.Scanner;
 
