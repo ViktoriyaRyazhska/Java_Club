@@ -1,19 +1,18 @@
-import java.util.HashMap;
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("To see list of tasks print 'list' \n" +
-                "or 'exit' to finish the program: ");
-        String str = sc.next();
-        switch (str) {
+        System.out.println("To see list of tasks print 'list' or 'exit' to finish the program: ");
+        String command = sc.next().toLowerCase();
+
+        switch (command) {
             case "list":
-                printAllTasks();
+                getPrograms().forEach((key, value) -> System.out.println(key + " " + value));
                 break;
             case "exit":
                 System.exit(0);
@@ -21,39 +20,23 @@ public class Main {
                 throw new RuntimeException("Incorrect command");
         }
 
-        System.out.println("Please gimme number of task: ");
+        System.out.println("Please, give me the task number: ");
+
         int taskNumber = sc.nextInt();
 
-        switch (taskNumber) {
-            case 1:  Task1.execute(sc);  break;     case 2:  task2.execute(sc);  break;
-            case 3:  Task3.execute(sc);  break;     case 4:  Task4.execute(sc);   break;
-            case 5:  Task5.execute(sc);  break;     case 6:  task6.execute(sc);  break;
-            case 7:  Clock.execute(sc);  break;     case 8:  task8.execute(sc);  break;
-            case 9:  task9.execute(sc);  break;     case 10: task10.execute(sc); break;
-            case 12: task12.execute(sc); break;     case 13: Dinglemouse.execute(sc); break;
-            case 14: task14.execute(sc); break;     case 16: task16.execute(sc); break;
-            case 17: Block.execute(sc);  break;     case 18: task18.execute(sc); break;
-            case 20: task20.execute(sc); break;     case 22: task22.execute(sc); break;
-            case 24: task24.execute(sc); break;     case 25: OppositesAttract.execute(sc); break;
-            case 26: task26.execute(sc); break;     case 29: Kata.execute(sc);   break;
-            case 30: task30.execute(sc); break;     case 32: task32.execute(sc); break;
-            case 33: task33.execute(sc); break;     case 34: task34.execute(sc); break;
-            case 38: task38.execute(sc); break;     case 42: task42.execute(sc); break;
-            case 46: task46.execute(sc); break;     case 50: task50.execute(sc); break;
-            case 52: task52.execute(sc); break;     case 54: task54.execute(sc); break;
-            case 56: task56.execute(sc); break;     case 58: task58.execute(sc); break;
-            case 60: Task60.execute(sc); break;     case 62: task62.execute(sc); break;
-            case 64: task64.execute(sc); break;     case 66: task66.execute(sc); break;
-            case 68: Task68.execute(sc); break;     case 70: task70.execute(sc); break;
-
-            default:
-                System.out.println("You need to enter number from 1 to 72");
+        try {
+            Class.forName("task" + taskNumber)
+                    .getDeclaredMethod("execute", Scanner.class)
+                    .invoke(null, sc);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            e.printStackTrace();
+        } finally {
+            sc.close();
         }
 
-        sc.close();
     }
 
-    private static void printAllTasks() {
+    private static Map<Integer, String> getPrograms() {
         Map<Integer, String> tasks = new LinkedHashMap<>();
         tasks.put(1, "Double integer");
         tasks.put(2, "Multiplying two numbers");
@@ -95,10 +78,7 @@ public class Main {
         tasks.put(68, "PushAnObjectIntoArray");
         tasks.put(70, "Unfinished loop bug fixing number 1");
 
-        for (Map.Entry<Integer, String> task: tasks.entrySet()) {
-            System.out.println(task.getKey() + " " + task.getValue());
-        }
+        return tasks;
     }
-
 
 }
