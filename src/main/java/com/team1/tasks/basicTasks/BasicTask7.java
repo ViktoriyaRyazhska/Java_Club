@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -36,6 +37,6 @@ public class BasicTask7 implements IRunTask {
                 continue;
             }
         } while (mark == false);
-        System.out.println(Past(h,m,s));
+        System.out.println(Past(h, m, s));
     }
 }

@@ -1,6 +1,6 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 

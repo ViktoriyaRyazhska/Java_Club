@@ -1,6 +1,5 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
 
 import java.util.Scanner;
 
@@ -11,10 +10,6 @@ public class BasicTask1 {
     public BasicTask1() {
     }
 
-    public void setI(int i) {
-        this.i = i;
-    }
-
     public static int doubleInteger(int i) {
         return i * 2;
     }
@@ -23,10 +18,14 @@ public class BasicTask1 {
         return i;
     }
 
+    public void setI(int i) {
+        this.i = i;
+    }
+
     public void execute() {
         boolean mark = false;
         System.out.println("Input integer number you want to double!");
-        do{
+        do {
             try {
                 Scanner sc = new Scanner(System.in);
                 i = sc.nextInt();

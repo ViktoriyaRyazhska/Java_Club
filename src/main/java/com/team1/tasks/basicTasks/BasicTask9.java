@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -8,14 +9,14 @@ public class BasicTask9 implements IRunTask {
 
     private int x;
 
+    public BasicTask9() {
+    }
+
     public static int makeNegative(final int x) {
         if (x < 0) {
             return x;
         }
         return x * -1;
-    }
-
-    public BasicTask9() {
     }
 
     @Override

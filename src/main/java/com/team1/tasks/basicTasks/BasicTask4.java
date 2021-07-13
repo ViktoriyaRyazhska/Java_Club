@@ -1,27 +1,25 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
 public class BasicTask4 implements IRunTask {
-    public BasicTask4() {
-    }
     private int wallLength;
     private int pixelSize;
+    public BasicTask4() {
+    }
 
     public static boolean isDivisible(int wallLength, int pixelSize) {
-        if(wallLength%pixelSize==0){
-            return true;
-        }
-        return false;
+        return wallLength % pixelSize == 0;
     }
 
     @Override
     public void execute() {
         boolean mark = false;
         System.out.println("Input to integer number to check divisible!");
-        do{
+        do {
             try {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Input first number!");
@@ -34,6 +32,6 @@ public class BasicTask4 implements IRunTask {
                 continue;
             }
         } while (mark == false);
-        System.out.println(isDivisible(wallLength,pixelSize));
+        System.out.println(isDivisible(wallLength, pixelSize));
     }
 }

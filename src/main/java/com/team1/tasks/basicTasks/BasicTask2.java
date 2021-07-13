@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class BasicTask2 implements IRunTask {
     public void execute() {
         boolean mark = false;
         System.out.println("Input integer number you want to multiply!");
-        do{
+        do {
             try {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Input first number!");

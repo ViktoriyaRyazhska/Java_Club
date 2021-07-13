@@ -1,23 +1,25 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
 public class BasicTask8 implements IRunTask {
     private int number;
+
     public BasicTask8() {
     }
 
     public static int century(int number) {
-        return (number/100)+1;
+        return (number / 100) + 1;
     }
 
     @Override
     public void execute() {
         boolean mark = false;
         System.out.println("Input to integer year to convert to century!");
-        do{
+        do {
             try {
                 Scanner sc = new Scanner(System.in);
                 number = sc.nextInt();

@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class BasicTask11 implements IRunTask {
     public static String weatherInfo(int temp) {
         double c = convertToCelsius(temp);
         if (c < 0)
-            return (String.valueOf(c) + " is freezing temperature");
+            return (c + " is freezing temperature");
         else
             return (c + " is above freezing temperature");
     }

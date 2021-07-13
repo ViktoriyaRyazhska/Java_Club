@@ -1,4 +1,4 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
 public class BasicMenu {
 

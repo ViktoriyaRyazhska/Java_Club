@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -8,14 +9,14 @@ public class BasicTask6 implements IRunTask {
 
     private int n;
 
+    public BasicTask6() {
+    }
+
     public static int toBinary(int n) {
 
         n = Integer.parseInt(Integer.toBinaryString(n));
 
         return n;
-    }
-
-    public BasicTask6() {
     }
 
     @Override

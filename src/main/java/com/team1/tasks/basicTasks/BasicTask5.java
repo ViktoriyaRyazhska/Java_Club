@@ -1,6 +1,7 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
+
+import com.team1.IRunTask;
 
 import java.util.Scanner;
 
@@ -9,6 +10,9 @@ public class BasicTask5 implements IRunTask {
 
     private String name;
 
+    public BasicTask5() {
+    }
+
     public static String greet(String name) {
 
         if (name.equals("Johnny")) {
@@ -16,9 +20,6 @@ public class BasicTask5 implements IRunTask {
         }
 
         return String.format("Hello, %s!", name);
-    }
-
-    public BasicTask5() {
     }
 
     @Override
