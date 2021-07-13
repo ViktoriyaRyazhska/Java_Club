@@ -63,6 +63,7 @@ public class Main {
         tasks.put(32, "String repeat");
         tasks.put(33, "humanYearsCatYearsDogYears");
         tasks.put(34, "Get the mean of an array");
+        tasks.put(36, "Counting sheep...");
         tasks.put(38, "How good are you really");
         tasks.put(42, "Twice as old");
         tasks.put(46, "21 sticks");
