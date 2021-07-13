@@ -16,6 +16,15 @@ public class Main {
                 int i = sc.nextInt();
                 basicClass.doubleInteger(i);
             }
+            case 7:{
+                System.out.println("Enter hours");
+                int i = sc.nextInt();
+                System.out.println("Enter minutes");
+                int j = sc.nextInt();
+                System.out.println("Enter seconds");
+                int y = sc.nextInt();
+                basicClass.task7(i, j, y);
+            }
         }
     }
 }
