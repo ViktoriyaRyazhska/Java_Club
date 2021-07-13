@@ -20,4 +20,4 @@ Sherstiak Vadym
 ## Team 4
 Oleksiy Vasiuta  
 Denys Ivanechko  
-Mykola Sukhinskiy  
+//Mykola Sukhinskiy  
