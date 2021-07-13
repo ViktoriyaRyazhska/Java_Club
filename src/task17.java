@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Block {
+public class task17 {
 
     private int width;
     private int length;
@@ -8,7 +8,7 @@ public class Block {
     private int volume;
     private int surface_area;
 
-    public Block(int [] params) {
+    public task17(int [] params) {
         this.width = params[0];
         this.length = params[1];
         this.height = params[2];

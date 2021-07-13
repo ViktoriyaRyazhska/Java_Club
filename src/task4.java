@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Task4 {
+public class task4 {
     public static double getVolumeOfCuboid(final double length, final double width, final double height) {
         double s = length * width * height;
         return s;

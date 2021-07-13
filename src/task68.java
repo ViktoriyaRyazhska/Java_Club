@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Task68 {
+public class task68 {
     public static List<String> push(){
         List<String> items = new ArrayList<>();
         items.add ("an object");

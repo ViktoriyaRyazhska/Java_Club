@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Task60 {
+public class task60 {
     public static int howOld(final String herOld) {
 
         String s = herOld.substring(0,1);

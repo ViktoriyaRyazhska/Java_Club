@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Dinglemouse {
-    public static final Dinglemouse INST = new Dinglemouse();
+public class task13 {
+    public static final task13 INST = new task13();
 
     private static int ONE_HUNDRED = 100;
 
     private final int value;
 
-    private Dinglemouse() {
+    private task13() {
         value = ONE_HUNDRED;
     }
 

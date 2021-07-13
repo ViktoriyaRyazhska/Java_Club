@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Kata {
+public class task29 {
     public static String switchItUp(int number) {
         switch (number) {
             case 1:
