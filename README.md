@@ -21,3 +21,18 @@ Sherstiak Vadym
 Oleksiy Vasiuta  
 Denys Ivanechko  
 //Mykola Sukhinskiy  
+
+## Team 5
+Volodymyr Vysochanskyi  
+Pavlo Ilkanych  
+Oles Vykhovanok  
+Ostap Artym 
+
+## Team 6
+Ihor Paiensky  
+Valentyn  Bershatskyy  
+Bretsko Vitalii  
+Vlad Granat  
+Teodor Hrabovenskyi (підключиться з 19.07)
+
+
