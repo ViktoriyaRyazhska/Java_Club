@@ -8,9 +8,8 @@ Vitaliy Yaroshevych
 
 ## Team 2
 Pavlo Fedyk  
-Volianskyi Ihor  
-Halaibida Bohdan  
-Andrii Kolodii  
+Volianskyi Ihor    
+//Andrii Kolodii  
 
 ## Team 3
 Ihor Kukhar  
