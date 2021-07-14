@@ -84,6 +84,7 @@ public class Main {
         tasks.put(68, "Remove n exclamation marks in the sentence from left to right");
         tasks.put(69, "Push An Object Into Array");
         tasks.put(70, "Unfinished loop bug fixing number 1");
+        tasks.put(72, "Interactive Dictionary");
 
         return tasks;
     }
