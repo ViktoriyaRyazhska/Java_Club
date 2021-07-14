@@ -41,6 +41,8 @@ public class Main {
         functions.add(() -> new Task7(scanner).execute());
         functions.add(() -> new Task8(scanner).execute());
         functions.add(() -> new Task9(scanner).execute());
+        functions.add(() -> System.out.println("Task 10 is missing!..."));
+        functions.add(() -> System.out.println("Task 11 is missing!..."));
     }
 
     private static void executeTask(int option) {

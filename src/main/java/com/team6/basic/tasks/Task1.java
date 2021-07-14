@@ -1,5 +1,7 @@
 package com.team6.basic.tasks;
 
+import lombok.*;
+
 import java.util.Scanner;
 
 public class Task1 implements Task {
@@ -26,4 +28,6 @@ public class Task1 implements Task {
             System.out.println("\tThis is not integer");
         }
     }
+
+
 }
