@@ -41,6 +41,7 @@ public class Main {
         tasks.put(1, "Double integer");
         tasks.put(2, "Multiplying two numbers");
         tasks.put(3, "Getting volume of cuboid");
+        tasks.put(4, "Pixel art planning");
         tasks.put(5, "Greeting");
         tasks.put(6, "Convert to binary");
         tasks.put(7, "Clock");
@@ -58,7 +59,7 @@ public class Main {
         tasks.put(25, "Is love");
         tasks.put(26, "Convert boolean values to strings yes or no");
         tasks.put(29, "SwitchItUp");
-        tasks.put(30, "Thinkful logic drills traffic light");
+        tasks.put(30, "Traffic light");
         tasks.put(32, "String repeat");
         tasks.put(33, "humanYearsCatYearsDogYears");
         tasks.put(34, "Get the mean of an array");
