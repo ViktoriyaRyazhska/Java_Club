@@ -66,6 +66,7 @@ public class Main {
         tasks.put(38, "How good are you really");
         tasks.put(40, "Sum of positive");
         tasks.put(42, "Twice as old");
+        tasks.put(44, "Grasshopper - Summation");
         tasks.put(46, "21 sticks");
         tasks.put(50, "Tdd area calculations");
         tasks.put(53, "Welcome to the city");
