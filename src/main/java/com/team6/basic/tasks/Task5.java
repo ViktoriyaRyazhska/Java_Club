@@ -25,7 +25,9 @@ public class Task5 implements Task{
 
         System.out.println("\tGreeting ");
 
+        System.out.println("\tEnter a name");
         String name = scanner.nextLine();
         greeting(name);
+
     }
 }

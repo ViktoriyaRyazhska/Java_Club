@@ -26,12 +26,17 @@ public class Task4 implements Task {
 
         try {
 
+            System.out.println("\tEnter wall length");
+
             int wallLength = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("\t Enter pixel size");
+
             int pixelSize = Integer.parseInt(scanner.nextLine());
             isExactNumber(wallLength,pixelSize);
 
         } catch (Exception e) {
-            System.out.println("Enter integer number ");
+            System.out.println("\tEnter integer number ");
         }
     }
 }

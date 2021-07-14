@@ -21,6 +21,8 @@ public class Task6 implements Task{
 
         try {
 
+            System.out.println("\tEnter number to be converted to binary");
+
             int number = Integer.parseInt(scanner.nextLine());
             System.out.println(toBinary(number));
 
