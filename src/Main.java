@@ -75,6 +75,7 @@ public class Main {
         tasks.put(56, "Are You Playing Banjo?");
         tasks.put(57, "No spaces");
         tasks.put(58, "Triple trouble 2");
+        tasks.put(60, "Fake Binary");
         tasks.put(61, "CharProblem");
         tasks.put(62, "Grasshopper debug");
         tasks.put(65, "SortAndStar");
