@@ -10,9 +10,8 @@ public class Task9 implements Task{
         this.scanner = scanner;
     }
 
-    public int negativeConverter(int number){
-        number = -number;
-        return number;
+    private static int negativeConverter(int number){
+        return -number;
     }
 
     @Override
@@ -26,7 +25,8 @@ public class Task9 implements Task{
             System.out.println("\tEnter number");
             System.out.println(negativeConverter(Integer.parseInt(scanner.nextLine())));
         }catch (Exception e){
-            System.out.println("\tEnter integer number");
+            System.out.println("\tThis is not integer");
+            execute();
         }
     }
 }

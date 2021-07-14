@@ -10,7 +10,7 @@ public class Task6 implements Task{
         this.scanner = scanner;
     }
 
-    public String toBinary(int number){return  Integer.toString(number, 2);}
+    private static String toBinary(int number){return  Integer.toString(number, 2);}
 
     @Override
     public void execute() {
@@ -27,7 +27,10 @@ public class Task6 implements Task{
             System.out.println(toBinary(number));
 
         }catch (Exception e ){
-            System.out.println("\tEnter integer number");
+
+            System.out.println("\tThis is not integer");
+            execute();
         }
+
     }
 }

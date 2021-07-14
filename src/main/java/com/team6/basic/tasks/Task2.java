@@ -10,7 +10,7 @@ public class Task2 implements Task {
         this.scanner = scanner;
     }
 
-    private int multiply(int a, int b) {
+    private static int multiply(int a, int b) {
         return a * b;
     }
 
@@ -29,6 +29,7 @@ public class Task2 implements Task {
             System.out.println("\tResult: " + multiply(a, b));
         } catch (Error e) {
             System.out.println("\tThis is not integer");
+            execute();
         }
     }
 }

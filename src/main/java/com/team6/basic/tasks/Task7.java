@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Task7 implements Task{
 
-    private int convertedTime;
+    private static int convertedTime;
     private final Scanner scanner;
 
     public Task7(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public int convertTimeToMilisecond(int hours,int minute,int second){
+    private static int convertTimeToMilisecond(int hours,int minute,int second){
         try {
             if (0 <= hours && hours <= 23 && 0 <= minute && minute <= 60 && 0 <= second && second <= 60) {
                 convertedTime = hours * 3600000 + minute * 60000 + second * 1000;
@@ -38,7 +38,8 @@ public class Task7 implements Task{
         try {
             System.out.println(convertTimeToMilisecond(Integer.parseInt(scanner.nextLine()),Integer.parseInt(scanner.nextLine()),Integer.parseInt(scanner.nextLine())));
         }catch (Exception e ){
-            System.out.println("\tEnter integer number");
+            System.out.println("\tThis is not integer");
+            execute();
         }
     }
 }

@@ -10,7 +10,7 @@ public class Task5 implements Task{
         this.scanner = scanner;
     }
 
-    public void greeting(String name){
+    private static void greeting(String name){
         if (name.equals("Johnny")) {
             System.out.println("\tHello, my love");
         } else {

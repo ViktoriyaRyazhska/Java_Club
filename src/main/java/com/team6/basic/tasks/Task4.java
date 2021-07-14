@@ -10,7 +10,7 @@ public class Task4 implements Task {
         this.scanner = scanner;
     }
 
-    public void isExactNumber(int wallLength,int pixelSize){
+    private static void isExactNumber(int wallLength,int pixelSize){
         if (wallLength % pixelSize == 0) {
             System.out.println("\tWe know exact number = "+ ( wallLength / pixelSize ) );
         } else {
@@ -37,6 +37,7 @@ public class Task4 implements Task {
 
         } catch (Exception e) {
             System.out.println("\tEnter integer number ");
+            execute();
         }
     }
 }

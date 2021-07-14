@@ -26,6 +26,7 @@ public class Task1 implements Task {
             System.out.println("\tResult: " + doubleInteger(i));
         } catch (Error e) {
             System.out.println("\tThis is not integer");
+            execute();
         }
     }
 

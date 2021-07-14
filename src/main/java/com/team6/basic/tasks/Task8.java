@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Task8 implements Task{
 
-    private final int century = 100;
+    private static final int century = 100;
     private final Scanner scanner;
 
     public Task8(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public int calculateCentury(int years){
+    private static int calculateCentury(int years){
         int checkingAge = 0;
         int convertedAgeToCentury = 0;
         while (true){
@@ -35,7 +35,7 @@ public class Task8 implements Task{
             System.out.println("\tWrite age ");
             System.out.println(calculateCentury(Integer.parseInt(scanner.nextLine())));
         }catch (Exception e ){
-            System.out.println("\tEnter integer number");
+            System.out.println("\tThis is not integer");
         }
     }
 }
