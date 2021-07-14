@@ -13,4 +13,27 @@ public class BasicTasks {
         System.out.println(result);
         return result;
     }
+
+    public int task8(int number){
+        int result;
+
+        if(number % 100 == 0){
+            result = number / 100;
+        }else{
+            result = (number / 100) + 1;
+        }
+
+        return result;
+    }
+
+    public int task9(final int x){
+        int result = x;
+
+        if(result > 0){
+            result = x - (x * 2);
+        }
+
+        return result;
+    }
+
 }
