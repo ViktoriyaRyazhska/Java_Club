@@ -51,7 +51,7 @@ public class Main {
         tasks.put(13, "Dingle mouse");
         tasks.put(14, "Fractions class");
         tasks.put(16, "Two fighters, one winner.");
-        tasks.put(17,"Block");
+        tasks.put(17, "Block");
         tasks.put(18, "Opposite number");
         tasks.put(20, "Convert a Boolean to a String");
         tasks.put(22, "How old will i be in 2099");
@@ -69,6 +69,7 @@ public class Main {
         tasks.put(44, "Grasshopper - Summation");
         tasks.put(46, "21 sticks");
         tasks.put(50, "Tdd area calculations");
+        tasks.put(52, "Reversed Strings");
         tasks.put(53, "Welcome to the city");
         tasks.put(54, "Opposite number");
         tasks.put(57, "No spaces");
