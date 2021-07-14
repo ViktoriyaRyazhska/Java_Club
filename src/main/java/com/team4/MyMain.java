@@ -12,7 +12,7 @@ public class MyMain {
                 System.out.println("Input your number ");
                 scanner = new Scanner(System.in);
                 int n = scanner.nextInt();
-                System.out.println(Java.doubleInteger(n));
+                System.out.println(Task1.doubleInteger(n));
             case 2:
             case 3:
             case 4:
@@ -54,5 +54,12 @@ public class MyMain {
 
 
         }
+    }
+
+    static void instruction(){
+        System.out.println("There are tasks(1-72)");
+        System.out.println("Task 1 (You Can't Code Under Pressure #1)");
+        System.out.println("Task 2 (Function 3 - multiplying two numbers)");
+        System.out.println("\n\n\n");
     }
 }
