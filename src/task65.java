@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class task64 {
+public class task65 {
     public static String twoSort(String[] s) {
         java.util.Arrays.sort(s);
 

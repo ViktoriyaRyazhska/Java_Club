@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class task56 {
+public class task57 {
     static String noSpace(final String x) {
 
         return x.replaceAll("\\s+","");

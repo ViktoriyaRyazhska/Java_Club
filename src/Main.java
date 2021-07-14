@@ -41,7 +41,6 @@ public class Main {
         tasks.put(1, "Double integer");
         tasks.put(2, "Multiplying two numbers");
         tasks.put(3, "Getting volume of cuboid");
-        tasks.put(4, "Getting volume of cuboid");
         tasks.put(5, "Greeting");
         tasks.put(6, "Convert to binary");
         tasks.put(7, "Clock");
@@ -49,7 +48,7 @@ public class Main {
         tasks.put(9,  "Make negative");
         tasks.put(10, "Age range compatibility equation");
         tasks.put(12, "Lombok Encapsulation");
-        tasks.put(13, "Dinglemouse");
+        tasks.put(13, "Dingle mouse");
         tasks.put(14, "Fractions class");
         tasks.put(16, "Two fighters, one winner.");
         tasks.put(17,"Block");
@@ -68,15 +67,15 @@ public class Main {
         tasks.put(42, "Twice as old");
         tasks.put(46, "21 sticks");
         tasks.put(50, "Tdd area calculations");
-        tasks.put(52, "Hello");
+        tasks.put(53, "Welcome to the city");
         tasks.put(54, "Opposite number");
-        tasks.put(56, "No spaces");
+        tasks.put(57, "No spaces");
         tasks.put(58, "Triple trouble 2");
-        tasks.put(60, "CharProblem");
+        tasks.put(61, "CharProblem");
         tasks.put(62, "Grasshopper debug");
-        tasks.put(64, "SortAndStar");
+        tasks.put(65, "SortAndStar");
         tasks.put(66, "Correct the mistakes of the character recognition software");
-        tasks.put(68, "PushAnObjectIntoArray");
+        tasks.put(69, "Push An Object Into Array");
         tasks.put(70, "Unfinished loop bug fixing number 1");
 
         return tasks;
