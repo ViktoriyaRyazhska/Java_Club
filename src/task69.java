@@ -10,6 +10,10 @@ public class task69 {
     }
     public static void execute(Scanner sc) {
         System.out.println("This program add an object to list ");
-
+        System.out.println("Enter object which you want to add");
+        String item = sc.next();
+        List<String> list = new ArrayList<>();
+        boolean result = list.add(item);
+        System.out.println(result);
     }
 }
