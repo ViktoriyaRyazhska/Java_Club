@@ -44,6 +44,9 @@ public class Main {
                     Menu.collectionsMenu();
                     CollectionsRealizations.collectionsRealization();
                     break;
+                } case 0: {
+                    System.out.println("Good Bye");
+                    break;
                 } default:
                     System.out.println("Incorrect value!");
 
