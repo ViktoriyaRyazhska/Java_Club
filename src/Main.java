@@ -72,6 +72,7 @@ public class Main {
         tasks.put(52, "Reversed Strings");
         tasks.put(53, "Welcome to the city");
         tasks.put(54, "Opposite number");
+        tasks.put(56, "Are You Playing Banjo?");
         tasks.put(57, "No spaces");
         tasks.put(58, "Triple trouble 2");
         tasks.put(61, "CharProblem");
