@@ -1,16 +1,14 @@
 package com.team1;
 
 
+import com.team1.tasks.basicTasks.BasicMenu;
+
+import java.util.Scanner;
+
 public class Main {
 
 
     public static void main(String[] args) {
-
-        /*System.out.println(datingRange(12));
-
-
-
-
 
        BasicMenu basicMenu = new BasicMenu();
 
@@ -32,6 +30,6 @@ public class Main {
             basicMenu.menu(task);
 
 
-        }*/
+        }
     }
 }
