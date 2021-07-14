@@ -78,6 +78,7 @@ public class Main {
         tasks.put(60, "Fake Binary");
         tasks.put(61, "CharProblem");
         tasks.put(62, "Grasshopper debug");
+        tasks.put(64, "All Star Code Challenge #18");
         tasks.put(65, "SortAndStar");
         tasks.put(66, "Correct the mistakes of the character recognition software");
         tasks.put(69, "Push An Object Into Array");
