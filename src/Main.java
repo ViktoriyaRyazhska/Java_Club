@@ -78,6 +78,7 @@ public class Main {
         tasks.put(44, "Grasshopper - Summation");
         tasks.put(46, "21 sticks");
         tasks.put(50, "Tdd area calculations");
+        tasks.put(51, "Convert a Number to a String");
         tasks.put(52, "Reversed Strings");
         tasks.put(53, "Welcome to the city");
         tasks.put(54, "Opposite number");
