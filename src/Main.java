@@ -63,6 +63,7 @@ public class Main {
         tasks.put(27, "Will there be enough space?");
         tasks.put(29, "SwitchItUp");
         tasks.put(30, "Traffic light");
+        tasks.put(31, "Transportation on vacation");
         tasks.put(32, "String repeat");
         tasks.put(33, "humanYearsCatYearsDogYears");
         tasks.put(34, "Get the mean of an array");
