@@ -3,7 +3,8 @@ package com.team1.tasks.conditionsTasks;
 import com.team1.IRunTask;
 
 public class MathOperations implements IRunTask {
-    private MathOperations() {
+    public MathOperations() {
+        //no args
     }
 
     public static Integer basicMath(String op, int v1, int v2) {
@@ -24,6 +25,6 @@ public class MathOperations implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(basicMath("-",10,5));
     }
 }

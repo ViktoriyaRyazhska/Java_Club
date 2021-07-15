@@ -3,11 +3,11 @@ package com.team1.tasks.conditionsTasks;
 import com.team1.IRunTask;
 
 public class RockPaperScissors implements IRunTask {
-    private RockPaperScissors() {
+    public RockPaperScissors() {
+        //no args
     }
 
     public static String rps(String p1, String p2) {
-        // your code
         if ((p1.equals("scissors") && p2.equals("paper"))
                 || (p1.equals("rock") && p2.equals("scissors"))
                 || (p1.equals("paper") && p2.equals("rock"))) {
@@ -21,6 +21,6 @@ public class RockPaperScissors implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(rps("scissors","paper"));
     }
 }

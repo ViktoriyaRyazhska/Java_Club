@@ -2,9 +2,10 @@ package com.team1.tasks.conditionsTasks;
 
 import com.team1.IRunTask;
 
-public class DoIGetAbonus implements IRunTask {
+public class DoIGetBonus implements IRunTask {
 
-    public DoIGetAbonus() {
+    public DoIGetBonus() {
+        //no args
     }
 
     public static String bonusTime(final int salary, final boolean bonus) {
@@ -18,6 +19,6 @@ public class DoIGetAbonus implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(bonusTime(1500,true));
     }
 }

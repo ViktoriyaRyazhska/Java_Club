@@ -3,7 +3,8 @@ package com.team1.tasks.conditionsTasks;
 import com.team1.IRunTask;
 
 public class HowOldInFuture implements IRunTask {
-    private HowOldInFuture() {
+    public HowOldInFuture() {
+        //no args
     }
 
     public static String calculateAge(int birth, int yearTo) {
@@ -22,6 +23,6 @@ public class HowOldInFuture implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println( calculateAge(2002,2077));
     }
 }

@@ -3,7 +3,8 @@ package com.team1.tasks.conditionsTasks;
 import com.team1.IRunTask;
 
 public class IsDivisible implements IRunTask {
-    private IsDivisible() {
+    public IsDivisible() {
+        //No args constructor
     }
 
     public static boolean isDivisible(long n, long x, long y) {
@@ -12,6 +13,6 @@ public class IsDivisible implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println( isDivisible(5,2,3));
     }
 }

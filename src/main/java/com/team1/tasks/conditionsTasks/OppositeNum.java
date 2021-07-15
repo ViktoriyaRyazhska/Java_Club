@@ -3,7 +3,8 @@ package com.team1.tasks.conditionsTasks;
 import com.team1.IRunTask;
 
 public class OppositeNum implements IRunTask {
-    private OppositeNum() {
+    public OppositeNum() {
+        //No args constructor
     }
 
     public static int opposite(int number) {
@@ -20,6 +21,6 @@ public class OppositeNum implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(opposite(12));
     }
 }
