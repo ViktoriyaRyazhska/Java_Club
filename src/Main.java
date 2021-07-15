@@ -41,6 +41,7 @@ public class Main {
         tasks.put(1, "Double integer");
         tasks.put(2, "Multiplying two numbers");
         tasks.put(3, "Getting volume of cuboid");
+        tasks.put(4, "Pixel art planning");
         tasks.put(5, "Greeting");
         tasks.put(6, "Convert to binary");
         tasks.put(7, "Clock");
@@ -51,15 +52,16 @@ public class Main {
         tasks.put(13, "Dingle mouse");
         tasks.put(14, "Fractions class");
         tasks.put(16, "Two fighters, one winner.");
-        tasks.put(17,"Block");
+        tasks.put(17, "Block");
         tasks.put(18, "Opposite number");
         tasks.put(19,"Is n divisible by x and y?");
         tasks.put(20, "Convert a Boolean to a String");
+        tasks.put(21, "Do I get a bonus?");
         tasks.put(22, "How old will i be in 2099");
         tasks.put(25, "Is love");
         tasks.put(26, "Convert boolean values to strings yes or no");
         tasks.put(29, "SwitchItUp");
-        tasks.put(30, "Thinkful logic drills traffic light");
+        tasks.put(30, "Traffic light");
         tasks.put(32, "String repeat");
         tasks.put(33, "humanYearsCatYearsDogYears");
         tasks.put(34, "Get the mean of an array");
@@ -70,16 +72,23 @@ public class Main {
         tasks.put(44, "Grasshopper - Summation");
         tasks.put(46, "21 sticks");
         tasks.put(50, "Tdd area calculations");
+        tasks.put(52, "Reversed Strings");
         tasks.put(53, "Welcome to the city");
         tasks.put(54, "Opposite number");
+        tasks.put(56, "Are You Playing Banjo?");
         tasks.put(57, "No spaces");
         tasks.put(58, "Triple trouble 2");
+        tasks.put(60, "Fake Binary");
         tasks.put(61, "CharProblem");
         tasks.put(62, "Grasshopper debug");
+        tasks.put(64, "All Star Code Challenge #18");
         tasks.put(65, "SortAndStar");
         tasks.put(66, "Correct the mistakes of the character recognition software");
+        tasks.put(68, "Remove n exclamation marks in the sentence from left to right");
         tasks.put(69, "Push An Object Into Array");
         tasks.put(70, "Unfinished loop bug fixing number 1");
+        tasks.put(71, "Filtering even numbers");
+        tasks.put(72, "Interactive Dictionary");
 
         return tasks;
     }
