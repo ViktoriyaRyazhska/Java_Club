@@ -70,6 +70,7 @@ public class Main {
         tasks.put(33, "humanYearsCatYearsDogYears");
         tasks.put(34, "Get the mean of an array");
         tasks.put(36, "Counting sheep...");
+        tasks.put(37, "Reversed sequence");
         tasks.put(38, "How good are you really");
         tasks.put(40, "Sum of positive");
         tasks.put(42, "Twice as old");
