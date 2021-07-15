@@ -6,8 +6,12 @@ public class SheepCounter {
 
     public int countSheep(Boolean[] arrayOfSheep) {
         int ans = 0;
-        for (boolean shp : arrayOfSheep) {
-            if (shp) ans++;
+        for (Boolean ofSheep : arrayOfSheep) {
+            if (ofSheep == Boolean.TRUE) {
+                ans++;
+            } else if (ofSheep != null) {
+                System.out.println("NULL");
+            }
         }
         return ans;
     }
