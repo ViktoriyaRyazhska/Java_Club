@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BasicMenu basicMenu = new BasicMenu();
+        /*BasicMenu basicMenu = new BasicMenu();
 
         int task = -1;
         boolean mark = false;
@@ -27,6 +27,6 @@ public class Main {
             basicMenu.menu(task);
 
 
-        }
+        }*/
     }
 }
