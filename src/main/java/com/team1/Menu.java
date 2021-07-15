@@ -4,6 +4,7 @@ import com.team1.tasks.basicTasks.*;
 import com.team1.tasks.classesTasks.Fraction;
 import com.team1.tasks.classesTasks.LombokEncapsulation;
 import com.team1.tasks.classesTasks.StaticElectrickery;
+import com.team1.tasks.conditionsTasks.*;
 
 public class Menu {
 
@@ -23,13 +24,13 @@ public class Menu {
             case 12: System.out.println("You choose task 12");Fraction fraction = new Fraction(); fraction.execute();break;
             case 13: System.out.println("You choose task 13");LombokEncapsulation lombokEncapsulation=new LombokEncapsulation();lombokEncapsulation.execute();break;
             case 14: System.out.println("You choose task 14");StaticElectrickery staticElectrickery = new StaticElectrickery();staticElectrickery.execute();break;
-//            case 15: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 16: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 17: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 18: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 19: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 20: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 21: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
+            case 15: System.out.println("You choose task 15");OppositeNum oppositeNum=new OppositeNum();oppositeNum.execute();break;
+            case 16: System.out.println("You choose task 16");IsDivisible isDivisible=new IsDivisible();isDivisible.execute();break;
+            case 17: System.out.println("You choose task 17");ConvertBoolToString convertBoolToString=new ConvertBoolToString();convertBoolToString.execute();break;
+            case 18: System.out.println("You choose task 18");DoIGetBonus doIGetBonus=new DoIGetBonus(); doIGetBonus.execute();break;
+            case 19: System.out.println("You choose task 19");HowOldInFuture howOldInFuture=new HowOldInFuture();howOldInFuture.execute();break;
+            case 20: System.out.println("You choose task 20");RockPaperScissors rockPaperScissors=new RockPaperScissors();rockPaperScissors.execute();break;
+            case 21: System.out.println("You choose task 21");MathOperations mathOperations=new MathOperations();mathOperations.execute();break;
 //            case 22: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 23: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 24: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
