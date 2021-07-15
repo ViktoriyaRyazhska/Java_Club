@@ -1,6 +1,6 @@
 //Task 20 (Convert a Boolean to a String)
-
-public class BooleanToString {
+package com.team4;
+public class Task20 {
   public static String convert(boolean b){
     if(b == true) {
       return "true";

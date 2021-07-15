@@ -1,6 +1,6 @@
 //Task 22 (How old will I be in 2099?)
-
-public class AgeDiff {
+package com.team4;
+public class Task22 {
   public static String CalculateAge(int birth, int yearTo) {
     if(birth - yearTo == 1)
       return "You will be born in " + (birth - yearTo) + " year.";

@@ -1,6 +1,6 @@
 //Task 21 (Do I get a bonus?)
-
-public class Kata{
+package com.team4;
+public class Task21{
   public static String bonusTime(final int salary, final boolean bonus) {
     String s = "£";
     if(bonus == true)

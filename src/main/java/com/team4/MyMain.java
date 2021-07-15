@@ -173,13 +173,62 @@ public class MyMain {
                 System.out.println(task17.getVolume());
                 System.out.println(task17.getSurfaceArea());
             case 18:
+                System.out.println("Input your number ");
+                scanner = new Scanner(System.in);
+                int n28 = scanner.nextInt();
+                System.out.println(Task18.opposite(n28));
             case 19:
+                System.out.println("Input three numbers ");
+                scanner = new Scanner(System.in);
+                long n29 = scanner.nextLong();
+                scanner = new Scanner(System.in);
+                long n30 = scanner.nextLong();
+                scanner = new Scanner(System.in);
+                long n31 = scanner.nextLong();
+                System.out.println(Task19.isDivisible(n29, n30, n31));
             case 20:
+                System.out.println("Input your boolean(true or false) ");
+                scanner = new Scanner(System.in);
+                boolean n32 = scanner.nextBoolean();
+                System.out.println(Task20.convert(n32));
             case 21:
+                System.out.println("Input your salary and boolean bonus (true or false) ");
+                scanner = new Scanner(System.in);
+                int n33 = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                boolean n34 = scanner.nextBoolean();
+                System.out.println(Task21.bonusTime(n33, n34));
             case 22:
+                System.out.println("Input your birth and yearTo ");
+                scanner = new Scanner(System.in);
+                int n35 = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                int n36 = scanner.nextInt();
+                System.out.println(Task22.CalculateAge(n35, n36));
             case 23:
+                System.out.println("Player 1 input rock, paper or scissors ");
+                scanner = new Scanner(System.in);
+                String n37 = scanner.nextLine();
+                System.out.println("Player 2 input rock, paper or scissors ");
+                scanner = new Scanner(System.in);
+                String n38 = scanner.nextLine();
+                System.out.println(Task23.rps(n37, n38));
             case 24:
+                System.out.println("Input +, -, / or *, and two numbers ");
+                scanner = new Scanner(System.in);
+                String n39 = scanner.nextLine();
+                scanner = new Scanner(System.in);
+                int n40 = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                int n41 = scanner.nextInt();
+                System.out.println(Task24.basicMath(n39, n40, n41));
             case 25:
+                System.out.println("Input flower 1 and flower 2 ");
+                scanner = new Scanner(System.in);
+                int n42 = scanner.nextInt();
+                scanner = new Scanner(System.in);
+                int n43 = scanner.nextInt();
+                System.out.println(Task25.isLove(n42, n43));
             case 26:
             case 27:
             case 28:
@@ -212,6 +261,20 @@ public class MyMain {
         System.out.println("Task 9 (Return Negative)");
         System.out.println("Task 10 (Age Range Compatibility Equation)");
         System.out.println("Task 11 (Grasshopper - Debug)");
+        System.out.println("Task 12 (Lombok Encapsulation)");
+        System.out.println("Task 13 (FIXM: Static electrickery)");
+        System.out.println("Task 14 (Fractions class)");
+        System.out.println("Task 15 (Simple Drawing Board)");
+        System.out.println("Task 16 (Two fighters, one winner.)");
+        System.out.println("Task 17 (Building blocks)");
+        System.out.println("Task 18 (Opposite number)");
+        System.out.println("Task 19 (Is n divisible by x and y?)");
+        System.out.println("Task 20 (Convert a Boolean to a String)");
+        System.out.println("Task 21 (Do I get a bonus?)");
+        System.out.println("Task 22 (How old will I be in 2099?)");
+        System.out.println("Task 23 (Rock Paper Scissors!)");
+        System.out.println("Task 24 (Basic Mathematical Operations)");
+        System.out.println("Task 25 (Opposites Attract)");
         System.out.print("\n\n\n");
     }
 }

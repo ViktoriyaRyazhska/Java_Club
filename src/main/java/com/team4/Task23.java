@@ -1,6 +1,6 @@
 //Task 23 (Rock Paper Scissors!)
-
-public class Kata {
+package com.team4;
+public class Task23 {
   public static String rps(String p1, String p2) {
     if(p1 == p2)
       return "Draw!";

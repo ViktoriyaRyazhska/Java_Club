@@ -1,6 +1,6 @@
 //Task 18 (Opposite number)
-
-public class Kata
+package com.team4;
+public class Task18
     {
         public static int opposite(int number)
         {
