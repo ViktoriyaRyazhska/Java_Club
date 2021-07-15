@@ -1,6 +1,6 @@
 //Task 12 (Lombok Encapsulation)
-
-public class EncapsulationDemo{
+package com.team4;
+public class Task12{
   private int number;
   private String stringValue;
   private Object anObject;
