@@ -8,9 +8,8 @@ Vitaliy Yaroshevych
 
 ## Team 2
 Pavlo Fedyk  
-Volianskyi Ihor  
-Halaibida Bohdan  
-Andrii Kolodii  
+Volianskyi Ihor    
+//Andrii Kolodii  
 
 ## Team 3
 Ihor Kukhar  
@@ -21,4 +20,19 @@ Sherstiak Vadym
 ## Team 4
 Oleksiy Vasiuta  
 Denys Ivanechko  
-Mykola Sukhinskiy  
+//Mykola Sukhinskiy  
+
+## Team 5
+Volodymyr Vysochanskyi  
+Pavlo Ilkanych  
+Oles Vykhovanok  
+Ostap Artym 
+
+## Team 6
+Ihor Paiensky  
+Valentyn  Bershatskyy  
+Bretsko Vitalii  
+Vlad Granat  
+Teodor Hrabovenskyi (підключиться з 19.07)
+
+
