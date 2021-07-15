@@ -60,6 +60,7 @@ public class Main {
         tasks.put(22, "How old will i be in 2099");
         tasks.put(25, "Is love");
         tasks.put(26, "Convert boolean values to strings yes or no");
+        tasks.put(27, "Will there be enough space?");
         tasks.put(29, "SwitchItUp");
         tasks.put(30, "Traffic light");
         tasks.put(32, "String repeat");
