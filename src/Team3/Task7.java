@@ -10,7 +10,7 @@ public class Task7  {
 
 
     public static void showFunctionality(){
-        System.out.println("This program returns the time since midnight in milliseconds")
+        System.out.println("This program returns the time since midnight in milliseconds");
         Scanner i = new Scanner(System.in);
         System.out.println("Enter hour :");
         int first = i.nextInt();
