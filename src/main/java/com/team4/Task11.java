@@ -1,6 +1,6 @@
 //Task 11 (Grasshopper - Debug)
-
-public class GrassHopper {
+package com.team4;
+public class Task11 {
 
     public static String weatherInfo(double temp) {
         double c = convertToCelsius(temp);

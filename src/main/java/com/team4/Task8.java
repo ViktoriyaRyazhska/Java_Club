@@ -1,6 +1,6 @@
 //Task 8 (Century From Year)
-
-public class Solution {
+package com.team4;
+public class Task8 {
   public static int century(int number) {
     int i = number / 100;
     if(number%100 > 0)

@@ -1,6 +1,6 @@
 //Task 7 (Beginner Series #2 Clock)
-
-public class Clock
+package com.team4;
+public class Task7
 {
   public static int Past(int h, int m, int s)
   {

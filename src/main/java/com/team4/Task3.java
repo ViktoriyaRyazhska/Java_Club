@@ -1,6 +1,6 @@
 //Task 3 (Volume of a Cuboid)
-
-public class Kata {
+package com.team4;
+public class Task3 {
 
   public static double getVolumeOfCuboid(final double length, final double width, final double height) {
 

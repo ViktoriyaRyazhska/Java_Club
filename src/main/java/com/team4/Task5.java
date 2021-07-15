@@ -1,6 +1,6 @@
 //Task 5 (Jenny's secret message)
-
-public class Greeter {
+package com.team4;
+public class Task5 {
   public static String greet(String name) {
 
     if(name.equals("Johnny")){

@@ -1,6 +1,6 @@
 //Task 6 (Convert to Binary)
-
-public class Kata {
+package com.team4;
+public class Task6 {
 
   public static int toBinary(int n) {
     return Integer.valueOf(Integer.toBinaryString(n));
