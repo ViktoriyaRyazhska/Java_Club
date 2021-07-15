@@ -2,6 +2,8 @@ package com.team1;
 
 import com.team1.tasks.basicTasks.*;
 import com.team1.tasks.classesTasks.Fraction;
+import com.team1.tasks.classesTasks.LombokEncapsulation;
+import com.team1.tasks.classesTasks.StaticElectrickery;
 
 public class Menu {
 
@@ -18,9 +20,9 @@ public class Menu {
             case 9: System.out.println("You choose task 9");BasicTask9 basicTask9 = new BasicTask9();basicTask9.execute();break;
             case 10: System.out.println("You choose task 10");BasicTask10 basicTask10 = new BasicTask10();basicTask10.execute();break;
             case 11: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-            case 12: System.out.println("You choose task 11");Fraction fraction = new Fraction(); fraction.execute();break;
-//            case 13: System.out.println("You choose task 11");basicTask11.execute();break;
-//            case 14: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
+            case 12: System.out.println("You choose task 12");Fraction fraction = new Fraction(); fraction.execute();break;
+            case 13: System.out.println("You choose task 13");LombokEncapsulation lombokEncapsulation=new LombokEncapsulation();lombokEncapsulation.execute();break;
+            case 14: System.out.println("You choose task 14");StaticElectrickery staticElectrickery = new StaticElectrickery();staticElectrickery.execute();break;
 //            case 15: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 16: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 17: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
