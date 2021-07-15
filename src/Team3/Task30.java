@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Task30 {
     public static String updateLight(String current){
         String [] arr = new String[]{"green","yellow","red"};
-        if(current == "green"){
+        if(current.equals("green")){
             return arr[1];
         }
-        else if(current == "yellow"){
+        else if(current.equals("yellow")){
             return arr[2];
         }
-        else if(current == "red"){
+        else if(current.equals("red")){
             return arr[0];
         }
         else
@@ -20,10 +20,14 @@ public class Task30 {
     public static void showFunctionality(){
 
         System.out.println("This program switches color on traffic light");
-        System.out.println("Enter 'green', 'yellow' or 'red' and you will get next color: ");
         Scanner in = new Scanner(System.in);
-        String str = in.next();
-        String result = updateLight(str);
-        System.out.println("Next traffic light color is : " + result);
+        String s = "S";
+        while (!s.equals("E")){
+            System.out.println("Enter 'green', 'yellow' or 'red' and you will get next color: ");
+            String str = in.nextLine();
+            System.out.println("Next traffic light color is : " + updateLight(str));
+            System.out.println("If you want close the program push 'E'");
+            s = in.nextLine();
+        }
     }
 }
