@@ -93,6 +93,7 @@ public class Main {
         tasks.put(64, "All Star Code Challenge #18");
         tasks.put(65, "SortAndStar");
         tasks.put(66, "Correct the mistakes of the character recognition software");
+        tasks.put(67, "altERnaTIng cAsE <=> ALTerNAtiNG CaSe");
         tasks.put(68, "Remove n exclamation marks in the sentence from left to right");
         tasks.put(69, "Push An Object Into Array");
         tasks.put(70, "Unfinished loop bug fixing number 1");
