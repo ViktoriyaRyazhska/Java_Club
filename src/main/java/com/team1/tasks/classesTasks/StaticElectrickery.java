@@ -7,9 +7,10 @@ public class StaticElectrickery implements IRunTask {
     private final int value;
     private final int ONE_HUNDRED = 100;
 
-    private StaticElectrickery() {
+    public StaticElectrickery() {
         value = ONE_HUNDRED;
     }
+
 
     public int plus100(int n) {
         return value + n;
@@ -17,6 +18,6 @@ public class StaticElectrickery implements IRunTask {
 
     @Override
     public void execute() {
-
+        plus100(10);
     }
 }
