@@ -6,7 +6,7 @@ public class task3 {
         return s;
     }
     public static void execute(Scanner sc) {
-        System.out.println("This program shows love when the petals on the flower are the exact number or not accurate ");
+        System.out.println("This program calculates the volume of a cuboid with three values: length, width and the height of the cuboid");
         System.out.println("Pleas enter your length");
         double length = sc.nextDouble();
         sc.nextLine();
