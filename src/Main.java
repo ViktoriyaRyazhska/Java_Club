@@ -48,6 +48,7 @@ public class Main {
         tasks.put(8, "Century from year");
         tasks.put(9,  "Make negative");
         tasks.put(10, "Age range compatibility equation");
+        tasks.put(11, "Grasshopper debug");
         tasks.put(12, "Lombok Encapsulation");
         tasks.put(13, "Dingle mouse");
         tasks.put(14, "Fractions class");
