@@ -14,7 +14,7 @@ public class MainClass {
             Scanner i = new Scanner(System.in);
             String s = i.nextLine();
 
-            if(s.equals("start") || s.equals("Start")){
+            if(s.equals("Y")){
                 Instruction.getInstruction();                    //Show instruction
             }
             System.out.println("Enter number of task : ");

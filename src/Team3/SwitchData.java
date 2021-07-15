@@ -7,7 +7,7 @@ public class SwitchData {
     public static void getSwitchData(int number){
         switch (number){
             case (1):
-                //Task1.showFunctionality();
+
                 break;
             case (2): {
                 Task2.showFunctionality();
@@ -21,22 +21,17 @@ public class SwitchData {
             case (5):
                 break;
             case (6):
-            {
-                /*Scanner i = new Scanner(System.in);
-                System.out.println("Enter Int number :");
-                int n = i.nextInt();
-                System.out.println("Binary from Int "+ n + " = "
-                        + Task6.toBinary(n));*/
-            }
-            break;
+                Task6.showFunctionality();
+                break;
             case (7):
-                Team7.showFunctionality();
+                Task7.showFunctionality();
                 break;
             case (8):
                 break;
             case (9):
                 break;
             case (10):
+                Task10.showFunctionality();
                 break;
             case (11):
                 Task11.showFunctionality();
@@ -55,6 +50,7 @@ public class SwitchData {
             case (17):
                 break;
             case (18):
+                Task18.showFunctionality();
                 break;
             case (19):
                 Task19.showFunctionality();
@@ -64,6 +60,7 @@ public class SwitchData {
             case (21):
                 break;
             case (22):
+                Task22.showFunctionality();
                 break;
             case (23):
                 Task23.showFunctionality();
@@ -73,6 +70,7 @@ public class SwitchData {
             case (25):
                 break;
             case (26):
+                Task26.showFunctionality();
                 break;
             case (27):
                 Task27.showFunctionality();
@@ -82,6 +80,7 @@ public class SwitchData {
             case (29):
                 break;
             case (30):
+                Task30.showFunctionality();
                 break;
             case (31):
                 Task31.showFunctionality();
@@ -91,6 +90,7 @@ public class SwitchData {
             case (33):
                 break;
             case (34):
+                Task34.showFunctionality();
                 break;
             case (35):
                 Task35.showFunctionality();
@@ -100,6 +100,7 @@ public class SwitchData {
             case (37):
                 break;
             case (38):
+                Task38.showFunctionality();
                 break;
             case (39):
                 Task39.showFunctionality();
@@ -109,6 +110,7 @@ public class SwitchData {
             case (41):
                 break;
             case (42):
+                Task42.showFunctionality();
                 break;
             case (43):
                 Task43.showFunctionality();
@@ -135,6 +137,7 @@ public class SwitchData {
             case (53):
                 break;
             case (54):
+                Task54.showFunctionality();
                 break;
             case (55):
                 Task55.showFunctionality();
@@ -144,6 +147,7 @@ public class SwitchData {
             case (57):
                 break;
             case (58):
+                Task58.showFunctionality();
                 break;
             case (59):
                 Tasl59.showFunctionality();
@@ -153,6 +157,7 @@ public class SwitchData {
             case (61):
                 break;
             case (62):
+                Task62.showFunctionality();
                 break;
             case (63):
                 Task63.showFunctionality();
@@ -162,6 +167,7 @@ public class SwitchData {
             case (65):
                 break;
             case (66):
+                Task66.showFunctionality();
                 break;
             case (67):
                 Task67.showFunctionality();
@@ -171,6 +177,7 @@ public class SwitchData {
             case (69):
                 break;
             case (70):
+                Task70.showFunctionality();
                 break;
             case (71):
                 Task71.showFunctionality();
