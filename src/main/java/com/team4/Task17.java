@@ -1,13 +1,13 @@
 //Task 17 (Building blocks)
-
-public class Block{
+package com.team4;
+public class Task17{
   private int width;
   private int length;
   private int height;
   private int volume;
   private int surface_area;
 
-  public Block(int[] params) {
+  public Task17(int[] params) {
     width = params[0];
     length = params[1];
     height = params[2];

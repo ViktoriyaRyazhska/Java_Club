@@ -1,11 +1,11 @@
 //Task15 (Simple Drawing Board)
-
-class Canvas {
+package com.team4;
+class Task15 {
     private int width;
     private int height;
     private char[][] cav;
 
-    public Canvas(int width, int height) {
+    public Task15(int width, int height) {
         if (width < 0 || height < 0) {
             throw new IllegalArgumentException();
         }
@@ -46,7 +46,7 @@ class Canvas {
         this.drawVerticalLine(y1, y2, x2);
     }
 
-    public Canvas draw(int x1, int y1, int x2, int y2) {
+    public Task15 draw(int x1, int y1, int x2, int y2) {
         if ((x1 < 0 || x1 >= width) || (x2 < 0 || x2 >= width) ||
                 (y1 < 0 || y1 >= height) || (y2 < 0 || y2 >= height)) {
             throw new IllegalArgumentException();
@@ -74,7 +74,7 @@ class Canvas {
         fillRecursive(x, y + 1, ch);
     }
 
-    public Canvas fill(int x, int y, char ch) {
+    public Task15 fill(int x, int y, char ch) {
         if ((x < 0 || x >= width) || (y < 0 || y >= height)) {
             throw new IllegalArgumentException();
         }

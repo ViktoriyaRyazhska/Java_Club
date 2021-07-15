@@ -1,19 +1,19 @@
 //Task 14 (Fractions class)
-
+package com.team4;
 import static java.math.BigInteger.valueOf;
 
-class Fraction {
+class Task14 {
   final long top;
   final long bottom;
 
-  Fraction(long numerator, long denominator) {
+  Task14(long numerator, long denominator) {
     long gcd = valueOf(numerator).gcd(valueOf(denominator)).longValue();
     top = numerator / gcd;
     bottom = denominator / gcd;
   }
 
-  Fraction add(Fraction f2) {
-    return new Fraction(top * f2.bottom + f2.top * bottom, bottom * f2.bottom);
+  Task14 add(Task14 f2) {
+    return new Task14(top * f2.bottom + f2.top * bottom, bottom * f2.bottom);
   }
 
   @Override
@@ -23,6 +23,6 @@ class Fraction {
 
   @Override
   public boolean equals(Object o) {
-    return top * ((Fraction) o).bottom == ((Fraction) o).top * bottom;
+    return top * ((Task14) o).bottom == ((Task14) o).top * bottom;
   }
 }

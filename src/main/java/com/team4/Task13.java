@@ -1,14 +1,14 @@
 //Task 13 (FIXM: Static electrickery)
-
-public class Dinglemouse {
+package com.team4;
+public class Task13 {
 
   private static int ONE_HUNDRED = 100;
 
-  public static final Dinglemouse INST = new Dinglemouse();
+  public static final Task13 INST = new Task13();
 
   private final int value;
 
-  private Dinglemouse() {
+  private Task13() {
     value = ONE_HUNDRED;
   }
 
