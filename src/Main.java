@@ -73,6 +73,7 @@ public class Main {
         tasks.put(37, "Reversed sequence");
         tasks.put(38, "How good are you really");
         tasks.put(40, "Sum of positive");
+        tasks.put(41, "My head is at the wrong end!");
         tasks.put(42, "Twice as old");
         tasks.put(44, "Grasshopper - Summation");
         tasks.put(46, "21 sticks");
