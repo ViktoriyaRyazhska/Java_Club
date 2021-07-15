@@ -54,10 +54,12 @@ public class Main {
         tasks.put(16, "Two fighters, one winner.");
         tasks.put(17, "Block");
         tasks.put(18, "Opposite number");
-        tasks.put(19,"Is n divisible by x and y?");
+        tasks.put(19, "Is n divisible by x and y?");
         tasks.put(20, "Convert a Boolean to a String");
         tasks.put(21, "Do I get a bonus?");
         tasks.put(22, "How old will i be in 2099");
+        tasks.put(23, "Rock Paper Scissors!");
+        tasks.put(24, "Basic mathematical operations");
         tasks.put(25, "Is love");
         tasks.put(26, "Convert boolean values to strings yes or no");
         tasks.put(27, "Will there be enough space?");
