@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+class Main {
 
     private static final List<BasicTask> functions = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Main {
 
         init();
 
-        System.out.println(" *** Type '0' for instructions *** ");
+        System.out.println(" *** Type '0' for exit *** ");
         int option = 1;
 
         do {
@@ -28,13 +28,15 @@ public class Main {
             }
         } while (option != 0);
 
+
+
         System.out.println(" *** Close *** ");
     }
 
     private static void init() {
         functions.add(() -> new Task1(scanner).execute());
         functions.add(() -> new Task2(scanner).execute());
-        functions.add(() -> System.out.println("Task 3 is missing!..."));
+        functions.add(() -> new Task3(scanner).execute());
         functions.add(() -> new Task4(scanner).execute());
         functions.add(() -> new Task5(scanner).execute());
         functions.add(() -> new Task6(scanner).execute());

@@ -1,7 +1,5 @@
-package com.team6.basic.collections;
+package com.team6.collections;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 class Task3 {

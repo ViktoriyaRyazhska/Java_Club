@@ -1,7 +1,4 @@
-package com.team6.basic.collections;
-
-import java.util.Dictionary;
-import java.util.Map;
+package com.team6.collections;
 
 class Task4 {
     //TODO : https://www.codewars.com/kata/interactive-dictionary/ need help with this task

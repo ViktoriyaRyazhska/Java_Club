@@ -1,4 +1,4 @@
-package com.team6.basic.collections;
+package com.team6.collections;
 
 import java.util.ArrayList;
 import java.util.List;

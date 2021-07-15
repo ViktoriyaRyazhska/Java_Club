@@ -1,7 +1,7 @@
 package com.team6.basic;
 
 @FunctionalInterface
-public interface BasicTask {
+interface BasicTask {
 
     void apply();
 

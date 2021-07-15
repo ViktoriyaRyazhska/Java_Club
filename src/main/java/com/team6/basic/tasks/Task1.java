@@ -1,7 +1,5 @@
 package com.team6.basic.tasks;
 
-import lombok.*;
-
 import java.util.Scanner;
 
 public class Task1 implements Task {
@@ -23,9 +21,9 @@ public class Task1 implements Task {
         System.out.print("\tEnter i >> ");
         try {
             int i = Integer.parseInt(scanner.nextLine());
-            System.out.println("\tResult: " + doubleInteger(i));
-        } catch (Error e) {
-            System.out.println("\tThis is not integer");
+            System.out.println("\t === Result: " + doubleInteger(i));
+        } catch (Exception e) {
+            System.out.println("\tException:: Input value is not correct, please enter a number!...");
             execute();
         }
     }
