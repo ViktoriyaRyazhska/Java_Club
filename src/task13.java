@@ -12,12 +12,11 @@ public class task13 {
     }
 
     public int plus100(int n) {
-        n=100;
-        return value + n;
+        return ONE_HUNDRED + n;
     }
     public static void execute(Scanner sc) {
         System.out.println("This program add one hundred to number ");
-        System.out.println("Pleas enter your number");
+        System.out.println("Pleas enter your number: ");
         int number = sc.nextInt();
         int result = INST.plus100(number);
         System.out.println(result);
