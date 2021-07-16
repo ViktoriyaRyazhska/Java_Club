@@ -7,7 +7,7 @@ public class task9 {
         } else if (x < 0) {
             return x;
         } else {
-            return 0;
+            throw new IllegalArgumentException("Zero cant be negative");
         }
 
 
