@@ -36,8 +36,17 @@ public class task17 {
         return  2 * (width * height + width * length + length * height);
     }
     public static void execute(Scanner sc) {
-        System.out.println("This program calculate volume and surface area ");
-
+        System.out.println("This program takes an array as an argument, this will contain 3 integers \n" +
+                "of the form [width, length, height] from which the Block should be created");
+        System.out.println("And calculates surface area and volume: ");
+        System.out.println("Enter width: ");
+        int width = sc.nextInt();
+        System.out.println("Enter length: ");
+        int length = sc.nextInt();
+        System.out.println("Enter height: ");
+        int height = sc.nextInt();
+        task17 block = new task17(new int[] {width, length, height});
+        System.out.println("Here your surface area: " + block.getSurfaceArea() + " and your volume: " + block.getVolume());
 
     }
 }
