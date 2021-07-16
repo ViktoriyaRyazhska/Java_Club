@@ -6,9 +6,11 @@ import com.team1.tasks.classesTasks.LombokEncapsulation;
 import com.team1.tasks.classesTasks.StaticElectrickery;
 import com.team1.tasks.conditionsTasks.*;
 
+import java.util.Scanner;
+
 public class Menu {
 
-    public void menu(int task) {
+    public void menu(int task, Scanner sc) {
         switch (task) {
             case 1: System.out.println("You chose task 1");BasicTask1 basicTask1 = new BasicTask1();basicTask1.execute();break;
             case 2: System.out.println("You choose task 2");BasicTask2 basicTask2 = new BasicTask2();basicTask2.execute();break;
