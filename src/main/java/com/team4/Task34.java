@@ -1,6 +1,6 @@
 //Task 34 (Get the mean of an array)
-
-public class School{
+package com.team4;
+public class Task34{
 
   public static int getAverage(int[] marks){
     int sum = 0;

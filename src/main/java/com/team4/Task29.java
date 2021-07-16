@@ -1,6 +1,6 @@
 //Task 29 (Switch it Up!)
-
-public class Kata
+package com.team4;
+public class Task29
 {
   public static String switchItUp(int number)
   {

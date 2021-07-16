@@ -1,6 +1,6 @@
 //Task 31 (Transportation on vacation)
-
-public class Kata {
+package com.team4;
+public class Task31 {
   public static int rentalCarCost(int d) {
     if(d >= 7)
       return d*40 - 50;

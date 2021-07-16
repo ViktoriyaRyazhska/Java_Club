@@ -1,6 +1,6 @@
 //Task 33 (Cat years, Dog years)
-
-public class Dinglemouse {
+package com.team4;
+public class Task33 {
 
   public static int[] humanYearsCatYearsDogYears(final int humanYears) {
     if(humanYears == 1)

@@ -1,6 +1,6 @@
 //Task 32 (String repeat)
-
-public class Solution {
+package com.team4;
+public class Task32 {
     public static String repeatStr(final int repeat, final String string) {
       if(repeat == 0)
         return "";
