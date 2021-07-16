@@ -43,5 +43,22 @@ public class StringTasks {
 
         return s;
     }
+    public void task55(String str) {
+        System.out.println(str.replace(".", "-"));
+    }
+    public void task56 (String name) {
+        String s = Character.toString(name.charAt(0));
+        System.out.println(s.toLowerCase().equals("r") ? name + " plays banjo" : name + " does not play banjo");
+    }
+    public void task57(String x) {
+        System.out.println(x.replace(" ", ""));
+    }
+    public void task58(String one, String two, String three) {
+        String res="";
+        for(int i=0;i<one.length();i++){
+            res+=Character.toString(one.charAt(i))+Character.toString(two.charAt(i))+Character.toString(three.charAt(i));
+        }
+        System.out.println(res);
+    }
 
 }

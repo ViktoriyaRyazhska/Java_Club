@@ -9,4 +9,13 @@ public class CollectionsTasks {
         items.add("an object");
         return items;
     }
+    public static void task71(int n, List<Integer> listOfNumbers){
+
+        List<Integer> toRemove = new ArrayList<>();
+        for (int i : listOfNumbers) {
+            if (i % 2 == 0) { toRemove.add(i); }
+        }
+        listOfNumbers.removeAll(toRemove);
+        System.out.println(listOfNumbers);
+    }
 }

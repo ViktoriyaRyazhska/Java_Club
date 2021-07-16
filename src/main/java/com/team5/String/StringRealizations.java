@@ -23,15 +23,37 @@ public class StringRealizations {
 
             } case 54:{
 
-            } case 55:{
-
-            } case 56:{
-
-            } case 57:{
-
-            } case 58:{
-
-            } case 59:{
+            }
+            case 55:{
+                System.out.print("Enter string with dots - ");
+                String str = input.next();
+                stringTasks.task55(str);
+                break;
+            }
+            case 56:{
+                System.out.print("Enter name - ");
+                String str = input.next();
+                stringTasks.task56(str);
+                break;
+            }
+            case 57:{
+                System.out.print("Enter Sting with spaces - ");
+                String str = input.next();
+                stringTasks.task57(str);
+                break;
+            }
+            case 58:{
+                System.out.println("Enter Sting with same num of elem");
+                System.out.print("Enter str1 - ");
+                String str1 = input.next();
+                System.out.print("Enter str2 - ");
+                String str2 = input.next();
+                System.out.print("Enter str3 - ");
+                String str3 = input.next();
+                stringTasks.task58(str1,str2,str3);
+                break;
+            }
+            case 59:{
 
             } case 60:{
 

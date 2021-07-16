@@ -31,15 +31,34 @@ public class LoopsRealizations {
 
             } case 39:{
 
-            } case 40:{
-
-            } case 41:{
-
-            } case 42:{
-
-            } case 43:{
-
-            } case 44:{
+            }
+            case 40:{
+                System.out.print("Enter num of arr - ");
+                int n = input.nextInt();
+                loopsTasks.task40(n);
+                break;
+            }
+            case 41:{
+                System.out.print("Enter num of parts - ");
+                int a = input.nextInt();
+                loopsTasks.task41(a);
+                break;
+            }
+            case 42:{
+                System.out.print("Enter father years - ");
+                int a = input.nextInt();
+                System.out.print("Enter son years - ");
+                int b = input.nextInt();
+                loopsTasks.task42(a,b);
+                break;
+            }
+            case 43:{
+                System.out.print("Enter number - ");
+                int a = input.nextInt();
+                loopsTasks.task43(a);
+                break;
+            }
+            case 44:{
 
             } case 45:{
 

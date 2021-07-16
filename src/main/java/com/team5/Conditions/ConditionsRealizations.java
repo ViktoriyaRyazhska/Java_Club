@@ -23,15 +23,41 @@ public class ConditionsRealizations {
 
             } case 21:{
 
-            } case 22:{
-
-            } case 23:{
-
-            } case 24:{
-
-            } case 25:{
-
-            } case 26:{
+            }
+            case 22:{
+                System.out.print("Enter birth year - ");
+                int a = input.nextInt();
+                System.out.print("Enter year");
+                int b = input.nextInt();
+                conditionsTasks.task22(a,b);
+            }
+            case 23:{
+                System.out.print("Player 1");
+                String p1=input.next();
+                System.out.println("Player 2");
+                String p2=input.next();
+                conditionsTasks.task23(p1,p2);
+                break;
+            }
+            case 24:{
+                System.out.println("Enter oper-");
+                String oper=input.next();
+                System.out.println("Enter num1");
+                int num1= input.nextInt();
+                System.out.println("Enter num2");
+                int num2= input.nextInt();
+                conditionsTasks.task24(oper,num1,num2);
+                break;
+            }
+            case 25:{
+                System.out.print("Enter number of petals 1 - ");
+                int a= input.nextInt();
+                System.out.print("Enter number of petals 2 - ");
+                int b= input.nextInt();
+                conditionsTasks.task25(a,b);
+                break;
+            }
+            case 26:{
 
             } case 27:{
 

@@ -23,9 +23,27 @@ public class ClassesRealizations {
                 System.out.println("test");
             } case 15: {
 
-            } case 16: {
+            }
 
-            } case 17: {
+            case 16:{
+                System.out.println("Fighter 1 name");
+                String name1 = input.next();
+                System.out.println("Fighter 1 health");
+                int h1 = input.nextInt();
+                System.out.println("Fighter 1 damage");
+                int d1 = input.nextInt();
+                System.out.println("Fighter 2 name");
+                String name2 = input.next();
+                System.out.println("Fighter 2 health");
+                int h2 = input.nextInt();
+                System.out.println("Fighter 2 damage");
+                int d2 = input.nextInt();
+                System.out.println("First attacker name");
+                String fName=input.next();
+                classesTasks.task16(new Fighter(name1, h1, d1),new Fighter(name2,h2,d2), fName);
+                break;
+            }
+            case 17: {
 
             } default:
                 System.out.println("Incorrect value!");
