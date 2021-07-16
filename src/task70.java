@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class task70 {
-    public static List CreateList(int number)
+    public static List<Integer> CreateList(int number)
     {
-        List list = new ArrayList();
+        List<Integer> list = new ArrayList<>();
 
         for(int count = 1; count <= number; count++)
         {
@@ -19,7 +19,7 @@ public class task70 {
         System.out.println("This program creates ArrayList and fills it");
         System.out.println("Enter size of list: ");
         int n = sc.nextInt();
-        List list = CreateList(n);
+        List<Integer> list = CreateList(n);
         System.out.println("Your list: " + list);
     }
 }
