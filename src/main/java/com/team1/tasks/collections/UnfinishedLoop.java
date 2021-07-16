@@ -9,7 +9,7 @@ public class UnfinishedLoop implements IRunTask {
 
 
     public UnfinishedLoop() {
-
+        //no args
     }
 
     public static List CreateList(int number)
@@ -27,6 +27,6 @@ public class UnfinishedLoop implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(CreateList(5));
     }
 }

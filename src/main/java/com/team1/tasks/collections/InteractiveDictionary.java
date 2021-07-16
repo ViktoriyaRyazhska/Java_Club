@@ -10,6 +10,7 @@ public class InteractiveDictionary implements IRunTask {
     private Map<String,String> listOfWords = new HashMap<String, String>();
 
     public InteractiveDictionary() {
+        //no args
     }
 
     public void newEntry(String key, String value) {

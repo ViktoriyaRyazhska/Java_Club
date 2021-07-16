@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PushAnObjectIntoArray implements IRunTask {
-    private PushAnObjectIntoArray() {
+    public PushAnObjectIntoArray() {
+        //no args
     }
 
     public static List<String> push() {
@@ -15,6 +16,6 @@ public class PushAnObjectIntoArray implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(push());
     }
 }

@@ -11,6 +11,7 @@ public class FilteringEvenNumbers implements IRunTask {
 
     List<Integer> listOfNumbers = new ArrayList<>();
     public FilteringEvenNumbers() {
+        //no args
     }
 
     public static List<Integer> filterOddNumber(List<Integer> listOfNumbers) {

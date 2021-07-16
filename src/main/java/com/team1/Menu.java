@@ -5,6 +5,10 @@ import com.team1.tasks.basicTasks.*;
 import com.team1.tasks.classesTasks.Fraction;
 import com.team1.tasks.classesTasks.LombokEncapsulation;
 import com.team1.tasks.classesTasks.StaticElectrickery;
+import com.team1.tasks.collections.FilteringEvenNumbers;
+import com.team1.tasks.collections.InteractiveDictionary;
+import com.team1.tasks.collections.PushAnObjectIntoArray;
+import com.team1.tasks.collections.UnfinishedLoop;
 import com.team1.tasks.conditionsTasks.*;
 import com.team1.tasks.loops.*;
 import com.team1.tasks.string.Hello;
@@ -47,12 +51,10 @@ public class Menu {
             case 29: System.out.println("You choose task 29(string)");StringReverser stringReverser=new StringReverser();stringReverser.execute();break;
             case 30: System.out.println("You choose task 30(string)");Hello hello=new Hello();hello.execute();break;
             case 31: System.out.println("You choose task 31(string)");OppositeNumStr oppositeNumStr=new OppositeNumStr();oppositeNumStr.execute();break;
-//            case 32: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 33: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 34: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 35: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 36: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 37: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
+            case 32: System.out.println("You choose task 32(collections)");PushAnObjectIntoArray pushAnObjectIntoArray=new PushAnObjectIntoArray();pushAnObjectIntoArray.execute();break;
+            case 33: System.out.println("You choose task 33(collections)");UnfinishedLoop unfinishedLoop=new UnfinishedLoop();unfinishedLoop.execute();break;
+            case 34: System.out.println("You choose task 34(collections)");FilteringEvenNumbers filteringEvenNumbers=new FilteringEvenNumbers();filteringEvenNumbers.execute();break;
+            case 35: System.out.println("You choose task 35(collections)");InteractiveDictionary interactiveDictionary=new InteractiveDictionary();interactiveDictionary.execute();break;
             default: System.out.println("There is no" + task + "task in this group");task = -1;break;
         }
 
@@ -94,8 +96,6 @@ public class Menu {
                 " Task32 Press 32" +
                 "\nTask33 Press 33" +
                 " Task34 Press 34" +
-                " Task35 Press 35" +
-                "\nTask36 Press 36" +
-                " Task37 Press 37");
+                " Task35 Press 35" );
     }
 }
