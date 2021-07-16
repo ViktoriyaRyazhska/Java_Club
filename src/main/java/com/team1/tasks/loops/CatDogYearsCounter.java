@@ -2,8 +2,11 @@ package com.team1.tasks.loops;
 
 import com.team1.IRunTask;
 
+import java.util.Arrays;
+
 public class CatDogYearsCounter implements IRunTask {
-    private CatDogYearsCounter() {
+    public CatDogYearsCounter() {
+        //no args
     }
 
     public static int[] humanYearsCatYearsDogYears(final int humanYears) {
@@ -24,6 +27,6 @@ public class CatDogYearsCounter implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(Arrays.toString(humanYearsCatYearsDogYears(10)));
     }
 }

@@ -5,7 +5,8 @@ import com.team1.IRunTask;
 import java.util.Arrays;
 
 public class Averages implements IRunTask {
-    private Averages() {
+    public Averages() {
+        //no args
     }
 
     public static int getAverage(int[] marks) {
@@ -14,6 +15,7 @@ public class Averages implements IRunTask {
 
     @Override
     public void execute() {
-
+        int[]array={1,2,6,4,3};
+        System.out.println(getAverage(array));
     }
 }

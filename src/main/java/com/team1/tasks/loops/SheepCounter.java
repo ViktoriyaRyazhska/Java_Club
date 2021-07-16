@@ -3,7 +3,8 @@ package com.team1.tasks.loops;
 import com.team1.IRunTask;
 
 public class SheepCounter implements IRunTask {
-    private SheepCounter() {
+    public SheepCounter() {
+        //no args
     }
 
     public int countSheep(Boolean[] arrayOfSheep) {
@@ -20,6 +21,12 @@ public class SheepCounter implements IRunTask {
 
     @Override
     public void execute() {
-
+        Boolean[] array1 = {true,  true,  true,  false,
+                true,  true,  true,  true ,
+                true,  false, true,  false,
+                true,  false, false, true ,
+                true,  true,  true,  true ,
+                false, false, true,  true };
+        System.out.println(countSheep(array1));
     }
 }

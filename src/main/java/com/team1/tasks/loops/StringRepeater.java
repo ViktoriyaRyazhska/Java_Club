@@ -3,7 +3,8 @@ package com.team1.tasks.loops;
 import com.team1.IRunTask;
 
 public class StringRepeater  implements IRunTask {
-    private StringRepeater() {
+    public StringRepeater() {
+        //no args
     }
 
     public static String repeatStr(final int repeat, final String string) {
@@ -12,6 +13,6 @@ public class StringRepeater  implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(repeatStr(4,"string"));
     }
 }
