@@ -10,30 +10,27 @@ public class Main {
         System.out.println("To see list of tasks print 'list' or 'exit' to finish the program: ");
         String command = sc.next().toLowerCase();
 
-        switch (command) {
-            case "list":
+        while (command.equals("continue") || command.equals("list")) {
+            if (command.equals("list")) {
                 getPrograms().forEach((key, value) -> System.out.println(key + " " + value));
-                break;
-            case "exit":
-                System.exit(0);
-            default:
-                throw new RuntimeException("Incorrect command");
+            }
+            System.out.println("Please, give me the task number: ");
+
+            int taskNumber = sc.nextInt();
+
+            try {
+                Class.forName("task" + taskNumber)
+                        .getDeclaredMethod("execute", Scanner.class)
+                        .invoke(null, sc);
+            } catch (ClassNotFoundException | NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+            System.out.println("If you want to continue working with the program \n" +
+                    "write 'continue' or something else to stop");
+            command = sc.next().toLowerCase();
         }
 
-        System.out.println("Please, give me the task number: ");
-
-        int taskNumber = sc.nextInt();
-
-        try {
-            Class.forName("task" + taskNumber)
-                    .getDeclaredMethod("execute", Scanner.class)
-                    .invoke(null, sc);
-        } catch (ClassNotFoundException | NoSuchMethodException e) {
-            e.printStackTrace();
-        } finally {
-            sc.close();
-        }
-
+        sc.close();
     }
 
     private static Map<Integer, String> getPrograms() {
