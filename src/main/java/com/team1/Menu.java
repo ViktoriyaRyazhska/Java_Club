@@ -1,5 +1,6 @@
 package com.team1;
 
+import com.team1.tasks.OOP.subclasses.God;
 import com.team1.tasks.basicTasks.*;
 import com.team1.tasks.classesTasks.Fraction;
 import com.team1.tasks.classesTasks.LombokEncapsulation;
@@ -37,7 +38,7 @@ public class Menu {
             case 24: System.out.println("You choose task 24(loops)");Averages averages=new Averages();averages.execute();break;
             case 25: System.out.println("You choose task 25(loops)");SheepCounter sheepCounter=new SheepCounter();sheepCounter.execute();break;
             case 26: System.out.println("You choose task 26(loops)");ReversedSequence reversedSequence=new ReversedSequence();reversedSequence.execute();break;
-//            case 27: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
+            case 27: System.out.println("You choose task 27(OOP)");God god=new God();god.execute();break;
 //            case 28: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 29: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 30: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
