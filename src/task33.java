@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class task33 {
@@ -30,6 +31,6 @@ public class task33 {
         System.out.println("Pleas enter your number");
         int number = sc.nextInt();
         int[] result = humanYearsCatYearsDogYears(number);
-        System.out.println(result);
+        System.out.println(Arrays.toString(result));
     }
 }
