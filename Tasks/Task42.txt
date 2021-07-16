@@ -1,0 +1,16 @@
+
+public class Task42{
+public static void main(String[] args ) {
+	
+}
+
+
+public static void TwiceAsOld(int dadYears, int sonYears){
+    //TODO: Add code here
+    int twice = sonYears * 2;
+    
+    if(twice > dadYears) System.out.println(sonYears - (dadYears - sonYears));
+    else System.out.println(sonYears - (dadYears - sonYears));
+  
+}
+}

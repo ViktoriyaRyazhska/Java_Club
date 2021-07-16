@@ -1,0 +1,113 @@
+import java.util.Scanner;
+public class TaskMain {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.println("Chose number to solve: ");
+	
+	int n = sc.nextInt();
+	switch(n) {
+	case 37: 
+		System.out.println("Print a number");
+		int s = sc.nextInt();
+		Task37.reverse(n);
+		break;
+	case 38: 
+		System.out.println("Print your points ");
+		int po = sc.nextInt();
+		System.out.println("Print number of students ");
+		int num = sc.nextInt();
+		int[] poi; poi = new int[num];
+		for(int i = 0; i != num; i++) {
+			System.out.println("Print a point of a student ");
+			poi[i] = sc.nextInt();
+			
+		}
+		Task38.betterThanAverage(poi, po);
+		break;
+	case 39: 
+		System.out.println("Print number of integers: ");
+		int nu1 = sc.nextInt(); int[] nums; nums = new int[nu1];
+		for(int i = 0; i != nu1; i++) {
+			System.out.println("Print a number: ");
+			nums[i] = sc.nextInt();
+		}
+		Task39.grow(nums); break;
+	case 40: 
+		System.out.println("Print number of integers: ");
+		int num1 = sc.nextInt(); int[] nums1; nums1 = new int[num1];
+		for(int i = 0; i != num1; i++) {
+			System.out.println("Print a number: ");
+			nums1[i] = sc.nextInt();
+		}
+		Task40.sum(nums1); break;
+	case 41: 
+		String[] wor; wor = new String[2];
+		for(int i = 0; i != 3; i++) {
+			System.out.println("word: "); 
+		}
+		Task41.fix(wor); break;
+	case 42: 
+		System.out.println("Print dadYears: "); int dy = sc.nextInt();
+		System.out.println("Print sonYears: "); int sy = sc.nextInt();
+		Task42.TwiceAsOld(dy, sy); break;
+	case 43: 
+		System.out.println("Print an integer: ");
+		int n43 = sc.nextInt();
+		Task43.nearestSq(n43); break;
+	case 44: 
+		System.out.println("Print an integer: ");
+		int n44 = sc.nextInt();
+		Task44.summation(n44); break;
+	case 45: 
+		System.out.println("Your move: ");
+		int n45 = sc.nextInt();
+		Task45.makeMove(n45); break;
+	case 46: 
+		System.out.println("Print a word: ");
+		String s46 = sc.nextLine();
+		Task46.solution(s46); break;
+	case 47:
+		System.out.println("Print a city: "); String ci = sc.nextLine();
+		System.out.println("Print a state: "); String st = sc.nextLine(); 
+		System.out.println("Print your name: ");
+		String[] nam; nam = new String[2];
+		nam[0] = sc.nextLine(); nam[1] = sc.nextLine();
+		Task47.sayHello(nam, ci, st); break;
+	case 48: 
+		System.out.println("Print an integer: ");
+		int num48 = sc.nextInt(); Task48.opposite(num48); break;
+	case 49: 
+		System.out.println("Print a phrase: "); String ph = sc.nextLine();
+		Task49.replaceDots(ph); break;
+	case 50:
+		System.out.println("Enter your name: "); String nam50 = sc.nextLine();
+		Task50.areYouPlayingBanjo(nam50); break;
+	case 51:
+		System.out.println("Print a phrase: "); String ph51 = sc.nextLine();
+		Task51.noSpace(ph51); break;
+	case 52: System.out.println("Print three words "); 
+	String s521 = sc.nextLine(); String s522 = sc.nextLine(); String s523 = sc.nextLine();
+	Task52.tripleTrouble(s521, s522, s523);	break;
+	case 53: 
+		System.out.println("Print a char: "); String s53 = sc.nextLine(); char[] chr = s53.toCharArray(); char c = chr[0];
+		Task53.position(c); break;
+	case 54: 
+		System.out.println("Print some numbers: "); String s54 = sc.nextLine(); Task54.fakeBin(s54);
+	    break;
+	case 55: 
+		System.out.println("How old is her: "); String s55 = sc.nextLine(); Task55.howOld(s55); break;
+	case 56: 
+		System.out.println("Print a temperature: "); int n56 = sc.nextInt(); Task56.convertToCelsius(n56);
+		break;
+	case 57: 
+		System.out.println("Print your name: "); String s57 = sc.nextLine(); Task57.abbrevName(s57);
+		break;
+		
+	}
+		
+		
+	}
+			
+}
+
