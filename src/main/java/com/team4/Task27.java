@@ -7,4 +7,6 @@ public class Task27 {
       ans = 0;
     return ans;
   }
+
+  public static void execute(){ }
 }

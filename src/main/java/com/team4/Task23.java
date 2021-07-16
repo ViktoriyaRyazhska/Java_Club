@@ -11,4 +11,6 @@ public class Task23 {
       return "Player 2 won!";
 
   }
+
+  public static void execute(){ }
 }

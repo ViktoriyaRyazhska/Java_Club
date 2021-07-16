@@ -35,4 +35,6 @@ public class Task17{
   public int getSurfaceArea() {
     return surface_area;
   }
+
+  public static void execute(){ }
 }

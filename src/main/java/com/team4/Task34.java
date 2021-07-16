@@ -11,4 +11,5 @@ public class Task34{
     return sum / marks.length;
   }
 
+  public static void execute(){ }
 }

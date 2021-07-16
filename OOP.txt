@@ -1,6 +1,0 @@
-https://www.codewars.com/kata/basic-subclasses-adam-and-eve
-https://www.codewars.com/kata/rotations-and-reflections-i/
-https://www.codewars.com/kata/l3375p34k/
-https://www.codewars.com/kata/tdd-area-calculations/
-
-4 Tasks

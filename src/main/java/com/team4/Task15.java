@@ -105,4 +105,6 @@ class Task15 {
 
         return res.toString();
     }
+
+    public static void execute(){ }
 }

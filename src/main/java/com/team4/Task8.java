@@ -7,4 +7,10 @@ public class Task8 {
       i += 1;
     return i;
   }
+
+  public static void execute(){
+    System.out.println("Input your Year ");
+    int n13 = MyMain.scanner.nextInt();
+    System.out.println(Task8.century(n13));
+  }
 }

@@ -9,4 +9,5 @@ public class Task20 {
     }
   }
 
+  public static void execute(){ }
 }

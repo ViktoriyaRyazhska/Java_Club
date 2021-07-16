@@ -11,4 +11,5 @@ public class Task33 {
       return new int[]{humanYears,(humanYears-2)*4+24,(humanYears-2)*5+24};
   }
 
+  public static void execute(){ }
 }

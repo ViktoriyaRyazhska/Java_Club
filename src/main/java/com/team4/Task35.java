@@ -5,4 +5,6 @@ public class Task35 {
   public static int[] map(int[] arr) {
       return Arrays.stream(arr).map(x -> x*2).toArray();
   }
+
+    public static void execute(){ }
 }

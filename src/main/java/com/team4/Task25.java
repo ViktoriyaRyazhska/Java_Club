@@ -8,4 +8,5 @@ public class Task25 {
     return false;
   }
 
+  public static void execute(){ }
 }

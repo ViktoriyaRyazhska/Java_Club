@@ -9,4 +9,6 @@ public class Task32 {
         ans += string;
         return ans;
     }
+
+    public static void execute(){ }
 }

@@ -11,6 +11,8 @@ public class Task16 {
       if ((a.health -= b.damagePerAttack) <= 0) return b.name;  // b wins
     }
   }
+
+  public static void execute(){ }
 }
 
 class Fighter {

@@ -10,4 +10,6 @@ public class Task24{
     }
     return 0;
   }
+
+  public static void execute(){ }
 }

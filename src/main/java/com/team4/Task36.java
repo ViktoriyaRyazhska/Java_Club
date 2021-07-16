@@ -10,4 +10,6 @@ public class Task36 {
     }
     return counter;
   }
+
+  public static void execute(){ }
 }

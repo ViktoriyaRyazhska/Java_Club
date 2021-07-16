@@ -13,4 +13,6 @@ public class Task22 {
     else
       return "You were born this very year!";
   }
+
+  public static void execute(){ }
 }

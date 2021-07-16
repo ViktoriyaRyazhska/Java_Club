@@ -8,4 +8,12 @@ public class Task7
     s += m*60;
     return s*1000;
   }
+
+  public static void execute(){
+    System.out.println("Input three numbers :");
+    int n10 = MyMain.scanner.nextInt();
+    int n11 = MyMain.scanner.nextInt();
+    int n12 = MyMain.scanner.nextInt();
+    System.out.println(Task3.getVolumeOfCuboid(n10, n11, n12));
+  }
 }

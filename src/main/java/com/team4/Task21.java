@@ -9,4 +9,6 @@ public class Task21{
       s+=Integer.toString(salary);
     return s;
   }
+
+  public static void execute(){ }
 }

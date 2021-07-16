@@ -6,4 +6,6 @@ public class Task19 {
       return false;
 		return true;
 	}
+
+	public static void execute(){ }
 }

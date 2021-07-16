@@ -6,4 +6,6 @@ public class Task18
         {
             return number * -1;
         }
+
+        public static void execute(){ }
     }

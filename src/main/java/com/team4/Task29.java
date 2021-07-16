@@ -38,4 +38,6 @@ public class Task29
     }
     return " ";
   }
+
+    public static void execute(){ }
 }

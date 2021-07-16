@@ -10,4 +10,5 @@ class Task26
       return "No";
   }
 
+  public static void execute(){ }
 }

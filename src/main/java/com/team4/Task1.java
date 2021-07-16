@@ -5,4 +5,10 @@ class Task1 {
     i *= 2;
     return i;
   }
+
+  public static void execute(){
+    System.out.println("Input your number ");
+    int n = MyMain.scanner.nextInt();
+    System.out.println(Task1.doubleInteger(n));
+  }
 }

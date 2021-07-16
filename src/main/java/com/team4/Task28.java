@@ -5,4 +5,6 @@ public class Task28 {
     int[] nums = new int[]{0, 1, 1, 2, 0, 2, 2, 1};
     return nums[(n-1)%8];
   }
+
+  public static void execute(){ }
 }

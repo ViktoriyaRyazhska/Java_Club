@@ -16,4 +16,9 @@ public class Task13 {
     return value + n;
   }
 
+  public static void execute(){
+    System.out.println("Input your number ");
+    int n20 = MyMain.scanner.nextInt();
+    System.out.println(Task13.INST.plus100(n20));
+  }
 }

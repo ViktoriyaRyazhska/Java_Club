@@ -37,4 +37,12 @@ public class Task12 {
     this.stringValue = stringValue;
     this.anObject = anObject;
   }
+
+  public static void execute(){
+    System.out.println("Input your number, stringValue and Object :");
+    int n17 = MyMain.scanner.nextInt();
+    String n18 = MyMain.scanner.nextLine();
+    Object n19 = MyMain.scanner.next();
+    System.out.println(new Task12(n17, n18, n19));
+  }
 }

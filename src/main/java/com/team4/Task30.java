@@ -15,4 +15,5 @@ public class Task30 {
     return "";
   }
 
+    public static void execute(){ }
 }

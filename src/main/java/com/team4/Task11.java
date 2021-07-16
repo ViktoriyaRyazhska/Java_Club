@@ -14,4 +14,10 @@ public class Task11 {
         double celsius = (temperature - 32) * 5/9;
         return celsius;
     }
+
+    public static void execute(){
+        System.out.println("Input your temperature ");
+        double n16 = MyMain.scanner.nextDouble();
+        System.out.println(Task11.weatherInfo(n16));
+    }
 }

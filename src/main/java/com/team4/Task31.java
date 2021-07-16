@@ -9,4 +9,6 @@ public class Task31 {
     else
       return d*40;
   }
+
+  public static void execute(){ }
 }
