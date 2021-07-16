@@ -5,7 +5,8 @@ import com.team1.IRunTask;
 import java.util.Arrays;
 
 public class Hello implements IRunTask {
-    private Hello() {
+    public Hello() {
+        //no args
     }
 
     public static String sayHello(String[] name, String city, String state) {
@@ -17,6 +18,7 @@ public class Hello implements IRunTask {
 
     @Override
     public void execute() {
-
+        String[]arr={"Josh","Smith"};
+        System.out.println(sayHello(arr,"Lviv","Lvivskiy"));
     }
 }

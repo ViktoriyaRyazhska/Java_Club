@@ -7,6 +7,10 @@ import com.team1.tasks.classesTasks.LombokEncapsulation;
 import com.team1.tasks.classesTasks.StaticElectrickery;
 import com.team1.tasks.conditionsTasks.*;
 import com.team1.tasks.loops.*;
+import com.team1.tasks.string.Hello;
+import com.team1.tasks.string.NumToStrConv;
+import com.team1.tasks.string.OppositeNumStr;
+import com.team1.tasks.string.StringReverser;
 
 public class Menu {
 
@@ -39,10 +43,10 @@ public class Menu {
             case 25: System.out.println("You choose task 25(loops)");SheepCounter sheepCounter=new SheepCounter();sheepCounter.execute();break;
             case 26: System.out.println("You choose task 26(loops)");ReversedSequence reversedSequence=new ReversedSequence();reversedSequence.execute();break;
             case 27: System.out.println("You choose task 27(OOP)");God god=new God();god.execute();break;
-//            case 28: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 29: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 30: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
-//            case 31: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
+            case 28: System.out.println("You choose task 28(string)");  NumToStrConv num=new NumToStrConv();num.execute();break;
+            case 29: System.out.println("You choose task 29(string)");StringReverser stringReverser=new StringReverser();stringReverser.execute();break;
+            case 30: System.out.println("You choose task 30(string)");Hello hello=new Hello();hello.execute();break;
+            case 31: System.out.println("You choose task 31(string)");OppositeNumStr oppositeNumStr=new OppositeNumStr();oppositeNumStr.execute();break;
 //            case 32: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 33: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;
 //            case 34: System.out.println("You choose task 11");BasicTask11 basicTask11 = new BasicTask11();basicTask11.execute();break;

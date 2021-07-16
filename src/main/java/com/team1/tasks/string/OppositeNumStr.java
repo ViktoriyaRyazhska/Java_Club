@@ -3,7 +3,8 @@ package com.team1.tasks.string;
 import com.team1.IRunTask;
 
 public class OppositeNumStr implements IRunTask {
-    private OppositeNumStr() {
+    public OppositeNumStr() {
+        //no args
     }
 
     public static int opposite(int number) {
@@ -12,6 +13,6 @@ public class OppositeNumStr implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(opposite(10));
     }
 }

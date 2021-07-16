@@ -3,7 +3,8 @@ package com.team1.tasks.string;
 import com.team1.IRunTask;
 
 public class StringReverser implements IRunTask {
-    private StringReverser() {
+    public StringReverser() {
+        //no args
     }
 
     public static String solution(String str) {
@@ -13,6 +14,6 @@ public class StringReverser implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(solution("Hello"));
     }
 }

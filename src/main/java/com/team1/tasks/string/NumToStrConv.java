@@ -9,6 +9,6 @@ public class NumToStrConv implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(numberToString(6));
     }
 }
