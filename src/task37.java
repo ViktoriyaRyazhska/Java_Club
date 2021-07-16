@@ -5,6 +5,9 @@ import java.util.stream.IntStream;
 
 public class task37 {
     public static int[] reverse(int n){
+        if (n < 0) {
+            throw new IllegalArgumentException("Your number is under zero");
+        }
         return IntStream.rangeClosed(1, n)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
