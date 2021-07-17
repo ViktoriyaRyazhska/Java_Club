@@ -1,9 +1,12 @@
 import java.util.Scanner;
 
 public class task59 {
-    public static String position(char alphabet)
-    {
-        return "Position of alphabet: " + (alphabet - 96);
+    public static String position(char alphabet) {
+
+        if (alphabet >= 'a' && alphabet <= 'z')
+            return "Position of alphabet: " + (alphabet - 96);
+
+        throw new IllegalArgumentException("This symbol is not a lowercase letter!");
     }
 
     public static void execute(Scanner sc) {
