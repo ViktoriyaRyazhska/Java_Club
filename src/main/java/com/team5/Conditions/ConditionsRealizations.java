@@ -4,7 +4,6 @@ import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class ConditionsRealizations {
 
@@ -12,58 +11,50 @@ public class ConditionsRealizations {
         ConditionsTasks conditionsTasks = new ConditionsTasks();
         for (; ; ) {
 
-            int caseNumber = 0;
-            try {
-                caseNumber = Input.getIntegerInput();
-            } catch (InputMismatchException e) {
-                System.out.println("Incorrect value");
+        int caseNumber = 0;
+        try {
+            caseNumber = Input.getIntegerInput();
+        }catch (InputMismatchException e){
+            System.out.println("Incorrect value");
+        }
+        switch (caseNumber) {
+            case 0: {
+                Menu.mainSwitch();
             }
-            switch (caseNumber) {
-                case 0: {
-                    Menu.mainSwitch();
-                }
-                case 18: {
-                    conditionsTasks.task1();
-                    break;
-                }
-                case 19: {
-                    conditionsTasks.task2();
-                    break;
-                }
-                case 20: {
-                    conditionsTasks.task3();
-                    break;
-                }
-                case 21: {
-                    conditionsTasks.task4();
-                    break;
-                }
-                case 22: {
-                    conditionsTasks.task22();
-                    break;
-                }
-                case 23: {
-                    conditionsTasks.task23();
-                    break;
-                }
-                case 24: {
-                    conditionsTasks.task24();
-                    break;
-                }
-                case 25: {
-                    conditionsTasks.task25();
-                    break;
-                }
-                case 26: {
-
-                }
-                case 27: {
-
-                }
-                case 28: {
-
-                }
-                case 29: {
+            case 18: {
+                conditionsTasks.task18();
+                break;
+            } case 19:{
+                conditionsTasks.task19();
+                break;
+            } case 20:{
+                conditionsTasks.task20();
+                break;
+            } case 21:{
+                conditionsTasks.task21();
+                break;
+            } case 22:{
+                conditionsTasks.task22();
+                break;
+            } case 23:{
+                conditionsTasks.task23();
+                break;
+            } case 24:{
+                conditionsTasks.task24();
+                break;
+            } case 25:{
+               conditionsTasks.task25();
+               break;
+            } case 26:{
+                conditionsTasks.task26();
+                break;
+            } case 27:{
+                conditionsTasks.task27();
+                break;
+            } case 28:{
+                conditionsTasks.task28();
+                break;
+            } case 29:{
 
                 }
                 case 30: {

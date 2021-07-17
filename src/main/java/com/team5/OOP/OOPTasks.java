@@ -1,8 +1,13 @@
 package com.team5.OOP;
 
+import com.team5.Menu.Input;
+
 public class OOPTasks {
 
-    public String task3(String source){
+    public String task49(){
+        System.out.println("Enter your string for encoding");
+        String source = Input.getStrInput();
+
         String[] charArr = source.split("");
         for(int i = 0; i < charArr.length; i++){
             if(charArr[i] == null){

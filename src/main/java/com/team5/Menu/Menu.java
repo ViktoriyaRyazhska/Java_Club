@@ -87,7 +87,7 @@ public class Menu {
     }
 
     public static void basicMenu(){
-
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 1");
@@ -105,6 +105,7 @@ public class Menu {
     }
 
     public static void classesMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 12");
@@ -118,6 +119,7 @@ public class Menu {
     }
 
     public static void conditionsMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 18");
@@ -139,6 +141,7 @@ public class Menu {
     }
 
     public static void loopsMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 32");
@@ -161,6 +164,7 @@ public class Menu {
     }
 
     public static void oopMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 47");
@@ -172,6 +176,7 @@ public class Menu {
     }
 
     public static void stringMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 51");
@@ -197,6 +202,7 @@ public class Menu {
     }
 
     public static void collectionsMenu(){
+        System.out.println();
         System.out.println("|Select a task|");
         System.out.println("---------------");
         System.out.println("Task 69");

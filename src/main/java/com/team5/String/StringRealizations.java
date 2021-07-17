@@ -2,15 +2,13 @@ package com.team5.String;
 
 import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
-
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class StringRealizations {
 
     public static void StringRealization() {
         StringTasks stringTasks = new StringTasks();
-        for (;;) {
+        for (; ; ) {
 
             int caseNumber = 0;
             try {
@@ -51,38 +49,43 @@ public class StringRealizations {
                     break;
                 }
                 case 59: {
-
+                    stringTasks.task59();
+                    break;
                 }
                 case 60: {
-
+                    stringTasks.task60();
+                    break;
                 }
                 case 61: {
-
+                    stringTasks.task61();
+                    break;
                 }
                 case 62: {
-
+                    stringTasks.task62();
+                    break;
                 }
                 case 63: {
-                    System.out.println("Test");
+                    stringTasks.task63();
+                    break;
                 }
                 case 64: {
-                    stringTasks.task14();
+                    stringTasks.task64();
                     break;
                 }
                 case 65: {
-                    stringTasks.task15();
+                    stringTasks.task65();
                     break;
                 }
                 case 66: {
-                    stringTasks.task16();
+                    stringTasks.task66();
                     break;
                 }
                 case 67: {
-                    stringTasks.task17();
+                    stringTasks.task67();
                     break;
                 }
                 case 68: {
-                    stringTasks.task18();
+                    stringTasks.task68();
                     break;
                 }
                 default:

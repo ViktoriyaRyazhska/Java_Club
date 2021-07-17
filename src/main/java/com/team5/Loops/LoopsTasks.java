@@ -6,7 +6,61 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LoopsTasks {
-    public int task13() {
+
+    public String task32() {
+        System.out.println("Write a function called repeatStr which repeats the given string string exactly n times.");
+        System.out.println("Enter your word");
+        String string = Input.getStrInput();
+        System.out.println("How times it will be repeat?");
+        int repeat = Input.getIntegerInput();
+
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < repeat; i++) {
+            sb.append(string);
+        }
+        System.out.println(sb);
+        return sb.toString();
+    }
+
+    public int[] task33() {
+        System.out.println("Enter human years");
+        int humanYears = Input.getIntegerInput();
+
+
+        int catYears =0, dogYears = 0;
+        switch (humanYears) {
+            default:
+                catYears = 4 * (humanYears - 2);
+                dogYears = 5 * (humanYears - 2);
+            case 2:
+                catYears += 9;
+                dogYears += 9;
+            case 1:
+                catYears += 15;
+                dogYears += 15;
+        }
+        int[] arr = {humanYears, catYears, dogYears};
+        for(int i = 0; i <arr.length; i++){
+            System.out.println(arr[i]);
+        }
+        return arr;
+    }
+
+    public int task34(){
+        System.out.println("Return the average of the given array rounded down to its nearest integer.");
+        int[] marks = {5,8,6,2,4};
+        int sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        int avg = sum / marks.length;
+        System.out.println(avg);
+        return avg;
+    }
+
+    public int task44() {
         System.out.println("That is the program that finds the summation of every number from 1 to number that you will write");
         int n = Input.getIntegerInput();
         int result = 0;
@@ -19,7 +73,7 @@ public class LoopsTasks {
 
     //tam jopa
     //i need help
-    public long[] task14(){
+    public long[] task45(){
         System.out.println("Im stupid");
 //        int g = Input.getIntegerInput();
 //        int m = Input.getIntegerInput();
@@ -30,7 +84,7 @@ public class LoopsTasks {
         return result;
     }
 
-    public int task15(){
+    public int task46(){
         System.out.println("In this game, there are 21 sticks lying in a pile. Players take turns taking 1, 2, or 3 sticks. " +
                 "The last person to take a stick wins. \n" +
                 "That is the robot that will always win the game. Robot will always go first. \n" +
