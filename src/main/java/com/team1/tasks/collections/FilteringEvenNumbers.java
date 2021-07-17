@@ -9,9 +9,12 @@ import java.util.stream.Collectors;
 
 public class FilteringEvenNumbers implements IRunTask {
 
+    Scanner sc;
     List<Integer> listOfNumbers = new ArrayList<>();
-    public FilteringEvenNumbers() {
-        //no args
+
+    public FilteringEvenNumbers(Scanner sc) {
+        this.sc = sc;
+
     }
 
     public static List<Integer> filterOddNumber(List<Integer> listOfNumbers) {
@@ -24,7 +27,6 @@ public class FilteringEvenNumbers implements IRunTask {
         System.out.println("Input to integer temperature you want to convert to fahrenheit !");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 int size = sc.nextInt();
                 for (int i = 0; i <size; i++) {
                     int number = sc.nextInt();

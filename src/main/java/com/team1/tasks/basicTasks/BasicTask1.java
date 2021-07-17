@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class BasicTask1 implements com.team1.IRunTask {
 
     private int i;
-
-    public BasicTask1() {
+    Scanner sc;
+    public BasicTask1(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int doubleInteger(int i) {
@@ -27,7 +28,6 @@ public class BasicTask1 implements com.team1.IRunTask {
         System.out.println("Input integer number you want to double!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 i = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

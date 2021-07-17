@@ -9,8 +9,10 @@ public class BasicTask5 implements IRunTask {
 
 
     private String name;
+    Scanner sc;
 
-    public BasicTask5() {
+    public BasicTask5(Scanner sc) {
+        this.sc = sc;
     }
 
     public static String greet(String name) {
@@ -28,7 +30,6 @@ public class BasicTask5 implements IRunTask {
         System.out.println("Input name you want to greet!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 name = sc.nextLine();
                 mark = true;
             } catch (Exception exception) {

@@ -9,8 +9,9 @@ public class BasicTask3 implements IRunTask {
     private double length;
     private double width;
     private double height;
-
-    public BasicTask3() {
+    Scanner sc;
+    public BasicTask3(Scanner sc) {
+        this.sc = sc;
     }
 
     public static double getVolumeOfCuboid(final double length, final double width, final double height) {
@@ -23,7 +24,6 @@ public class BasicTask3 implements IRunTask {
         System.out.println("Input length, width, height to find volume of cuboid!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("Input first length!");
                 length = sc.nextDouble();
                 System.out.println("Input second width!");

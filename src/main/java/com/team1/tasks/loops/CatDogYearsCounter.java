@@ -3,10 +3,16 @@ package com.team1.tasks.loops;
 import com.team1.IRunTask;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CatDogYearsCounter implements IRunTask {
-    public CatDogYearsCounter() {
-        //no args
+    Scanner sc;
+
+    private int humanYears;
+
+    public CatDogYearsCounter(Scanner sc) {
+        this.sc = sc;
+
     }
 
     public static int[] humanYearsCatYearsDogYears(final int humanYears) {
@@ -27,6 +33,19 @@ public class CatDogYearsCounter implements IRunTask {
 
     @Override
     public void execute() {
-        System.out.println(Arrays.toString(humanYearsCatYearsDogYears(10)));
+        boolean mark = false;
+        System.out.println("Input human age to get cat, dog equal");
+        do {
+            try {
+                System.out.println("Input human age");
+                humanYears = sc.nextInt();
+                mark = true;
+            } catch (Exception exception) {
+                System.out.println("You have input illegal character, try again!");
+                continue;
+            }
+        } while (mark == false);
+        System.out.println(Arrays.toString(humanYearsCatYearsDogYears(humanYears)));
+
     }
 }

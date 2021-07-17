@@ -9,8 +9,9 @@ public class BasicTask2 implements IRunTask {
 
     private int num1;
     private int num2;
-
-    public BasicTask2() {
+    Scanner sc;
+    public BasicTask2(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int multiply(int num1, int num2) {
@@ -23,7 +24,6 @@ public class BasicTask2 implements IRunTask {
         System.out.println("Input integer number you want to multiply!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("Input first number!");
                 num1 = sc.nextInt();
                 System.out.println("Input second number!");

@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class BasicTask10 implements IRunTask {
 
     private int age;
+    Scanner sc;
 
-    public BasicTask10() {
+    public BasicTask10(Scanner sc) {
+        this.sc = sc;
     }
 
     public static String datingRange(int age) {
@@ -39,7 +41,6 @@ public class BasicTask10 implements IRunTask {
         System.out.println("Input to integer age to find min and max!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 age = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

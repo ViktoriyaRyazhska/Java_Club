@@ -2,9 +2,15 @@ package com.team1.tasks.conditionsTasks;
 
 import com.team1.IRunTask;
 
+import java.util.Scanner;
+
 public class OppositeNum implements IRunTask {
-    public OppositeNum() {
-        //No args constructor
+
+    Scanner sc;
+
+    private  int number;
+    public OppositeNum(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int opposite(int number) {
@@ -21,6 +27,20 @@ public class OppositeNum implements IRunTask {
 
     @Override
     public void execute() {
-        System.out.println(opposite(12));
+
+        boolean mark = false;
+        System.out.println("Input number to get it opposite");
+        do {
+            try {
+                System.out.println("Input number");
+                number = sc.nextInt();
+
+                mark = true;
+            } catch (Exception exception) {
+                System.out.println("You have input illegal character, try again!");
+                continue;
+            }
+        } while (mark == false);
+        System.out.println(opposite(number));
     }
 }

@@ -8,8 +8,9 @@ import java.util.Scanner;
 public class BasicTask9 implements IRunTask {
 
     private int x;
-
-    public BasicTask9() {
+    Scanner sc;
+    public BasicTask9(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int makeNegative(final int x) {
@@ -26,7 +27,6 @@ public class BasicTask9 implements IRunTask {
         do {
 
             try {
-                Scanner sc = new Scanner(System.in);
                 x = sc.nextInt();
                 if (x > 0 || x == 0) {
                     mark = false;

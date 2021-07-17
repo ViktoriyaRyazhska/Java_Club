@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*BasicMenu basicMenu = new BasicMenu();
+        Menu basicMenu = new Menu();
+        Scanner sc = null;
 
         int task = -1;
         boolean mark = false;
@@ -15,18 +16,19 @@ public class Main {
             basicMenu.printListOfTasks();
             do {
                 try {
-                    Scanner sc = new Scanner(System.in);
+                    sc = new Scanner(System.in);
                     task = sc.nextInt();
 
                     mark = true;
+
                 } catch (Exception exception) {
                     System.out.println("You have input illegal character, try again!");
-
                 }
             } while (mark == false);
-            basicMenu.menu(task);
+            basicMenu.menu(task, sc);
 
 
-        }*/
+        }
+
     }
 }

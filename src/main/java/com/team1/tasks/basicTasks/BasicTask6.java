@@ -8,8 +8,9 @@ import java.util.Scanner;
 public class BasicTask6 implements IRunTask {
 
     private int n;
-
-    public BasicTask6() {
+    Scanner sc;
+    public BasicTask6(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int toBinary(int n) {
@@ -25,7 +26,6 @@ public class BasicTask6 implements IRunTask {
         System.out.println("Input integer number to convert to binary!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 n = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

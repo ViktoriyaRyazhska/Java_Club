@@ -2,9 +2,16 @@ package com.team1.tasks.conditionsTasks;
 
 import com.team1.IRunTask;
 
+import java.util.Scanner;
+
 public class HowOldInFuture implements IRunTask {
-    public HowOldInFuture() {
-        //no args
+
+    Scanner sc;
+    private int birth;
+    private int yearTo;
+
+    public HowOldInFuture(Scanner sc) {
+        this.sc = sc;
     }
 
     public static String calculateAge(int birth, int yearTo) {
@@ -23,6 +30,20 @@ public class HowOldInFuture implements IRunTask {
 
     @Override
     public void execute() {
-        System.out.println( calculateAge(2002,2077));
+        boolean mark = false;
+        System.out.println("Input your age and future date to get your future age ");
+        do {
+            try {
+                System.out.println("Input age");
+                birth = sc.nextInt();
+                System.out.println("Input year, format 2XXX");
+                yearTo = sc.nextInt();
+                mark = true;
+            } catch (Exception exception) {
+                System.out.println("You have input illegal character, try again!");
+                continue;
+            }
+        } while (mark == false);
+        System.out.println(calculateAge(birth, yearTo));
     }
 }

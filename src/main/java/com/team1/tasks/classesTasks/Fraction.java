@@ -2,9 +2,12 @@ package com.team1.tasks.classesTasks;
 
 import com.team1.IRunTask;
 
+import java.util.Scanner;
+
 public class Fraction implements Comparable<Fraction>, IRunTask {
-    private  long top;
-    private  long bottom;
+    private long top;
+    private long bottom;
+
 
     public Fraction(long numerator, long denominator) {
         top = numerator;
@@ -46,6 +49,40 @@ public class Fraction implements Comparable<Fraction>, IRunTask {
     }
 
     @Override
+    public void execute() {
+        boolean mark = false;
+        int size, number;
+        Scanner sc = new Scanner(System.in);
+        Fraction faraction1;
+        Fraction faraction2;
+        System.out.println("Input two fraction to get it sum");
+        do {
+            try {
+                System.out.println("Input first fraction");
+                System.out.println("Input top number");
+
+                top = sc.nextInt();
+                System.out.println("Input bottom number");
+                bottom = sc.nextInt();
+                faraction1 = new Fraction(top, bottom);
+                System.out.println("Input second fraction");
+                System.out.println("Input top number");
+
+                top = sc.nextInt();
+                System.out.println("Input bottom number");
+                bottom = sc.nextInt();
+                faraction2 = new Fraction(top, bottom);
+                System.out.println(faraction1.add(faraction2).toString());
+                mark = true;
+            } catch (Exception exception) {
+                System.out.println("You have input illegal character, try again!");
+                continue;
+            }
+        } while (mark == false);
+
+    }
+
+    @Override
     public String toString() {
         return top + "/" + bottom;
     }
@@ -58,8 +95,5 @@ public class Fraction implements Comparable<Fraction>, IRunTask {
         return bottom;
     }
 
-    @Override
-    public void execute() {
 
-    }
 }

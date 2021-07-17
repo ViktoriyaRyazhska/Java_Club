@@ -8,7 +8,11 @@ import java.util.Scanner;
 public class BasicTask4 implements IRunTask {
     private int wallLength;
     private int pixelSize;
-    public BasicTask4() {
+
+    Scanner sc;
+
+    public BasicTask4(Scanner sc) {
+        this.sc = sc;
     }
 
     public static boolean isDivisible(int wallLength, int pixelSize) {
@@ -21,7 +25,6 @@ public class BasicTask4 implements IRunTask {
         System.out.println("Input to integer number to check divisible!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("Input first number!");
                 wallLength = sc.nextInt();
                 System.out.println("Input second number!");
