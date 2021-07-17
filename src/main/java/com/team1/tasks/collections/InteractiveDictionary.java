@@ -9,7 +9,9 @@ import java.util.Scanner;
 public class InteractiveDictionary implements IRunTask {
     private Map<String,String> listOfWords = new HashMap<String, String>();
 
-    public InteractiveDictionary() {
+    Scanner sc;
+    public InteractiveDictionary(Scanner sc) {
+        this.sc = sc;
     }
 
     public void newEntry(String key, String value) {
@@ -30,7 +32,6 @@ public class InteractiveDictionary implements IRunTask {
         System.out.println("Input to integer temperature you want to convert to fahrenheit !");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("Input amount of words you want to add to the dictionary");
                 int size = sc.nextInt();
                 for (int i = 0; i <size; i++) {

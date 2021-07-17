@@ -28,7 +28,6 @@ public class BasicTask1 implements com.team1.IRunTask {
         System.out.println("Input integer number you want to double!");
         do {
             try {
-                sc = new Scanner(System.in);
                 i = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

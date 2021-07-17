@@ -7,8 +7,10 @@ import java.util.Scanner;
 
 public class BasicTask11 implements IRunTask {
     private int temp;
+    Scanner sc;
 
-    public BasicTask11() {
+    public BasicTask11(Scanner sc) {
+        this.sc = sc;
     }
 
     public static String weatherInfo(int temp) {
@@ -33,7 +35,6 @@ public class BasicTask11 implements IRunTask {
         System.out.println("Input to integer temperature you want to convert to fahrenheit !");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 temp = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

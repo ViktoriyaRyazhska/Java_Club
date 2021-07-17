@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class BasicTask8 implements IRunTask {
     private int number;
-
-    public BasicTask8() {
+    Scanner sc;
+    public BasicTask8(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int century(int number) {
@@ -21,7 +22,6 @@ public class BasicTask8 implements IRunTask {
         System.out.println("Input to integer year to convert to century!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 number = sc.nextInt();
                 mark = true;
             } catch (Exception exception) {

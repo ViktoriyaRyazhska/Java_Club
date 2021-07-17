@@ -4,9 +4,13 @@ import com.team1.IRunTask;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class PushAnObjectIntoArray implements IRunTask {
-    private PushAnObjectIntoArray() {
+
+    Scanner sc;
+    public PushAnObjectIntoArray(Scanner sc) {
+        this.sc = sc;
     }
 
     public static List<String> push() {
@@ -15,6 +19,6 @@ public class PushAnObjectIntoArray implements IRunTask {
 
     @Override
     public void execute() {
-
+        System.out.println(push());
     }
 }

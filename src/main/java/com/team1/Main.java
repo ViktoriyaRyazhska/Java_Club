@@ -20,15 +20,15 @@ public class Main {
                     task = sc.nextInt();
 
                     mark = true;
-                    sc.close();
+
                 } catch (Exception exception) {
                     System.out.println("You have input illegal character, try again!");
-
                 }
             } while (mark == false);
             basicMenu.menu(task, sc);
 
 
         }
+
     }
 }

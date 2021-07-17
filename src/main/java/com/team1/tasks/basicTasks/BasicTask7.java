@@ -10,8 +10,9 @@ public class BasicTask7 implements IRunTask {
     private int h;
     private int m;
     private int s;
-
-    public BasicTask7() {
+    Scanner sc;
+    public BasicTask7(Scanner sc) {
+        this.sc = sc;
     }
 
     public static int Past(int h, int m, int s) {
@@ -24,7 +25,6 @@ public class BasicTask7 implements IRunTask {
         System.out.println("Input to integer number to check divisible!");
         do {
             try {
-                Scanner sc = new Scanner(System.in);
                 System.out.println("Input hours!");
                 h = sc.nextInt();
                 System.out.println("Input minutes!");
