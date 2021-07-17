@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class task32 {
     public static String repeatStr(final int repeat, final String string) {
+        if (string.isEmpty()) {
+            throw new IllegalArgumentException("String is empty. Nothing to repeat.");
+        }
         return string.repeat(repeat);
     }
 
