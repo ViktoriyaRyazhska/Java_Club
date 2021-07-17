@@ -16,13 +16,17 @@ public class ConditionsRealizations {
             System.out.println("Incorrect value");
         }        switch (caseNumber) {
             case 18: {
-
+                conditionsTasks.task1();
+                break;
             } case 19:{
-
+                conditionsTasks.task2();
+                break;
             } case 20:{
-
+                conditionsTasks.task3();
+                break;
             } case 21:{
-
+                conditionsTasks.task4();
+                break;
             } case 22:{
 
             } case 23:{

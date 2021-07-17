@@ -42,15 +42,20 @@ public class StringRealizations {
             } case 63:{
                 System.out.println("Test");
             } case 64:{
-
+                stringTasks.task14();
+                break;
             } case 65:{
-
+                stringTasks.task15();
+                break;
             } case 66:{
-
+                stringTasks.task16();
+                break;
             } case 67:{
-
+                stringTasks.task17();
+                break;
             } case 68:{
-
+                stringTasks.task18();
+                break;
             } default:
                 System.out.println("Incorrect value!");
         }

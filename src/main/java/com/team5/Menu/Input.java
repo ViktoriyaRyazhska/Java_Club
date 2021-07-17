@@ -12,7 +12,18 @@ public class Input {
     }
 
     public static String getStrInput() {
-        String input = scanner.next();
+        String input = scanner.nextLine();
         return input;
     }
+
+    public static boolean getBoolInput() {
+        boolean input = scanner.nextBoolean();
+        return input;
+    }
+
+    public static char getCharInput(){
+        char input = scanner.next().charAt(0);
+        return input;
+    }
+
 }

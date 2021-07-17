@@ -34,12 +34,14 @@ public class BasicRealizations {
                 } case 6:{
 
                 } case 7:{
-                    System.out.println("Enter the hours, minutes, and seconds to convert them to milliseconds");
+                    basicTasks.task7();
                     break;
                 } case 8:{
-
+                    basicTasks.task8();
+                    break;
                 } case 9:{
-
+                    basicTasks.task9();
+                    break;
                 } case 10:{
 
                 } case 11:{

@@ -39,14 +39,20 @@ public class BasicTasks {
         System.out.println(Integer.parseInt(Integer.toBinaryString(a)));
 
     }
-    public int task7(int h, int m, int s){
+    public int task7(){
+        System.out.println("Enter the hours, minutes, and seconds to convert them to milliseconds");
+        int h = Input.getIntegerInput();
+        int m = Input.getIntegerInput();
+        int s = Input.getIntegerInput();
         int result = (h * 360000) + (m * 60000) + (s * 1000);
         System.out.println(result);
         return result;
     }
 
-    public int task8(int number){
+    public int task8(){
+        System.out.println("Enter any year to find out what century it is");
         int result;
+        int number = Input.getIntegerInput();
 
         if(number % 100 == 0){
             result = number / 100;
@@ -57,7 +63,9 @@ public class BasicTasks {
         return result;
     }
 
-    public int task9(int x){
+    public int task9(){
+        System.out.println("Enter any number and you will get the same but negative");
+        int x = Input.getIntegerInput();
         int result = x;
 
         if(result > 0){

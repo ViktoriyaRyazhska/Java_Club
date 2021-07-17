@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionsTasks {
-    public List<String> task1(String str){
+    public List<String> task1(){
+        System.out.println("The most incomprehensible task ...... I don't understand what they want from me, but keep the array");
         List<String> items = new ArrayList<>();
         items.add("an object");
-        items.add(str);
-            for(String a : items){
-                System.out.println(a);
-            }
+        items.add("an object 1");
+        items.add("an object 2");
+
+//            for(String a : items){
+//                System.out.println(a);
+//            }
+
+        System.out.println(items);
         return items;
     }
     public static void task71(int n, List<Integer> listOfNumbers){

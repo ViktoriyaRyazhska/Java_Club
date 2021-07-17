@@ -40,11 +40,14 @@ public class LoopsRealizations {
             } case 43:{
 
             } case 44:{
-
+                loopsTasks.task13();
+                break;
             } case 45:{
-
+                loopsTasks.task14();
+                break;
             } case 46:{
-
+                loopsTasks.task15();
+                break;
             } default:
                 System.out.println("Incorrect value!");
         }

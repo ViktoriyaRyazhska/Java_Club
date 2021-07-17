@@ -1,5 +1,7 @@
 package com.team5.OOP;
 
+import com.team5.OOP.Task1.God;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,16 +17,18 @@ public class OOPRealizations {
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
         }        switch (caseNumber) {
-            case 1: {
+            case 47: {
+                God god = new God();
+                god.create();
+                break;
+            } case 48:{
 
-            } case 2:{
-
-            } case 3:{
+            } case 49:{
                 System.out.println("Enter your string for encoding");
                 String str = input.nextLine();
                 oopTasks.task3(str);
                 break;
-            } case 4:{
+            } case 50:{
 
             } default:
                 System.out.println("Incorrect value!");

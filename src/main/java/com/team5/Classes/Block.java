@@ -1,6 +1,8 @@
 package com.team5.Classes;
 
 
+import com.team5.Menu.Input;
+
 //Task 6 of Classes Tasks
 public class Block {
     private int width;
@@ -8,12 +10,14 @@ public class Block {
     private int length;
 
     public int getVolume(){
+        System.out.print("Volume - ");
         int volume = width * height * length;
         System.out.println(volume);
         return volume;
     }
 
     public int getSurfaceArea(){
+        System.out.print("Total surface area - ");
         int sa = 2 * (width * height + height * length + width * length);
         System.out.println(sa);
         return sa;
@@ -31,10 +35,11 @@ public class Block {
         return length;
     }
 
-    public Block(int[] array) {
-        width = array[0];
-        length = array[1];
-        height = array[2];
+    public Block() {
+        System.out.println("Enter the width, length and height of the parallelepiped to get its volume and total surface area");
+        width = Input.getIntegerInput();
+        length = Input.getIntegerInput();
+        height = Input.getIntegerInput();
     }
 }
 

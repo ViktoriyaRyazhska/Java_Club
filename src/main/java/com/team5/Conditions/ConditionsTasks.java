@@ -1,30 +1,57 @@
 package com.team5.Conditions;
 
+import com.team5.Menu.Input;
+
+import java.util.InputMismatchException;
+
 public class ConditionsTasks {
 
-    public int task1(int number){
-        return number - (number * 2);
+    public int task1(){
+        System.out.println("Enter any number to get the opposite");
+        int number = Input.getIntegerInput();
+        int result = number - (number * 2);
+        System.out.println(result);
+        return result;
     }
 
-    public boolean task2(long n, long x, long y){
+    public boolean task2(){
+        System.out.println("Enter the number you want to divide, then enter the two divisors you want to divide by," +
+                " and the program will tell you if it divides");
+        long n = Input.getIntegerInput();
+        long x = Input.getIntegerInput();
+        long y = Input.getIntegerInput();
+
         boolean result = false;
 
         if (n % x == 0 && n % y == 0){
             result = true;
         }
 
+        System.out.println(result);
         return result;
     }
 
-    public String task3(boolean b){
-        if(b) {
-            return "true";
-        } else {
-            return "false";
+    public String task3(){
+        System.out.println("Enter true or false and we will return it to you)");
+        try {
+            boolean b = Input.getBoolInput();
+            if (b) {
+                System.out.println("true");
+                return "true";
+            } else {
+                System.out.println("false");
+                return "false";
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Incorrect value");
         }
+        return "kaka";
     }
 
-    public String task4(final int salary, final boolean bonus) {
+    public String task4() {
+        System.out.println("Enter salary, and bonus (true or false), if you choose true, the salary will increase 10 times");
+        final int salary = Input.getIntegerInput();
+        final boolean bonus = Input.getBoolInput();
         String result = "£";
         int temp;
 
@@ -33,7 +60,7 @@ public class ConditionsTasks {
         }else temp = salary;
 
         result = result + temp;
-
+        System.out.println("Salary - " + result);
         return result;
     }
     public void task22(int birth, int yearTo) {

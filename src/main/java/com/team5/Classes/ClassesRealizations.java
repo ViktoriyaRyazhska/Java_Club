@@ -26,7 +26,10 @@ public class ClassesRealizations {
             } case 16: {
 
             } case 17: {
-
+                Block block = new Block();
+                block.getVolume();
+                block.getSurfaceArea();
+                break;
             } default:
                 System.out.println("Incorrect value!");
         }

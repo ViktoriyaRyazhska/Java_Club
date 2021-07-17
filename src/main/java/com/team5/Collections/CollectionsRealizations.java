@@ -16,7 +16,8 @@ public class CollectionsRealizations {
             System.out.println("Incorrect value");
         }        switch (caseNumber) {
             case 69: {
-
+                collectionsTasks.task1();
+                break;
             } case 70:{
 
             } case 71:{
