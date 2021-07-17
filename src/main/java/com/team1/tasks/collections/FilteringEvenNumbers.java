@@ -11,8 +11,10 @@ public class FilteringEvenNumbers implements IRunTask {
 
     Scanner sc;
     List<Integer> listOfNumbers = new ArrayList<>();
+
     public FilteringEvenNumbers(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static List<Integer> filterOddNumber(List<Integer> listOfNumbers) {

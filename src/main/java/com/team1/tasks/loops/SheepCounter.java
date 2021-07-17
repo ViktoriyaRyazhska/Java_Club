@@ -11,6 +11,7 @@ public class SheepCounter implements IRunTask {
 
     public SheepCounter(Scanner sc) {
         this.sc = sc;
+
     }
 
     private Boolean[] arrayOfSheep;

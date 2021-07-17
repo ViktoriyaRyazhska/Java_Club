@@ -10,6 +10,8 @@ public class OppositeNumStr implements IRunTask {
     private int number;
     public OppositeNumStr(Scanner sc) {
         this.sc = sc;
+    public OppositeNumStr() {
+        //no args
     }
 
     public static int opposite(int number) {
@@ -34,6 +36,5 @@ public class OppositeNumStr implements IRunTask {
             }
         } while (mark == false);
         System.out.println(opposite(number));
-
     }
 }

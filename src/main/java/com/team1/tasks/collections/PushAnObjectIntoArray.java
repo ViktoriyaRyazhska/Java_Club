@@ -11,6 +11,7 @@ public class PushAnObjectIntoArray implements IRunTask {
     Scanner sc;
     public PushAnObjectIntoArray(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static List<String> push() {

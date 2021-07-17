@@ -13,6 +13,7 @@ public class UnfinishedLoop implements IRunTask {
     Scanner sc;
     public UnfinishedLoop(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static List createList(int number)
@@ -42,5 +43,6 @@ public class UnfinishedLoop implements IRunTask {
             }
         } while (mark == false);
         System.out.println(createList(size));
+
     }
 }

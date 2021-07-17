@@ -1,5 +1,6 @@
 package com.team1;
 
+import com.team1.tasks.OOP.subclasses.God;
 import com.team1.tasks.basicTasks.*;
 import com.team1.tasks.classesTasks.Fraction;
 import com.team1.tasks.classesTasks.LombokEncapsulation;
@@ -16,6 +17,7 @@ import com.team1.tasks.string.OppositeNumStr;
 import com.team1.tasks.string.StringReverser;
 
 import java.util.Scanner;
+
 
 public class Menu {
 
@@ -55,6 +57,7 @@ public class Menu {
             case 32: System.out.println("You choose task 32");NumToStrConv numToStrConv = new NumToStrConv(sc);numToStrConv.execute(); break;
             case 33: System.out.println("You choose task 33");OppositeNumStr oppositeNumStr = new OppositeNumStr(sc); oppositeNumStr.execute(); break;
             case 34: System.out.println("You choose task 34");StringReverser stringReverser = new StringReverser(sc); stringReverser.execute(); break;
+
             default: System.out.println("There is no" + task + "task in this group");task = -1;break;
         }
 
@@ -99,5 +102,7 @@ public class Menu {
                 " Task35 Press 35," +
                 "\nTask36 Press 36," +
                 " Task37 Press 37.");
+
+                
     }
 }

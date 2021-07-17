@@ -10,6 +10,7 @@ public class Averages implements IRunTask {
     Scanner sc;
     public Averages(Scanner sc) {
         this.sc = sc;
+
     }
 
     private int []marks;
@@ -41,5 +42,6 @@ public class Averages implements IRunTask {
             }
         } while (mark == false);
         System.out.println(getAverage(marks));
+
     }
 }

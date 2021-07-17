@@ -11,6 +11,7 @@ public class StringReverser implements IRunTask {
     Scanner sc;
     public StringReverser(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static String solution(String str) {
@@ -20,6 +21,7 @@ public class StringReverser implements IRunTask {
 
     @Override
     public void execute() {
+
         boolean mark = false;
         int size,number;
         System.out.println("Input string to get it reverse");
@@ -35,5 +37,6 @@ public class StringReverser implements IRunTask {
             }
         } while (mark == false);
         System.out.println(solution(str));
+
     }
 }

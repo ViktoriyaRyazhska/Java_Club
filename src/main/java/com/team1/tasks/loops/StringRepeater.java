@@ -13,6 +13,7 @@ public class StringRepeater implements IRunTask {
 
     public StringRepeater(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static String repeatStr(final int repeat, final String string) {
@@ -37,5 +38,6 @@ public class StringRepeater implements IRunTask {
             }
         } while (mark == false);
         System.out.println(repeatStr(repeat,string));
+
     }
 }

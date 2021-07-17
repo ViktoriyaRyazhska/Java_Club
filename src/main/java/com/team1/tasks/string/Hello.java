@@ -16,6 +16,7 @@ public class Hello implements IRunTask {
 
     public Hello(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static String sayHello(String[] name, String city, String state) {
@@ -56,5 +57,6 @@ public class Hello implements IRunTask {
             }
         } while (mark == false);
         System.out.println(sayHello(name,city,state));
+
     }
 }

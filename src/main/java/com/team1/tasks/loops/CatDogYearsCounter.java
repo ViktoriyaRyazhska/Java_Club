@@ -12,6 +12,7 @@ public class CatDogYearsCounter implements IRunTask {
 
     public CatDogYearsCounter(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static int[] humanYearsCatYearsDogYears(final int humanYears) {
@@ -45,5 +46,6 @@ public class CatDogYearsCounter implements IRunTask {
             }
         } while (mark == false);
         System.out.println(Arrays.toString(humanYearsCatYearsDogYears(humanYears)));
+
     }
 }

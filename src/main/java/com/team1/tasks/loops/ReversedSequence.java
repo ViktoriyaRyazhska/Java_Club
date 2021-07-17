@@ -10,6 +10,7 @@ public class ReversedSequence implements IRunTask {
     private int n;
     public ReversedSequence(Scanner sc) {
         this.sc = sc;
+
     }
 
     public static int[] reverse(int n) {
@@ -36,5 +37,6 @@ public class ReversedSequence implements IRunTask {
             }
         } while (mark == false);
         System.out.println(Arrays.toString(reverse(n)));
+
     }
 }
