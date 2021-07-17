@@ -3,9 +3,13 @@ import java.util.Scanner;
 public class task61 {
     public static int howOld(final String herOld) {
 
-        String s = herOld.substring(0,1);
-        return Integer.parseInt(s);
+        int girlAge = Integer.parseInt(herOld.substring(0,1));
 
+        if (girlAge > 0 && girlAge <= 2) {
+            throw new IllegalArgumentException("She is too small to talking");
+        }
+
+        return girlAge;
     }
 
     public static void execute(Scanner sc) {
