@@ -1,5 +1,8 @@
 package com.team5.Classes;
 
+import com.team5.Menu.Input;
+import com.team5.Menu.Menu;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,32 +10,45 @@ public class ClassesRealizations {
 
     public static void classesRealization() {
         ClassesTasks classesTasks = new ClassesTasks();
-        Scanner input = new Scanner(System.in);
+        for (;;) {
 
-        int caseNumber = 0;
-        try {
-            caseNumber = input.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("Incorrect value");
-        }        switch (caseNumber) {
-            case 12: {
+            int caseNumber = 0;
+            try {
+                caseNumber = Input.getIntegerInput();
+            } catch (InputMismatchException e) {
+                System.out.println("Incorrect value");
+            }
+            switch (caseNumber) {
+                case 0: {
+                    Menu.mainSwitch();
+                }
+                case 12: {
 
-            } case 13: {
+                }
+                case 13: {
 
-            } case 14: {
-                System.out.println("test");
-            } case 15: {
+                }
+                case 14: {
+                    System.out.println("test");
+                }
+                case 15: {
 
-            } case 16: {
-                classesTasks.task16();
-                break;
-            } case 17: {
-                Block block = new Block();
-                block.getVolume();
-                block.getSurfaceArea();
-                break;
-            } default:
-                System.out.println("Incorrect value!");
+                }
+                case 16: {
+                    classesTasks.task16();
+                    break;
+                }
+                case 17: {
+                    Block block = new Block();
+                    block.getVolume();
+                    block.getSurfaceArea();
+                    break;
+                }
+                default:
+                    System.out.println("Incorrect value!");
+            }
+            Menu.classesMenu();
+
         }
     }
 
