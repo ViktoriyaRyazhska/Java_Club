@@ -6,20 +6,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionsTasks {
-    public List<String> task1(){
+    public List<String> task69(){
         System.out.println("The most incomprehensible task ...... I don't understand what they want from me, but keep the array");
         List<String> items = new ArrayList<>();
         items.add("an object");
         items.add("an object 1");
         items.add("an object 2");
 
-//            for(String a : items){
-//                System.out.println(a);
-//            }
-
         System.out.println(items);
         return items;
     }
+
+    public List task70(){
+        System.out.println("Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!");
+        System.out.println("Enter the number");
+        int number = Input.getIntegerInput();
+
+        List list = new ArrayList<>();
+
+        for(int count = 1; count <= number; count++)
+        {
+            list.add(count);
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     public List task71(){
         System.out.print("Enter array size - ");
 

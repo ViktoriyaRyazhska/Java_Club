@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 
 public class ConditionsTasks {
 
-    public int task1(){
+    public int task18(){
         System.out.println("Enter any number to get the opposite");
         int number = Input.getIntegerInput();
         int result = number - (number * 2);
@@ -14,7 +14,7 @@ public class ConditionsTasks {
         return result;
     }
 
-    public boolean task2(){
+    public boolean task19(){
         System.out.println("Enter the number you want to divide, then enter the two divisors you want to divide by," +
                 " and the program will tell you if it divides");
         long n = Input.getIntegerInput();
@@ -31,7 +31,7 @@ public class ConditionsTasks {
         return result;
     }
 
-    public String task3(){
+    public String task20(){
         System.out.println("Enter true or false and we will return it to you)");
         try {
             boolean b = Input.getBoolInput();
@@ -48,7 +48,7 @@ public class ConditionsTasks {
         return "kaka";
     }
 
-    public String task4() {
+    public String task21() {
         System.out.println("Enter salary, and bonus (true or false), if you choose true, the salary will increase 10 times");
         final int salary = Input.getIntegerInput();
         final boolean bonus = Input.getBoolInput();
@@ -139,7 +139,14 @@ public class ConditionsTasks {
         return "Love-"+ ((f1+f2)%2 != 0);
     }
 
-    public String task12(int number){
+    public String task26(){
+        System.out.println("When provided with a number between 0-9, return it in words.\n" +
+                "\n" +
+                "Input :: 1\n" +
+                "\n" +
+                "Output :: \"One\".");
+        System.out.println("Enter number");
+        int number = Input.getIntegerInput();
         String strNum = "";
         switch (number){
             case 1: {
@@ -190,8 +197,12 @@ public class ConditionsTasks {
         return strNum;
     }
 
-    public String task13(String current) {
-            String next = "";
+    public String task27() {
+        System.out.println("Complete the function that takes a string as an argument representing the current state of " +
+                "the light and returns a string representing the state the light should change to.");
+        System.out.println("Enter a colour");
+        String current = Input.getStrInput();
+        String next = "";
             if(current.equalsIgnoreCase("green")){
                 next = "Yellow";
                 System.out.println("Yellow");
@@ -205,7 +216,9 @@ public class ConditionsTasks {
         return next;
     }
 
-    public int task14(int d){
+    public int task28(){
+        System.out.println("Enter number of days");
+        int d = Input.getIntegerInput();
         int totalCost;
         int costPerDay = 40;
         if(d >= 7 ){

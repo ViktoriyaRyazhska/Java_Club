@@ -1,11 +1,9 @@
 package com.team5.Basic;
 
-import com.team5.Main;
 import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class BasicRealizations {
 
@@ -25,14 +23,13 @@ public class BasicRealizations {
                 case 1: {
                     basicTasks.task1();
                     break;
-                }
-                case 2: {
-
-                }
-                case 3: {
-
-                }
-                case 4: {
+                } case 2:{
+                    basicTasks.task2();
+                    break;
+                } case 3:{
+                    basicTasks.task3();
+                    break;
+                } case 4:{
                     basicTasks.task4();
                     break;
                 }

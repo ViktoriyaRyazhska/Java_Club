@@ -1,6 +1,7 @@
 package com.team5.Collections;
 
 import com.team5.Menu.Input;
+import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 import java.util.InputMismatchException;
 
@@ -16,21 +17,20 @@ public class CollectionsRealizations {
             caseNumber = Input.getIntegerInput();
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
-        }        switch (caseNumber) {
-                case 0: {
-                    Menu.mainSwitch();
-                }
-            case 69: {
-                collectionsTasks.task1();
+        }
+        switch (caseNumber) {
+            case 0: {
+                Menu.mainSwitch();
+            } case 69: {
+                collectionsTasks.task69();
                 break;
             } case 70:{
-
-            }
-            case 71:{
+                collectionsTasks.task70();
+                break;
+            } case 71:{
                 collectionsTasks.task71();
                 break;
-            }
-            case 72:{
+            } case 72:{
 
             } default:
                 System.out.println("Incorrect value!");
@@ -38,6 +38,4 @@ public class CollectionsRealizations {
             Menu.collectionsMenu();
         }
     }
-//    test
 }
-

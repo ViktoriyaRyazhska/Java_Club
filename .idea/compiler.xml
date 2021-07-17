@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Java_Club" />
+        <module name="Team5 - Copy" />
         <module name="Team5" />
       </profile>
     </annotationProcessing>
