@@ -8,7 +8,7 @@ public class Block implements IRunTask {
     public Block(int[] arr) {
         this.arr = arr;
     }
-    private int[]arr;
+    private final int[]arr;
 
     public int getWidth(){
         return arr[0];
