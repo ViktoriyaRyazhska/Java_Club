@@ -1,7 +1,24 @@
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class task68 {
     public static String remove(String s, int n){
+
+        if (s.isEmpty() || n < 0)
+            throw new IllegalArgumentException("This string is empty or amount of exclamation marks to delete is less than zero");
+
+        int amount = (int) s.chars()
+                                .mapToObj(c -> (char) c)
+                                .map(Object::toString)
+                                .filter(c -> c.equals("!"))
+                                .count();
+
+        if (amount == 0) {
+            throw new NoSuchElementException("There is nothing to delete!");
+        } else if (n > amount) {
+            throw new NoSuchElementException("The number of exclamation marks you want to remove exceeds the number of existing ones");
+        }
+
         while (n-- > 0)
             s = s.replaceFirst("!", "");
 
