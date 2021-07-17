@@ -1,8 +1,65 @@
 package com.team5.Menu;
 
+import com.team5.Basic.BasicRealizations;
+import com.team5.Classes.ClassesRealizations;
+import com.team5.Collections.CollectionsRealizations;
+import com.team5.Conditions.ConditionsRealizations;
+import com.team5.Loops.LoopsRealizations;
+import com.team5.OOP.OOPRealizations;
+import com.team5.String.StringRealizations;
+
 import java.util.InputMismatchException;
 
 public class Menu {
+    public static void mainSwitch(){
+        int caseNum;
+        caseNum = Menu.menu();
+
+        switch (caseNum) {
+            case 1: {
+                Menu.basicMenu();
+                BasicRealizations.basicRealization();
+                break;
+            }
+            case 2: {
+                Menu.classesMenu();
+                ClassesRealizations.classesRealization();
+                break;
+            }
+            case 3: {
+                Menu.conditionsMenu();
+                ConditionsRealizations.conditionsRealization();
+                break;
+            }
+            case 4: {
+                Menu.loopsMenu();
+                LoopsRealizations.loopsRealization();
+                break;
+            }
+            case 5: {
+                Menu.oopMenu();
+                OOPRealizations.OOPRealization();
+                break;
+            }
+            case 6: {
+                Menu.stringMenu();
+                StringRealizations.StringRealization();
+                break;
+            }
+            case 7: {
+                Menu.collectionsMenu();
+                CollectionsRealizations.collectionsRealization();
+                break;
+            }
+            case 0: {
+                System.out.println("Good Bye");
+                System.exit(0);
+            }
+            default:
+                System.out.println("Incorrect value!");
+
+        }
+    }
 
 
     public static int menu(){
@@ -44,7 +101,7 @@ public class Menu {
         System.out.println("Task 10");
         System.out.println("Task 11");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void classesMenu(){
@@ -57,7 +114,7 @@ public class Menu {
         System.out.println("Task 16");
         System.out.println("Task 17");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void conditionsMenu(){
@@ -78,7 +135,7 @@ public class Menu {
         System.out.println("Task 30");
         System.out.println("Task 31");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void loopsMenu(){
@@ -100,7 +157,7 @@ public class Menu {
         System.out.println("Task 45");
         System.out.println("Task 46");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void oopMenu(){
@@ -111,7 +168,7 @@ public class Menu {
         System.out.println("Task 49");
         System.out.println("Task 50");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void stringMenu(){
@@ -136,7 +193,7 @@ public class Menu {
         System.out.println("Task 67");
         System.out.println("Task 68");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
     public static void collectionsMenu(){
@@ -147,7 +204,7 @@ public class Menu {
         System.out.println("Task 71");
         System.out.println("Task 72");
         System.out.println("---------------");
-        System.out.println("0. Quit.");
+        System.out.println("0. Return to Main.");
     }
 
 }

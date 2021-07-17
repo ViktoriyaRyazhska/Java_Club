@@ -1,31 +1,42 @@
 package com.team5.Collections;
 
+import com.team5.Menu.Input;
+import com.team5.Menu.Menu;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 public class CollectionsRealizations {
 
     public static void collectionsRealization(){
         CollectionsTasks collectionsTasks = new CollectionsTasks();
-        Scanner input = new Scanner(System.in);
+        for (;;) {
 
         int caseNumber = 0;
         try {
-            caseNumber = input.nextInt();
+            caseNumber = Input.getIntegerInput();
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
         }        switch (caseNumber) {
+                case 0: {
+                    Menu.mainSwitch();
+                }
             case 69: {
                 collectionsTasks.task1();
                 break;
             } case 70:{
 
-            } case 71:{
-
-            } case 72:{
+            }
+            case 71:{
+                collectionsTasks.task71();
+                break;
+            }
+            case 72:{
 
             } default:
                 System.out.println("Incorrect value!");
+            }
+            Menu.collectionsMenu();
         }
     }
 }
+

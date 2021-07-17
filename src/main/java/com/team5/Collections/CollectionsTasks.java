@@ -1,5 +1,7 @@
 package com.team5.Collections;
 
+import com.team5.Menu.Input;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,15 @@ public class CollectionsTasks {
         System.out.println(items);
         return items;
     }
-    public static void task71(int n, List<Integer> listOfNumbers){
+    public List task71(){
+        System.out.print("Enter array size - ");
+
+        int n = Input.getIntegerInput();
+        List<Integer> listOfNumbers = new ArrayList<>();
+        for (int i = 0; i < n ; i++) {
+            System.out.print("Enter array elem - ");
+            listOfNumbers.add(Input.getIntegerInput());
+        }
 
         List<Integer> toRemove = new ArrayList<>();
         for (int i : listOfNumbers) {
@@ -26,5 +36,6 @@ public class CollectionsTasks {
         }
         listOfNumbers.removeAll(toRemove);
         System.out.println(listOfNumbers);
+        return listOfNumbers;
     }
 }

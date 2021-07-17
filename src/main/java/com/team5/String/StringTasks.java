@@ -130,22 +130,39 @@ public class StringTasks {
         System.out.println(s);
         return s;
     }
-    public void task55(String str) {
+    public String task55() {
+        System.out.print("Enter string with dots - ");
+        String str = Input.getStrInput();
         System.out.println(str.replace(".", "-"));
+        return str.replace(".", "-");
     }
-    public void task56 (String name) {
+    public String task56 () {
+        System.out.print("Enter name - ");
+        String name = Input.getStrInput();
         String s = Character.toString(name.charAt(0));
         System.out.println(s.toLowerCase().equals("r") ? name + " plays banjo" : name + " does not play banjo");
+        return s.toLowerCase().equals("r") ? name + " plays banjo" : name + " does not play banjo";
     }
-    public void task57(String x) {
-        System.out.println(x.replace(" ", ""));
+    public String task57() {
+        System.out.print("Enter Sting with spaces - ");
+        String str = Input.getStrInput();
+        System.out.println(str.replace(" ", ""));
+        return str.replace(" ", "");
     }
-    public void task58(String one, String two, String three) {
+    public String task58() {
+        System.out.println("Enter Sting with same num of elem");
+        System.out.print("Enter str1 - ");
+        String one = Input.getStrInput();
+        System.out.print("Enter str2 - ");
+        String two = Input.getStrInput();
+        System.out.print("Enter str3 - ");
+        String three = Input.getStrInput();
         String res="";
         for(int i=0;i<one.length();i++){
             res+=Character.toString(one.charAt(i))+Character.toString(two.charAt(i))+Character.toString(three.charAt(i));
         }
         System.out.println(res);
+        return res;
     }
 
 }
