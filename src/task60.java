@@ -1,11 +1,16 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class task60 {
     public static String fakeBin(String numberString) {
-        return numberString.isEmpty() ? numberString :
-                Arrays.stream(numberString.split(""))
+        if (numberString.isEmpty())
+            throw new IllegalArgumentException("This string is empty. There is nothing to convert!");
+
+
+        return Arrays.stream(numberString.split(""))
+                .filter(Objects::nonNull)
                 .mapToInt(Integer::parseInt)
                 .map(i -> i = i < 5 ? 0 : 1)
                 .mapToObj(Integer::toString)
