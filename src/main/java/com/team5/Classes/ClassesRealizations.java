@@ -34,6 +34,7 @@ public class ClassesRealizations {
             } default:
                 System.out.println("Incorrect value!");
         }
+//        test
     }
 
 }
