@@ -11,13 +11,15 @@ public class Task7 implements Task{
         this.scanner = scanner;
     }
 
-    private static int convertTimeToMilisecond(int hours,int minute,int second){
+    public static int convertTimeToMilisecond(int hours,int minute,int second){
         try {
             if (0 <= hours && hours <= 23 && 0 <= minute && minute <= 60 && 0 <= second && second <= 60) {
                 convertedTime = hours * 3600000 + minute * 60000 + second * 1000;
+
             }else{
                 throw new RuntimeException();
             }
+
         }catch (RuntimeException runtimeException ){
             System.out.println("\tIncorrect data");
         }

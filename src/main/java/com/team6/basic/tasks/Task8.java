@@ -11,7 +11,7 @@ public class Task8 implements Task{
         this.scanner = scanner;
     }
 
-    private static int calculateCentury(int years){
+    public static int calculateCentury(int years){
         int checkingAge = 0;
         int convertedAgeToCentury = 0;
         while (true){

@@ -7,22 +7,12 @@ import org.junit.Test;
 public class Task2Test {
 
     @Test
-    public void testExecute() {
+    public void testMultiplyTrue() {
         Assert.assertEquals(16, Task2.multiply(4, 4));
     }
 
     @Test
-    public void testExecute2(){
-        Assert.assertEquals(1, Task2.multiply(3, 10));
-    }
-
-    @Test
-    public void testExecute3(){
-        Assert.assertEquals(Task2.multiply(4, 25), Task2.multiply(2, 50));
-    }
-
-    @Test
-    public void testExecute4(){
-        Assert.assertFalse(1 == Task2.multiply(0,0));
+    public void testMultiplyFall(){
+        Assert.assertNotEquals(1, Task2.multiply(3, 10));
     }
 }

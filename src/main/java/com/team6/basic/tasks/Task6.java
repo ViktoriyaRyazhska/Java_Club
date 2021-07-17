@@ -10,7 +10,7 @@ public class Task6 implements Task{
         this.scanner = scanner;
     }
 
-    private static String toBinary(int number){return  Integer.toString(number, 2);}
+    public static String toBinary(int number){return  Integer.toString(number, 2);}
 
     @Override
     public void execute() {

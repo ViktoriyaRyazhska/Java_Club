@@ -7,7 +7,12 @@ import org.junit.Test;
 public class Task4Test extends TestCase {
 
     @Test
-    public void testExecute() {
-      //  Assert.assertEquals(true,Task4.isExactNumber(250,10));
+    public void testIsExactNumberExist() {
+       Assert.assertEquals("\tWe know exact number = 25" ,Task4.isExactNumber(250,10));
+    }
+
+    @Test
+    public void testIsExactNumberFall(){
+        Assert.assertNotEquals("\tWe know exact number = 24" ,Task4.isExactNumber(250,10));
     }
 }

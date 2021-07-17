@@ -10,11 +10,11 @@ public class Task5 implements Task{
         this.scanner = scanner;
     }
 
-    private static void greeting(String name){
+    public static String greeting(String name){
         if (name.equals("Johnny")) {
-            System.out.println("\tHello, my love");
+            return "\tHello, my love";
         } else {
-            System.out.println("\tHello, " + name);
+            return "\tHello, " + name;
         }
     }
 

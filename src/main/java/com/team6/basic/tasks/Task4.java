@@ -10,11 +10,11 @@ public class Task4 implements Task {
         this.scanner = scanner;
     }
 
-    public static void isExactNumber(int wallLength,int pixelSize){
+    public static String isExactNumber(int wallLength,int pixelSize){
         if (wallLength % pixelSize == 0) {
-            System.out.println("\tWe know exact number = "+ ( wallLength / pixelSize ) );
+            return "\tWe know exact number = "+ ( wallLength / pixelSize  );
         } else {
-            System.out.println("'\tSorry but exact number is not exist");
+            return "\tSorry but exact number is not exist";
         }
     }
 
@@ -33,7 +33,7 @@ public class Task4 implements Task {
             System.out.println("\t Enter pixel size");
 
             int pixelSize = Integer.parseInt(scanner.nextLine());
-            isExactNumber(wallLength,pixelSize);
+            System.out.println( isExactNumber(wallLength,pixelSize));
 
         } catch (Exception e) {
             System.out.println("\tEnter integer number ");

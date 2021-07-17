@@ -10,7 +10,7 @@ public class Task9 implements Task{
         this.scanner = scanner;
     }
 
-    private static int negativeConverter(int number){
+    public static int negativeConverter(int number){
         return -number;
     }
 
@@ -19,7 +19,7 @@ public class Task9 implements Task{
 
         System.out.println("\t *** Task 9 executed *** ");
 
-        System.out.println("\tAge Converter ");
+        System.out.println("\tNegative converter ");
 
         try {
             System.out.println("\tEnter number");
