@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class task31 {
     public static int rentalCarCost(int d) {
+        if (d <= 0) {
+            throw new IllegalArgumentException();
+        }
         return 7 <= d ? d * 40 - 50 : 3 <= d ? d * 40 - 20 : d * 40;
     }
 
