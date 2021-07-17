@@ -1,14 +1,12 @@
 package com.team5.Menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Menu {
 
 
     public static int menu(){
         int selection = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.println("|Choose group of tasks:|");
         System.out.println("|----------------------|");
@@ -24,7 +22,7 @@ public class Menu {
         System.out.println();
 
         try {
-            selection = input.nextInt();
+            selection = Input.getIntegerInput();
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
         }
@@ -152,15 +150,4 @@ public class Menu {
         System.out.println("0. Quit.");
     }
 
-    public static int getIntegerInput() {
-        Scanner scanner = new Scanner(System.in);
-        int intInput = scanner.nextInt();
-        return intInput;
-    }
-
-    public static String getStringInput() {
-        Scanner scanner = new Scanner(System.in);
-        String strInput = scanner.next();
-        return strInput;
-    }
 }

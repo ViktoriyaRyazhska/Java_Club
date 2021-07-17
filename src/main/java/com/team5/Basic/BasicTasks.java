@@ -6,6 +6,7 @@ import com.team5.Menu.Input;
 public class BasicTasks {
 
     public int task1() {
+        System.out.println(" You need to double the integer and return it.");
         System.out.println("Enter your number");
         int i = Input.getIntegerInput();
         int result = i*2;
@@ -13,14 +14,27 @@ public class BasicTasks {
         return result;
     }
 
-    public int task2(int num1, int num2){
+    public int task2(){
+        System.out.println("Implement a function which multiplies two numbers.");
+        System.out.println("Enter firs number");
+        int num1 = Input.getIntegerInput();
+        System.out.println("Enter second number");
+        int num2 = Input.getIntegerInput();
         int result = num1*num2;
         System.out.println(result);
         return result;
     }
 
-    public double task3(final double length, final double width, final double height){
-        double result = length*width*height;
+    public int task3(){
+        System.out.println("Bob needs a fast way to calculate the volume of a cuboid with three values: length, " +
+                "width and the height of the cuboid. Write a function to help Bob with this calculation.");
+        System.out.println("Enter length");
+        int length = Input.getIntegerInput();
+        System.out.println("Enter width");
+        int width = Input.getIntegerInput();
+        System.out.println("Enter height");
+        int height = Input.getIntegerInput();
+        int result = length*width*height;
         System.out.println(result);
         return result;
     }
