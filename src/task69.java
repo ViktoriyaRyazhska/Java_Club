@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class task69 {
-    public static List<String> push(){
+    public static List<String> push(String str){
         List<String> items = new ArrayList<>();
-        items.add ("an object");
+        items.add(str);
         return items;
     }
     public static void execute(Scanner sc) {
