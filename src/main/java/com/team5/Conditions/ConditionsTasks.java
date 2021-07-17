@@ -63,34 +63,55 @@ public class ConditionsTasks {
         System.out.println("Salary - " + result);
         return result;
     }
-    public void task22(int birth, int yearTo) {
+    public String task22() {
+        System.out.print("Enter birth year - ");
+        int birth = Input.getIntegerInput();
+        System.out.print("Enter year");
+        int yearTo = Input.getIntegerInput();
         if(yearTo>birth){
             if(yearTo-birth==1){
                 System.out.println(("You are 1 year old."));
+                return "You are 1 year old.";
             }else{
                 System.out.println(("You are "+(yearTo-birth)+" years old."));
+                return "You are "+(yearTo-birth)+" years old.";
             }
         }else if(birth>yearTo){
             if(birth-yearTo==1){
                 System.out.println(("You will be born in 1 year."));
+                return "You will be born in 1 year.";
             }else{
                 System.out.println(("You will be born in "+(birth-yearTo)+" years."));
+                return "You will be born in "+(birth-yearTo)+" years.";
             }
         }else{
             System.out.println(("You were born this very year!"));
+            return "You were born this very year!";
         }
     }
-    public void task23(String p1, String p2) {
+    public String task23() {
+        System.out.print("Player 1");
+        String p1=Input.getStrInput();
+        System.out.println("Player 2");
+        String p2=Input.getStrInput();
         if (p1 == p2) {
             System.out.println("Draw!");
+            return "Draw!";
         } else if ((p1 == "rock" && p2 != "paper") || (p1 == "paper" && p2 != "scissors") || (p1 == "scissors" && p2 != "rock")){
             System.out.println("Player 1 won!");
+            return "Player 1 won!";
         } else {
             System.out.println("Player 2 won!");
+            return "Player 2 won!";
         }
     }
-    public void task24(String op, int v1, int v2)
-    {
+    public int task24() {
+        System.out.println("Enter oper-");
+        String op =Input.getStrInput();
+        System.out.println("Enter num1");
+        int v1= Input.getIntegerInput();
+        System.out.println("Enter num2");
+        int v2= Input.getIntegerInput();
         int res = 0;
         switch (op) {
             case "+":
@@ -107,9 +128,15 @@ public class ConditionsTasks {
                 break;
         }
         System.out.println(res);
+        return res;
     }
-    public void task25(int f1, int f2){
+    public String task25(){
+        System.out.print("Enter number of petals 1 - ");
+        int f1 = Input.getIntegerInput();
+        System.out.print("Enter number of petals 2 - ");
+        int f2 = Input.getIntegerInput();
         System.out.println("Love-"+ ((f1+f2)%2 != 0));
+        return "Love-"+ ((f1+f2)%2 != 0);
     }
 
     public String task12(int number){

@@ -1,20 +1,34 @@
 package com.team5.Classes;
 
+import com.team5.Menu.Input;
+
 public class ClassesTasks {
 
-    public void task16(Fighter fighter1, Fighter fighter2, String firstAttacker) {
-        Fighter a=fighter1, b=fighter2;
-        if (firstAttacker.equals(fighter2.name)) {
-            a = fighter2; b = fighter1;
-        }
+    public String task16() {
+        String name1 = Input.getStrInput();
+        System.out.println("Fighter 1 health");
+        int h1 = Input.getIntegerInput();
+        System.out.println("Fighter 1 damage");
+        int d1 = Input.getIntegerInput();
+        System.out.println("Fighter 2 name");
+        String name2 = Input.getStrInput();
+        System.out.println("Fighter 2 health");
+        int h2 = Input.getIntegerInput();
+        System.out.println("Fighter 2 damage");
+        int d2 = Input.getIntegerInput();
+        System.out.println("First attacker name");
+        String fName=Input.getStrInput();
+        Fighter fighter1 = new Fighter(name1, h1, d1);
+        Fighter fighter2 = new Fighter(name2, h2, d2);
+
         for(;;){
-            if ((b.health -= a.damagePerAttack) <= 0) {
-                System.out.println("Winner-" + a.name);
-                break;
+            if ((fighter1.health -= fighter2.damagePerAttack) <= 0) {
+                System.out.println("Winner-" + fighter2.name);
+                return "Winner-" + fighter2.name;
             }
-            if ((a.health -= b.damagePerAttack) <= 0) {
-                System.out.println("Winner-" + b.name);
-                break;
+            if ((fighter2.health -= fighter1.damagePerAttack) <= 0) {
+                System.out.println("Winner-" + fighter1.name);
+                return "Winner-" + fighter1.name;
             }
         }
 

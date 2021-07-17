@@ -28,13 +28,17 @@ public class ConditionsRealizations {
                 conditionsTasks.task4();
                 break;
             } case 22:{
-
+                conditionsTasks.task22();
+                break;
             } case 23:{
-
+                conditionsTasks.task23();
+                break;
             } case 24:{
-
+                conditionsTasks.task24();
+                break;
             } case 25:{
-
+               conditionsTasks.task25();
+               break;
             } case 26:{
 
             } case 27:{

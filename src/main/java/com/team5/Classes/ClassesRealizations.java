@@ -24,7 +24,8 @@ public class ClassesRealizations {
             } case 15: {
 
             } case 16: {
-
+                classesTasks.task16();
+                break;
             } case 17: {
                 Block block = new Block();
                 block.getVolume();

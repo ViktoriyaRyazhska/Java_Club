@@ -24,19 +24,33 @@ public class BasicTasks {
         System.out.println(result);
         return result;
     }
-    public void task4(int a, int b){
+    public boolean task4(){
+        System.out.println("Enter size of the wall in millimeters");
+        int a = Input.getIntegerInput();
+        System.out.println("Enter size of a pixel in millimeters");
+        int b = Input.getIntegerInput();
         System.out.println(a%b==0);
+        return a%b==0;
 
     }
-    public void task5 (String name) {
+    public String task5 () {
+        System.out.println("Enter your name");
+        String name = Input.getStrInput();
+
         if(name.equals("Johnny")){
             System.out.println("Hello, my love!");
+            return "Hello, my love!";
         }else{
             System.out.println(String.format("Hello, %s!", name));
+            return String.format("Hello, %s!", name);
         }
+
     }
-    public void task6(int a) {
+    public int task6() {
+        System.out.println("Enter number");
+        int a = Input.getIntegerInput();
         System.out.println(Integer.parseInt(Integer.toBinaryString(a)));
+        return Integer.parseInt(Integer.toBinaryString(a));
 
     }
     public int task7(){

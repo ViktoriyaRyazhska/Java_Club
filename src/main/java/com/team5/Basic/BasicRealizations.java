@@ -28,11 +28,14 @@ public class BasicRealizations {
                 } case 3:{
 
                 } case 4:{
-
+                    basicTasks.task4();
+                    break;
                 } case 5:{
-
+                    basicTasks.task5();
+                    break;
                 } case 6:{
-
+                    basicTasks.task6();
+                    break;
                 } case 7:{
                     basicTasks.task7();
                     break;
