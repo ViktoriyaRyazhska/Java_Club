@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class task67 {
     public static String toAlternativeString(String string) {
+
+        if (string.isEmpty()) {
+          throw new IllegalArgumentException("You put empty string. Nothing to transform!");
+        }
+
         StringBuilder s = new StringBuilder();
         string.chars()
                 .forEach( i -> {
