@@ -16,20 +16,21 @@ public class CollectionsRealizations {
             caseNumber = Input.getIntegerInput();
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
-        }
-        switch (caseNumber) {
-            case 0: {
-                Menu.mainSwitch();
-            } case 69: {
-                collectionsTasks.task69();
+        }        switch (caseNumber) {
+                case 0: {
+                    Menu.mainSwitch();
+                }
+            case 69: {
+                collectionsTasks.task1();
                 break;
             } case 70:{
-                collectionsTasks.task70IO();
+
+            }
+            case 71:{
+                collectionsTasks.task71();
                 break;
-            } case 71:{
-                collectionsTasks.task71IO();
-                break;
-            } case 72:{
+            }
+            case 72:{
 
             } default:
                 System.out.println("Incorrect value!");
@@ -38,3 +39,4 @@ public class CollectionsRealizations {
         }
     }
 }
+

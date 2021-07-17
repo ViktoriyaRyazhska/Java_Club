@@ -98,14 +98,8 @@ public class LoopsTasks {
         for (int i = 1; i <= n; i++){
             result += i;
         }
-
+        System.out.println(result);
         return result;
-    }
-
-    public void task44IO(){
-        System.out.println("That is the program that finds the summation of every number from 1 to number that you will write");
-        int n = Input.getIntegerInput();
-        System.out.println(task44(n));
     }
 
     //i need help

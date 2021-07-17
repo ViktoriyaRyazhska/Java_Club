@@ -4,6 +4,7 @@ import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ClassesRealizations {
 
@@ -23,17 +24,18 @@ public class ClassesRealizations {
                 }
                 case 12: {
 
-                } case 13: {
+                }
+                case 13: {
 
-                } case 14: {
-                    Fraction fraction = new Fraction(15, 56);
-                    fraction.add(fraction);
-                    break;
-                } case 15: {
+                }
+                case 14: {
+                    System.out.println("test");
+                }
+                case 15: {
 
                 }
                 case 16: {
-                    classesTasks.task16IO();
+                    classesTasks.task16();
                     break;
                 }
                 case 17: {
@@ -46,6 +48,7 @@ public class ClassesRealizations {
                     System.out.println("Incorrect value!");
             }
             Menu.classesMenu();
+
         }
 //        test
     }

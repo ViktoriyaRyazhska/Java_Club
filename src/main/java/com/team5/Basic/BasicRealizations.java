@@ -6,7 +6,6 @@ import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class BasicRealizations {
 
@@ -55,11 +54,14 @@ public class BasicRealizations {
                 case 9: {
                     basicTasks.task9IO();
                     break;
-                } case 10:{
+                }
+                case 10: {
 
-                } case 11:{
+                }
+                case 11: {
 
-                } default:
+                }
+                default:
                     System.out.println("Incorrect value!");
             }
             Menu.basicMenu();
