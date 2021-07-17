@@ -2,6 +2,65 @@ package com.team5.String;
 
 public class StringTasks {
 
+    public int task9(String alphabet){
+        char e = alphabet.charAt(0);
+        int ascii = e;
+        System.out.println(ascii);
+        return ascii;
+    }
+
+    public String task10(String num){
+        String[] c = num.split("");
+        if(num.isEmpty()){
+            System.exit(0);
+        }
+        for (int i = 0; i < c.length; i++) {
+            try {
+
+                if (Integer.parseInt(c[i]) < 5) {
+                    c[i] = String.valueOf(0);
+                } else if (Integer.parseInt(c[i]) >= 5) {
+                    c[i] = String.valueOf(1);
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Incorrect value");
+            }
+        }
+        String result = String.join("", c);
+        System.out.println(result);
+        return result;
+    }
+
+    public int task11(String years){
+        String[] strings = years.split(" ");
+        int year = Integer.parseInt(strings[0]);
+        System.out.println(year);
+        return year;
+    }
+
+    public static void task12(int temp) {
+        int c =  convert(temp);
+        if (c > 0)
+            System.out.println(c + " is freezing temperature");
+        else
+            System.out.println(c +  " is freezing temperature");
+    }
+
+    // До таску 12
+    public static int convert(double temperature) {
+        int celsius = (int) ((temperature - 32.0) * (5.0/9.0));
+        return celsius;
+    }
+
+    public static String task13(String name) {
+        String[] arr = name.split(" ");
+        String[] nameArr = arr[0].split("");
+        String[] surnameArr = arr[1].split("");
+        String initials = String.join(".",  nameArr[0],surnameArr[0]);
+        System.out.println(initials.toUpperCase());
+        return initials.toUpperCase();
+    }
+
     public int task14(String str, char letter) {
 
         int temp = 0;

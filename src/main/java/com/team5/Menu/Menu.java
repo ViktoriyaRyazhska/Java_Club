@@ -151,4 +151,16 @@ public class Menu {
         System.out.println("---------------");
         System.out.println("0. Quit.");
     }
+
+    public static int getIntegerInput() {
+        Scanner scanner = new Scanner(System.in);
+        int intInput = scanner.nextInt();
+        return intInput;
+    }
+
+    public static String getStringInput() {
+        Scanner scanner = new Scanner(System.in);
+        String strInput = scanner.next();
+        return strInput;
+    }
 }

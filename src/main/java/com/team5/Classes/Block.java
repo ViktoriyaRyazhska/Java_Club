@@ -8,11 +8,15 @@ public class Block {
     private int length;
 
     public int getVolume(){
-        return width * height * length;
+        int volume = width * height * length;
+        System.out.println(volume);
+        return volume;
     }
 
     public int getSurfaceArea(){
-        return 2 * (width * height + height * length + width * length);
+        int sa = 2 * (width * height + height * length + width * length);
+        System.out.println(sa);
+        return sa;
     }
 
     public int getWidth() {

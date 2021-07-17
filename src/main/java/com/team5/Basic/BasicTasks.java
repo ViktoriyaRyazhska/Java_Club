@@ -1,9 +1,26 @@
 package com.team5.Basic;
 
+import com.team5.Menu.Input;
+
+
 public class BasicTasks {
 
-    public int task1(int i) {
-        int result = i*i;
+    public int task1() {
+        System.out.println("Enter your number");
+        int i = Input.getIntegerInput();
+        int result = i*2;
+        System.out.println(result);
+        return result;
+    }
+
+    public int task2(int num1, int num2){
+        int result = num1*num2;
+        System.out.println(result);
+        return result;
+    }
+
+    public double task3(final double length, final double width, final double height){
+        double result = length*width*height;
         System.out.println(result);
         return result;
     }
@@ -36,16 +53,17 @@ public class BasicTasks {
         }else{
             result = (number / 100) + 1;
         }
-
+        System.out.println(result);
         return result;
     }
 
-    public int task9(final int x){
+    public int task9(int x){
         int result = x;
 
         if(result > 0){
             result = x - (x * 2);
         }
+        System.out.println(result);
 
         return result;
     }

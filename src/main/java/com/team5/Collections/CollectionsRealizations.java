@@ -1,8 +1,6 @@
 package com.team5.Collections;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class CollectionsRealizations {
@@ -21,21 +19,9 @@ public class CollectionsRealizations {
 
             } case 70:{
 
-            }
-            case 71:{
-                System.out.print("Enter array size - ");
+            } case 71:{
 
-                int n = input.nextInt();
-                List<Integer> listOfNumbers = new ArrayList<>();
-                for (int i = 0; i < n ; i++) {
-                    System.out.print("Enter array elem - ");
-                    listOfNumbers.add(input.nextInt());
-                }
-                collectionsTasks.task71(n,listOfNumbers);
-                break;
-
-            }
-            case 72:{
+            } case 72:{
 
             } default:
                 System.out.println("Incorrect value!");

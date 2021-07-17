@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionsTasks {
-    public static List<String> task1(){
+    public List<String> task1(String str){
         List<String> items = new ArrayList<>();
         items.add("an object");
+        items.add(str);
+            for(String a : items){
+                System.out.println(a);
+            }
         return items;
     }
     public static void task71(int n, List<Integer> listOfNumbers){

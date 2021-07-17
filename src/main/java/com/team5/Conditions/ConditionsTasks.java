@@ -85,4 +85,81 @@ public class ConditionsTasks {
         System.out.println("Love-"+ ((f1+f2)%2 != 0));
     }
 
+    public String task12(int number){
+        String strNum = "";
+        switch (number){
+            case 1: {
+                strNum = "One";
+                System.out.println("One");
+                break;
+            } case 2: {
+                strNum = "Two";
+                System.out.println("Two");
+                break;
+            } case 3: {
+                strNum = "Three";
+                System.out.println("Three");
+                break;
+            } case 4: {
+                strNum = "Four";
+                System.out.println("Four");
+                break;
+            } case 5: {
+                strNum = "Five";
+                System.out.println("Five");
+                break;
+            } case 6: {
+                strNum = "Six";
+                System.out.println("Six");
+                break;
+            } case 7: {
+                strNum = "Seven";
+                System.out.println("Seven");
+                break;
+            } case 8: {
+                strNum = "Eight";
+                System.out.println("Eight");
+                break;
+            } case 9: {
+                strNum = "Nine";
+                System.out.println("Nine");
+                break;
+            } case 0: {
+                strNum = "Zero";
+                System.out.println("Zero");
+                break;
+            }
+            default:{
+                System.out.println("Incorrect value");
+            }
+        }
+        return strNum;
+    }
+
+    public String task13(String current) {
+            String next = "";
+            if(current.equalsIgnoreCase("green")){
+                next = "Yellow";
+                System.out.println("Yellow");
+            }else if(current.equalsIgnoreCase("yellow")){
+                next = "Red";
+                System.out.println("Red");
+            }else if (current.equalsIgnoreCase("red")){
+                next = "Green";
+                System.out.println("Green");
+            }else System.out.println("Incorrect value");
+        return next;
+    }
+
+    public int task14(int d){
+        int totalCost;
+        int costPerDay = 40;
+        if(d >= 7 ){
+            totalCost = (costPerDay*d) - 50;
+        } else if(d >= 3){
+            totalCost = (costPerDay*d) - 20;
+        }else totalCost = costPerDay*d;
+        return totalCost;
+    }
+
 }

@@ -15,13 +15,16 @@ public class OOPRealizations {
         }catch (InputMismatchException e){
             System.out.println("Incorrect value");
         }        switch (caseNumber) {
-            case 47: {
+            case 1: {
 
-            } case 48:{
+            } case 2:{
 
-            } case 49:{
-
-            } case 50:{
+            } case 3:{
+                System.out.println("Enter your string for encoding");
+                String str = input.nextLine();
+                oopTasks.task3(str);
+                break;
+            } case 4:{
 
             } default:
                 System.out.println("Incorrect value!");
