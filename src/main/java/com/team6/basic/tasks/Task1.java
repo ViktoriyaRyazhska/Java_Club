@@ -9,7 +9,7 @@ public class Task1 implements Task {
         this.scanner = scanner;
     }
 
-    private static int doubleInteger(int i) {
+    public static int doubleInteger(int i) {
         return i * 2;
     }
 

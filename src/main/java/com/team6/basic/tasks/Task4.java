@@ -10,7 +10,7 @@ public class Task4 implements Task {
         this.scanner = scanner;
     }
 
-    private static void isExactNumber(int wallLength,int pixelSize){
+    public static void isExactNumber(int wallLength,int pixelSize){
         if (wallLength % pixelSize == 0) {
             System.out.println("\tWe know exact number = "+ ( wallLength / pixelSize ) );
         } else {
@@ -19,7 +19,7 @@ public class Task4 implements Task {
     }
 
     @Override
-    public void execute() {
+    public  void execute() {
         System.out.println("\t *** Task 4 executed *** ");
 
         System.out.println("\tisDivisible ");

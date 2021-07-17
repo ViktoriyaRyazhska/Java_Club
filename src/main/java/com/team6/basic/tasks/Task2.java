@@ -11,7 +11,7 @@ public class Task2 implements Task {
         this.scanner = scanner;
     }
 
-    private static int multiply(int a, int b) {
+    public static int multiply(int a, int b) {
         return IntStream.iterate(a, x -> x).limit(b).sum();
     }
 

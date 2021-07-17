@@ -11,7 +11,7 @@ public class Task3 implements Task {
         this.scanner = scanner;
     }
 
-    private static int cuboidVolume(int a, int b, int c) {
+    public static int cuboidVolume(int a, int b, int c) {
         return a * b * c;
     }
 
