@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class task71 {
     public static List<Integer> filterOddNumber(List<Integer> listOfNumbers)
     {
+        if (listOfNumbers.isEmpty())
+            throw new NoSuchElementException("This program can't filter empty list");
+
         return listOfNumbers.stream()
                 .filter(i -> i % 2 != 0)
                 .collect(Collectors.toList());
