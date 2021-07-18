@@ -1,6 +1,6 @@
 package com.team6.classes;
 
-public class Task6 {
+class Task6 {
     private final int width;
     private final int length;
     private final int height;

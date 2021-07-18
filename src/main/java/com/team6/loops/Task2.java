@@ -1,7 +1,7 @@
 package com.team6.loops;
 
 class Task2 {
-    private static int[] humanYearsCatYearsDogYears(final int humanYears) {
+    public static int[] ConvertHumanAgeToDogAndCat(final int humanYears) {
         int dogAge = 0;
         int catAge = 0;
         for (int i = 1; i <= humanYears; i++){

@@ -24,7 +24,7 @@ public class Task10 implements Task{
             max = (int) (age + (0.10 *age));
         }
         else if (age >14) {
-            min = (int)(age/2) +7;
+            min = (age/2) +7;
             max = (age -7)*2;
         }
         System.out.println(min + "-" + max);
