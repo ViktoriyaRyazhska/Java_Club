@@ -24,4 +24,5 @@ public class task10 {
         String result = datingRange(n);
         System.out.println("Your partner age should be from/till " + result);
     }
+
 }

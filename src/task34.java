@@ -15,6 +15,7 @@ public class task34 {
         return sum/marks.length;
     }
 
+
     public static void execute(Scanner sc) {
         System.out.println("This method helps you to calculate average mark in a class");
         System.out.println("Enter the number of marks: ");
@@ -27,4 +28,6 @@ public class task34 {
         int average = getAverage(array);
         System.out.println("Average mark is " + average);
     }
+
+
 }

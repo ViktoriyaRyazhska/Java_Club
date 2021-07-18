@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class task30 {
     public static String updateLight(String current) {
 
-        switch (current) {
+        switch (current.toLowerCase()) {
             case "green":
                 return "yellow";
             case "yellow":
@@ -11,8 +11,9 @@ public class task30 {
             case "red":
                 return "green";
         }
-        throw new RuntimeException();
+        throw new RuntimeException("You put bad string");
     }
+
 
     public static void execute(Scanner sc) {
         System.out.println("This method changes color on traffic lights");

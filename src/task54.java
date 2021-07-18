@@ -11,6 +11,7 @@ public class task54 {
         }
     }
 
+
     public static void execute(Scanner sc) {
         System.out.println("This method reads number and returns opposite.");
         System.out.println("Enter your number: ");

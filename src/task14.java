@@ -30,6 +30,7 @@ class Fraction implements Comparable<Fraction> {
         long gcd = valueOf(numerator).gcd(valueOf(denominator)).longValue();
         top = numerator / gcd;
         bottom = denominator / gcd;
+        
     }
 
     @Override
@@ -55,3 +56,4 @@ class Fraction implements Comparable<Fraction> {
         return top + "/" + bottom;
     }
 }
+

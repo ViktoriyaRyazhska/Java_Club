@@ -7,6 +7,7 @@ public class task19 {
         }else {
             return false;
         }
+
     }
     public static void execute(Scanner sc) {
         System.out.println("This program checks for division ");

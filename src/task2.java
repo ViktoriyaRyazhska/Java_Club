@@ -12,4 +12,5 @@ public class task2 {
         int result = task2.multiply(first, second);
         System.out.println("Here your result: " + result);
     }
+
 }

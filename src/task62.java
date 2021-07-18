@@ -9,6 +9,7 @@ public class task62 {
             return (c + " is above freezing temperature");
     }
 
+
     public static double convertToCelsius(double temperature) {
         double celsius = (temperature - 32) + 5/9.0;
         return temperature;
