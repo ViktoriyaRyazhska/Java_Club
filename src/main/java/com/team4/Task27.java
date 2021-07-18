@@ -8,5 +8,11 @@ public class Task27 {
     return ans;
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your max number, people in bus and waiting people ");
+    int n45 = MyMain.scanner.nextInt();
+    int n46 = MyMain.scanner.nextInt();
+    int n47 = MyMain.scanner.nextInt();
+    System.out.println(Task27.enough(n45, n46, n47));
+  }
 }

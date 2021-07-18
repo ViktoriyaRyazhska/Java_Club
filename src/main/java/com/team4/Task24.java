@@ -11,5 +11,11 @@ public class Task24{
     return 0;
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input +, -, / or *, and two numbers ");
+    String n39 = MyMain.scanner.nextLine();
+    int n40 = MyMain.scanner.nextInt();
+    int n41 = MyMain.scanner.nextInt();
+    System.out.println(Task24.basicMath(n39, n40, n41));
+  }
 }

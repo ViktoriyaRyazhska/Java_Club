@@ -6,5 +6,9 @@ public class Task28 {
     return nums[(n-1)%8];
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your number ");
+    int n48 = MyMain.scanner.nextInt();
+    System.out.println(Task28.sequence(n48));
+  }
 }

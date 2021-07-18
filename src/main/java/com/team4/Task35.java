@@ -6,5 +6,14 @@ public class Task35 {
       return Arrays.stream(arr).map(x -> x*2).toArray();
   }
 
-    public static void execute(){ }
+    public static void execute(){
+        System.out.println("Input how many numbers ");
+        int num = MyMain.scanner.nextInt();
+        System.out.println("Input your numbers ");
+        int[] n56 = new int[num];
+        for(int i = 0; i < num; i++){
+            n56[i] = MyMain.scanner.nextInt();
+        }
+        System.out.println(Arrays.toString(Task35.map(n56)));
+    }
 }

@@ -7,5 +7,11 @@ public class Task19 {
 		return true;
 	}
 
-	public static void execute(){ }
+	public static void execute(){
+		System.out.println("Input three numbers ");
+		long n29 = MyMain.scanner.nextLong();
+		long n30 = MyMain.scanner.nextLong();
+		long n31 = MyMain.scanner.nextLong();
+		System.out.println(Task19.isDivisible(n29, n30, n31));
+	}
 }

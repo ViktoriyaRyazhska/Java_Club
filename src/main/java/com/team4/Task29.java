@@ -39,5 +39,9 @@ public class Task29
     return " ";
   }
 
-    public static void execute(){ }
+    public static void execute(){
+        System.out.println("Input your number ");
+        int n49 = MyMain.scanner.nextInt();
+        System.out.println(Task29.switchItUp(n49));
+    }
 }

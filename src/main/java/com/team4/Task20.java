@@ -9,5 +9,9 @@ public class Task20 {
     }
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your boolean(true or false) ");
+    boolean n32 = MyMain.scanner.nextBoolean();
+    System.out.println(Task20.convert(n32));
+  }
 }

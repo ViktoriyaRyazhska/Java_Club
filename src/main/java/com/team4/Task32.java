@@ -10,5 +10,10 @@ public class Task32 {
         return ans;
     }
 
-    public static void execute(){ }
+    public static void execute(){
+        System.out.println("Input repeat of your word(int) and your word");
+        int n52 = MyMain.scanner.nextInt();
+        String n53 = MyMain.scanner.nextLine();
+        System.out.println(Task32.repeatStr(n52, n53));
+    }
 }

@@ -10,5 +10,9 @@ class Task26
       return "No";
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your boolean(true or false) ");
+    boolean n44 = MyMain.scanner.nextBoolean();
+    System.out.println(Task26.boolToWord(n44));
+  }
 }

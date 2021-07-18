@@ -7,5 +7,9 @@ public class Task18
             return number * -1;
         }
 
-        public static void execute(){ }
+        public static void execute(){
+            System.out.println("Input your number ");
+            int n28 = MyMain.scanner.nextInt();
+            System.out.println(Task18.opposite(n28));
+        }
     }

@@ -10,5 +10,9 @@ public class Task31 {
       return d*40;
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your rentalCarCost ");
+    int n51 = MyMain.scanner.nextInt();
+    System.out.println(Task31.rentalCarCost(n51));
+  }
 }

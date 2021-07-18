@@ -12,7 +12,21 @@ public class Task16 {
     }
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input the name, health and damagePerAttack of first Fighter : ");
+    String name1 = MyMain.scanner.nextLine();
+    int health1 = MyMain.scanner.nextInt();
+    int damage1 = MyMain.scanner.nextInt();
+    System.out.println("Input the name, health and damagePerAttack of second Fighter : ");
+    String name2 = MyMain.scanner.nextLine();
+    int health2 = MyMain.scanner.nextInt();
+    int damage2 = MyMain.scanner.nextInt();
+    Fighter fighter1 = new Fighter(name1, health1, damage1);
+    Fighter fighter2 = new Fighter(name2, health2, damage2);
+    System.out.println("Input who will be firstAttacker : ");
+    String name3 = MyMain.scanner.nextLine();
+    System.out.println(Task16.declareWinner(fighter1, fighter2, name3));
+  }
 }
 
 class Fighter {

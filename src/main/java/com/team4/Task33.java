@@ -1,5 +1,8 @@
 //Task 33 (Cat years, Dog years)
 package com.team4;
+
+import java.util.Arrays;
+
 public class Task33 {
 
   public static int[] humanYearsCatYearsDogYears(final int humanYears) {
@@ -11,5 +14,9 @@ public class Task33 {
       return new int[]{humanYears,(humanYears-2)*4+24,(humanYears-2)*5+24};
   }
 
-  public static void execute(){ }
+  public static void execute(){
+    System.out.println("Input your humanYear ");
+    int n54 = MyMain.scanner.nextInt();
+    System.out.println(Arrays.toString(Task33.humanYearsCatYearsDogYears(n54)));
+  }
 }
