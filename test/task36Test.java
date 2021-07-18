@@ -6,13 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class task36Test {
 
     @Test
-    void countSheeps() {
-        Boolean[] array1 = {true,  true,  true,  false,
-                true,  true,  true,  true ,
-                true,  false, true,  false,
-                true,  false, false, true ,
-                true,  true,  true,  true ,
-                false, false, true,  true };
+    void testCountSheeps() {
+
+        int expected = 5;
+
+        int actual = new task36().countSheeps(new Boolean[] {true, true, false, true, false, false, true, true, false});
+
+        assertEquals(expected, actual);
 
     }
 
