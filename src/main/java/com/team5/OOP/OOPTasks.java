@@ -4,10 +4,7 @@ import com.team5.Menu.Input;
 
 public class OOPTasks {
 
-    public String task49(){
-        System.out.println("Enter your string for encoding");
-        String source = Input.getStrInput();
-
+    public String  task49(String source){
         String[] charArr = source.split("");
         for(int i = 0; i < charArr.length; i++){
             if(charArr[i] == null){
@@ -28,7 +25,12 @@ public class OOPTasks {
             }
         }
         String str = String.join("", charArr);
-        System.out.println(str);
         return str;
+    }
+
+    public void task49IO(){
+        System.out.println("Enter your string for encoding");
+        String source = Input.getStrInput();
+        System.out.println(task49(source));
     }
 }

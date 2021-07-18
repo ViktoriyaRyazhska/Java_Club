@@ -17,11 +17,7 @@ public class CollectionsTasks {
         return items;
     }
 
-    public List task70(){
-        System.out.println("Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!");
-        System.out.println("Enter the number");
-        int number = Input.getIntegerInput();
-
+    public List task70(int number){
         List list = new ArrayList<>();
 
         for(int count = 1; count <= number; count++)
@@ -29,8 +25,15 @@ public class CollectionsTasks {
             list.add(count);
         }
 
-        System.out.println(list);
         return list;
+    }
+
+    public void task70IO(){
+        System.out.println("Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!");
+        System.out.println("Enter the number");
+        int number = Input.getIntegerInput();
+
+        System.out.println(task70(number));
     }
 
     public List task71(){

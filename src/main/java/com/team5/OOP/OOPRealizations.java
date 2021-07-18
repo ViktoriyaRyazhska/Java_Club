@@ -29,13 +29,13 @@ public class OOPRealizations {
             } case 48:{
 
             } case 49:{
-                oopTasks.task49();
+                oopTasks.task49IO();
                 break;
             } case 50:{
 
-                }
-                default:
-                    System.out.println("Incorrect value!");
+            }
+            default:
+                System.out.println("Incorrect value!");
             }
             Menu.oopMenu();
         }

@@ -21,13 +21,13 @@ public class BasicRealizations {
                     Menu.mainSwitch();
                 }
                 case 1: {
-                    basicTasks.task1();
+                    basicTasks.task1IO();
                     break;
                 } case 2:{
-                    basicTasks.task2();
+                    basicTasks.task2IO();
                     break;
                 } case 3:{
-                    basicTasks.task3();
+                    basicTasks.task3IO();
                     break;
                 } case 4:{
                     basicTasks.task4();

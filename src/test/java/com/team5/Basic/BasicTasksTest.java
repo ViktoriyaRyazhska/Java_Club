@@ -1,6 +1,5 @@
 package com.team5.Basic;
 
-import com.team5.Menu.Input;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,9 @@ class BasicTasksTest {
 
     @Test
     void task1() {
-
+        int actual = basicTask.task1(2);
+        assertEquals(4,-2);
+        assertEquals(4,actual);
     }
 
     @Test
