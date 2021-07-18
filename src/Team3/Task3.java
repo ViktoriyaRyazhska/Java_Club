@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Task3  {
 
-    public static int  getVolumeOfCuboid(int length, int width, int height) {
+    public static double  getVolumeOfCuboid(double length, double width, double height) {
         return  length*width*height;
     }
 
@@ -13,11 +13,11 @@ public class Task3  {
         System.out.println("This program calculates volume of the cuboid using length, width, height");
         Scanner i = new Scanner(System.in);
         System.out.println("Enter length :");
-        int first = i.nextInt();
+        double first = i.nextDouble();
         System.out.println("Enter width :");
-        int second = i.nextInt();
+        double second = i.nextDouble();
         System.out.println("Enter height :");
-        int third = i.nextInt();
+        double third = i.nextDouble();
         double multiple = getVolumeOfCuboid(first,second,third);
 
         System.out.println("volume of the cuboid: "+ multiple );

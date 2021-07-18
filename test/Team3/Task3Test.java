@@ -10,8 +10,9 @@ public class Task3Test {
     @Test
     public void getVolumeOfCuboid() {
 
-        int actual = Task3.getVolumeOfCuboid(2,2,2);
-        int expected = 8;
-        assertEquals(expected,actual);
+        double actual = Task3.getVolumeOfCuboid(2,2,2);
+        double expected = 8;
+        double delta = 0.0001;
+        assertEquals(expected,actual,delta);
     }
 }
