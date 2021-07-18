@@ -46,7 +46,7 @@ public class Instruction {
         System.out.println(" 40.  ");
         System.out.println(" 41.  ");
         System.out.println(" 42. This program Сalculate how many years ago the father was twice as old as his son");
-        System.out.println(" 43. This program  finds the nearest square number, nearest_sq(n), of a positive integer n ");
+        System.out.println(" 43. This program  finds the nearest square number of a positive integer n ");
         System.out.println(" 44.  ");
         System.out.println(" 45.  ");
         System.out.println(" 46.  ");
