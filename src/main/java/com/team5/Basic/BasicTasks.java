@@ -8,6 +8,7 @@ public class BasicTasks {
     public int task1(int i) {
         return i*2;
     }
+
     public void task1IO(){
         System.out.println(" You need to double the integer and return it.");
         System.out.println("Enter your number");
@@ -31,6 +32,7 @@ public class BasicTasks {
     public int task3(int length, int width, int height){
         return length*width*height;
     }
+
     public void task3IO(){
         System.out.println("Bob needs a fast way to calculate the volume of a cuboid with three values: length, " +
                 "width and the height of the cuboid. Write a function to help Bob with this calculation.");
@@ -42,6 +44,8 @@ public class BasicTasks {
         int height = Input.getIntegerInput();
         System.out.println(task3(length,width,height));
     }
+
+    public boolean task4(){
 
     public boolean task4(int a,int b){
         return a%b==0;
@@ -81,41 +85,52 @@ public class BasicTasks {
 
 
     }
-    public int task7(){
+
+    public int task7(int h, int m, int s){
+        return (h * 360000) + (m * 60000) + (s * 1000);
+    }
+
+    public void task7IO(){
         System.out.println("Enter the hours, minutes, and seconds to convert them to milliseconds");
         int h = Input.getIntegerInput();
         int m = Input.getIntegerInput();
         int s = Input.getIntegerInput();
-        int result = (h * 360000) + (m * 60000) + (s * 1000);
-        System.out.println(result);
-        return result;
+        System.out.println(task7(h, m, s));
     }
 
-    public int task8(){
-        System.out.println("Enter any year to find out what century it is");
+    public int task8(int number){
+
         int result;
-        int number = Input.getIntegerInput();
 
         if(number % 100 == 0){
             result = number / 100;
         }else{
             result = (number / 100) + 1;
         }
-        System.out.println(result);
+
         return result;
     }
 
-    public int task9(){
-        System.out.println("Enter any number and you will get the same but negative");
-        int x = Input.getIntegerInput();
+    public void task8IO(){
+        System.out.println("Enter any year to find out what century it is");
+        int number = Input.getIntegerInput();
+        System.out.println(task8(number));
+    }
+
+    public int task9(int x){
+
         int result = x;
 
         if(result > 0){
             result = x - (x * 2);
         }
-        System.out.println(result);
 
         return result;
     }
 
+    public void task9IO(){
+        System.out.println("Enter any number and you will get the same but negative");
+        int x = Input.getIntegerInput();
+        System.out.println(task9(x));
+    }
 }

@@ -52,13 +52,13 @@ public class LoopsRealizations {
                 loopsTasks.task43IO();
                 break;
             } case 44:{
-                loopsTasks.task44();
+                loopsTasks.task44IO();
                 break;
             } case 45:{
                 loopsTasks.task45();
                 break;
             } case 46:{
-                loopsTasks.task46();
+                loopsTasks.task46IO();
                 break;
                 }
                 default:

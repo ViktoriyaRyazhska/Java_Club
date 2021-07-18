@@ -1,9 +1,12 @@
 package com.team5.Basic;
 
+
+
 import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class BasicRealizations {
 
@@ -42,24 +45,21 @@ public class BasicRealizations {
                     break;
                 }
                 case 7: {
-                    basicTasks.task7();
+                    basicTasks.task7IO();
                     break;
                 }
                 case 8: {
-                    basicTasks.task8();
+                    basicTasks.task8IO();
                     break;
                 }
                 case 9: {
-                    basicTasks.task9();
+                    basicTasks.task9IO();
                     break;
-                }
-                case 10: {
+                } case 10:{
 
-                }
-                case 11: {
+                } case 11:{
 
-                }
-                default:
+                } default:
                     System.out.println("Incorrect value!");
             }
             Menu.basicMenu();

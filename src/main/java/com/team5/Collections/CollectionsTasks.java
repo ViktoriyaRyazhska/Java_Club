@@ -16,7 +16,6 @@ public class CollectionsTasks {
         System.out.println(items);
         return items;
     }
-
     public List task70(int number){
         List list = new ArrayList<>();
 
@@ -35,7 +34,6 @@ public class CollectionsTasks {
 
         System.out.println(task70(number));
     }
-
     public List task71(int n, List<Integer> listOfNumbers){
         List<Integer> toRemove = new ArrayList<>();
         for (int i : listOfNumbers) {

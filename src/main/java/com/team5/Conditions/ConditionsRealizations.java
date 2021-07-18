@@ -22,16 +22,16 @@ public class ConditionsRealizations {
                 Menu.mainSwitch();
             }
             case 18: {
-                conditionsTasks.task18();
+                conditionsTasks.task18IO();
                 break;
             } case 19:{
-                conditionsTasks.task19();
+                conditionsTasks.task19IO();
                 break;
             } case 20:{
-                conditionsTasks.task20();
+                conditionsTasks.task20IO();
                 break;
             } case 21:{
-                conditionsTasks.task21();
+                conditionsTasks.task21IO();
                 break;
             } case 22:{
                 conditionsTasks.task22IO();
