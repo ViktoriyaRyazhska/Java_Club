@@ -119,6 +119,45 @@ public class MyMain {
             case 36:
                 Task36.execute();
                 break;
+            case 42:
+                Task42.execute();
+                break;
+            case 45:
+                Task45.execute();
+                break;
+            case 46:
+                Task46.execute();
+                break;
+            case 48:
+                Task48.execute();
+                break;
+            case 49:
+                Task49.execute();
+                break;
+            case 50:
+                Task50.execute();
+                break;
+            case 51:
+                Task51.execute();
+                break;
+            case 52:
+                Task52.execute();
+                break;
+            case 55:
+                Task55.execute();
+                break;
+            case 57:
+                Task57.execute();
+                break;
+            case 60:
+                Task60.execute();
+                break;
+            case 61:
+                Task61.execute();
+                break;
+            case 62:
+                Task62.execute();
+                break;
             default:
                 System.out.println("There is no such number (((");
         }
@@ -162,6 +201,19 @@ public class MyMain {
         System.out.println("Task 34 (Get the mean of an array)");
         System.out.println("Task 35 (Beginner - Lost Without a Map)");
         System.out.println("Task 36 (Counting sheep...)");
+        System.out.println("Task 42 (Twice as old)");
+        System.out.println("Task 45 (21-sticks)");
+        System.out.println("Task 46 (Reversed Strings)");
+        System.out.println("Task 48 (opposite number)");
+        System.out.println("Task 49 (replace all Dots)");
+        System.out.println("Task 50 (are you playing banjo)");
+        System.out.println("Task 51 (remove string spaces)");
+        System.out.println("Task 52 (remove string spaces)");
+        System.out.println("Task 55 (parse nice int from char problem)");
+        System.out.println("Task 57 (abbreviate-a-two-word-name)");
+        System.out.println("Task 60 (sort and star)");
+        System.out.println("Task 61 (correct the mistakes of the character recognition ssoftware)");
+        System.out.println("Task 62 (alternative case)");
         System.out.print("\n\n\n");
     }
 }
