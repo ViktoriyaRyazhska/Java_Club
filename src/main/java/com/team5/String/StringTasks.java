@@ -4,9 +4,8 @@ import com.team5.Menu.Input;
 
 public class StringTasks {
 
-    public int task59(char e){
-        int ascii = e;
-        return ascii;
+    public String task59(char alphabet){
+        return "Position of alphabet: " + ((int) alphabet - 96);
     }
     public void task59IO(){
         System.out.println("When provided with a letter, return its position in the alphabet.");
