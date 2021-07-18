@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class task4 {
 
     public static boolean isDivisible(int wallLength, int pixelSize) {
+        if (wallLength == 0)
+            throw new IllegalArgumentException();
+
         return wallLength % pixelSize == 0;
     }
 
