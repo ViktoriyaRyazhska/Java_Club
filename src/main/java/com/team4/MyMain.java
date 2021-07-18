@@ -1,250 +1,165 @@
 package com.team4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MyMain {
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         instruction();
         System.out.print("Input your number of task : ");
-        Scanner scanner = new Scanner(System.in);
+
         int question = scanner.nextInt();
         switch (question){
             case 1:
-                System.out.println("Input your number ");
-                scanner = new Scanner(System.in);
-                int n = scanner.nextInt();
-                System.out.println(Task1.doubleInteger(n));
+                Task1.execute();
+                break;
             case 2:
-                System.out.println("Input two numbers :");
-                scanner = new Scanner(System.in);
-                int n1 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n2 = scanner.nextInt();
-                System.out.println(Task2.multiply(n1, n2));
+                Task2.execute();
+                break;
             case 3:
-                System.out.println("Input length, width and height :");
-                scanner = new Scanner(System.in);
-                double n3 = scanner.nextDouble();
-                scanner = new Scanner(System.in);
-                double n4 = scanner.nextDouble();
-                scanner = new Scanner(System.in);
-                double n5 = scanner.nextDouble();
-                System.out.println(Task3.getVolumeOfCuboid(n3, n4, n5));
+                Task3.execute();
+                break;
             case 4:
-                System.out.println("Input wallLength and pixelSize :");
-                scanner = new Scanner(System.in);
-                int n6 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n7 = scanner.nextInt();
-                System.out.println(Task4.isDivisible(n6, n7));
+                Task4.execute();
+                break;
             case 5:
-                System.out.println("Input your name :");
-                scanner = new Scanner(System.in);
-                String n8 = scanner.nextLine();
-                System.out.println(Task5.greet(n8));
+                Task5.execute();
+                break;
             case 6:
-                System.out.println("Input your number ");
-                scanner = new Scanner(System.in);
-                int n9 = scanner.nextInt();
-                System.out.println(Task6.toBinary(n9));
+                Task6.execute();
+                break;
             case 7:
-                System.out.println("Input three numbers :");
-                scanner = new Scanner(System.in);
-                int n10 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n11 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n12 = scanner.nextInt();
-                System.out.println(Task3.getVolumeOfCuboid(n10, n11, n12));
+                Task7.execute();
+                break;
             case 8:
-                System.out.println("Input your Year ");
-                scanner = new Scanner(System.in);
-                int n13 = scanner.nextInt();
-                System.out.println(Task8.century(n13));
+                Task8.execute();
+                break;
             case 9:
-                System.out.println("Input your number ");
-                scanner = new Scanner(System.in);
-                int n14 = scanner.nextInt();
-                System.out.println(Task9.makeNegative(n14));
+                Task9.execute();
+                break;
             case 10:
-                System.out.println("Input your age ");
-                scanner = new Scanner(System.in);
-                int n15 = scanner.nextInt();
-                System.out.println(Task10.datingRange(n15));
+                Task10.execute();
+                break;
             case 11:
-                System.out.println("Input your temperature ");
-                scanner = new Scanner(System.in);
-                double n16 = scanner.nextDouble();
-                System.out.println(Task11.weatherInfo(n16));
+                Task11.execute();
+                break;
             case 12:
-                System.out.println("Input your number, stringValue and Object :");
-                scanner = new Scanner(System.in);
-                int n17 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                String n18 = scanner.nextLine();
-                scanner = new Scanner(System.in);
-                Object n19 = scanner.next();
-                System.out.println(new Task12(n17, n18, n19));
+                Task12.execute();
+                break;
             case 13:
-                System.out.println("Input your number ");
-                scanner = new Scanner(System.in);
-                int n20 = scanner.nextInt();
-                System.out.println(Task13.INST.plus100(n20));
+                Task13.execute();
+                break;
             case 14:
-                System.out.println("Input your numerator and denominator ");
-                scanner = new Scanner(System.in);
-                long n21 = scanner.nextLong();
-                scanner = new Scanner(System.in);
-                long n22 = scanner.nextLong();
-                Task14 f1 = new Task14(n21, n22);
-                System.out.println("Do it again! ");
-                scanner = new Scanner(System.in);
-                long n23 = scanner.nextLong();
-                scanner = new Scanner(System.in);
-                long n24 = scanner.nextLong();
-                Task14 f2 = new Task14(n23, n24);
-                Task14 f3 = f1.add(f2);
-                System.out.println(f3.toString());
-                System.out.println("Input your object ");
-                scanner = new Scanner(System.in);
-                Object n25 = scanner.next();
-                System.out.println(f3.equals(n25));
+                Task14.execute();
+                break;
             case 15:
-                System.out.println("Input your width and height ");
-                scanner = new Scanner(System.in);
-                int n26 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n27 = scanner.nextInt();
-                Task15 q1 = new Task15(n26, n27);
-                System.out.println("Input x1, x2 and y1, y2 ");
-                scanner = new Scanner(System.in);
-                int x1 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int x2 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int y1 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int y2 = scanner.nextInt();
-                System.out.println(q1.draw(x1, y1, x2, y2));
-                System.out.println("input x, y and char");
-                scanner = new Scanner(System.in);
-                int x = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int y = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                char ch = scanner.next().charAt(0);
-                System.out.println(q1.fill(x, y, ch));
-                System.out.println(q1.drawCanvas());
+                Task15.execute();
+                break;
             case 16:
-                System.out.println("Input the name, health and damagePerAttack of first Fighter : ");
-                scanner = new Scanner(System.in);
-                String name1 = scanner.nextLine();
-                scanner = new Scanner(System.in);
-                int health1 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int damage1 = scanner.nextInt();
-                System.out.println("Input the name, health and damagePerAttack of second Fighter : ");
-                scanner = new Scanner(System.in);
-                String name2 = scanner.nextLine();
-                scanner = new Scanner(System.in);
-                int health2 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int damage2 = scanner.nextInt();
-                Fighter fighter1 = new Fighter(name1, health1, damage1);
-                Fighter fighter2 = new Fighter(name2, health2, damage2);
-                System.out.println("Input who will be firstAttacker : ");
-                scanner = new Scanner(System.in);
-                String name3 = scanner.nextLine();
-                System.out.println(Task16.declareWinner(fighter1, fighter2, name3));
+                Task16.execute();
+                break;
             case 17:
-                System.out.println("input your width, length and height ");
-                int[] params = new int[3];
-                scanner = new Scanner(System.in);
-                params[0] = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                params[1] = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                params[2] = scanner.nextInt();
-                Task17 task17 = new Task17(params);
-                System.out.println("There are your parameters (w, l, h, Volume and SurfaceArea) : ");
-                System.out.println(task17.getWidth());
-                System.out.println(task17.getLength());
-                System.out.println(task17.getHeight());
-                System.out.println(task17.getVolume());
-                System.out.println(task17.getSurfaceArea());
+                Task17.execute();
+                break;
             case 18:
-                System.out.println("Input your number ");
-                scanner = new Scanner(System.in);
-                int n28 = scanner.nextInt();
-                System.out.println(Task18.opposite(n28));
+                Task18.execute();
+                break;
             case 19:
-                System.out.println("Input three numbers ");
-                scanner = new Scanner(System.in);
-                long n29 = scanner.nextLong();
-                scanner = new Scanner(System.in);
-                long n30 = scanner.nextLong();
-                scanner = new Scanner(System.in);
-                long n31 = scanner.nextLong();
-                System.out.println(Task19.isDivisible(n29, n30, n31));
+                Task19.execute();
+                break;
             case 20:
-                System.out.println("Input your boolean(true or false) ");
-                scanner = new Scanner(System.in);
-                boolean n32 = scanner.nextBoolean();
-                System.out.println(Task20.convert(n32));
+                Task20.execute();
+                break;
             case 21:
-                System.out.println("Input your salary and boolean bonus (true or false) ");
-                scanner = new Scanner(System.in);
-                int n33 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                boolean n34 = scanner.nextBoolean();
-                System.out.println(Task21.bonusTime(n33, n34));
+                Task21.execute();
+                break;
             case 22:
-                System.out.println("Input your birth and yearTo ");
-                scanner = new Scanner(System.in);
-                int n35 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n36 = scanner.nextInt();
-                System.out.println(Task22.CalculateAge(n35, n36));
+                Task22.execute();
+                break;
             case 23:
-                System.out.println("Player 1 input rock, paper or scissors ");
-                scanner = new Scanner(System.in);
-                String n37 = scanner.nextLine();
-                System.out.println("Player 2 input rock, paper or scissors ");
-                scanner = new Scanner(System.in);
-                String n38 = scanner.nextLine();
-                System.out.println(Task23.rps(n37, n38));
+                Task23.execute();
+                break;
             case 24:
-                System.out.println("Input +, -, / or *, and two numbers ");
-                scanner = new Scanner(System.in);
-                String n39 = scanner.nextLine();
-                scanner = new Scanner(System.in);
-                int n40 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n41 = scanner.nextInt();
-                System.out.println(Task24.basicMath(n39, n40, n41));
+                Task24.execute();
+                break;
             case 25:
-                System.out.println("Input flower 1 and flower 2 ");
-                scanner = new Scanner(System.in);
-                int n42 = scanner.nextInt();
-                scanner = new Scanner(System.in);
-                int n43 = scanner.nextInt();
-                System.out.println(Task25.isLove(n42, n43));
+                Task25.execute();
+                break;
             case 26:
+                Task26.execute();
+                break;
             case 27:
+                Task27.execute();
+                break;
             case 28:
+                Task28.execute();
+                break;
             case 29:
+                Task29.execute();
+                break;
             case 30:
+                Task30.execute();
+                break;
             case 31:
+                Task31.execute();
+                break;
             case 32:
+                Task32.execute();
+                break;
             case 33:
+                Task33.execute();
+                break;
             case 34:
+                Task34.execute();
+                break;
             case 35:
+                Task35.execute();
+                break;
             case 36:
-
-
-
-
-
+                Task36.execute();
+                break;
+            case 42:
+                Task42.execute();
+                break;
+            case 45:
+                Task45.execute();
+                break;
+            case 46:
+                Task46.execute();
+                break;
+            case 48:
+                Task48.execute();
+                break;
+            case 49:
+                Task49.execute();
+                break;
+            case 50:
+                Task50.execute();
+                break;
+            case 51:
+                Task51.execute();
+                break;
+            case 52:
+                Task52.execute();
+                break;
+            case 55:
+                Task55.execute();
+                break;
+            case 57:
+                Task57.execute();
+                break;
+            case 60:
+                Task60.execute();
+                break;
+            case 61:
+                Task61.execute();
+                break;
+            case 62:
+                Task62.execute();
+                break;
+            default:
+                System.out.println("There is no such number (((");
         }
     }
 
@@ -275,6 +190,30 @@ public class MyMain {
         System.out.println("Task 23 (Rock Paper Scissors!)");
         System.out.println("Task 24 (Basic Mathematical Operations)");
         System.out.println("Task 25 (Opposites Attract)");
+        System.out.println("Task 26 (Convert boolean values to strings 'Yes' or 'No'.)");
+        System.out.println("Task 27 (Will there be enough space?)");
+        System.out.println("Task 28 (The Modulo-3 Sequence)");
+        System.out.println("Task 29 (Switch it Up!)");
+        System.out.println("Task 30 (Thinkful - Logic Drills: Traffic light)");
+        System.out.println("Task 31 (Transportation on vacation)");
+        System.out.println("Task 32 (String repeat)");
+        System.out.println("Task 33 (Cat years, Dog years)");
+        System.out.println("Task 34 (Get the mean of an array)");
+        System.out.println("Task 35 (Beginner - Lost Without a Map)");
+        System.out.println("Task 36 (Counting sheep...)");
+        System.out.println("Task 42 (Twice as old)");
+        System.out.println("Task 45 (21-sticks)");
+        System.out.println("Task 46 (Reversed Strings)");
+        System.out.println("Task 48 (opposite number)");
+        System.out.println("Task 49 (replace all Dots)");
+        System.out.println("Task 50 (are you playing banjo)");
+        System.out.println("Task 51 (remove string spaces)");
+        System.out.println("Task 52 (remove string spaces)");
+        System.out.println("Task 55 (parse nice int from char problem)");
+        System.out.println("Task 57 (abbreviate-a-two-word-name)");
+        System.out.println("Task 60 (sort and star)");
+        System.out.println("Task 61 (correct the mistakes of the character recognition ssoftware)");
+        System.out.println("Task 62 (alternative case)");
         System.out.print("\n\n\n");
     }
 }

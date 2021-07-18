@@ -35,4 +35,19 @@ public class Task17{
   public int getSurfaceArea() {
     return surface_area;
   }
+
+  public static void execute(){
+    System.out.println("input your width, length and height ");
+    int[] params = new int[3];
+    params[0] = MyMain.scanner.nextInt();
+    params[1] = MyMain.scanner.nextInt();
+    params[2] = MyMain.scanner.nextInt();
+    Task17 task17 = new Task17(params);
+    System.out.println("There are your parameters (w, l, h, Volume and SurfaceArea) : ");
+    System.out.println(task17.getWidth());
+    System.out.println(task17.getLength());
+    System.out.println(task17.getHeight());
+    System.out.println(task17.getVolume());
+    System.out.println(task17.getSurfaceArea());
+  }
 }

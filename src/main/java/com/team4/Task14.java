@@ -25,4 +25,20 @@ class Task14 {
   public boolean equals(Object o) {
     return top * ((Task14) o).bottom == ((Task14) o).top * bottom;
   }
+
+  public static void execute(){
+    System.out.println("Input your numerator and denominator ");
+    long n21 = MyMain.scanner.nextLong();
+    long n22 = MyMain.scanner.nextLong();
+    Task14 f1 = new Task14(n21, n22);
+    System.out.println("Do it again! ");
+    long n23 = MyMain.scanner.nextLong();
+    long n24 = MyMain.scanner.nextLong();
+    Task14 f2 = new Task14(n23, n24);
+    Task14 f3 = f1.add(f2);
+    System.out.println(f3.toString());
+    System.out.println("Input your object ");
+    Object n25 = MyMain.scanner.next();
+    System.out.println(f3.equals(n25));
+  }
 }

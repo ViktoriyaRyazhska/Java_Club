@@ -1,6 +1,9 @@
 //Task 33 (Cat years, Dog years)
+package com.team4;
 
-public class Dinglemouse {
+import java.util.Arrays;
+
+public class Task33 {
 
   public static int[] humanYearsCatYearsDogYears(final int humanYears) {
     if(humanYears == 1)
@@ -11,4 +14,9 @@ public class Dinglemouse {
       return new int[]{humanYears,(humanYears-2)*4+24,(humanYears-2)*5+24};
   }
 
+  public static void execute(){
+    System.out.println("Input your humanYear ");
+    int n54 = MyMain.scanner.nextInt();
+    System.out.println(Arrays.toString(Task33.humanYearsCatYearsDogYears(n54)));
+  }
 }

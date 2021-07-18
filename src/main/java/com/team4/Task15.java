@@ -105,4 +105,23 @@ class Task15 {
 
         return res.toString();
     }
+
+    public static void execute(){
+        System.out.println("Input your width and height ");
+        int n26 = MyMain.scanner.nextInt();
+        int n27 = MyMain.scanner.nextInt();
+        Task15 q1 = new Task15(n26, n27);
+        System.out.println("Input x1, x2 and y1, y2 ");
+        int x1 = MyMain.scanner.nextInt();
+        int x2 = MyMain.scanner.nextInt();
+        int y1 = MyMain.scanner.nextInt();
+        int y2 = MyMain.scanner.nextInt();
+        System.out.println(q1.draw(x1, y1, x2, y2));
+        System.out.println("input x, y and char");
+        int x = MyMain.scanner.nextInt();
+        int y = MyMain.scanner.nextInt();
+        char ch = MyMain.scanner.next().charAt(0);
+        System.out.println(q1.fill(x, y, ch));
+        System.out.println(q1.drawCanvas());
+    }
 }

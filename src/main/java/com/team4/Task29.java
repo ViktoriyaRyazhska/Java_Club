@@ -1,6 +1,6 @@
 //Task 29 (Switch it Up!)
-
-public class Kata
+package com.team4;
+public class Task29
 {
   public static String switchItUp(int number)
   {
@@ -38,4 +38,10 @@ public class Kata
     }
     return " ";
   }
+
+    public static void execute(){
+        System.out.println("Input your number ");
+        int n49 = MyMain.scanner.nextInt();
+        System.out.println(Task29.switchItUp(n49));
+    }
 }

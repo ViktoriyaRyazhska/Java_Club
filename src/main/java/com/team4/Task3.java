@@ -7,4 +7,11 @@ public class Task3 {
     return length*width*height;
   }
 
+  public static void execute(){
+    System.out.println("Input length, width and height :");
+    double n3 = MyMain.scanner.nextDouble();
+    double n4 = MyMain.scanner.nextDouble();
+    double n5 = MyMain.scanner.nextDouble();
+    System.out.println(Task3.getVolumeOfCuboid(n3, n4, n5));
+  }
 }

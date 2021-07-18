@@ -11,4 +11,12 @@ public class Task23 {
       return "Player 2 won!";
 
   }
+
+  public static void execute(){
+    System.out.println("Player 1 input rock, paper or scissors ");
+    String n37 = MyMain.scanner.nextLine();
+    System.out.println("Player 2 input rock, paper or scissors ");
+    String n38 = MyMain.scanner.nextLine();
+    System.out.println(Task23.rps(n37, n38));
+  }
 }

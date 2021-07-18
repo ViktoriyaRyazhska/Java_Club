@@ -8,4 +8,10 @@ public class Task25 {
     return false;
   }
 
+  public static void execute(){
+    System.out.println("Input flower 1 and flower 2 ");
+    int n42 = MyMain.scanner.nextInt();
+    int n43 = MyMain.scanner.nextInt();
+    System.out.println(Task25.isLove(n42, n43));
+  }
 }

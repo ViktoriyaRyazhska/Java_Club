@@ -13,4 +13,11 @@ public class Task22 {
     else
       return "You were born this very year!";
   }
+
+  public static void execute(){
+    System.out.println("Input your birth and yearTo ");
+    int n35 = MyMain.scanner.nextInt();
+    int n36 = MyMain.scanner.nextInt();
+    System.out.println(Task22.CalculateAge(n35, n36));
+  }
 }

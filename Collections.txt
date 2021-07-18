@@ -1,6 +1,0 @@
-https://www.codewars.com/kata/push-a-hash-slash-an-object-into-array/
-https://www.codewars.com/kata/unfinished-loop-bug-fixing-number-1/
-https://www.codewars.com/kata/filtering-even-numbers-bug-fixes/
-https://www.codewars.com/kata/interactive-dictionary/
-
-4 Tasks
