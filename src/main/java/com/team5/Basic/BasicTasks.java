@@ -8,6 +8,7 @@ public class BasicTasks {
     public int task1(int i) {
         return i*2;
     }
+
     public void task1IO(){
         System.out.println(" You need to double the integer and return it.");
         System.out.println("Enter your number");
@@ -31,6 +32,7 @@ public class BasicTasks {
     public int task3(int length, int width, int height){
         return length*width*height;
     }
+
     public void task3IO(){
         System.out.println("Bob needs a fast way to calculate the volume of a cuboid with three values: length, " +
                 "width and the height of the cuboid. Write a function to help Bob with this calculation.");
