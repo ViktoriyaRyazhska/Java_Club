@@ -162,26 +162,38 @@ public class StringTasks {
         System.out.println(s);
         return s;
     }
-    public String task55() {
-        System.out.print("Enter string with dots - ");
-        String str = Input.getStrInput();
-        System.out.println(str.replace(".", "-"));
+    public String task55(String str) {
         return str.replace(".", "-");
     }
-    public String task56 () {
-        System.out.print("Enter name - ");
-        String name = Input.getStrInput();
+    public void task55IO() {
+        System.out.print("Enter string with dots - ");
+        String str = Input.getStrInput();
+        System.out.println(task55(str));
+    }
+    public String task56 (String name) {
         String s = Character.toString(name.charAt(0));
-        System.out.println(s.toLowerCase().equals("r") ? name + " plays banjo" : name + " does not play banjo");
         return s.toLowerCase().equals("r") ? name + " plays banjo" : name + " does not play banjo";
     }
-    public String task57() {
-        System.out.print("Enter Sting with spaces - ");
-        String str = Input.getStrInput();
-        System.out.println(str.replace(" ", ""));
+    public void task56IO () {
+        System.out.print("Enter name - ");
+        String name = Input.getStrInput();
+        System.out.println(task56(name));
+    }
+    public String task57(String str) {
         return str.replace(" ", "");
     }
-    public String task58() {
+    public void task57IO() {
+        System.out.print("Enter Sting with spaces - ");
+        String str = Input.getStrInput();
+        System.out.println(task57(str));
+    }
+    public String task58(String one,String two, String three,String res) {
+        for(int i=0;i<one.length();i++){
+            res+=Character.toString(one.charAt(i))+Character.toString(two.charAt(i))+Character.toString(three.charAt(i));
+        }
+        return res;
+    }
+    public void task58IO() {
         System.out.println("Enter Sting with same num of elem");
         System.out.print("Enter str1 - ");
         String one = Input.getStrInput();
@@ -189,12 +201,8 @@ public class StringTasks {
         String two = Input.getStrInput();
         System.out.print("Enter str3 - ");
         String three = Input.getStrInput();
-        String res="";
-        for(int i=0;i<one.length();i++){
-            res+=Character.toString(one.charAt(i))+Character.toString(two.charAt(i))+Character.toString(three.charAt(i));
-        }
-        System.out.println(res);
-        return res;
+        String res = "";
+        System.out.println(task58(one,two,three,res));
     }
 
 }

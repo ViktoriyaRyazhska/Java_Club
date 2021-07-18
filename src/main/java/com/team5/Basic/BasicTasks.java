@@ -43,33 +43,42 @@ public class BasicTasks {
         System.out.println(task3(length,width,height));
     }
 
-    public boolean task4(){
+    public boolean task4(int a,int b){
+        return a%b==0;
+    }
+    public void task4IO(){
         System.out.println("Enter size of the wall in millimeters");
         int a = Input.getIntegerInput();
         System.out.println("Enter size of a pixel in millimeters");
         int b = Input.getIntegerInput();
         System.out.println(a%b==0);
-        return a%b==0;
+        System.out.println(task4(a,b));
 
     }
-    public String task5 () {
-        System.out.println("Enter your name");
-        String name = Input.getStrInput();
 
+    public String task5 (String name) {
         if(name.equals("Johnny")){
-            System.out.println("Hello, my love!");
             return "Hello, my love!";
         }else{
-            System.out.println(String.format("Hello, %s!", name));
             return String.format("Hello, %s!", name);
         }
 
     }
-    public int task6() {
+    public void task5IO () {
+        System.out.println("Enter your name");
+        String name = Input.getStrInput();
+        System.out.println(task5(name));
+        }
+
+
+        public int task6(int a) {
+        return Integer.parseInt(Integer.toBinaryString(a));
+    }
+    public void task6IO() {
         System.out.println("Enter number");
         int a = Input.getIntegerInput();
-        System.out.println(Integer.parseInt(Integer.toBinaryString(a)));
-        return Integer.parseInt(Integer.toBinaryString(a));
+        System.out.println(task6(a));
+
 
     }
     public int task7(){

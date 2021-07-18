@@ -1,5 +1,6 @@
 package com.team5.Basic;
 
+import com.team5.Menu.Input;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

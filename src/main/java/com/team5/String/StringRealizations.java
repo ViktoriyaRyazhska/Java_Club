@@ -33,19 +33,19 @@ public class StringRealizations {
 
                 }
                 case 55: {
-                    stringTasks.task55();
+                    stringTasks.task55IO();
                     break;
                 }
                 case 56: {
-                    stringTasks.task56();
+                    stringTasks.task56IO();
                     break;
                 }
                 case 57: {
-                    stringTasks.task57();
+                    stringTasks.task57IO();
                     break;
                 }
                 case 58: {
-                    stringTasks.task58();
+                    stringTasks.task58IO();
                     break;
                 }
                 case 59: {

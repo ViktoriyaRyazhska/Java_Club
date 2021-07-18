@@ -34,16 +34,16 @@ public class ConditionsRealizations {
                 conditionsTasks.task21();
                 break;
             } case 22:{
-                conditionsTasks.task22();
+                conditionsTasks.task22IO();
                 break;
             } case 23:{
-                conditionsTasks.task23();
+                conditionsTasks.task23IO();
                 break;
             } case 24:{
-                conditionsTasks.task24();
+                conditionsTasks.task24IO();
                 break;
             } case 25:{
-               conditionsTasks.task25();
+               conditionsTasks.task25IO();
                break;
             } case 26:{
                 conditionsTasks.task26IO();

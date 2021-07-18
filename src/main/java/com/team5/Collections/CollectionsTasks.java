@@ -36,16 +36,7 @@ public class CollectionsTasks {
         System.out.println(task70(number));
     }
 
-    public List task71(){
-        System.out.print("Enter array size - ");
-
-        int n = Input.getIntegerInput();
-        List<Integer> listOfNumbers = new ArrayList<>();
-        for (int i = 0; i < n ; i++) {
-            System.out.print("Enter array elem - ");
-            listOfNumbers.add(Input.getIntegerInput());
-        }
-
+    public List task71(int n, List<Integer> listOfNumbers){
         List<Integer> toRemove = new ArrayList<>();
         for (int i : listOfNumbers) {
             if (i % 2 == 0) { toRemove.add(i); }
@@ -53,5 +44,15 @@ public class CollectionsTasks {
         listOfNumbers.removeAll(toRemove);
         System.out.println(listOfNumbers);
         return listOfNumbers;
+    }
+    public void task71IO() {
+        System.out.print("Enter array size - ");
+        int n = Input.getIntegerInput();
+        List<Integer> listOfNumbers = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter array elem - ");
+            listOfNumbers.add(Input.getIntegerInput());
+        }
+        System.out.println(task71(n,listOfNumbers));
     }
 }

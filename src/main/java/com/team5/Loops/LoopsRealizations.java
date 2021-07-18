@@ -40,16 +40,16 @@ public class LoopsRealizations {
             } case 39:{
 
             } case 40:{
-                loopsTasks.task40();
+                loopsTasks.task40IO();
                 break;
             } case 41:{
-                loopsTasks.task41();
+                loopsTasks.task41IO();
                 break;
             } case 42:{
-                loopsTasks.task42();
+                loopsTasks.task42IO();
                 break;
             } case 43:{
-                loopsTasks.task43();
+                loopsTasks.task43IO();
                 break;
             } case 44:{
                 loopsTasks.task44();

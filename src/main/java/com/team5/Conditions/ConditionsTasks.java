@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 
 public class ConditionsTasks {
 
-    public int task18(){
+    public int task18() {
         System.out.println("Enter any number to get the opposite");
         int number = Input.getIntegerInput();
         int result = number - (number * 2);
@@ -14,7 +14,7 @@ public class ConditionsTasks {
         return result;
     }
 
-    public boolean task19(){
+    public boolean task19() {
         System.out.println("Enter the number you want to divide, then enter the two divisors you want to divide by," +
                 " and the program will tell you if it divides");
         long n = Input.getIntegerInput();
@@ -23,7 +23,7 @@ public class ConditionsTasks {
 
         boolean result = false;
 
-        if (n % x == 0 && n % y == 0){
+        if (n % x == 0 && n % y == 0) {
             result = true;
         }
 
@@ -31,7 +31,7 @@ public class ConditionsTasks {
         return result;
     }
 
-    public String task20(){
+    public String task20() {
         System.out.println("Enter true or false and we will return it to you)");
         try {
             boolean b = Input.getBoolInput();
@@ -42,7 +42,7 @@ public class ConditionsTasks {
                 System.out.println("false");
                 return "false";
             }
-        }catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Incorrect value");
         }
         return "kaka";
@@ -55,64 +55,57 @@ public class ConditionsTasks {
         String result = "£";
         int temp;
 
-        if (bonus){
+        if (bonus) {
             temp = salary * 10;
-        }else temp = salary;
+        } else temp = salary;
 
         result = result + temp;
         System.out.println("Salary - " + result);
         return result;
     }
-    public String task22() {
+
+    public String task22(int birth,int yearTo) {
+        if (yearTo > birth) {
+            if (yearTo - birth == 1) {
+                return "You are 1 year old.";
+            } else {
+                return "You are " + (yearTo - birth) + " years old.";
+            }
+        } else if (birth > yearTo) {
+            if (birth - yearTo == 1) {
+                return "You will be born in 1 year.";
+            } else {
+                return "You will be born in " + (birth - yearTo) + " years.";
+            }
+        } else {
+            return "You were born this very year!";
+        }
+    }
+    public void task22IO() {
         System.out.print("Enter birth year - ");
         int birth = Input.getIntegerInput();
         System.out.print("Enter year");
         int yearTo = Input.getIntegerInput();
-        if(yearTo>birth){
-            if(yearTo-birth==1){
-                System.out.println(("You are 1 year old."));
-                return "You are 1 year old.";
-            }else{
-                System.out.println(("You are "+(yearTo-birth)+" years old."));
-                return "You are "+(yearTo-birth)+" years old.";
-            }
-        }else if(birth>yearTo){
-            if(birth-yearTo==1){
-                System.out.println(("You will be born in 1 year."));
-                return "You will be born in 1 year.";
-            }else{
-                System.out.println(("You will be born in "+(birth-yearTo)+" years."));
-                return "You will be born in "+(birth-yearTo)+" years.";
-            }
-        }else{
-            System.out.println(("You were born this very year!"));
-            return "You were born this very year!";
+        System.out.println(task22(birth,yearTo));
+    }
+
+    public String task23(String p1,String p2) {
+        if (p1 == p2) {
+            return "Draw!";
+        } else if ((p1 == "rock" && p2 != "paper") || (p1 == "paper" && p2 != "scissors") || (p1 == "scissors" && p2 != "rock")){
+            return "Player 1 won!";
+        } else {
+            return "Player 2 won!";
         }
     }
-    public String task23() {
+    public void task23IO() {
         System.out.print("Player 1");
         String p1=Input.getStrInput();
         System.out.println("Player 2");
         String p2=Input.getStrInput();
-        if (p1 == p2) {
-            System.out.println("Draw!");
-            return "Draw!";
-        } else if ((p1 == "rock" && p2 != "paper") || (p1 == "paper" && p2 != "scissors") || (p1 == "scissors" && p2 != "rock")){
-            System.out.println("Player 1 won!");
-            return "Player 1 won!";
-        } else {
-            System.out.println("Player 2 won!");
-            return "Player 2 won!";
-        }
+        System.out.println(task23(p1,p2));
     }
-    public int task24() {
-        System.out.println("Enter oper-");
-        String op =Input.getStrInput();
-        System.out.println("Enter num1");
-        int v1= Input.getIntegerInput();
-        System.out.println("Enter num2");
-        int v2= Input.getIntegerInput();
-        int res = 0;
+    public int task24(String op, int v1, int v2, int res) {
         switch (op) {
             case "+":
                 res = v1 + v2;
@@ -127,16 +120,27 @@ public class ConditionsTasks {
                 res = v1 / v2;
                 break;
         }
-        System.out.println(res);
         return res;
     }
-    public String task25(){
+    public void task24IO() {
+        System.out.println("Enter oper-");
+        String op =Input.getStrInput();
+        System.out.println("Enter num1");
+        int v1= Input.getIntegerInput();
+        System.out.println("Enter num2");
+        int v2= Input.getIntegerInput();
+        int res = 0;
+        System.out.println(task24(op,v1,v2,res));
+    }
+    public String task25(int f1, int f2){
+        return "Love-"+ ((f1+f2)%2 != 0);
+    }
+    public void task25IO() {
         System.out.print("Enter number of petals 1 - ");
         int f1 = Input.getIntegerInput();
         System.out.print("Enter number of petals 2 - ");
         int f2 = Input.getIntegerInput();
-        System.out.println("Love-"+ ((f1+f2)%2 != 0));
-        return "Love-"+ ((f1+f2)%2 != 0);
+        System.out.println(task25(f1,f2));
     }
 
     public String task26(int number){

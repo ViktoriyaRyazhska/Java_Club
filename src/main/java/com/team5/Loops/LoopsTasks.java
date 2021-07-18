@@ -125,11 +125,7 @@ public class LoopsTasks {
         System.out.println(result);
         return result;
     }
-    public String task40(){
-        System.out.print("Enter num of arr - ");
-        int n = Input.getIntegerInput();
-        int [] arr = new int[n];
-        int sum=0;
+    public String task40(int n, int[] arr,int sum){
         for (int i = 0; i < arr.length; i++) {
             System.out.print("Enter arr elem"+(i+1)+" = ");
             arr[i]= Input.getIntegerInput();
@@ -137,10 +133,20 @@ public class LoopsTasks {
                 sum+=arr[i];
             }
         }
-        System.out.println("Sum of pos elem = "+sum);
         return "Sum of pos elem = "+sum;
     }
-    public String task41(){
+    public void task40IO() {
+        System.out.print("Enter num of arr - ");
+        int n = Input.getIntegerInput();
+        int[] arr = new int[n];
+        int sum = 0;
+        System.out.println(task40(n,arr,sum));
+    }
+    public String task41(ArrayList<String> rev){
+        Collections.reverse(rev);
+        return "Reversed parts - "+rev;
+    }
+    public void task41IO() {
         System.out.print("Enter num of parts - ");
         int a = Input.getIntegerInput();
         ArrayList<String> rev = new ArrayList<String>();
@@ -149,22 +155,25 @@ public class LoopsTasks {
             String s = Input.getStrInput();
             rev.add(s);
         }
-        Collections.reverse(rev);
-        System.out.println("Reversed parts - "+rev);
-        return "Reversed parts - "+rev;
+        System.out.println(task41(rev));
     }
-    public  int task42(){
+    public  int task42(int fa, int so){
+        return Math.abs((so*2)-fa);
+    }
+    public  void task42IO() {
         System.out.print("Enter father years - ");
         int fa = Input.getIntegerInput();
         System.out.print("Enter son years - ");
         int so = Input.getIntegerInput();
-        System.out.println(Math.abs((so*2)-fa));
-        return Math.abs((so*2)-fa);
+        System.out.println(task42(fa, so));
     }
-    public int task43 (){
+    public int task43 (int num){
+        return (int)Math.pow(Math.round(Math.sqrt(num)),2);
+    }
+    public void task43IO(){
         System.out.print("Enter number - ");
         int num = Input.getIntegerInput();
-        System.out.println((int)Math.pow(Math.round(Math.sqrt(num)),2));
-        return (int)Math.pow(Math.round(Math.sqrt(num)),2);
+        System.out.println(task43(num));
+
     }
 }

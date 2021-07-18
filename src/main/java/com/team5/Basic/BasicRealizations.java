@@ -30,15 +30,15 @@ public class BasicRealizations {
                     basicTasks.task3IO();
                     break;
                 } case 4:{
-                    basicTasks.task4();
+                    basicTasks.task4IO();
                     break;
                 }
                 case 5: {
-                    basicTasks.task5();
+                    basicTasks.task5IO();
                     break;
                 }
                 case 6: {
-                    basicTasks.task6();
+                    basicTasks.task6IO();
                     break;
                 }
                 case 7: {

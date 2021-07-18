@@ -33,7 +33,7 @@ public class ClassesRealizations {
 
                 }
                 case 16: {
-                    classesTasks.task16();
+                    classesTasks.task16IO();
                     break;
                 }
                 case 17: {
