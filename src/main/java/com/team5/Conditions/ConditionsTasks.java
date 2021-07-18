@@ -139,7 +139,24 @@ public class ConditionsTasks {
         return "Love-"+ ((f1+f2)%2 != 0);
     }
 
-    public String task26(){
+    public String task26(int number){
+        switch(number){
+            case 0:return "Zero";
+            case 1:return "One";
+            case 2:return "Two";
+            case 3:return "Three";
+            case 4:return "Four";
+            case 5:return "Five";
+            case 6:return "Six";
+            case 7:return "Seven";
+            case 8:return "Eight";
+            case 9:return "Nine";
+        }
+        return "";
+    }
+
+
+    public void task26IO(){
         System.out.println("When provided with a number between 0-9, return it in words.\n" +
                 "\n" +
                 "Input :: 1\n" +
@@ -147,86 +164,42 @@ public class ConditionsTasks {
                 "Output :: \"One\".");
         System.out.println("Enter number");
         int number = Input.getIntegerInput();
-        String strNum = "";
-        switch (number){
-            case 1: {
-                strNum = "One";
-                System.out.println("One");
-                break;
-            } case 2: {
-                strNum = "Two";
-                System.out.println("Two");
-                break;
-            } case 3: {
-                strNum = "Three";
-                System.out.println("Three");
-                break;
-            } case 4: {
-                strNum = "Four";
-                System.out.println("Four");
-                break;
-            } case 5: {
-                strNum = "Five";
-                System.out.println("Five");
-                break;
-            } case 6: {
-                strNum = "Six";
-                System.out.println("Six");
-                break;
-            } case 7: {
-                strNum = "Seven";
-                System.out.println("Seven");
-                break;
-            } case 8: {
-                strNum = "Eight";
-                System.out.println("Eight");
-                break;
-            } case 9: {
-                strNum = "Nine";
-                System.out.println("Nine");
-                break;
-            } case 0: {
-                strNum = "Zero";
-                System.out.println("Zero");
-                break;
-            }
-            default:{
-                System.out.println("Incorrect value");
-            }
-        }
-        return strNum;
+        System.out.println(task26(number));
     }
 
-    public String task27() {
+    public String task27(String current){
+        switch (current) {
+            case "red": return "green";
+            case "yellow": return "red";
+            case "green": return "yellow";
+            default: throw new IllegalArgumentException();
+        }
+    }
+
+    public void task27IO() {
         System.out.println("Complete the function that takes a string as an argument representing the current state of " +
                 "the light and returns a string representing the state the light should change to.");
         System.out.println("Enter a colour");
         String current = Input.getStrInput();
-        String next = "";
-            if(current.equalsIgnoreCase("green")){
-                next = "Yellow";
-                System.out.println("Yellow");
-            }else if(current.equalsIgnoreCase("yellow")){
-                next = "Red";
-                System.out.println("Red");
-            }else if (current.equalsIgnoreCase("red")){
-                next = "Green";
-                System.out.println("Green");
-            }else System.out.println("Incorrect value");
-        return next;
+        System.out.println(task27(current));
     }
 
-    public int task28(){
+    public int task28(int d){
+        final int COST_PER_DAY = 40;
+
+        if (d < 3)       return d * COST_PER_DAY;
+        else if (d >= 7) return d * COST_PER_DAY - 50;
+        else             return d * COST_PER_DAY - 20;
+    }
+
+    public void task28IO(){
+        System.out.println("You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.\n" +
+                "\n" +
+                "Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total." +
+                " Alternatively, if you rent the car for 3 or more days, you get $20 off your total.");
         System.out.println("Enter number of days");
         int d = Input.getIntegerInput();
-        int totalCost;
-        int costPerDay = 40;
-        if(d >= 7 ){
-            totalCost = (costPerDay*d) - 50;
-        } else if(d >= 3){
-            totalCost = (costPerDay*d) - 20;
-        }else totalCost = costPerDay*d;
-        return totalCost;
+        System.out.println(task28(d) + "$");
     }
 
 }

@@ -3,32 +3,31 @@ package com.team5.Loops;
 import com.team5.Menu.Input;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class LoopsTasks {
 
-    public String task32() {
-        System.out.println("Write a function called repeatStr which repeats the given string string exactly n times.");
-        System.out.println("Enter your word");
-        String string = Input.getStrInput();
-        System.out.println("How times it will be repeat?");
-        int repeat = Input.getIntegerInput();
-
-
+    public String task32(int repeat, String string){
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < repeat; i++) {
             sb.append(string);
         }
-        System.out.println(sb);
         return sb.toString();
     }
 
-    public int[] task33() {
-        System.out.println("Enter human years");
-        int humanYears = Input.getIntegerInput();
+    public void task32IO() {
+        System.out.println("Write a function called repeatStr which repeats the given string string exactly n times.");
+        System.out.println("How times it will be repeat?");
+        int repeat = Input.getIntegerInput();
+        System.out.println("Enter your word");
+        String string = Input.getStrInput();
 
+        System.out.println(task32(repeat, string));
+    }
 
+    public int[] task33(int humanYears){
         int catYears =0, dogYears = 0;
         switch (humanYears) {
             default:
@@ -48,16 +47,49 @@ public class LoopsTasks {
         return arr;
     }
 
-    public int task34(){
-        System.out.println("Return the average of the given array rounded down to its nearest integer.");
-        int[] marks = {5,8,6,2,4};
+    public void task33IO() {
+        System.out.println("Enter human years");
+        int humanYears = Input.getIntegerInput();
+
+        System.out.println(task33(humanYears));
+    }
+
+    public int task34(int[] marks){
         int sum = 0;
         for (int mark : marks) {
             sum += mark;
         }
-        int avg = sum / marks.length;
-        System.out.println(avg);
-        return avg;
+
+        return sum / marks.length;
+    }
+
+    public void task34IO(){
+        System.out.println("Return the average of the given array rounded down to its nearest integer.");
+        int[] marks = {5,8,6,2,4};
+        for (int a : marks){
+            System.out.print(a + ",");
+        }
+        System.out.println("\nAverage: " + task34(marks));
+    }
+
+    public int[] task35(int[] arr) {
+        return Arrays.stream(arr).map(x -> x*2).toArray();
+    }
+
+    public void task35IO(){
+        System.out.println("Given an array of integers, return a new array with each value doubled.\n" +
+                "\n" +
+                "For example:\n" +
+                "\n" +
+                "[1, 2, 3] --> [2, 4, 6]");
+        int[] arr = {1,2,3};
+        for (int i : arr){
+            System.out.print(i + " ");
+        }
+        System.out.print(" --> ");
+        for (int i : task35(arr)){
+            System.out.print(i + " ");
+        }
     }
 
     public int task44() {
@@ -71,7 +103,6 @@ public class LoopsTasks {
         return result;
     }
 
-    //tam jopa
     //i need help
     public long[] task45(){
         System.out.println("Im stupid");

@@ -20,16 +20,17 @@ public class LoopsRealizations {
             case 0: {
                 Menu.mainSwitch();
             } case 32: {
-                loopsTasks.task32();
+                loopsTasks.task32IO();
                 break;
             } case 33:{
-                loopsTasks.task33();
+                loopsTasks.task33IO();
                 break;
             } case 34:{
-                loopsTasks.task34();
+                loopsTasks.task34IO();
                 break;
             } case 35:{
-
+                loopsTasks.task35IO();
+                break;
             } case 36:{
 
             } case 37:{

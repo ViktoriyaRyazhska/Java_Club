@@ -1,7 +1,6 @@
 package com.team5.Collections;
 
 import com.team5.Menu.Input;
-import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 import java.util.InputMismatchException;
 
@@ -25,7 +24,7 @@ public class CollectionsRealizations {
                 collectionsTasks.task69();
                 break;
             } case 70:{
-                collectionsTasks.task70();
+                collectionsTasks.task70IO();
                 break;
             } case 71:{
                 collectionsTasks.task71();

@@ -4,20 +4,19 @@ import com.team5.Menu.Input;
 
 public class StringTasks {
 
-    public int task59(){
+    public int task59(char e){
+        int ascii = e;
+        return ascii;
+    }
+    public void task59IO(){
         System.out.println("When provided with a letter, return its position in the alphabet.");
         System.out.println("Enter your char");
         char e = Input.getCharInput();
-        int ascii = e;
-        System.out.println(ascii);
-        return ascii;
+
+        System.out.println(task59(e));
     }
 
-    public String task60(){
-        System.out.println("Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and " +
-                "above with '1'. Return the resulting string.");
-        System.out.println("Enter your numbers");
-        String num = Input.getStrInput();
+    public String task60(String num){
         String[] c = num.split("");
         if(num.isEmpty()){
             System.exit(0);
@@ -34,29 +33,44 @@ public class StringTasks {
                 System.out.println("Incorrect value");
             }
         }
-        String result = String.join("", c);
-        System.out.println(result);
-        return result;
+        return String.join("", c);
     }
 
-    public int task61(){
-        System.out.println("Ask a small girl - \"How old are you?\". She always says strange things... Lets help her!");
-        System.out.println("Enter years");
-        String years = Input.getStrInput();
+    public void task60IO(){
+        System.out.println("Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and " +
+                "above with '1'. Return the resulting string.");
+        System.out.println("Enter your numbers");
+        String num = Input.getStrInput();
+        System.out.println(task60(num));
+    }
+
+    public int task61(String years){
         String[] strings = years.split(" ");
         int year = Integer.parseInt(strings[0]);
-        System.out.println(year);
         return year;
     }
 
-    public void task62() {
+    public void task61IO(){
+        System.out.println("Ask a small girl - \"How old are you?\". She always says strange things... Lets help her!");
+        System.out.println("Enter years");
+        String years = Input.getStrInput();
+        System.out.println(task61(years));
+    }
+
+    public int task62(int temp){
+        int c =  convert(temp);
+        if (c > 0){
+            System.out.println(c + " is freezing temperature");
+        } else {
+            System.out.println(c +  " is freezing temperature");
+        }
+        return c;
+    }
+
+    public void task62IO() {
         System.out.println("Enter your temperature");
         int temp = Input.getIntegerInput();
-        int c =  convert(temp);
-        if (c > 0)
-            System.out.println(c + " is freezing temperature");
-        else
-            System.out.println(c +  " is freezing temperature");
+        System.out.println(task62(temp));
     }
 
     // До таску 12
@@ -65,16 +79,20 @@ public class StringTasks {
         return celsius;
     }
 
-    public String task63() {
-        System.out.println("Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.");
-        System.out.println("Enter the name");
-        String name = Input.getStrInput();
+    public String task63(String name){
         String[] arr = name.split(" ");
         String[] nameArr = arr[0].split("");
         String[] surnameArr = arr[1].split("");
         String initials = String.join(".",  nameArr[0],surnameArr[0]);
         System.out.println(initials.toUpperCase());
         return initials.toUpperCase();
+    }
+
+    public void task63IO() {
+        System.out.println("Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.");
+        System.out.println("Enter the name");
+        String name = Input.getStrInput();
+        System.out.println(task63(name));
     }
 
     public int task64() {

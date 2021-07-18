@@ -46,13 +46,13 @@ public class ConditionsRealizations {
                conditionsTasks.task25();
                break;
             } case 26:{
-                conditionsTasks.task26();
+                conditionsTasks.task26IO();
                 break;
             } case 27:{
-                conditionsTasks.task27();
+                conditionsTasks.task27IO();
                 break;
             } case 28:{
-                conditionsTasks.task28();
+                conditionsTasks.task28IO();
                 break;
             } case 29:{
 

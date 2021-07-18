@@ -5,27 +5,33 @@ import com.team5.Menu.Input;
 
 public class BasicTasks {
 
-    public int task1() {
+    public int task1(int i) {
+        return i*2;
+    }
+    public void task1IO(){
         System.out.println(" You need to double the integer and return it.");
         System.out.println("Enter your number");
         int i = Input.getIntegerInput();
-        int result = i*2;
-        System.out.println(result);
-        return result;
+        System.out.println(task1(i));
     }
 
-    public int task2(){
+    public int task2(int num1, int num2){
+        return num1*num2;
+    }
+
+    public void task2IO(){
         System.out.println("Implement a function which multiplies two numbers.");
         System.out.println("Enter firs number");
         int num1 = Input.getIntegerInput();
         System.out.println("Enter second number");
         int num2 = Input.getIntegerInput();
-        int result = num1*num2;
-        System.out.println(result);
-        return result;
+        System.out.println(task2(num1,num2));
     }
 
-    public int task3(){
+    public int task3(int length, int width, int height){
+        return length*width*height;
+    }
+    public void task3IO(){
         System.out.println("Bob needs a fast way to calculate the volume of a cuboid with three values: length, " +
                 "width and the height of the cuboid. Write a function to help Bob with this calculation.");
         System.out.println("Enter length");
@@ -34,10 +40,9 @@ public class BasicTasks {
         int width = Input.getIntegerInput();
         System.out.println("Enter height");
         int height = Input.getIntegerInput();
-        int result = length*width*height;
-        System.out.println(result);
-        return result;
+        System.out.println(task3(length,width,height));
     }
+
     public boolean task4(){
         System.out.println("Enter size of the wall in millimeters");
         int a = Input.getIntegerInput();

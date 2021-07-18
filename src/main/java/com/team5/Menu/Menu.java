@@ -11,7 +11,8 @@ import com.team5.String.StringRealizations;
 import java.util.InputMismatchException;
 
 public class Menu {
-    public static void mainSwitch(){
+
+    public static void mainSwitch() {
         int caseNum;
         caseNum = Menu.menu();
 
@@ -212,5 +213,6 @@ public class Menu {
         System.out.println("---------------");
         System.out.println("0. Return to Main.");
     }
+
 
 }

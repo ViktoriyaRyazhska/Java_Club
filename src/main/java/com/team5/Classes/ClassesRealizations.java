@@ -23,13 +23,13 @@ public class ClassesRealizations {
                 }
                 case 12: {
 
-            } case 13: {
+                } case 13: {
 
-            } case 14: {
-                Fraction fraction = new Fraction(15, 56);
-                fraction.add(fraction);
-                break;
-            } case 15: {
+                } case 14: {
+                    Fraction fraction = new Fraction(15, 56);
+                    fraction.add(fraction);
+                    break;
+                } case 15: {
 
                 }
                 case 16: {
