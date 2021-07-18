@@ -92,15 +92,20 @@ public class LoopsTasks {
         }
     }
 
-    public int task44() {
-        System.out.println("That is the program that finds the summation of every number from 1 to number that you will write");
-        int n = Input.getIntegerInput();
+    public int task44(int n) {
+
         int result = 0;
         for (int i = 1; i <= n; i++){
             result += i;
         }
-        System.out.println(result);
+
         return result;
+    }
+
+    public void task44IO(){
+        System.out.println("That is the program that finds the summation of every number from 1 to number that you will write");
+        int n = Input.getIntegerInput();
+        System.out.println(task44(n));
     }
 
     //i need help
@@ -115,16 +120,19 @@ public class LoopsTasks {
         return result;
     }
 
-    public int task46(){
+    public int task46(int sticks){
+        return sticks % 4 == 0 ? 1 : sticks % 4;
+    }
+
+    public void task46IO(){
         System.out.println("In this game, there are 21 sticks lying in a pile. Players take turns taking 1, 2, or 3 sticks. " +
                 "The last person to take a stick wins. \n" +
                 "That is the robot that will always win the game. Robot will always go first. \n" +
                 "Enter the number of sticks, and robot will win.........");
         int sticks = Input.getIntegerInput();
-        int result = sticks % 4 == 0 ? 1 : sticks % 4;
-        System.out.println(result);
-        return result;
+        System.out.println(task46(sticks));
     }
+
     public String task40(){
         System.out.print("Enter num of arr - ");
         int n = Input.getIntegerInput();
