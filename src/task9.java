@@ -19,4 +19,5 @@ public class task9 {
         int result = makeNegative(number);
         System.out.println(result);
     }
+
 }

@@ -21,6 +21,7 @@ public class task16 {
         } else {
             return attack(fighter2, fighter1);
         }
+
     }
 
     public static void execute(Scanner sc) {

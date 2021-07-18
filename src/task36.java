@@ -10,6 +10,7 @@ public class task36 {
     return result;
   }
 
+
   public static void execute(Scanner sc) {
     System.out.println("Consider an array/list of sheep where some sheep may " +
             "be missing from their place. \n" +

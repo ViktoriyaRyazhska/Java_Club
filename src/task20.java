@@ -8,6 +8,7 @@ public class task20 {
         } else {
             return "false";
         }
+
     }
 
     public static void execute(Scanner sc) {

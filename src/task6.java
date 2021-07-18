@@ -11,4 +11,5 @@ public class task6 {
         int result = toBinary(n);
         System.out.println("Here your result: " + result);
     }
+
 }

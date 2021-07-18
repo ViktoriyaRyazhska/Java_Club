@@ -14,6 +14,7 @@ public class task30 {
         throw new RuntimeException();
     }
 
+
     public static void execute(Scanner sc) {
         System.out.println("This method changes color on traffic lights");
         System.out.println("Enter 'green', 'yellow' or 'red' and you will get next color: ");

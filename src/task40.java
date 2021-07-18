@@ -8,6 +8,7 @@ public class task40 {
                 .sum();
     }
 
+
     public static void execute(Scanner sc) {
         System.out.println("This program returns the sum of all of the positives ones in array");
         System.out.println("Enter size of array: ");

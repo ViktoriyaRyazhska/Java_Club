@@ -19,4 +19,5 @@ public class task3 {
         double result = getVolumeOfCuboid(length,width,height);
         System.out.println(result);
     }
+
 }

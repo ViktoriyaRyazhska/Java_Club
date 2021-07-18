@@ -9,6 +9,7 @@ public class task56 {
         }
     }
 
+
     public static void execute(Scanner sc) {
         System.out.println("This program answers the question \"Are you playing banjo?\".\n" +
                 "If your name starts with the letter \"R\" or lower case \"r\", you are playing banjo!");

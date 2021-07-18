@@ -18,4 +18,5 @@ public class task26 {
         }
         System.out.println("Your result: " + result);
     }
+
 }

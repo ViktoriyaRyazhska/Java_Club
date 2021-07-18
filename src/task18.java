@@ -9,6 +9,7 @@ public class task18 {
         } else {
             return Math.abs(number);
         }
+
     }
 
     public static void execute(Scanner sc) {

@@ -21,6 +21,7 @@ public class task22 {
         } else {
             return "years";
         }
+
     }
 
     public static void execute(Scanner sc) {

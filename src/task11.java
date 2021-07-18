@@ -21,4 +21,5 @@ public class task11 {
         String result = weatherInfo(temperature);
         System.out.println(result);
     }
+
 }
