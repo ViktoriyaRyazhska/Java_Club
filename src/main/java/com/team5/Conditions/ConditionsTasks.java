@@ -6,20 +6,17 @@ import java.util.InputMismatchException;
 
 public class ConditionsTasks {
 
-    public int task18(){
-        System.out.println("Enter any number to get the opposite");
-        int number = Input.getIntegerInput();
-        int result = number - (number * 2);
-        System.out.println(result);
-        return result;
+    public int task18(int number){
+        return number - (number * 2);
     }
 
-    public boolean task19(){
-        System.out.println("Enter the number you want to divide, then enter the two divisors you want to divide by," +
-                " and the program will tell you if it divides");
-        long n = Input.getIntegerInput();
-        long x = Input.getIntegerInput();
-        long y = Input.getIntegerInput();
+    public void task18IO(){
+        System.out.println("Enter any number to get the opposite");
+        int number = Input.getIntegerInput();
+        System.out.println(task18(number));
+    }
+
+    public boolean task19(long n, long x, long y){
 
         boolean result = false;
 
@@ -27,31 +24,35 @@ public class ConditionsTasks {
             result = true;
         }
 
-        System.out.println(result);
         return result;
     }
 
-    public String task20(){
-        System.out.println("Enter true or false and we will return it to you)");
-        try {
-            boolean b = Input.getBoolInput();
-            if (b) {
-                System.out.println("true");
-                return "true";
-            } else {
-                System.out.println("false");
-                return "false";
-            }
-        }catch (InputMismatchException e){
-            System.out.println("Incorrect value");
-        }
-        return "kaka";
+    public void task19IO(){
+        System.out.println("Enter the number you want to divide, then enter the two divisors you want to divide by," +
+                " and the program will tell you if it divides");
+        long n = Input.getIntegerInput();
+        long x = Input.getIntegerInput();
+        long y = Input.getIntegerInput();
+        System.out.println(task19(n, x, y));
     }
 
-    public String task21() {
-        System.out.println("Enter salary, and bonus (true or false), if you choose true, the salary will increase 10 times");
-        final int salary = Input.getIntegerInput();
-        final boolean bonus = Input.getBoolInput();
+    public String task20(boolean b){
+
+        if (b) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
+
+    public void task20IO(){
+        System.out.println("Enter true or false and we will return it to you)");
+        boolean b = Input.getBoolInput();
+        System.out.println(task20(b));
+    }
+
+    public String task21(int salary, boolean bonus) {
+
         String result = "£";
         int temp;
 
@@ -60,9 +61,16 @@ public class ConditionsTasks {
         }else temp = salary;
 
         result = result + temp;
-        System.out.println("Salary - " + result);
         return result;
     }
+
+    public void task21IO(){
+        System.out.println("Enter salary, and bonus (true or false), if you choose true, the salary will increase 10 times");
+        final int salary = Input.getIntegerInput();
+        final boolean bonus = Input.getBoolInput();
+        System.out.println(task21(salary, bonus));
+    }
+
     public String task22() {
         System.out.print("Enter birth year - ");
         int birth = Input.getIntegerInput();

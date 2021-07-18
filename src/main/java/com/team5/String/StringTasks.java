@@ -95,11 +95,8 @@ public class StringTasks {
         System.out.println(task63(name));
     }
 
-    public int task64() {
-        System.out.println("Enter the line with the first argument, and the second the letter you want to find in the word," +
-                " the method will say how many times this letter occurred in the line");
-        String str = Input.getStrInput();
-        char letter = Input.getCharInput();
+    public int task64(String str, char letter) {
+
         int temp = 0;
         for (int i = 0; i < str.length(); i++){
             if (str.charAt(i) == letter){
@@ -107,37 +104,44 @@ public class StringTasks {
             }
         }
 
-        System.out.println(temp);
         return temp;
     }
 
-    public String task65() {
+    public void task64IO(){
+        System.out.println("Enter the line with the first argument, and the second the letter you want to find in the word," +
+                " the method will say how many times this letter occurred in the line");
+        String str = Input.getStrInput();
+        char letter = Input.getCharInput();
+        System.out.println(task64(str, letter));
+    }
+
+    public String task65(String[] s) {
+        java.util.Arrays.sort(s);
+        return String.join("***",s[0].split(""));
+    }
+
+    public void task65IO(){
         System.out.println("Enter 3 lines, this method will sort them alphabetically and return the first value, " +
                 "this value will have a \"***\" between each of its letters");
-
         String[] s = new String[3];
         s[0] = Input.getStrInput();
         s[1] = Input.getStrInput();
         s[2] = Input.getStrInput();
-        java.util.Arrays.sort(s);
-
-        String result = String.join("***",s[0].split(""));
-
-        System.out.println(result);
-        return result;
+        System.out.println(task65(s));
     }
 
-    public String task66() {
+    public String task66(String string) {
+        return string.replace("5", "S").replace("0", "O").replace("1", "I");
+    }
+
+    public void task66IO(){
         System.out.println("Enter any text, this program will replace \"5\" with \"S\", \"0\" with \"O\" and \"1\" with \"I\"");
         String string = Input.getStrInput();
-        String result = string.replace("5", "S").replace("0", "O").replace("1", "I");
-        System.out.println(result);
-        return result;
+        System.out.println(task66(string));
     }
 
-    public String task67() {
-        System.out.println("Enter any line, this program changes uppercase letters to lowercase and lowercase to uppercase");
-        String string = Input.getStrInput();
+    public String task67(String string) {
+
         String result = "";
 
         for (int i = 0; i < string.length(); i++){
@@ -146,22 +150,31 @@ public class StringTasks {
             }else result += Character.toUpperCase(string.charAt(i));
         }
 
-        System.out.println(result);
         return result;
     }
 
-    public String task68(){
-        System.out.println("First enter any line, then the number of exclamation marks, " +
-                "how many you want to delete in this line from left to right");
-        String s = Input.getStrInput();
-        int n = Input.getIntegerInput();
+    public void task67IO(){
+        System.out.println("Enter any line, this program changes uppercase letters to lowercase and lowercase to uppercase");
+        String string = Input.getStrInput();
+        System.out.println(task67(string));
+    }
+
+    public String task68(String s, int n){
 
         while (n-- > 0)
             s = s.replaceFirst("!", "");
 
-        System.out.println(s);
         return s;
     }
+
+    public void task68IO(){
+        System.out.println("First enter any line, then the number of exclamation marks, " +
+                "how many you want to delete in this line from left to right");
+        String s = Input.getStrInput();
+        int n = Input.getIntegerInput();
+        System.out.println(task68(s, n));
+    }
+
     public String task55() {
         System.out.print("Enter string with dots - ");
         String str = Input.getStrInput();
