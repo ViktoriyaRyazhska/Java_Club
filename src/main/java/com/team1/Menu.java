@@ -57,6 +57,7 @@ public class Menu {
             case 32: System.out.println("You choose task 32");NumToStrConv numToStrConv = new NumToStrConv(sc);numToStrConv.execute(); break;
             case 33: System.out.println("You choose task 33");OppositeNumStr oppositeNumStr = new OppositeNumStr(sc); oppositeNumStr.execute(); break;
             case 34: System.out.println("You choose task 34");StringReverser stringReverser = new StringReverser(sc); stringReverser.execute(); break;
+            case 35: System.out.println("You choose task 35");God god=new God(); god.execute(); break;
 
             default: System.out.println("There is no" + task + "task in this group");task = -1;break;
         }
@@ -79,25 +80,26 @@ public class Menu {
                 + "\n12.Fractions classes Task 12   " +
                 " 13.Lombok encapsulation Task 13   " +
                 " 14.Fixme Static Electrickery Task 14   " +
-                "15.Filtering-even-numbers-bug-fixes Task15   " +
-                "\n16.Interactive Dictionary Task16   " +
-                "17.Push An Object Into Array Task17   " +
-                "18.UnfinishedLoop Task18   " +
-                "19.Convert Bool To String Task19   " +
-                "\n20.Do I Get BonusTask20   " +
-                "21.How-old-will-i-be-in-2099 Task21   " +
-                "22.Is Divisible Task22   " +
-                "23.Math Operations Task23   " +
-                "\n24.Opposite Num Task24   " +
-                "25.RockPaperScissors Task25   " +
-                "26.Averages Task26   " +
-                "27.CatDog Years CounterTask27   " +
-                "\n28.Reversed Sequence Task28   " +
-                "29.Sheep Counter Task29   " +
-                "30.StringRepeater Task30   " +
-                "31.Welcome-to-the-city Task31   " +
-                "\n32.Convert-a-number-to-a-string Task32   " +
-                "33.Opposite Num(String)Task33   " +
-                "34.StringReverser Task34" );
+                "15.Filtering-even-numbers-bug-fixes Task 15   " +
+                "\n16.Interactive Dictionary Task 16   " +
+                "17.Push An Object Into Array Task 17   " +
+                "18.UnfinishedLoop Task 18   " +
+                "19.Convert Bool To String Task 19   " +
+                "\n20.Do I Get Bonus Task 20   " +
+                "21.How-old-will-i-be-in-2099 Task 21   " +
+                "22.Is Divisible Task 22   " +
+                "23.Math Operations Task 23   " +
+                "\n24.Opposite Num Task 24   " +
+                "25.RockPaperScissors Task 25   " +
+                "26.Averages Task 26   " +
+                "27.CatDog Years CounterTask 27   " +
+                "\n28.Reversed Sequence Task 28   " +
+                "29.Sheep Counter Task 29   " +
+                "30.StringRepeater Task 30   " +
+                "31.Welcome-to-the-city Task 31   " +
+                "\n32.Convert-a-number-to-a-string Task 32   " +
+                "33.Opposite Num(String)Task 33   " +
+                "34.StringReverser Task 34"+
+                "35.Basic-subclasses-adam-and-eve Task 35");
     }
 }
