@@ -8,10 +8,9 @@ public class OppositeNumStr implements IRunTask {
     Scanner sc;
 
     private int number;
+
     public OppositeNumStr(Scanner sc) {
         this.sc = sc;
-    public OppositeNumStr() {
-        //no args
     }
 
     public static int opposite(int number) {
@@ -34,7 +33,7 @@ public class OppositeNumStr implements IRunTask {
                 System.out.println("You have input illegal character, try again!");
                 continue;
             }
-        } while (mark == false);
+        } while (!mark);
         System.out.println(opposite(number));
     }
 }
