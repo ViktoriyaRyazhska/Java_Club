@@ -1,7 +1,7 @@
 package com.team4;
 public class Task46{
 	
-	public static void solution(String str) {
+	public static String solution(String str) {
 	    // Your code here...
 	    String newcad="";
 	    
@@ -9,12 +9,13 @@ public class Task46{
 	      newcad += str.charAt(i);
 	    }
 	    
-	    System.out.println(newcad);
+	    return newcad;
 	  }
 	public static void execute() {
 	      System.out.println("Print a text: ");
 	      String s = MyMain.sc.nextLine();
-	      solution(s);
+	      String sol = solution(s);
+		  System.out.println(sol);
 	}
 	
 }
