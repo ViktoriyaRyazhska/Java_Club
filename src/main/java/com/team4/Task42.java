@@ -1,12 +1,11 @@
 package com.team4;
 public class Task42 {
 
-public static void TwiceAsOld(int dadYears, int sonYears){
+public static int TwiceAsOld(int dadYears, int sonYears){
 	
     int twice = sonYears * 2;
     
-    if(twice > dadYears) System.out.println(sonYears - (dadYears - sonYears));
-    else System.out.println(sonYears - (dadYears - sonYears));
+    return twice > dadYears ? sonYears - (dadYears - sonYears) : dadYears - twice;
   
 }
 
@@ -16,6 +15,7 @@ public static void execute() {
 	 int dadYears = MyMain.scanner.nextInt();
 	 System.out.println("Enter sons age: ");
 	 int sonYears = MyMain.scanner.nextInt();
-	 TwiceAsOld(dadYears, sonYears);
+	 int twice = TwiceAsOld(dadYears, sonYears);
+	 System.out.println(Twice);
 }
 }
