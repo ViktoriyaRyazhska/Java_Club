@@ -2,7 +2,7 @@ package com.team4;
 
 public class Task62{
 	
-	public static void toAlternativeString(String string) {
+	public static String toAlternativeString(String string) {
         String result = "";
         for (char c : string.toCharArray()) {
             if(Character.isUpperCase(c)) {
@@ -11,12 +11,12 @@ public class Task62{
                 result += Character.toUpperCase(c);
             }
         }
-        System.out.println(result);
+        return result;
     }
 	
 	public static void execute() {
 		System.out.println("Enter a text: ");
 		String s = MyMain.sc.nextLine();
-		toAlternativeString(s);
+		String altern = toAlternativeString(s); System.out.println(altern);
 	}
 }
