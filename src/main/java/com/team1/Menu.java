@@ -23,7 +23,7 @@ public class Menu {
 
     public void menu(int task, Scanner sc) {
         switch (task) {
-            case 1: System.out.println("You chose task 1");BasicTask1 basicTask1 = new BasicTask1(sc);basicTask1.execute();break;
+            case 1: System.out.println("You choose task 1");BasicTask1 basicTask1 = new BasicTask1(sc);basicTask1.execute();break;
             case 2: System.out.println("You choose task 2");BasicTask2 basicTask2 = new BasicTask2(sc);basicTask2.execute();break;
             case 3: System.out.println("You choose task 3");BasicTask3 basicTask3 = new BasicTask3(sc);basicTask3.execute();break;
             case 4: System.out.println("You choose task 4");BasicTask4 basicTask4 = new BasicTask4(sc);basicTask4.execute();break;
@@ -65,44 +65,39 @@ public class Menu {
 
     public void printListOfTasks() {
         System.out.println("Input number of task!");
-        System.out.println("Choose the task:" + "\nTask1  Press 1,"
-                + " Task2 Press 2,"
-                + " Task3 Press 3,"
-                + " Task4 Press 4,"
-                + "\nTask5 Press 5,"
-                + " Task6 Press 6,"
-                + " Task7 Press 7,"
-                + " Task8 Press 8,"
-                + "\nTask9 Press 9,"
-                + " Task10 Press 10,"
-                + " Task11 Press 11,"
-                + "\nTask12 Press 12," +
-                " Task13 Press 13," +
-                " Task14 Press 14," +
-                "\nTask15 Press 15," +
-                " Task16 Press 16," +
-                " Task17 Press 17," +
-                "\nTask18 Press 18," +
-                " Task19 Press 19," +
-                " Task20 Press 20," +
-                "\nTask21 Press 21," +
-                " Task22 Press 22," +
-                "Task23 Press 23," +
-                "\nTask24 Press 24," +
-                " Task25 Press 25," +
-                " Task26 Press 26," +
-                "\nTask27 Press 27," +
-                " Task28 Press 28," +
-                " Task29 Press 29," +
-                "\nTask30 Press 30," +
-                " Task31 Press 31," +
-                " Task32 Press 32," +
-                "\nTask33 Press 33," +
-                " Task34 Press 34," +
-                " Task35 Press 35," +
-                "\nTask36 Press 36," +
-                " Task37 Press 37.");
-
-                
+        System.out.println("Choose the task:" + "\n01.Basic Task 1   "
+                + "02.Basic Task 2   "
+                + "03.Basic Task 3   "
+                + "\n04.Basic Task 4   "
+                + "05.Basic Task 5   "
+                + "06.Basic Task 6   "
+                + "07.Basic Task 7   "
+                + "\n08.Basic Task 8   "
+                + "09.Basic Task 9   "
+                + "10.Basic Task 10   "
+                + "11.Basic Task 11   "
+                + "\n12.Fractions classes Task 12   " +
+                " 13.Lombok encapsulation Task 13   " +
+                " 14.Fixme Static Electrickery Task 14   " +
+                "15.Filtering-even-numbers-bug-fixes Task15   " +
+                "\n16.Interactive Dictionary Task16   " +
+                "17.Push An Object Into Array Task17   " +
+                "18.UnfinishedLoop Task18   " +
+                "19.Convert Bool To String Task19   " +
+                "\n20.Do I Get BonusTask20   " +
+                "21.How-old-will-i-be-in-2099 Task21   " +
+                "22.Is Divisible Task22   " +
+                "23.Math Operations Task23   " +
+                "\n24.Opposite Num Task24   " +
+                "25.RockPaperScissors Task25   " +
+                "26.Averages Task26   " +
+                "27.CatDog Years CounterTask27   " +
+                "\n28.Reversed Sequence Task28   " +
+                "29.Sheep Counter Task29   " +
+                "30.StringRepeater Task30   " +
+                "31.Welcome-to-the-city Task31   " +
+                "\n32.Convert-a-number-to-a-string Task32   " +
+                "33.Opposite Num(String)Task33   " +
+                "34.StringReverser Task34" );
     }
 }
