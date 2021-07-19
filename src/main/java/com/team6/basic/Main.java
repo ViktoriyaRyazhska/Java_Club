@@ -34,7 +34,7 @@ class Main {
     }
 
     private static void init() {
-        //functions.add(() -> new Task1(scanner).execute());
+        functions.add(() -> new Task1(scanner).execute());
         functions.add(() -> new Task2(scanner).execute());
         functions.add(() -> new Task3(scanner).execute());
         functions.add(() -> new Task4(scanner).execute());
