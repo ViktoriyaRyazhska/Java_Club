@@ -4,7 +4,7 @@ public class Task50 {
 public static String areYouPlayingBanjo(String name) {
     // Program me!
     char[] chr = name.toCharArray();
-    return chr[0] == 'r' || chr[0] == 'R') ? name + " plays banjo" : name + " does not play banjo";
+    return chr[0] == 'r' || chr[0] == 'R' ? name + " plays banjo" : name + " does not play banjo";
     
 }
 
