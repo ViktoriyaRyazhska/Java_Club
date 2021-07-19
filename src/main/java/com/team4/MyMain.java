@@ -53,11 +53,11 @@ public class MyMain {
             case 46 -> Task46.execute();
             case 48 -> Task48.execute();
             case 49 -> Task49.execute();
-            //case 50 -> Task50.execute();
+            case 50 -> Task50.execute();
             case 51 -> Task51.execute();
             case 52 -> Task52.execute();
             case 55 -> Task55.execute();
-            //case 57 -> Task57.execute();
+            case 57 -> Task57.execute();
             case 60 -> Task60.execute();
             case 61 -> Task61.execute();
             case 62 -> Task62.execute();
