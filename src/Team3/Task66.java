@@ -28,6 +28,9 @@ public class Task66 {
         System.out.println("Example incorrect text : ");
         System.out.println("1F-RUDYARD K1PL1NG");
         System.out.println("Correct result : " + correct("1F-RUDYARD K1PL1NG"));
-
+        System.out.println("Enter your line: ");
+        Scanner console = new Scanner(System.in);
+        String str = console.nextLine();
+        System.out.println(correct(str));
     }
 }
