@@ -16,6 +16,6 @@ public static void execute() {
 	 System.out.println("Enter sons age: ");
 	 int sonYears = MyMain.scanner.nextInt();
 	 int twice = TwiceAsOld(dadYears, sonYears);
-	 System.out.println(Twice);
+	 System.out.println(twice);
 }
 }
