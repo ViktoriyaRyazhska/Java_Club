@@ -35,11 +35,12 @@ public class Block {
         return length;
     }
 
-    public Block() {
-        System.out.println("Enter the width, length and height of the parallelepiped to get its volume and total surface area");
-        width = Input.getIntegerInput();
-        length = Input.getIntegerInput();
-        height = Input.getIntegerInput();
+    public Block(int width, int length, int height) {
+        System.out.println("This method returns the area of the total surface and the volume of the parallelepiped," +
+                " the dimensions of which were specified when creating the object ....");
+        this.width = width;
+        this.length = length;
+        this.height = height;
     }
 }
 

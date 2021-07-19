@@ -56,13 +56,19 @@ class BasicTasksTest {
 
     @Test
     void task7() {
+        int actual = basicTask.task7(1, 2, 3);
+        assertEquals(483000, actual);
     }
 
     @Test
     void task8() {
+        int actual = basicTask.task8(1754);
+        assertEquals(18, actual);
     }
 
     @Test
     void task9() {
+        int actual = basicTask.task9(10);
+        assertEquals(-10, actual);
     }
 }

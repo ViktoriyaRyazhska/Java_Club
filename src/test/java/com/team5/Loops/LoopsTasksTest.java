@@ -29,4 +29,16 @@ class LoopsTasksTest {
         assertArrayEquals(new int[] {8, 2, 2, 2, 8}, loopsTasks.task35(new int[] {4, 1, 1, 1, 4}));
         assertArrayEquals(new int[] {2, 2, 2, 2, 2, 2}, loopsTasks.task35(new int[] {1, 1, 1, 1, 1, 1}));
     }
+
+    @Test
+    void task44() {
+        int actual = loopsTasks.task44(5);
+        assertEquals(15, actual);
+    }
+
+    @Test
+    void task46() {
+        int actual = loopsTasks.task46(3);
+        assertEquals(3, actual);
+    }
 }

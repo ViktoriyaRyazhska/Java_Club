@@ -38,4 +38,34 @@ class StringTasksTest {
         assertEquals("P.F", stringTasks.task63("Patrick Feenan"));
         assertEquals("E.C", stringTasks.task63("Evan Cole"));
     }
+
+    @Test
+    void task64() {
+        int actual = stringTasks.task64("Vovochka", 'o');
+        assertEquals(2, actual);
+    }
+
+    @Test
+    void task65() {
+        String actual = stringTasks.task65(new String[]{"Aboba", "Pop-it", "Simple-dimple"});
+        assertEquals("A***b***o***b***a", actual);
+    }
+
+    @Test
+    void task66() {
+        String actual = stringTasks.task66("V0VA L1KE CANDIE5");
+        assertEquals("VOVA LIKE CANDIES", actual);
+    }
+
+    @Test
+    void task67() {
+        String actual = stringTasks.task67("VOVA love YOU");
+        assertEquals("vova LOVE you", actual);
+    }
+
+    @Test
+    void task68() {
+        String actual = stringTasks.task68("test!!! test again!!", 4);
+        assertEquals("test test again!", actual);
+    }
 }
