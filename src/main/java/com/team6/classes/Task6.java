@@ -1,11 +1,19 @@
 package com.team6.classes;
 
+import com.team6.basic.CustomException;
+
+import java.util.Arrays;
+
 class Task6 {
     private final int width;
     private final int length;
     private final int height;
 
-    public Task6(int[] m) {
+    public Task6(int[] m) throws CustomException {
+        long b = Arrays.stream(m).filter(x -> x < 0).count();
+        if ( b > 0){
+            throw new CustomException("Numbers fail");
+        }
         this.width = m[0];
         this.length = m[1];
         this.height = m[2];

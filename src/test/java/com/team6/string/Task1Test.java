@@ -13,6 +13,6 @@ public class Task1Test extends TestCase {
 
     @Test
     public void testNumberToStringFall() {
-        Assert.assertEquals("6421424135",Task1.numberToString(100000000));
+        Assert.assertNotEquals("642342145",Task1.numberToString(100000000));
     }
 }

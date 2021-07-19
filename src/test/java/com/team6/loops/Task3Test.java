@@ -18,7 +18,7 @@ public class Task3Test extends TestCase {
 
     @Test (expected = ArithmeticException.class)
     public void testGetAverageValueByZero(){
-        Assert.assertEquals(1,Task3.getAverage(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}));
+        Task3.getAverage(new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
     }
 
 
