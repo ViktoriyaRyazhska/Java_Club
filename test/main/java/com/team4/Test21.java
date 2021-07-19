@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class Test21 extends Task21 {
     @Test
     void TestPast() {
-        Assertions.assertEquals(61000, Past(6100, true));
-		Assertions.assertEquals(7000, Past(7000, false));
+        Assertions.assertEquals(61000, bonusTime(6100, true));
+		Assertions.assertEquals(7000, bonusTime(7000, false));
     }
 }
