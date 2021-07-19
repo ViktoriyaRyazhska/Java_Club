@@ -8,7 +8,7 @@ public class Task61 {
 	
 	public static void execute() {
 		System.out.print("Enter a text: ");
-		String s = MyMain.scanner.nextLine();
+		String s = MyMain.sc.nextLine();
 		correct(s);
 	}
 	

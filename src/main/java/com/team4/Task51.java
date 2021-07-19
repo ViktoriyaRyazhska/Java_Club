@@ -12,7 +12,7 @@ public class Task51 {
 	
 	public static void execute() {
 	 System.out.print("Enter some text: ");
-	 String s = MyMain.scanner.nextLine();
+	 String s = MyMain.sc.nextLine();
 	 noSpace(s);
 	}
 }

@@ -9,7 +9,7 @@ public class Task60 {
 	  }
 	public static void execute() {
 		System.out.println("Enter a text");
-		String s = MyMain.scanner.nextLine();
+		String s = MyMain.sc.nextLine();
 		System.out.println("Print a number");
 		int n = MyMain.scanner.nextInt();
 		remove(s, n);

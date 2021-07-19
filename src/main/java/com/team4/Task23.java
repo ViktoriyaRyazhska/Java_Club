@@ -14,9 +14,9 @@ public class Task23 {
 
   public static void execute(){
     System.out.println("Player 1 input rock, paper or scissors ");
-    String n37 = MyMain.scanner.nextLine();
+    String n37 = MyMain.sc.nextLine();
     System.out.println("Player 2 input rock, paper or scissors ");
-    String n38 = MyMain.scanner.nextLine();
+    String n38 = MyMain.sc.nextLine();
     System.out.println(Task23.rps(n37, n38));
   }
 }

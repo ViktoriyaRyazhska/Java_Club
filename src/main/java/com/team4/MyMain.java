@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class MyMain {
     public static Scanner scanner = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         instruction();
         System.out.print("Input your number of task : ");

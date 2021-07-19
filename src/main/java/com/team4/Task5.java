@@ -12,7 +12,7 @@ public class Task5 {
 
   public static void execute(){
     System.out.println("Input your name :");
-    String n8 = MyMain.scanner.nextLine();
+    String n8 = MyMain.sc.nextLine();
     System.out.println(Task5.greet(n8));
   }
 }

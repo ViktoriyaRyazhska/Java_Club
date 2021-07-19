@@ -6,7 +6,7 @@ public class Task57 {
 	    System.out.println(s);
 	  }
 	public static void execute() {
-		System.out.println("Enter your name: "); String name = MyMain.scanner.nextLine();
+		System.out.println("Enter your name: "); String name = MyMain.sc.nextLine();
 		abbrevName(name);
 	}
 }

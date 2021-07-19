@@ -120,7 +120,7 @@ class Task15 {
         System.out.println("input x, y and char");
         int x = MyMain.scanner.nextInt();
         int y = MyMain.scanner.nextInt();
-        char ch = MyMain.scanner.next().charAt(0);
+        char ch = MyMain.sc.next().charAt(0);
         System.out.println(q1.fill(x, y, ch));
         System.out.println(q1.drawCanvas());
     }

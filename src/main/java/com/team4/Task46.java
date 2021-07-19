@@ -13,7 +13,7 @@ public class Task46{
 	  }
 	public static void execute() {
 	      System.out.println("Print a text: ");
-	      String s = MyMain.scanner.nextLine();
+	      String s = MyMain.sc.nextLine();
 	      solution(s);
 	}
 	

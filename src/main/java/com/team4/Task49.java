@@ -8,7 +8,7 @@ public class Task49{
 	  
 	  public static void execute() {
 		  System.out.println("Enter something: ");
-		  String s = MyMain.scanner.nextLine();
+		  String s = MyMain.sc.nextLine();
 		  replaceDots(s);
 	  }
 }

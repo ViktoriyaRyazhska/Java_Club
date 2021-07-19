@@ -12,9 +12,9 @@ public class Task52 {
 	
 	public static void execute() {
 		System.out.println("Enter three words: ");
-		String s1 = MyMain.scanner.nextLine();
-		String s2 = MyMain.scanner.nextLine();
-		String s3 = MyMain.scanner.nextLine();
+		String s1 = MyMain.sc.nextLine();
+		String s2 = MyMain.sc.nextLine();
+		String s3 = MyMain.sc.nextLine();
 		tripleTrouble(s1, s2, s3);
 	}
 }

@@ -16,7 +16,7 @@ public class Task62{
 	
 	public static void execute() {
 		System.out.println("Enter a text: ");
-		String s = MyMain.scanner.nextLine();
+		String s = MyMain.sc.nextLine();
 		toAlternativeString(s);
 	}
 }

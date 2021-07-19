@@ -11,7 +11,7 @@ public static void howOld(final String herOld) {
 	  }
 public static void execute() {
 	System.out.println("how old is her ");
-	String h = MyMain.scanner.nextLine();
+	String h = MyMain.sc.nextLine();
 	howOld(h);
 }
 }

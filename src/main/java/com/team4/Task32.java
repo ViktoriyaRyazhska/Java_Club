@@ -13,7 +13,7 @@ public class Task32 {
     public static void execute(){
         System.out.println("Input repeat of your word(int) and your word");
         int n52 = MyMain.scanner.nextInt();
-        String n53 = MyMain.scanner.nextLine();
+        String n53 = MyMain.sc.nextLine();
         System.out.println(Task32.repeatStr(n52, n53));
     }
 }

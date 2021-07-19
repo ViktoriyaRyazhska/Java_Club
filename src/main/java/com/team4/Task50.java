@@ -11,7 +11,7 @@ public static void areYouPlayingBanjo(String name) {
 
 public static void execute() {
 	System.out.print("Enter your name: ");
-	String s = MyMain.scanner.nextLine();
+	String s = MyMain.sc.nextLine();
 	areYouPlayingBanjo(s);
 }
 }

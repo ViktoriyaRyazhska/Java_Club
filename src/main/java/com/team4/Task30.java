@@ -17,7 +17,7 @@ public class Task30 {
 
     public static void execute(){
         System.out.println("Input your current light of traffic light ");
-        String n50 = MyMain.scanner.nextLine();
+        String n50 = MyMain.sc.nextLine();
         System.out.println(Task30.updateLight(n50));
     }
 }
