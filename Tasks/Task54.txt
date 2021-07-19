@@ -1,0 +1,14 @@
+
+public class Task54 extends TaskMain{
+
+	public static void main(String[] args) {
+		
+	}
+	
+	
+	
+	public static void fakeBin(String numberString) {
+        String s = numberString.replaceAll("[1-4]","0").replaceAll("[^0]","1");
+        System.out.println(s);
+    }
+}
