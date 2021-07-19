@@ -62,56 +62,6 @@ public class Menu {
         }
     }
 
-    public static void mainSwitch() {
-        int caseNum;
-        caseNum = Menu.menu();
-
-        switch (caseNum) {
-            case 1: {
-                Menu.basicMenu();
-                BasicRealizations.basicRealization();
-                break;
-            }
-            case 2: {
-                Menu.classesMenu();
-                ClassesRealizations.classesRealization();
-                break;
-            }
-            case 3: {
-                Menu.conditionsMenu();
-                ConditionsRealizations.conditionsRealization();
-                break;
-            }
-            case 4: {
-                Menu.loopsMenu();
-                LoopsRealizations.loopsRealization();
-                break;
-            }
-            case 5: {
-                Menu.oopMenu();
-                OOPRealizations.OOPRealization();
-                break;
-            }
-            case 6: {
-                Menu.stringMenu();
-                StringRealizations.StringRealization();
-                break;
-            }
-            case 7: {
-                Menu.collectionsMenu();
-                CollectionsRealizations.collectionsRealization();
-                break;
-            }
-            case 0: {
-                System.out.println("Good Bye");
-                System.exit(0);
-            }
-            default:
-                System.out.println("Incorrect value!");
-
-        }
-    }
-
 
     public static int menu(){
         int selection = 0;

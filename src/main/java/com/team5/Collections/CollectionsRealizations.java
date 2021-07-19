@@ -27,7 +27,7 @@ public class CollectionsRealizations {
                 collectionsTasks.task70IO();
                 break;
             } case 71:{
-                collectionsTasks.task71();
+                collectionsTasks.task71IO();
                 break;
             } case 72:{
 

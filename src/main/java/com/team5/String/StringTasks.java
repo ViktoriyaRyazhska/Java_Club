@@ -173,8 +173,7 @@ public class StringTasks {
         int n = Input.getIntegerInput();
         System.out.println(task68(s, n));
     }
-    public String task55(String str) {
-        return str.replace(".", "-");
+    public String task55(String str) {return str.replace(".", "-");
     }
     public void task55IO() {
         System.out.print("Enter string with dots - ");
@@ -194,8 +193,8 @@ public class StringTasks {
         return str.replace(" ", "");
     }
     public void task57IO() {
-        System.out.print("Enter Sting with spaces - ");
-        String str = Input.getStrInput();
+        System.out.println("Enter Sting with spaces");
+        String str = Input.getStrLineInput();
         System.out.println(task57(str));
     }
     public String task58(String one,String two, String three,String res) {

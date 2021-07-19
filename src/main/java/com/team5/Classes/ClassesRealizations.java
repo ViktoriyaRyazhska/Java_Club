@@ -4,7 +4,6 @@ import com.team5.Menu.Input;
 import com.team5.Menu.Menu;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class ClassesRealizations {
 
@@ -24,22 +23,21 @@ public class ClassesRealizations {
                 }
                 case 12: {
 
-                }
-                case 13: {
+                } case 13: {
 
-                }
-                case 14: {
-                    System.out.println("test");
-                }
-                case 15: {
+                } case 14: {
+                    Fraction fraction = new Fraction(15, 56);
+                    fraction.add(fraction);
+                    break;
+                } case 15: {
 
                 }
                 case 16: {
-                    classesTasks.task16();
+                    classesTasks.task16IO();
                     break;
                 }
                 case 17: {
-                    Block block = new Block(5, 6, 3);
+                    Block block = new Block();
                     block.getVolume();
                     block.getSurfaceArea();
                     break;
@@ -48,9 +46,7 @@ public class ClassesRealizations {
                     System.out.println("Incorrect value!");
             }
             Menu.classesMenu();
-
         }
-//        test
     }
 
 }

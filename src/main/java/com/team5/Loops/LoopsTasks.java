@@ -98,8 +98,14 @@ public class LoopsTasks {
         for (int i = 1; i <= n; i++){
             result += i;
         }
-        System.out.println(result);
+
         return result;
+    }
+
+    public void task44IO(){
+        System.out.println("That is the program that finds the summation of every number from 1 to number that you will write");
+        int n = Input.getIntegerInput();
+        System.out.println(task44(n));
     }
 
     //i need help
@@ -126,14 +132,13 @@ public class LoopsTasks {
         int sticks = Input.getIntegerInput();
         System.out.println(task46(sticks));
     }
-    public String task40(int n, int[] arr,int sum){
+    public String task40(int[] arr,int sum){
         for (int i = 0; i < arr.length; i++) {
-            System.out.print("Enter arr elem"+(i+1)+" = ");
-            arr[i]= Input.getIntegerInput();
             if(arr[i]>0){
                 sum+=arr[i];
             }
         }
+
         return "Sum of pos elem = "+sum;
     }
     public void task40IO() {
@@ -141,7 +146,11 @@ public class LoopsTasks {
         int n = Input.getIntegerInput();
         int[] arr = new int[n];
         int sum = 0;
-        System.out.println(task40(n,arr,sum));
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print("Enter arr elem" + (i + 1) + " = ");
+            arr[i] = Input.getIntegerInput();
+        }
+        System.out.println(task40(arr,sum));
     }
     public String task41(ArrayList<String> rev){
         Collections.reverse(rev);

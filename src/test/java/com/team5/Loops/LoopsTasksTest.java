@@ -1,6 +1,9 @@
 package com.team5.Loops;
 
 import org.junit.jupiter.api.Test;
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,14 +34,26 @@ class LoopsTasksTest {
     }
 
     @Test
-    void task44() {
-        int actual = loopsTasks.task44(5);
-        assertEquals(15, actual);
+    void task40() {
+        assertEquals("Sum of pos elem = 20", loopsTasks.task40(new int[] {4, 3, 6, 2, 5},0));
     }
 
     @Test
-    void task46() {
-        int actual = loopsTasks.task46(3);
-        assertEquals(3, actual);
+    void task41() {
+        ArrayList<String> rev = new ArrayList<String>();
+        rev.add("a");
+        rev.add("b");
+        rev.add("c");
+        assertEquals("Reversed parts - [c, b, a]", loopsTasks.task41(rev));
+    }
+
+    @Test
+    void task42() {
+        assertEquals(10,loopsTasks.task42(50,20));
+    }
+
+    @Test
+    void task43() {
+        assertEquals(4,loopsTasks.task43(5));
     }
 }
