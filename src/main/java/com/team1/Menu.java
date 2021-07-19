@@ -66,40 +66,40 @@ public class Menu {
 
     public void printListOfTasks() {
         System.out.println("Input number of task!");
-        System.out.println("Choose the task:" + "\n01.Basic Task 1   "
-                + "02.Basic Task 2   "
-                + "03.Basic Task 3   "
-                + "\n04.Basic Task 4   "
-                + "05.Basic Task 5   "
-                + "06.Basic Task 6   "
-                + "07.Basic Task 7   "
-                + "\n08.Basic Task 8   "
-                + "09.Basic Task 9   "
-                + "10.Basic Task 10   "
-                + "11.Basic Task 11   "
-                + "\n12.Fractions classes Task 12   " +
-                " 13.Lombok encapsulation Task 13   " +
-                " 14.Fixme Static Electrickery Task 14   " +
-                "15.Filtering-even-numbers-bug-fixes Task 15   " +
-                "\n16.Interactive Dictionary Task 16   " +
-                "17.Push An Object Into Array Task 17   " +
-                "18.UnfinishedLoop Task 18   " +
-                "19.Convert Bool To String Task 19   " +
-                "\n20.Do I Get Bonus Task 20   " +
-                "21.How-old-will-i-be-in-2099 Task 21   " +
-                "22.Is Divisible Task 22   " +
-                "23.Math Operations Task 23   " +
-                "\n24.Opposite Num Task 24   " +
-                "25.RockPaperScissors Task 25   " +
-                "26.Averages Task 26   " +
-                "27.CatDog Years CounterTask 27   " +
-                "\n28.Reversed Sequence Task 28   " +
-                "29.Sheep Counter Task 29   " +
-                "30.StringRepeater Task 30   " +
-                "31.Welcome-to-the-city Task 31   " +
-                "\n32.Convert-a-number-to-a-string Task 32   " +
-                "33.Opposite Num(String)Task 33   " +
-                "34.StringReverser Task 34"+
-                "35.Basic-subclasses-adam-and-eve Task 35");
+        System.out.println("Choose the task:" + "\n01.Basic 1     "
+                + "02.Basic 2     "
+                + "03.Basic 3     "
+                + "04.Basic 4     "
+                + "\n05.Basic 5     "
+                + "06.Basic 6    "
+                + "07.Basic 7    "
+                + "08.Basic 8    "
+                + "\n09.Basic 9   "
+                + "10.Basic 10    "
+                + "11.Basic 11    "
+                + "12.Fractions classes     " +
+                " \n13.Lombok encapsulation     " +
+                " 14.Fixme Static Electrickery     " +
+                "15.Filtering-even-numbers-bug-fixes     " +
+                "16.Interactive Dictionary     " +
+                "\n17.Push An Object Into Array     " +
+                "18.UnfinishedLoop     " +
+                "19.Convert Bool To String     " +
+                "20.Do I Get Bonus     " +
+                "\n21.How-old-will-i-be-in-2099     " +
+                "22.Is Divisible     " +
+                "23.Math Operations     " +
+                "24.Opposite Num     " +
+                "\n25.RockPaperScissors     " +
+                "26.Averages     " +
+                "27.CatDog Years Counter    " +
+                "28.Reversed Sequence     " +
+                "\n29.Sheep Counter     " +
+                "30.StringRepeater     " +
+                "31.Welcome-to-the-city     " +
+                "32.Convert-a-number-to-a-string     " +
+                "\n33.Opposite Num(String)    " +
+                "34.StringReverser     "+
+                "35.Basic-subclasses-adam-and-eve  ");
     }
 }
