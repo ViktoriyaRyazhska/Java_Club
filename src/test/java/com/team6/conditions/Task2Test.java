@@ -3,7 +3,9 @@ package com.team6.conditions;
 import com.team6.basic.CustomException;
 import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class Task2Test extends TestCase  {
 /*
@@ -19,8 +21,8 @@ public class Task2Test extends TestCase  {
     }
 */
 
-    @Test (expected = CustomException.class)
-    public void testIsDivisibleByZero() throws CustomException {
-        Task2.isDivisible(0,0,0);
+    @Test
+    public void testIsDivisibleByZero() {
+        assertFalse(Task2.isDivisible(0, 0, 0));
     }
 }

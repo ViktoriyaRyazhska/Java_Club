@@ -2,7 +2,7 @@ package com.team6.basic.tasks;
 
 import java.util.Scanner;
 
-public class Task9 implements Task{
+public class Task9 implements Task {
 
     private final Scanner scanner;
 
@@ -16,6 +16,8 @@ public class Task9 implements Task{
 
     @Override
     public void execute() {
+
+        int age = 0;
 
         System.out.println("\t *** Task 9 executed *** ");
 

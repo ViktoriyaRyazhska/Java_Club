@@ -2,7 +2,6 @@ package com.team6.basic.tasks;
 
 import junit.framework.TestCase;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,13 +17,13 @@ public class Task1Test extends TestCase {
     }
 
     @Test
-    public void testDoubleIntegerTrue() {
-       Assert.assertEquals(8,Task1.doubleInteger(4));
+    public void testExecute() {
+        assertEquals(8,Task1.doubleInteger(4));
     }
 
     @Test
-    public void testDoubleIntegerFall(){
-        Assert.assertNotEquals(30000000,Task1.doubleInteger(10000000));
+    public void testExecute2(){
+        assertEquals(20000000,Task1.doubleInteger(10000000));
     }
 
 }

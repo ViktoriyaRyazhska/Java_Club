@@ -2,7 +2,7 @@ package com.team6.basic.tasks;
 
 import java.util.Scanner;
 
-public class Task1 implements Task {
+class Task1 implements Task {
     private final Scanner scanner;
 
     public Task1(Scanner scanner) {
