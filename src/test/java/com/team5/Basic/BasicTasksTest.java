@@ -38,20 +38,22 @@ class BasicTasksTest {
 
     @Test
     void task4() {
-//        int actual = basicTask.task3(5,5,5);
-//        assertEquals(125,actual);
+        boolean actual = basicTask.task4(8,4);
+        assertEquals(true,actual);
     }
 
     @Test
     void task5() {
-//        int actual = basicTask.task3(5,5,5);
-//        assertEquals(125,actual);
+        String actual1 = basicTask.task5("Johnny");
+        assertEquals("Hello, my love!",actual1);
+        String actual2 = basicTask.task5("John");
+        assertEquals("Hello, John!",actual2);
     }
 
     @Test
     void task6() {
-//        int actual = basicTask.task3(5,5,5);
-//        assertEquals(125,actual);
+        int actual = basicTask.task6(5);
+        assertEquals(101,actual);
     }
 
     @Test

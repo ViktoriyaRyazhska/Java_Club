@@ -26,6 +26,15 @@ public class Input {
         }
         return input;
     }
+    public static String getStrLineInput() {
+        String input = "";
+        try {
+            input = scanner.nextLine();
+        }catch (InputMismatchException e){
+            System.out.println("Incorrect value. Please enter string.");
+        }
+        return input;
+    }
 
     public static boolean getBoolInput() {
         boolean input = false;
