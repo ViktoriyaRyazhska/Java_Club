@@ -1,11 +1,6 @@
+package com.team4;
+public class Task52 {
 
-public class Task52 extends TaskMain{
-public static void main(String[] args) {
-	
-}
-	
-	
-	
 	public static void tripleTrouble(String s1, String s2, String s3) {
 	    StringBuilder sb = new StringBuilder(s1.length()*3);
 	    for (int i=0; i<s1.length(); i++) {
@@ -17,9 +12,9 @@ public static void main(String[] args) {
 	
 	public static void execute() {
 		System.out.println("Enter three words: ");
-		String s1 = TaskMain.sc.nextLine();
-		String s2 = TaskMain.sc.nextLine();
-		String s3 = TaskMain.sc.nextLine();
+		String s1 = MyMain.scanner.nextLine();
+		String s2 = MyMain.scanner.nextLine();
+		String s3 = MyMain.scanner.nextLine();
 		tripleTrouble(s1, s2, s3);
 	}
 }

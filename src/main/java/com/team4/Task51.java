@@ -1,12 +1,5 @@
-
-public class Task51 extends TaskMain{
-
-	public static void main(String[] args) {
-		
-	}
-	
-	
-	
+package com.team4;
+public class Task51 {
 	
 	public static void noSpace(final String x) {
         String s = "";
@@ -19,7 +12,7 @@ public class Task51 extends TaskMain{
 	
 	public static void execute() {
 	 System.out.print("Enter some text: ");
-	 String s = TaskMain.sc.nextLine();
+	 String s = MyMain.scanner.nextLine();
 	 noSpace(s);
 	}
 }

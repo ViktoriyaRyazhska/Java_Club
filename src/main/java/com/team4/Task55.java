@@ -1,10 +1,5 @@
-
-public class Task55 extends TaskMain{
-public static void main(String[] args) {
-	
-	execute();
-}
-
+package com.team4;
+public class Task55 {
 
 public static void howOld(final String herOld) {
 
@@ -16,7 +11,7 @@ public static void howOld(final String herOld) {
 	  }
 public static void execute() {
 	System.out.println("how old is her ");
-	String h = TaskMain.sc.nextLine();
+	String h = MyMain.scanner.nextLine();
 	howOld(h);
 }
 }

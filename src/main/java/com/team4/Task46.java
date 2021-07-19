@@ -1,12 +1,5 @@
-
+package com.team4;
 public class Task46{
-
-	
-	public static void main(String[] args) {
-		
-	}
-	
-	
 	
 	public static void solution(String str) {
 	    // Your code here...
@@ -20,7 +13,7 @@ public class Task46{
 	  }
 	public static void execute() {
 	      System.out.println("Print a text: ");
-	      String s = TaskMain.sc.nextLine();
+	      String s = MyMain.scanner.nextLine();
 	      solution(s);
 	}
 	

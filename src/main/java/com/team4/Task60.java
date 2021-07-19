@@ -1,10 +1,6 @@
+package com.team4;
+public class Task60 {
 
-public class Task60 extends TaskMain{
-
-	public static void main(String[] args) {
-		
-	}
-	
 	public static void remove(String s, int n){
 		  
 	    while(n-->0)
@@ -13,9 +9,9 @@ public class Task60 extends TaskMain{
 	  }
 	public static void execute() {
 		System.out.println("Enter a text");
-		String s = TaskMain.sc.nextLine();
+		String s = MyMain.scanner.nextLine();
 		System.out.println("Print a number");
-		int n = TaskMain.sc.nextInt();
+		int n = MyMain.scanner.nextInt();
 		remove(s, n);
 	}
 	

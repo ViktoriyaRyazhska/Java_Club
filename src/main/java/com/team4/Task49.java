@@ -1,11 +1,5 @@
-
+package com.team4;
 public class Task49{
-public static void main(String[] args) {
-	
-	
-}
-
-
 
 	  public static void replaceDots(final String str) {
 	    String s = str.replace(".", "-");
@@ -14,7 +8,7 @@ public static void main(String[] args) {
 	  
 	  public static void execute() {
 		  System.out.println("Enter something: ");
-		  String s = TaskMain.sc.nextLine();
+		  String s = MyMain.scanner.nextLine();
 		  replaceDots(s);
 	  }
 }

@@ -1,11 +1,6 @@
-
+package com.team4;
 public class Task48{
 
-	public static void main(String[] args) {
-		
-		
-	}
-	
 	public static void opposite(int number)
     {
         // your code here
@@ -13,7 +8,7 @@ public class Task48{
     }
 	public static void execute() {
 		System.out.println("Print an integer: ");
-		int n = TaskMain.sc.nextInt();
+		int n = MyMain.scanner.nextInt();
 		opposite(n);
 	}
 }

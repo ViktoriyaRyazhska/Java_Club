@@ -1,10 +1,6 @@
-
+package com.team4;
 
 public class Task62{
-
-	public static void main(String[] args) {
-		
-	}
 	
 	public static void toAlternativeString(String string) {
         String result = "";
@@ -20,7 +16,7 @@ public class Task62{
 	
 	public static void execute() {
 		System.out.println("Enter a text: ");
-		String s = TaskMain.sc.nextLine();
+		String s = MyMain.scanner.nextLine();
 		toAlternativeString(s);
 	}
 }

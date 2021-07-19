@@ -1,12 +1,7 @@
-
-public class Task42 extends TaskMain{
-public static void main(String[] args ) {
-	execute();
-}
-
+package com.team4;
+public class Task42 {
 
 public static void TwiceAsOld(int dadYears, int sonYears){
-    //TODO: Add code here
 	
     int twice = sonYears * 2;
     
@@ -18,9 +13,9 @@ public static void TwiceAsOld(int dadYears, int sonYears){
 
 public static void execute() {
 	 System.out.println("Enter fathers age: ");
-	 int dadYears = TaskMain.sc.nextInt();
+	 int dadYears = MyMain.scanner.nextInt();
 	 System.out.println("Enter sons age: ");
-	 int sonYears = TaskMain.sc.nextInt();
+	 int sonYears = MyMain.scanner.nextInt();
 	 TwiceAsOld(dadYears, sonYears);
 }
 }

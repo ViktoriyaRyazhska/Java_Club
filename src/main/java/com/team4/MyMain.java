@@ -10,156 +10,57 @@ public class MyMain {
         System.out.print("Input your number of task : ");
 
         int question = scanner.nextInt();
-        switch (question){
-            case 1:
-                Task1.execute();
-                break;
-            case 2:
-                Task2.execute();
-                break;
-            case 3:
-                Task3.execute();
-                break;
-            case 4:
-                Task4.execute();
-                break;
-            case 5:
-                Task5.execute();
-                break;
-            case 6:
-                Task6.execute();
-                break;
-            case 7:
-                Task7.execute();
-                break;
-            case 8:
-                Task8.execute();
-                break;
-            case 9:
-                Task9.execute();
-                break;
-            case 10:
-                Task10.execute();
-                break;
-            case 11:
-                Task11.execute();
-                break;
-            case 12:
-                Task12.execute();
-                break;
-            case 13:
-                Task13.execute();
-                break;
-            case 14:
-                Task14.execute();
-                break;
-            case 15:
-                Task15.execute();
-                break;
-            case 16:
-                Task16.execute();
-                break;
-            case 17:
-                Task17.execute();
-                break;
-            case 18:
-                Task18.execute();
-                break;
-            case 19:
-                Task19.execute();
-                break;
-            case 20:
-                Task20.execute();
-                break;
-            case 21:
-                Task21.execute();
-                break;
-            case 22:
-                Task22.execute();
-                break;
-            case 23:
-                Task23.execute();
-                break;
-            case 24:
-                Task24.execute();
-                break;
-            case 25:
-                Task25.execute();
-                break;
-            case 26:
-                Task26.execute();
-                break;
-            case 27:
-                Task27.execute();
-                break;
-            case 28:
-                Task28.execute();
-                break;
-            case 29:
-                Task29.execute();
-                break;
-            case 30:
-                Task30.execute();
-                break;
-            case 31:
-                Task31.execute();
-                break;
-            case 32:
-                Task32.execute();
-                break;
-            case 33:
-                Task33.execute();
-                break;
-            case 34:
-                Task34.execute();
-                break;
-            case 35:
-                Task35.execute();
-                break;
-            case 36:
-                Task36.execute();
-                break;
-            case 42:
-                Task42.execute();
-                break;
-            case 45:
-                Task45.execute();
-                break;
-            case 46:
-                Task46.execute();
-                break;
-            case 48:
-                Task48.execute();
-                break;
-            case 49:
-                Task49.execute();
-                break;
-            case 50:
-                Task50.execute();
-                break;
-            case 51:
-                Task51.execute();
-                break;
-            case 52:
-                Task52.execute();
-                break;
-            case 55:
-                Task55.execute();
-                break;
-            case 57:
-                Task57.execute();
-                break;
-            case 60:
-                Task60.execute();
-                break;
-            case 61:
-                Task61.execute();
-                break;
-            case 62:
-                Task62.execute();
-                break;
-            default:
-                System.out.println("There is no such number (((");
+        switch (question) {
+            case 1 -> Task1.execute();
+            case 2 -> Task2.execute();
+            case 3 -> Task3.execute();
+            case 4 -> Task4.execute();
+            case 5 -> Task5.execute();
+            case 6 -> Task6.execute();
+            case 7 -> Task7.execute();
+            case 8 -> Task8.execute();
+            case 9 -> Task9.execute();
+            case 10 -> Task10.execute();
+            case 11 -> Task11.execute();
+            case 12 -> Task12.execute();
+            case 13 -> Task13.execute();
+            case 14 -> Task14.execute();
+            case 15 -> Task15.execute();
+            case 16 -> Task16.execute();
+            case 17 -> Task17.execute();
+            case 18 -> Task18.execute();
+            case 19 -> Task19.execute();
+            case 20 -> Task20.execute();
+            case 21 -> Task21.execute();
+            case 22 -> Task22.execute();
+            case 23 -> Task23.execute();
+            case 24 -> Task24.execute();
+            case 25 -> Task25.execute();
+            case 26 -> Task26.execute();
+            case 27 -> Task27.execute();
+            case 28 -> Task28.execute();
+            case 29 -> Task29.execute();
+            case 30 -> Task30.execute();
+            case 31 -> Task31.execute();
+            case 32 -> Task32.execute();
+            case 33 -> Task33.execute();
+            case 34 -> Task34.execute();
+            case 35 -> Task35.execute();
+            case 36 -> Task36.execute();
+            case 42 -> Task42.execute();
+            case 45 -> Task45.execute();
+            case 46 -> Task46.execute();
+            case 48 -> Task48.execute();
+            case 49 -> Task49.execute();
+            case 50 -> Task50.execute();
+            case 51 -> Task51.execute();
+            case 52 -> Task52.execute();
+            case 55 -> Task55.execute();
+            case 57 -> Task57.execute();
+            case 60 -> Task60.execute();
+            case 61 -> Task61.execute();
+            case 62 -> Task62.execute();
+            default -> System.out.println("There is no such number (((");
         }
     }
 
