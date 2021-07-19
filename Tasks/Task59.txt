@@ -1,0 +1,22 @@
+import java.util.Arrays;
+public class Task59 extends TaskMain{
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+	 public static void twoSort(String[] s) {
+
+	        Arrays.sort(s);
+	        String[] firstWordArray = s[0].split("");
+	        String result = "";
+	        for (int i = 0; i < firstWordArray.length; i++) {
+	            result += firstWordArray[i];
+	            if (i < firstWordArray.length - 1) {
+	                result += "***";
+	            }
+	        }
+	        System.out.println(result);
+	    }
+}

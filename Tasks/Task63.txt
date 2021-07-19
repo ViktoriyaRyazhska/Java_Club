@@ -1,0 +1,14 @@
+
+public class Task63{
+
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void remove(String s, int n){
+		  
+	    while(n-->0)
+	      s  = s.replaceFirst("!","");   
+	    System.out.println(s);    
+	  }
+}

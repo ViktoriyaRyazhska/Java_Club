@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Java_Club.iml" filepath="$PROJECT_DIR$/.idea/Java_Club.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Club.iml" filepath="$PROJECT_DIR$/Java_Club.iml" />
     </modules>
   </component>
 </project>
