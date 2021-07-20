@@ -3,38 +3,38 @@
 ## Part 2. TAQC
 
 ## Team 1
-Ihor Kukhar 
+Ihor Kukhar  
 Volodumur Shovkoplyas   
-Nesterovych Yurii 
+Nesterovych Yurii  
 Vlad Granat  
-Valentyn Bershatskyy 
+Valentyn Bershatskyy  
 
 
 ## Part 2. Java Web
 
 ## Team 2
-Pavlo Fedyk  
-Volianskyi Ihor 
-Oleksiy Vasiuta  
-Denys Ivanechko 
+Pavlo Fedyk   
+Volianskyi Ihor  
+Oleksiy Vasiuta   
+Denys Ivanechko  
  
 ## Team 3
-Michael Romanyshyn  
-Taras Vandzhala  
-Vitaliy Yaroshevych  
-Sherstiak Vadym  
+Michael Romanyshyn   
+Taras Vandzhala   
+Vitaliy Yaroshevych   
+Sherstiak Vadym   
 
 ## Team 4
-Volodymyr Vysochanskyi  
-Pavlo Ilkanych  
-Oles Vykhovanok  
-Teodor Hrabovenskyi 
+Volodymyr Vysochanskyi   
+Pavlo Ilkanych   
+Oles Vykhovanok   
+Teodor Hrabovenskyi  
 
 ## Team 5
-Bretsko Vitalii  
-Vira Maksymets 
-Roman Klymus 
-Volodymyr Medvedchuk  
+Bretsko Vitalii   
+Vira Maksymets  
+Roman Klymus  
+Volodymyr Medvedchuk   
 
 
 ## Part 1. Java Core
