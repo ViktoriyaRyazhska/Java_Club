@@ -51,7 +51,6 @@ public class Fraction implements Comparable<Fraction>, IRunTask {
     @Override
     public void execute() {
         boolean mark = false;
-        int size, number;
         Scanner sc = new Scanner(System.in);
         Fraction faraction1;
         Fraction faraction2;
@@ -78,7 +77,7 @@ public class Fraction implements Comparable<Fraction>, IRunTask {
                 System.out.println("You have input illegal character, try again!");
                 continue;
             }
-        } while (mark == false);
+        } while (!mark);
 
     }
 
@@ -94,6 +93,4 @@ public class Fraction implements Comparable<Fraction>, IRunTask {
     public long getBottom() {
         return bottom;
     }
-
-
 }
