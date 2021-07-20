@@ -3,18 +3,18 @@
 ## Part 2. TAQC
 
 ## Team 1
-Ihor Kukhar
-Volodumur Shovkoplyas  
-Nesterovych Yurii
+Ihor Kukhar 
+Volodumur Shovkoplyas   
+Nesterovych Yurii 
 Vlad Granat  
-Valentyn  Bershatskyy
+Valentyn Bershatskyy 
 
 
 ## Part 2. Java Web
 
 ## Team 2
 Pavlo Fedyk  
-Volianskyi Ihor
+Volianskyi Ihor 
 Oleksiy Vasiuta  
 Denys Ivanechko 
  
@@ -28,12 +28,12 @@ Sherstiak Vadym
 Volodymyr Vysochanskyi  
 Pavlo Ilkanych  
 Oles Vykhovanok  
-Teodor Hrabovenskyi
+Teodor Hrabovenskyi 
 
 ## Team 5
 Bretsko Vitalii  
-Vira Maksymets
-Roman Klymus
+Vira Maksymets 
+Roman Klymus 
 Volodymyr Medvedchuk  
 
 
