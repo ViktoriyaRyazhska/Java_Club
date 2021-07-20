@@ -56,4 +56,17 @@ class LoopsTasksTest {
     void task43() {
         assertEquals(4,loopsTasks.task43(5));
     }
+
+    @Test
+    void task44() {
+        int actual = loopsTasks.task44(5);
+        assertEquals(15, actual);
+    }
+
+    @Test
+    void task46() {
+        int actual = loopsTasks.task46(3);
+        assertEquals(3, actual);
+    }
+
 }

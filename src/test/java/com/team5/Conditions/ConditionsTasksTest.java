@@ -9,6 +9,30 @@ class ConditionsTasksTest {
     ConditionsTasks conditionsTasks = new ConditionsTasks();
 
     @Test
+    void task18() {
+        int actual = conditionsTasks.task18(5);
+        assertEquals(-5, actual);
+    }
+
+    @Test
+    void task19() {
+        boolean actual = conditionsTasks.task19(10, 5, 2);
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void task20() {
+        String actual = conditionsTasks.task20(true);
+        assertEquals("true", actual);
+    }
+
+    @Test
+    void task21() {
+        String actual = conditionsTasks.task21(100, true);
+        assertEquals("£1000", actual);
+    }
+
+    @Test
     void task26() {
         assertEquals("One", conditionsTasks.task26(1));
         assertEquals("Three", conditionsTasks.task26(3));

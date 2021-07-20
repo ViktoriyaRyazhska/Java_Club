@@ -9,6 +9,30 @@ class StringTasksTest {
     StringTasks stringTasks = new StringTasks();
 
     @Test
+    void task55() {
+        assertEquals("a-b-c-",stringTasks.task55("a.b.c."));
+    }
+
+    @Test
+    void task56() {
+        assertEquals("Rodrigo plays banjo",stringTasks.task56("Rodrigo"));
+        assertEquals("Tom does not play banjo",stringTasks.task56("Tom"));
+
+    }
+
+    @Test
+    void task57() {
+        assertEquals("abc",stringTasks.task57("a b c "));
+
+    }
+
+    @Test
+    void task58() {
+        assertEquals("adgbehcfi",stringTasks.task58("abc","def","ghi",""));
+    }
+
+
+    @Test
     void task59() {
         assertEquals("Position of alphabet: 1", stringTasks.task59('a'));
         assertEquals("Position of alphabet: 26", stringTasks.task59('z'));
@@ -40,25 +64,33 @@ class StringTasksTest {
     }
 
     @Test
-    void task55() {
-        assertEquals("a-b-c-",stringTasks.task55("a.b.c."));
+    void task64() {
+        int actual = stringTasks.task64("Vovochka", 'o');
+        assertEquals(2, actual);
     }
 
     @Test
-    void task56() {
-        assertEquals("Rodrigo plays banjo",stringTasks.task56("Rodrigo"));
-        assertEquals("Tom does not play banjo",stringTasks.task56("Tom"));
-
+    void task65() {
+        String actual = stringTasks.task65(new String[]{"Aboba", "Pop-it", "Simple-dimple"});
+        assertEquals("Aboba", actual);
     }
 
     @Test
-    void task57() {
-        assertEquals("abc",stringTasks.task57("a b c "));
-
+    void task66() {
+        String actual = stringTasks.task66("V0VA L1KE CANDIE5");
+        assertEquals("VOVA LIKE CANDIES", actual);
     }
 
     @Test
-    void task58() {
-        assertEquals("adgbehcfi",stringTasks.task58("abc","def","ghi",""));
+    void task67() {
+        String actual = stringTasks.task67("VOVA love YOU");
+        assertEquals("vova LOVE you", actual);
     }
+
+    @Test
+    void task68() {
+        String actual = stringTasks.task68("test!!! test again!!", 4);
+        assertEquals("test test again!", actual);
+    }
+
 }

@@ -37,7 +37,7 @@ public class ClassesRealizations {
                     break;
                 }
                 case 17: {
-                    Block block = new Block();
+                    Block block = new Block(5, 6, 3);
                     block.getVolume();
                     block.getSurfaceArea();
                     break;
