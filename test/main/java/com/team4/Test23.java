@@ -11,3 +11,5 @@ public class Test23 extends Task23 {
 		Assertions.assertEquals("Draw!", rps("scissors","scissors"));
     }
 }
+
+
