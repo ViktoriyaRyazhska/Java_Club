@@ -1,9 +1,10 @@
-package com.company.basicTasks;
+package com.team1.tasks.basicTasks;
 
-import com.company.IRunTask;
 import java.util.Scanner;
 
-public class BasicTask12 implements IRunTask {
+public class BasicTask12 implements com.team1.IRunTask {
+
+    Scanner console = new Scanner(System.in);
 
     @Override
     public void execute() {
@@ -18,10 +19,7 @@ public class BasicTask12 implements IRunTask {
         System.out.println();
         System.out.println("Please enter your string with any symbols...");
 
-        Scanner console = new Scanner(System.in);
-        String str = console.nextLine();
-
-        getXO(str);
+        getXO(console.nextLine());
     }
 
     public static boolean getXO (String input) {
