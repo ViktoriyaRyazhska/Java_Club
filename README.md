@@ -1,24 +1,9 @@
 # Java_Club
 
-## Team 1
-Michael Romanyshyn  
-Volodymyr Medvedchuk  
-Taras Vandzhala  
-Vitaliy Yaroshevych  
+## Part 2. Java Web
 
 ## Team 2
-Pavlo Fedyk  
+Pavlo Fedyk   
 Volianskyi Ihor  
-Halaibida Bohdan  
-Andrii Kolodii  
-
-## Team 3
-Ihor Kukhar  
-Volodumur Shovkoplyas  
-Nesterovych Yurii  
-Sherstiak Vadym  
-
-## Team 4
-Oleksiy Vasiuta  
+Oleksiy Vasiuta   
 Denys Ivanechko  
-Mykola Sukhinskiy  

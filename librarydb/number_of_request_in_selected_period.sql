@@ -1,0 +1,3 @@
+SELECT count(id)
+FROM rent_info
+WHERE rent_date BETWEEN '2021-05-20 15:00:00' AND '2021-06-22 15:00:00';
