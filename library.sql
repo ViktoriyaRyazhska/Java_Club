@@ -65,20 +65,24 @@ insert into role(NAME) values
 
 -- автор і його книжки
 insert into book_authors values 
-((SELECT ID from authors WHERE ID=4), (SELECT ID from book WHERE ID=1),
- (SELECT ID from author_role WHERE NAME='AUTHOR'))
-, ((SELECT ID from authors WHERE ID=1), (SELECT ID from book WHERE ID=1),
- (SELECT ID from author_role WHERE NAME='CO-AUTHOR'))
-, ((SELECT ID from authors WHERE ID=2), (SELECT ID from book WHERE ID=3),
- (SELECT ID from author_role WHERE NAME='AUTHOR'))
-;
+((SELECT ID from authors WHERE ID=4), (SELECT ID from book WHERE ID=1), 
+(SELECT ID from author_role WHERE NAME='AUTHOR')), 
+((SELECT ID from authors WHERE ID=1), (SELECT ID from book WHERE ID=1), 
+(SELECT ID from author_role WHERE NAME='CO-AUTHOR')), 
+((SELECT ID from authors WHERE ID=2), (SELECT ID from book WHERE ID=3), 
+(SELECT ID from author_role WHERE NAME='AUTHOR'));
 
 insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
 ((SELECT ID from role WHERE NAME='USER'), 'Jonh Weak', 'email@google.com', 'xxxxxx', '2012-12-31', '1980-05-02');
 
 insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
- ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false);
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false);
 
+insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-04-01', '2013-05-01', true);
+     
+insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=3), '2013-04-01', '2013-05-01', true);
 
 
 -- SELECT
@@ -90,14 +94,18 @@ select * from book;
 select COPIES>=1 as IS_AVAILABLE from book where TITLE='book name'; -- if available return 1, else 0
 
 -- 3.	Find books by author (main author, co-author)
-select book.*, authors.NAME as AUTHOR 
-from book inner join authors 
-on book.ID=authors.BOOK_ID
-where authors.NAME='author name';
+select book.*, authors.NAME as AUTHOR from book join book_authors on book.ID=book_authors.BOOK_ID
+join authors on authors.ID = book_authors.AUTHOR_ID where authors.NAME = 'author name';
 
 -- 4.	Find book by title
 select *  from book where TITLE='book name';
 
 -- 5.	Get the most popular and the most unpopular books in selected period
+select book.TITLE, COUNT(*) as NUMBER_OF_RENTS from book 
+join journal on book.ID=journal.BOOK_ID where DATE_OF_RENT between '2013-01-01' and '2013-10-01' + interval 1 day group by book.TITLE;
+
+-- 6.	*Registration functionality
+insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
+((SELECT ID from role WHERE NAME='role'), 'user name', 'email', 'password', 'date of registration', 'dirthday');
 
 
