@@ -15,11 +15,11 @@ create table if not exists author_role (ID int AUTO_INCREMENT PRIMARY KEY,
 create table if not exists BOOK_AUTHORS (
 	author_id  int not null,
 	book_id int not null,
-    author_role_id int,
+	author_role_id int,
 
 	FOREIGN KEY (author_id) REFERENCES AUTHORS(ID) ON UPDATE CASCADE ON DELETE RESTRICT, 
 	FOREIGN KEY (book_id) REFERENCES BOOK(ID)  ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (author_role_id) REFERENCES author_role(ID) ON UPDATE CASCADE ON DELETE RESTRICT
+	FOREIGN KEY (author_role_id) REFERENCES author_role(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 	
 	
