@@ -1,0 +1,294 @@
+create database library;
+drop database library;
+
+use library;
+
+SET SQL_SAFE_UPDATES = 0;
+
+show tables;
+
+describe readers;
+describe books;
+describe readers_books;
+
+create table readers (
+	reader_id bigint primary key auto_increment,
+    phone_number varchar(13),
+    email varchar(20),
+    user_name varchar(20),
+    `password` varchar(20),
+    dob datetime(6),
+    registration_time datetime(6)
+); 
+
+create table books (
+	book_id bigint primary key auto_increment,
+    title varchar(20),
+    main_author varchar(20),
+    coauthor varchar(20),
+    count_of_copies int
+); 
+
+create table readers_books (
+	id bigint auto_increment,
+    reader_id bigint,
+    book_id bigint,
+    taken datetime(6),
+    returned datetime(6),
+    deadline datetime(6),
+    primary key (id),
+    constraint FK_READER foreign key (reader_id) references readers(reader_id),
+	constraint FK_BOOK foreign key (book_id) references books(book_id)
+); 
+
+select * from readers;
+select * from books;
+select * from readers_books;
+
+-- register user -> become reader
+insert into readers (phone_number, email, user_name, `password`, dob, registration_time)
+values
+	('+380996413651', 'mark@gmail.com', 'marko2322', '1234', '2002-11-23', '2002-11-23'),
+	('+380996444451', 'nik@ukr.net', 'neon01', '1111', '2002-09-25', '2002-11-23'),
+	('+380996444451', 'kek@ukr.net', 'non01', '1111', '2003-09-26', '2002-11-23'),
+	('+380996413651', 'chris@gmail.com', 'chacha222', '4444', '2002-01-23', '2002-11-23'),
+	('+380996413651', 'chris@gmail.com', 'cha222', '4444', '2021-06-23', '2002-11-23');
+
+-- MANAGER
+-- 1
+-- register book with copies
+insert into books (title, main_author, coauthor, count_of_copies)
+values
+	('Wild at heart', 'John Eldreg', null, 100),
+	('Think and grow rich', 'Napoleon Hill', null, 130),
+	('Cristiano Ronaldo', 'Cristiano Ronaldo', null, 100),
+	('Petryk', 'Petro Poroshenko', 'Yogo Mama', 100);
+    
+-- 2
+-- update book' info
+update books
+set count_of_copies = 100000
+where title = 'Cristiano Ronaldo' and main_author = 'Cristiano Ronaldo';
+
+update books
+set count_of_copies = 120
+where count_of_copies = 100;
+
+-- 3
+-- delete one copy of the book
+update books
+set count_of_copies = count_of_copies - 1
+where title = 'Cristiano Ronaldo' and main_author = 'Cristiano Ronaldo';
+
+-- delete book with its all copies
+delete from books 
+where title = 'Cristiano Ronaldo' and main_author = 'Cristiano Ronaldo';
+
+-- 4
+-- give book to the reader
+insert into readers_books (reader_id, book_id, taken, returned, deadline)
+values
+	(	
+		(select reader_id from readers where user_name = 'neon01'),
+		(select book_id from books where title = 'Cristiano Ronaldo'), 
+        now(), 
+        null, 
+        now() + INTERVAL 7 DAY
+	);
+    
+-- update readers_books
+UPDATE readers_books
+SET returned = null
+where reader_id = (select reader_id from readers where user_name = 'neon01');
+-- WHERE deadline is not null;      
+
+-- 5
+-- select num of book' copies and info about available/unavailable
+select count_of_copies -- Add num of available field 
+from books 
+where title = 'Think and grow rich';
+
+-- 6 
+-- select books which user has read
+select title, main_author, coauthor from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id) as T
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned < now();
+
+-- select books which user is reading
+select title, main_author, coauthor from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id) as T
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned is null;
+
+-- how long he is our client
+SELECT DATEDIFF(now(), registration_time) as time_of_cooperation
+from readers
+where user_name = 'cha222'; -- works in days
+
+-- 7
+-- readers of this book
+select user_name from 
+	(select readers_books.reader_id, readers_books.book_id, user_name
+    from readers_books
+	right join readers
+	on readers_books.reader_id = readers.reader_id) as T
+where book_id = (select book_id from books where title = 'Wild at heart');
+
+-- average time of reading
+select title, diff as avg_time_of_reading from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor, avg(datediff(returned, taken)) as diff
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id
+    group by  title
+    order by diff desc) as T    
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned is not null;
+
+-- 8
+-- avarage age
+select avg(datediff(now(), dob)) / 365 as avg_age_in_years
+from readers;
+
+-- time of working with Library
+select user_name, datediff(now(), registration_time) / 365 as time_of_cooperation_in_years
+from readers;
+
+-- number of requests to the library in selected period
+select count(*)
+from readers_books
+where reader_id = (select reader_id from readers where user_name = 'neon01') and taken between '2002-11-20' and '2022-11-20';
+
+-- 9
+-- detailed info about readers who has not returned book in time
+select * from 
+	(select readers_books.book_id, readers_books.returned, readers_books.deadline, readers.*
+    from readers_books
+	right join readers
+	on readers_books.reader_id = readers.reader_id) as T
+where returned > deadline; 
+
+-- 10
+-- how many books were given in selected period
+select count(*)
+from readers_books
+where taken between '2002-11-20' and '2022-11-20';
+
+-- USER
+-- 1
+-- get information about all books
+  select * from books;
+  
+-- 2
+-- check if needed book is available
+SELECT
+	if (b.count_of_copies - COUNT(rb.book_id) > 0, '1', '0') as available
+FROM readers_books AS rb
+JOIN books AS b
+ON b.book_id = rb.book_id
+WHERE rb.returned IS NULL and title = 'Petryk'
+GROUP BY rb.book_id, b.book_id;
+
+-- 3
+-- find books by author (main author, co-author)
+select * from books
+where books.main_author = 'John Eldreg';
+
+-- 4
+select * from books
+where books.title = 'Cristiano Ronaldo';
+
+-- 5
+-- get the most popular and the most unpopular books in selected period
+  select count(rb.book_id) as num_of_reads, rb.book_id, b.title
+    from readers_books AS rb
+    join books as b
+    on b.book_id = rb.book_id
+    where taken between '2019-05-07' and '2021-09-19'
+    group by rb.book_id
+    order by num_of_reads desc
+  limit 1;
+
+  select count(rb.book_id) as num_of_reads, rb.book_id, b.title
+    from readers_books AS rb
+    join books as b
+    on b.book_id = rb.book_id
+    where taken between '2019-05-07' and '2021-09-19'
+    group by book_id
+    order by num_of_reads
+  limit 1;
+
+-- READER
+-- 1
+-- request needed book
+insert into readers_books (reader_id, book_id, taken, returned, deadline)
+values
+	(	
+		(select reader_id from readers where user_name = 'non01'),
+		(select book_id from books where title = 'Think and grow rich'), 
+        now(), 
+        null, 
+        now() + INTERVAL 7 DAY
+	);
+    
+-- 2
+-- return book
+UPDATE readers_books
+SET returned = now()
+where 
+	reader_id = (select reader_id from readers where user_name = 'neon01') and
+    book_id = (select book_id from books where title = 'Wild at heart') and
+    returned is null;
+
+-- 3
+-- select books which user has read and their time of reading by a particular user
+select title, main_author, coauthor, diff from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor, sum(datediff(returned, taken)) as diff
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id
+    group by  title
+    order by diff desc) as T    
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned is not null;
+
+-- select number of books and total time of reading by a particular user
+select count(title), sum(diff) as total_time_of_reading from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor, sum(datediff(returned, taken)) as diff
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id
+    group by  title
+    order by diff desc) as T    
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned is not null;
+
+-- select books which user is reading
+select title, main_author, coauthor from 
+	(select readers_books.book_id, readers_books.reader_id, readers_books.returned, title, main_author, coauthor
+    from readers_books
+	right join books
+	on readers_books.book_id = books.book_id) as T
+where reader_id = (select reader_id from readers where user_name = 'neon01') and returned is null;
+
+-- 4
+-- get the most popular and the most unpopular books in selected period
+  select count(rb.book_id) as num_of_reads, rb.book_id, b.title
+    from readers_books AS rb
+    join books as b
+    on b.book_id = rb.book_id
+    where taken between '2019-05-07' and '2021-09-19'
+    group by rb.book_id
+    order by num_of_reads desc
+  limit 1;
+
+  select count(rb.book_id) as num_of_reads, rb.book_id, b.title
+    from readers_books AS rb
+    join books as b
+    on b.book_id = rb.book_id
+    where taken between '2019-05-07' and '2021-09-19'
+    group by book_id
+    order by num_of_reads
+  limit 1;
