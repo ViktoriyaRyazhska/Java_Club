@@ -8,13 +8,18 @@ create table if not exists  BOOK(ID int AUTO_INCREMENT PRIMARY KEY,
 	
 create table  if not exists AUTHORS(ID int AUTO_INCREMENT PRIMARY KEY,
 	NAME varchar(100) not null);
+    
+create table if not exists author_role (ID int AUTO_INCREMENT PRIMARY KEY,
+	NAME varchar(100) not null);
      
 create table if not exists BOOK_AUTHORS (
 	author_id  int not null,
 	book_id int not null,
+    author_role_id int,
 
 	FOREIGN KEY (author_id) REFERENCES AUTHORS(ID) ON UPDATE CASCADE ON DELETE RESTRICT, 
-	FOREIGN KEY (book_id) REFERENCES BOOK(ID)  ON UPDATE CASCADE ON DELETE RESTRICT
+	FOREIGN KEY (book_id) REFERENCES BOOK(ID)  ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (author_role_id) REFERENCES author_role(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 	
 	
@@ -22,14 +27,14 @@ create table if not exists  ROLE(ID int AUTO_INCREMENT PRIMARY KEY,
 	NAME varchar(100) not null);
      
 create table if not exists  USER(ID int AUTO_INCREMENT PRIMARY KEY,
-	ROLE_ID int not null,
+	ROLE_ID int,
 	NAME varchar(100) not null,
 	EMAIL varchar(100) not null,
 	PASSWORD CHAR(82) not null,
 	REGISTRATION_DATE DATE not null,
 	BIRTHDAY_DATE DATE not null,
 
-	FOREIGN KEY (ROLE_ID) REFERENCES ROLE(ID) ON UPDATE CASCADE ON DELETE SET NULL
+	FOREIGN KEY (ROLE_ID) REFERENCES ROLE(ID) ON UPDATE CASCADE ON DELETE restrict
      );
 	
 create table  if not exists JOURNAL(ID int AUTO_INCREMENT PRIMARY KEY,
@@ -64,11 +69,26 @@ insert into role(NAME) values
 ('USER')
 , ('MANAGER');
 
+insert into author_role(NAME) values
+('AUTHOR')
+, ('CO-AUTHOR');
+
+-- автор і його книжки
+insert into book_authors values 
+((SELECT ID from authors WHERE ID=4), (SELECT ID from book WHERE ID=1),
+ (SELECT ID from author_role WHERE NAME='AUTHOR'))
+, ((SELECT ID from authors WHERE ID=1), (SELECT ID from book WHERE ID=1),
+ (SELECT ID from author_role WHERE NAME='CO-AUTHOR'))
+, ((SELECT ID from authors WHERE ID=2), (SELECT ID from book WHERE ID=3),
+ (SELECT ID from author_role WHERE NAME='AUTHOR'))
+;
+
 insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
 ((SELECT ID from role WHERE NAME='USER'), 'Jonh Weak', 'email@google.com', 'xxxxxx', '2012-12-31', '1980-05-02');
 
 insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
- ((SELECT ID from user WHERE ID=2), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false);
+ ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false);
+
 
 
 -- SELECT
@@ -77,13 +97,13 @@ insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOO
 select * from book;
 
 -- 2.	Check if needed book is available
-select COPIES>1 
+select TITLE
 from book 
-where TITLE='book name'; -- if available return 1, else 0
+where (COPIES>=1) and (TITLE='book name'); -- if available return 1, else 0
 
 -- 3.	Find books by author (main author, co-author)
 select book.*, authors.NAME as AUTHOR 
-from book join authors 
+from book inner join authors 
 on book.ID=authors.BOOK_ID
 where authors.NAME='author name';
 
