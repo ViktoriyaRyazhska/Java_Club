@@ -9,17 +9,13 @@ create table if not exists  BOOK(ID int AUTO_INCREMENT PRIMARY KEY,
 create table  if not exists AUTHORS(ID int AUTO_INCREMENT PRIMARY KEY,
 	NAME varchar(100) not null);
     
-create table if not exists author_role (ID int AUTO_INCREMENT PRIMARY KEY,
-	NAME varchar(100) not null);
-     
 create table if not exists BOOK_AUTHORS (
-	author_id  int not null,
-	book_id int not null,
-    author_role_id int,
+	AUTHOR_ID  int not null,
+	BOOK_ID int not null,
+    AUTHOR_ROLE tinyint not null,
 
-	FOREIGN KEY (author_id) REFERENCES AUTHORS(ID) ON UPDATE CASCADE ON DELETE RESTRICT, 
-	FOREIGN KEY (book_id) REFERENCES BOOK(ID)  ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (author_role_id) REFERENCES author_role(ID) ON UPDATE CASCADE ON DELETE RESTRICT
+	FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHORS(ID) ON UPDATE CASCADE ON DELETE RESTRICT, 
+	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(ID)  ON UPDATE CASCADE ON DELETE RESTRICT
 );
 	
 	
@@ -54,24 +50,18 @@ create table  if not exists JOURNAL(ID int AUTO_INCREMENT PRIMARY KEY,
 insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values 
 ('Da Vinci Code,The', 20, '03:00:00')
 ,('Harry Potter and the Deathly Hallows', 30,'5:00:00')
-, ('Harry Potter and the Philosopher\'s Stone', 40, '4:00:00')
+, ('Harry Potter and the Philosophers Stone', 40, '4:00:00')
 , ('Harry Potter and the Order of the Phoenix', 5, '10:00:00')
 , ('Fifty Shades of Grey', 0, '11:00:00');
 
-insert into authors(ID, NAME) values 
-(1, 'Brown, Dan')
-, (2, 'Rowling, J.K.')
-, (3, 'Rowling, J.K.')
-, (4, 'Rowling, J.K.')
-, (5, 'James, E. L.');
+insert into authors(NAME) values ('Brown, Dan'), ('Rowling, J.K.'), ('James, E. L.'), ('Brown, Dan');
+
+insert into book_authors(AUTHOR_ID, BOOK_ID, AUTHOR_ROLE) values (1, 1, 1), (2, 2, 1), (2, 3, 1), (2, 4, 1), (3, 5, 1), (4, 5, 0);
 
 insert into role(NAME) values
-('USER')
-, ('MANAGER');
+('USER'), ('MANAGER');
 
-insert into author_role(NAME) values
-('AUTHOR')
-, ('CO-AUTHOR');
+
 
 -- автор і його книжки
 insert into book_authors values 
@@ -97,9 +87,7 @@ insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOO
 select * from book;
 
 -- 2.	Check if needed book is available
-select TITLE
-from book 
-where (COPIES>=1) and (TITLE='book name'); -- if available return 1, else 0
+select COPIES>=1 as IS_AVAILABLE from book where TITLE='Da Vinci Code,The'; -- if available return 1, else 0
 
 -- 3.	Find books by author (main author, co-author)
 select book.*, authors.NAME as AUTHOR 
@@ -111,6 +99,8 @@ where authors.NAME='author name';
 select * 
 from book 
 where TITLE='book name';
+
+-- 5.	Get the most popular and the most unpopular books in selected period
 
 
 
