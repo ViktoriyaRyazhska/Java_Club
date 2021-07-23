@@ -87,7 +87,7 @@ insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOO
 select * from book;
 
 -- 2.	Check if needed book is available
-select COPIES>=1 as IS_AVAILABLE from book where TITLE='Da Vinci Code,The'; -- if available return 1, else 0
+select COPIES>=1 as IS_AVAILABLE from book where TITLE='book name'; -- if available return 1, else 0
 
 -- 3.	Find books by author (main author, co-author)
 select book.*, authors.NAME as AUTHOR 
@@ -96,12 +96,8 @@ on book.ID=authors.BOOK_ID
 where authors.NAME='author name';
 
 -- 4.	Find book by title
-select * 
-from book 
-where TITLE='book name';
+select *  from book where TITLE='book name';
 
 -- 5.	Get the most popular and the most unpopular books in selected period
-
-
 
 
