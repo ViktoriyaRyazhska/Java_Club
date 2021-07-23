@@ -1,0 +1,52 @@
+//CREATE//
+create database library;
+
+create table BOOK(ID int AUTO_INCREMENT PRIMARY KEY,
+    -> TITLE varchar(100) not null,
+    -> COPIES int not null,
+    -> AVERENGE_READING_TIME TIME not null);
+	
+create table AUTHORS(BOOK_ID int not null,
+    -> NAME varchar(100) not null);
+	
+create table USER(ID int AUTO_INCREMENT PRIMARY KEY,
+    -> ROLE_ID int not null,
+    -> NAME varchar(100) not null,
+    -> EMAIL varchar(100) not null,
+    -> PASSWORD CHAR(82) not null,
+    -> REGISTRATION_DATE DATE not null,
+    -> BIRTHDAY_DATE DATE not null);
+	
+create table ROLE(ID int AUTO_INCREMENT PRIMARY KEY,
+    -> NAME varchar(100) not null);
+	
+create table JOURNAL(ID int AUTO_INCREMENT PRIMARY KEY,
+    -> USER_ID int not null,
+    -> BOOK_ID int not null,
+    -> DATE_OF_RENT date not null,
+    -> EXPECTED_RETURN_DATE date not null,
+    -> IS_BOOK_RETURNED tinyint not null);
+
+
+
+//INSERT//
+insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values ('Da Vinci Code,The', 20, '03:00:00');
+insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values ('Harry Potter and the Deathly Hallows', 30,'5:00:00');
+insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values ('Harry Potter and the Philosopher\'s Stone', 40, '4:00:00');
+insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values ('Harry Potter and the Order of the Phoenix', 5, '10:00:00');
+insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values ('Fifty Shades of Grey', 0, '11:00:00');
+
+insert into authors(BOOK_ID, NAME) values (1, 'Brown, Dan');
+insert into authors(BOOK_ID, NAME) values (1, 'Milton, Ben');
+insert into authors(BOOK_ID, NAME) values (2, 'Rowling, J.K.');
+insert into authors(BOOK_ID, NAME) values (3, 'Rowling, J.K.');
+insert into authors(BOOK_ID, NAME) values (4, 'Rowling, J.K.');
+insert into authors(BOOK_ID, NAME) values (5, 'James, E. L.');
+
+
+
+
+
+
+//SELECT//
+
