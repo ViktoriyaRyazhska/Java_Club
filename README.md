@@ -2,8 +2,8 @@
 
 ## Part 2. Java Web
 
-## Team 2
-Pavlo Fedyk   
-Volianskyi Ihor  
-Oleksiy Vasiuta   
-Denys Ivanechko  
+## Team 5
+Bretsko Vitalii
+Vira Maksymets
+Roman Klymus
+Volodymyr Medvedchuk
