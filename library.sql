@@ -54,35 +54,29 @@ insert into book(TITLE, COPIES, AVERENGE_READING_TIME) values
 , ('Harry Potter and the Order of the Phoenix', 5, '10:00:00')
 , ('Fifty Shades of Grey', 0, '11:00:00');
 
-insert into authors(NAME) values ('Brown, Dan'), ('Rowling, J.K.'), ('James, E. L.'), ('Brown, Dan');
-
-insert into book_authors(AUTHOR_ID, BOOK_ID, AUTHOR_ROLE) values (1, 1, 1), (2, 2, 1), (2, 3, 1), (2, 4, 1), (3, 5, 1), (4, 5, 0);
+insert into authors(NAME) values 
+('Brown, Dan')
+, ('Rowling, J.K.')
+, ('James, E. L.')
+, ('Brown, Dan');
 
 insert into role(NAME) values
-('USER'), ('MANAGER');
-
-
+('USER')
+, ('MANAGER');
 
 -- автор і його книжки
-insert into book_authors values 
-((SELECT ID from authors WHERE ID=4), (SELECT ID from book WHERE ID=1), 
-(SELECT ID from author_role WHERE NAME='AUTHOR')), 
-((SELECT ID from authors WHERE ID=1), (SELECT ID from book WHERE ID=1), 
-(SELECT ID from author_role WHERE NAME='CO-AUTHOR')), 
-((SELECT ID from authors WHERE ID=2), (SELECT ID from book WHERE ID=3), 
-(SELECT ID from author_role WHERE NAME='AUTHOR'));
+insert into BOOK_AUTHORS values 
+((SELECT ID from authors WHERE ID=4), (SELECT ID from book WHERE ID=1), 1), 
+((SELECT ID from authors WHERE ID=1), (SELECT ID from book WHERE ID=1), 2), 
+((SELECT ID from authors WHERE ID=2), (SELECT ID from book WHERE ID=3), 1);
 
 insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
-((SELECT ID from role WHERE NAME='USER'), 'Jonh Weak', 'email@google.com', 'xxxxxx', '2012-12-31', '1980-05-02');
+((SELECT ID from role WHERE NAME='USER'), 'Jonh Weak2we', 'email@google.com', 'xxxxxx', '2012-12-31', '1980-05-02');
 
 insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
-((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false);
-
-insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
-((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-04-01', '2013-05-01', true);
-     
-insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
-((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=3), '2013-04-01', '2013-05-01', true);
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false)
+, ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-04-01', '2013-05-01', true)
+, ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=3), '2013-04-01', '2013-05-01', true);
 
 
 -- SELECT
@@ -107,5 +101,67 @@ join journal on book.ID=journal.BOOK_ID where DATE_OF_RENT between '2013-01-01' 
 -- 6.	*Registration functionality
 insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
 ((SELECT ID from role WHERE NAME='role'), 'user name', 'email', 'password', 'date of registration', 'dirthday');
+
+
+
+
+
+-- 1. Register book with copies
+update book
+set COPIES = COPIES + 1
+where ID = 1;
+
+-- 2. Update book’ information
+update book
+set TITLE='New title', AVERENGE_READING_TIME = '00:01:00'
+where ID = 1;
+
+-- 3. Delete One copy
+update book
+set COPIES = COPIES - 1
+where ID = 1;
+
+-- 4. Book with all copies
+delete from book
+where ID = 4;
+
+
+-- \\5//
+
+-- Give book to Reader
+-- if COPIES > 0 :
+insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) value
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=5)
+, DATE(NOW()), DATE(NOW()) + INTERVAL 14 DAY, false);
+-- AND 
+update book
+set COPIES = COPIES - 1
+where ID = 5;
+
+-- //5\\
+select date(now());
+
+-- 6. Get statistics by Reader
+-- books which this user has read, 
+select b.TITLE
+from book as b inner join journal as j
+on j.BOOK_ID = b.ID
+where j.USER_ID = 1 and j.IS_BOOK_RETURNED=1;
+
+-- is reading,
+select b.TITLE
+from book as b inner join journal as j
+on j.BOOK_ID = b.ID
+where j.USER_ID = 1 and j.IS_BOOK_RETURNED=0;
+
+-- how long he is our client
+select TIMESTAMPDIFF(MONTH, REGISTRATION_DATE, date(now())) AS month_he_is_our_client
+from user
+where ID = 1;
+
+
+
+
+
 
 
