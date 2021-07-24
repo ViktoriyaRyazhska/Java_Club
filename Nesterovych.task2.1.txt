@@ -1,0 +1,19 @@
+1)Sign in:
+button "Sign in":   linkText("Sign in")   
+email: id="email"
+password: id="password"
+button "Sign in" xpath("//button[@type='submit']")
+
+2)Sign up:
+button "Sign up":   xpath("//li[2]/div/span")
+email: id="email"
+User name id="firstName"
+Password id="password"
+Confirm password id="repeatPassword"
+button "Sign up" xpath("//button[@type='submit']")
+
+3)Forgot password:
+button "Sign in":   linkText("Sign in") 
+button "Forgot password?" linkText("Forgot password?")
+email id="email"
+button "Submit a login link" xpath("//button[@type='submit']")
