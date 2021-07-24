@@ -103,9 +103,15 @@ insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DAT
 ((SELECT ID from role WHERE NAME='role'), 'user name', 'email', 'password', 'date of registration', 'dirthday');
 
 
+-- Reader
 
 
 
+
+
+
+
+-- Manager
 -- 1. Register book with copies
 update book
 set COPIES = COPIES + 1
