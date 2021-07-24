@@ -121,12 +121,12 @@ update book
 set COPIES = COPIES - 1
 where ID = 1;
 
--- 4. Book with all copies
+-- Book with all copies
 delete from book
 where ID = 4;
 
 
--- \\5//
+-- \\4//
 
 -- Give book to Reader
 -- if COPIES > 0 :
@@ -139,7 +139,7 @@ set COPIES = COPIES - 1
 where ID = 5;
 
 -- //5\\
-select date(now());
+-- Set title of book and display count of this Book’ copies with information about them (available/unavailable in Library)
 
 -- 6. Get statistics by Reader
 -- books which this user has read, 
