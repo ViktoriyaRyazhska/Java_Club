@@ -78,7 +78,7 @@ insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, BOOK_R
 
 
 -- SELECT
-
+-- All user
 -- 1.	Get information about all books
 select * from book;
 
@@ -140,7 +140,7 @@ delete from book
 where ID = 4;
 
 
--- \\4//
+-- 4
 
 -- Give book to Reader
 -- if COPIES > 0 :
@@ -152,29 +152,43 @@ update book
 set COPIES = COPIES - 1
 where ID = 5;
 
--- //5\\
--- Set title of book and display count of this Book’ copies with information about them (available/unavailable in Library)
+-- 5. Set title of book and display count of this Book’ copies with information about them (available/unavailable in Library)
+select COPIES, if(book.COPIES>0, 'available', 'unavailable') as IS_BOOK_AVAILABLE from book;
 
 -- 6. Get statistics by Reader
 -- books which this user has read, 
 select b.TITLE
 from book as b inner join journal as j
 on j.BOOK_ID = b.ID
-where j.USER_ID = 1 and j.IS_BOOK_RETURNED=1;
+where j.USER_ID = 1 and j.BOOK_RETURN_DATE is not null;
 
 -- is reading,
 select b.TITLE
 from book as b inner join journal as j
 on j.BOOK_ID = b.ID
-where j.USER_ID = 1 and j.IS_BOOK_RETURNED=0;
+where j.USER_ID = 1 and j.BOOK_RETURN_DATE is null;
 
 -- how long he is our client
 select TIMESTAMPDIFF(MONTH, REGISTRATION_DATE, date(now())) AS month_he_is_our_client
 from user
 where ID = 1;
 
+-- 7.	Get statistics by Book (general, by copies, average time of reading)
+select * from book where ID=1;
+
+-- 8.	Get statistics by Readers (average age, time of working with Library, average number of requests to Library in selected period)
+-- averenge age
+select AVG(TIMESTAMPDIFF(YEAR, BIRTHDAY_DATE, date(now()))) from USER;  
+
+-- number of requests in period, середня кількість реквестів за день/тиждень/рік буде визначатись у коді
+select COUNT(*) from journal where DATE_OF_RENT between '2013-01-01' and '2013-10-01'; 
+
+-- 9.	Get list of users who has not returned book in time with detailed information about them
+select user.*, journal.BOOK_ID, book.TITLE from user join journal on user.ID=journal.USER_ID join book on book.ID=journal.BOOK_ID where BOOK_RETURN_DATE is null;
+
 -- 10.Amount of giving books in some period
 select COUNT(*) from journal where journal.DATE_OF_RENT BETWEEN journal.DATE_OF_RENT and '2013-03-01';
+
 
 
 
