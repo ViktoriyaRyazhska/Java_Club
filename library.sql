@@ -103,11 +103,15 @@ insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DAT
 
 -- Reader
 
---4. Get statistics about amount of books read and long of reading
 
-select COUNT(*) as books_read from journal WHERE user_id = 1 and  journal.IS_BOOK_RETURNED = 1;  -- books read
 
-select BOOK.TITLE from BOOK join journal as j on BOOK.ID = j.BOOK_ID where j.USER_ID = 1 and  j.IS_BOOK_RETURNED = 0; -- read now
+--3. Get statistics about amount of books read and long of reading
+
+select COUNT(*) as books_read from journal WHERE user_id = 1 and journal.BOOK_RETURN_DATE IS NOT NULL; -- books read
+
+select COUNT(*) as books_read from journal WHERE user_id = 1 and journal.BOOK_RETURN_DATE IS NULL; -- read now
+
+select TIMESTAMPDIFF(DAY, DATE_OF_RENT, BOOK_RETURN_DATE) from journal where journal.user_id = 1 and journal.BOOK_RETURN_DATE IS NOT NULL; -- time of reading;
 
 --5. Get email for next notification
 select USER.EMAIL from USER where ID=1;
@@ -169,6 +173,8 @@ select TIMESTAMPDIFF(MONTH, REGISTRATION_DATE, date(now())) AS month_he_is_our_c
 from user
 where ID = 1;
 
+-- 10.Amount of giving books in some period
+select COUNT(*) from journal where journal.DATE_OF_RENT BETWEEN journal.DATE_OF_RENT and '2013-03-01';
 
 
 
