@@ -105,8 +105,15 @@ insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DAT
 
 -- Reader
 
+--4. Get statistics about amount of books read and long of reading
+
+select COUNT(*) as books_read from journal WHERE user_id = 1 and  journal.IS_BOOK_RETURNED = 1;  -- books read
+
+select BOOK.TITLE from BOOK join journal as j on BOOK.ID = j.BOOK_ID where j.USER_ID = 1 and  j.IS_BOOK_RETURNED = 0; -- read now
 
 
+--6. Get email for next notification
+select USER.EMAIL from USER;
 
 
 
