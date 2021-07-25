@@ -34,15 +34,13 @@ create table if not exists  USER(ID int AUTO_INCREMENT PRIMARY KEY,
      );
 	
 create table  if not exists JOURNAL(ID int AUTO_INCREMENT PRIMARY KEY,
-	USER_ID int not null,
-	BOOK_ID int not null,
-	DATE_OF_RENT date not null,
-	EXPECTED_RETURN_DATE date not null,
-	IS_BOOK_RETURNED bool not null,
-
-	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(ID)
-	, FOREIGN KEY (USER_ID) REFERENCES USER(ID)
-     );
+    USER_ID int not null,
+    BOOK_ID int not null,
+    DATE_OF_RENT date not null,
+    EXPECTED_RETURN_DATE date not null,
+    BOOK_RETURN_DATE date,
+    FOREIGN KEY (BOOK_ID) REFERENCES BOOK(ID),
+    FOREIGN KEY (USER_ID) REFERENCES USER(ID));
 
 
 
@@ -73,10 +71,10 @@ insert into BOOK_AUTHORS values
 insert into user(ROLE_ID, NAME, EMAIL, PASSWORD, REGISTRATION_DATE, BIRTHDAY_DATE) values 
 ((SELECT ID from role WHERE NAME='USER'), 'Jonh Weak2we', 'email@google.com', 'xxxxxx', '2012-12-31', '1980-05-02');
 
-insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, IS_BOOK_RETURNED) values
-((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', false)
-, ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-04-01', '2013-05-01', true)
-, ((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=3), '2013-04-01', '2013-05-01', true);
+insert into journal(USER_ID, BOOK_ID, DATE_OF_RENT, EXPECTED_RETURN_DATE, BOOK_RETURN_DATE) values
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-02-01', '2013-03-01', null),
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=2), '2013-04-01', '2013-05-01', '2013-04-25'),
+((SELECT ID from user WHERE ID=1), (SELECT ID from book WHERE ID=3), '2013-04-01', '2013-05-01', '2013-05-10');
 
 
 -- SELECT
@@ -111,9 +109,8 @@ select COUNT(*) as books_read from journal WHERE user_id = 1 and  journal.IS_BOO
 
 select BOOK.TITLE from BOOK join journal as j on BOOK.ID = j.BOOK_ID where j.USER_ID = 1 and  j.IS_BOOK_RETURNED = 0; -- read now
 
-
---6. Get email for next notification
-select USER.EMAIL from USER;
+--5. Get email for next notification
+select USER.EMAIL from USER where ID=1;
 
 
 
