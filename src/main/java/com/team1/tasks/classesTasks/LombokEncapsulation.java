@@ -34,8 +34,6 @@ public class LombokEncapsulation implements IRunTask {
         do {
             try {
 
-
-
                 lombokEncapsulation = new LombokEncapsulation();
                 number = sc.nextInt();
 
@@ -45,10 +43,10 @@ public class LombokEncapsulation implements IRunTask {
 
                 stringValue = sc.next();
 
-                lombokEncapsulation2 = new LombokEncapsulation(number,stringValue);
+                lombokEncapsulation2 = new LombokEncapsulation(number, stringValue);
                 lombokEncapsulation.setNumber(number);
                 lombokEncapsulation.setStringValue(stringValue);
-                System.out.println(lombokEncapsulation.toString()+" "+ lombokEncapsulation2);
+                System.out.println(lombokEncapsulation.toString() + " " + lombokEncapsulation2);
                 mark = true;
             } catch (Exception exception) {
                 System.out.println("You have input illegal character, try again!");

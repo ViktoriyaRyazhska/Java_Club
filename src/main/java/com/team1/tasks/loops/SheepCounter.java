@@ -17,7 +17,7 @@ public class SheepCounter implements IRunTask {
     private Boolean[] arrayOfSheep;
     private int size;
 
-    public int countSheep(Boolean[] arrayOfSheep) {
+    public static int countSheep(Boolean[] arrayOfSheep) {
         int ans = 0;
         for (Boolean ofSheep : arrayOfSheep) {
             if (ofSheep == Boolean.TRUE) {

@@ -14,6 +14,7 @@ public class PushAnObjectIntoArray implements IRunTask {
 
     }
 
+
     public static List<String> push() {
         return Arrays.asList("an object");
     }

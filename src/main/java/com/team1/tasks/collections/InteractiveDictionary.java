@@ -7,11 +7,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class InteractiveDictionary implements IRunTask {
-    private Map<String,String> listOfWords = new HashMap<String, String>();
+    private  Map<String,String> listOfWords = new HashMap<String, String>();
 
     Scanner sc;
     public InteractiveDictionary(Scanner sc) {
         this.sc = sc;
+    }
+
+    public InteractiveDictionary() {
     }
 
     public void newEntry(String key, String value) {
