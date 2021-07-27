@@ -1,0 +1,44 @@
+1)       Sign in:
+
+
+Button Sign in --  [class*="header_sign-in"]
+
+email -- #email
+
+password -- #password
+
+Button Sign in xpath -- //button[@type='submit']
+
+Button Sign in with Google xpath -- //span[@class='google-text-sign-in']
+
+
+2)       Sign up:
+
+
+Button Sign up xpath -- //li[@class='header_sign-up-link']
+
+email -- #email
+
+User name -- #firstName
+
+password -- #password
+
+Confirm password -- #repeatPassword
+
+Sign in xpath -- //button[@type='submit']
+
+Button Sign up with Google xpath -- //span[@class='google-text-sign-in']
+
+Do you already have an account? Button Sign in xpath -- //div[@class='exist-account']//a[@class='exist-sign-in']
+
+3)       Forgot password:
+
+
+Button Forgot password?  -- [class='forgot-password']
+
+Problems sign in?
+
+email -- #email
+
+Remember your password?
+Button Back to Sign-in xpath -- //a[@class='sign-in-link']
