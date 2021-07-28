@@ -1,0 +1,23 @@
+Sigh in
+
+linkText("Sign in")
+id("email")
+id("password")
+xpath("//button[@type='submit']")
+
+Sigh up
+
+cssSelector(".header_sign-up-btn")
+id("email")
+id("firstName")
+id("password")
+id("repeatPassword")
+xpath("//button[@type='submit']")
+
+Forgot password
+
+linkText("Sign in")
+xpath("//a[contains(text(),'Forgot password?')]")
+id("email")
+xpath("//button[@type='submit']")
+
