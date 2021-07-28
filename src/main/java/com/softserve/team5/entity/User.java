@@ -1,33 +1,33 @@
 package com.softserve.team5.entity;
 
 
-import org.hibernate.annotations.Table;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "user")
 public class User {
-    @Column
+
+    @Column(nullable = false)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private String email;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(name = "BIRTHDAY_DATE" ,nullable = false)
     private Date birthday;
 
-    @Column
+    @Column(name = "REGISTRATION_DATE",nullable = false)
     private Date registrationDate;
 
     public void setId(Long id) {
