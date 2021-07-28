@@ -1,4 +1,4 @@
-package com.team4.Config;
+package com.team4.thebest.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

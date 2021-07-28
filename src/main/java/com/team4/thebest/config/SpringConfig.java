@@ -1,4 +1,4 @@
-package com.team4.Config;
+package com.team4.thebest.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +14,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 
     @Configuration
-    @ComponentScan("com.team4")
+    @ComponentScan("com.team4.thebest")
     @EnableWebMvc
     public class SpringConfig implements WebMvcConfigurer {
 
