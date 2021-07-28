@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task8 {
         public static int century(int number) {
                 // your code goes here
-                int century2 = (number + 99) / 100;
+                int century2 = (number  / 100) + 1;
                 return century2;
         }
 
