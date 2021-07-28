@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class Task4 {
     public static boolean isDivisible(int wallLength, int pixelSize) {
-        return wallLength%pixelSize==0;
+        if(wallLength == 0 || pixelSize == 0){
+            return true;
+        }
+        else {
+            return wallLength%pixelSize==0;
+        }
     }
     public static void showFunctionality(){
         Scanner i  = new Scanner(System.in);

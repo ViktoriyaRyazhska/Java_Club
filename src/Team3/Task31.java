@@ -8,6 +8,8 @@ public class Task31 {
             return d*40-50;
         else if(d>=3)
             return d*40-20;
+        else if(d<=0)
+            return 0;
         else
             return d*40;
     }
