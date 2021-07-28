@@ -149,15 +149,15 @@ public class Test2_2_NesterovychYurii {
 
         driver.get("https://mail.protonmail.com/u/0/inbox");
         driver.manage().window().maximize();
-        //driver.quit();
+
         Thread.sleep(1000);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         driver.findElement(By.id("username")).click();
-        //driver2.findElement(By.cssSelector("#username")).click();
+
         driver.findElement(By.id("username")).clear();
-        //driver2.findElement(By.cssSelector("#username")).clear();
+
         driver.findElement(By.id("username")).sendKeys("yunest@protonmail.com");
-        //driver2.findElement(By.cssSelector("#username")).sendKeys("yunest@protonmail.com");
+
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("Ironman2001@@@");
@@ -167,8 +167,7 @@ public class Test2_2_NesterovychYurii {
         Thread.sleep(10000);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[2]/div/main/div/div/div[2]")).click();
-        //driver2.findElement(By.xpath("//main/div/div/div[2]/div/div[2]/div")).click();
-        //driver2.findElement(By.cssSelector("body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div.content.ui-prominent.flex-item-fluid.flex.flex-column.flex-nowrap.reset4print > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > div > main > section > div > div > article.message-container.m0-5.mb1.no-outline.is-opened > div.message-content.scroll-horizontal-if-needed.relative.bodyDecrypted.bg-norm.color-norm > div > table > tbody > tr:nth-child(3) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td > table > tbody > tr > td > a")).click();
+        
         Thread.sleep(1000);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.linkText("Restore")).click();
