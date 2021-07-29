@@ -2,6 +2,8 @@ package com.softserve.team5.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,30 +11,25 @@ import javax.persistence.Table;
 @Table(name = "book_author")
 public class BookAuthor {
 
-    @Column(name = "AUTHOR_ID",nullable = false)
-    private Long authorID;
+	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "BOOK_ID",nullable = false)
-    private Long bookID;
+	@Column(name = "AUTHOR_ID", nullable = false)
+	private Long authorID;
 
-    @Column(name = "AUTHOR_ROLE",nullable = false)
-    private Boolean authorRole;
+	@Column(name = "BOOK_ID", nullable = false)
+	private Long bookID;
 
-    public void setAuthorID(Long authorID) {
-        this.authorID = authorID;
-    }
+	@Column(name = "AUTHOR_ROLE", nullable = false)
+	private Boolean authorRole;
 
-    @Id
-    public Long getAuthorID() {
-        return authorID;
-    }
+	@Id
+	public Long getId() {
+		return id;
+	}
 
-    @Id
-    public Long getBookID() {
-        return bookID;
-    }
-
-    public void setBookID(Long bookID) {
-        this.bookID = bookID;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

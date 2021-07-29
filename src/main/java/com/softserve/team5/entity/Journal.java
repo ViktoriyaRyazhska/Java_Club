@@ -1,10 +1,7 @@
 package com.softserve.team5.entity;
 
-import jdk.jfr.events.CertificateId;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Map;
 
 @Entity
 @Table(name = "journal")
