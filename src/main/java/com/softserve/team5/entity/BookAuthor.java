@@ -1,11 +1,6 @@
 package com.softserve.team5.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "book_author")
@@ -15,8 +10,9 @@ public class BookAuthor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "AUTHOR_ID", nullable = false)
-	private Long authorID;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "author_id", nullable = false)
+	private Author authorID;
 
 	@Column(name = "BOOK_ID", nullable = false)
 	private Long bookID;

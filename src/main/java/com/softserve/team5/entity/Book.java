@@ -3,7 +3,7 @@ package com.softserve.team5.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "bppk")
+@Table(name = "book")
 public class Book {
 	
     @Column(nullable = false)

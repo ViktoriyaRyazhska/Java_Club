@@ -1,7 +1,15 @@
 package com.softserve.team5.config;
+
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+
+public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
@@ -14,6 +22,26 @@ public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotation
 
     @Override
     protected String[] getServletMappings() {
-        return new String[0]; //return new String[]{"/"};
+        return new String[]{"/"};
+    }
+
+
+    public void onStartup(ServletContext servletContext) {
+        AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
+        root.scan("com.softserve.team5.config");
+        servletContext.addListener(new ContextLoaderListener(root));
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+
+        OpenEntityManagerInViewFilter openEntityManagerInViewFilter = new OpenEntityManagerInViewFilter();
+        openEntityManagerInViewFilter.setPersistenceUnitName("MySQL");
+        return new Filter[]{characterEncodingFilter, openEntityManagerInViewFilter, new org.primefaces.webapp.filter.FileUploadFilter()};
     }
 }
+
+
