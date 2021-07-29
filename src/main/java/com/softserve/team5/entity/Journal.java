@@ -3,6 +3,7 @@ package com.softserve.team5.entity;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "journal")
 public class Journal {
