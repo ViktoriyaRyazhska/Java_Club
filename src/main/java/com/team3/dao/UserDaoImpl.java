@@ -17,22 +17,11 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public void updateUser(Long id) {
+    public User getUserById(Long id) {return (User) sessionFactory.getCurrentSession().get(User.class, id);}
 
-    }
-
-    @Override
-    public void deleteUser(Long id) {
-
-    }
-
-    @Override
-    public User getUser(Long id) {
-    return new User();
-    }
-
+    @SuppressWarnings("unchecked")
     @Override
     public List getAllUsers() {
-       return this.sessionFactory.getCurrentSession().createQuery("from User").list();
+        return this.sessionFactory.getCurrentSession().createQuery("from User").list();
     }
 }
