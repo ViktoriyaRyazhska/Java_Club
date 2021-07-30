@@ -11,8 +11,12 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserService {
 
+    private final UserDao userDao;
+
     @Autowired
-    private UserDao userDao;
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public void create(User user) {
         this.userDao.create(user);
@@ -22,4 +26,11 @@ public class UserService {
         this.userDao.delete(user);
     }
 
+    public void update(User user) {
+        this.userDao.update(user);
+    }
+
+    public User getById(Long id) {
+        return this.userDao.getById(id);
+    }
 }
