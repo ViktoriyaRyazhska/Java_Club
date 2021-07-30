@@ -9,7 +9,26 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDaoImpl implements UserDao{
+    @Override
+    public void create(User user) {
 
+    }
+
+    @Override
+    public void delete(User user) {
+
+    }
+
+    @Override
+    public User getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void update(User user) {
+
+    }
+/*
     private final SessionFactory sessionFactory;
 
     @Autowired
@@ -41,5 +60,5 @@ public class UserDaoImpl implements UserDao{
         Session session = sessionFactory.getCurrentSession();
         session.update(user);
     }
-
+*/
 }
