@@ -2,6 +2,7 @@ package com.softserve.team5.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -25,10 +26,13 @@ public class User {
     private String password;
 
     @Column(name = "BIRTHDAY_DATE" ,nullable = false)
-    private Date birthday;
+    private LocalDate birthday;
 
     @Column(name = "REGISTRATION_DATE",nullable = false)
-    private Date registrationDate;
+    private LocalDate registrationDate;
+
+    public User() {
+    }
 
     public void setId(Long id) {
         this.id = id;

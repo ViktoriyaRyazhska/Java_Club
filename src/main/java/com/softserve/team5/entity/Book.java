@@ -14,10 +14,13 @@ public class Book {
     private String title;
 
     @Column(nullable = false)
-    private Integer copies;
+    private Long copies;
 
     @Column(name = "AVERAGE_READING_TIME",nullable = false)
-    private Integer averageReadingTime;
+    private Long averageReadingTime;
+
+    public Book() {
+    }
 
     public void setId(Long id) {
         this.id = id;

@@ -13,6 +13,12 @@ public class Author {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String surname;
+
+    public Author() {
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

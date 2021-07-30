@@ -14,11 +14,15 @@ public class BookAuthor {
 	@JoinColumn(name = "author_id", nullable = false)
 	private Author authorID;
 
-	@Column(name = "BOOK_ID", nullable = false)
-	private Long bookID;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "book_id", nullable = false)
+	private Book bookID;
 
 	@Column(name = "AUTHOR_ROLE", nullable = false)
 	private Boolean authorRole;
+
+	public BookAuthor() {
+	}
 
 	@Id
 	public Long getId() {

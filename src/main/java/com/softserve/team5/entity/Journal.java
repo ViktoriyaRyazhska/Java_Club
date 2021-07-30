@@ -1,6 +1,7 @@
 package com.softserve.team5.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -12,20 +13,22 @@ public class Journal {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "USER_ID",nullable = false)
-    private Integer userID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User userID;
 
-    @Column(name = "BOOK_ID",nullable = false)
-    private Integer bookID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book bookID;
 
     @Column(name = "DATE_OF_RENT",nullable = false)
-    private Date rentDate;
+    private LocalDate rentDate;
 
     @Column(name = "EXPECTED_RETURN_DATE",nullable = false)
-    private Date expectedReturnDate;
+    private LocalDate expectedReturnDate;
 
     @Column(name = "BOOK_RETURN_DATE",nullable = false)
-    private Date DateReturnExpired;
+    private LocalDate DateReturnExpired;
 
     public Journal() {
     }
