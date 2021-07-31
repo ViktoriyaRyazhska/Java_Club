@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.library.entity.RentStatus.EXPIRED;
+import static com.library.entity.RentStatus.RETURNED;
 import static java.util.Optional.*;
 
 @Transactional
@@ -100,8 +101,9 @@ public class UserRepositoryImpl implements UserRepository {
     Session session = sessionFactory.getCurrentSession();
 
     return session.createQuery("select count(distinct r.book.title) " +
-            "from RentInfo r where r.user.id=:id", Long.class)
+            "from RentInfo r where r.user.id=:id and r.rentStatus=:rentStatus", Long.class)
             .setParameter("id", id)
+            .setParameter("rentStatus", RETURNED)
             .getSingleResult()
             .intValue();
 
