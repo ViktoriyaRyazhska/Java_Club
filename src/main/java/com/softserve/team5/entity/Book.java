@@ -5,29 +5,29 @@ import javax.persistence.*;
 @Entity
 @Table(name = "book")
 public class Book {
-	
-    @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(nullable = false)
-    private String title;
+	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private Long copies;
+	@Column(nullable = false)
+	private String title;
 
-    @Column(name = "AVERAGE_READING_TIME",nullable = false)
-    private Long averageReadingTime;
+	@Column(nullable = false)
+	private Long copies;
 
-    public Book() {
-    }
+	@Column(name = "AVERAGE_READING_TIME", nullable = false)
+	private Long averageReadingTime;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Book() {
+	}
 
-    @Id
-    public Long getId() {
-        return id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Id
+	public Long getId() {
+		return id;
+	}
 }
