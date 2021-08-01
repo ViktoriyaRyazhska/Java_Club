@@ -2,8 +2,11 @@ package com.library.controller;
 
 import com.library.entity.Author;
 import com.library.service.AuthorService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +22,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/save")
     public String create(Model model) {
         Author author = new Author();
@@ -27,12 +31,16 @@ public class AuthorController {
     }
 
     @PostMapping("/save")
-    public String create(@ModelAttribute Author author) {
+    public String create(@Validated @ModelAttribute Author author, BindingResult result) {
+        if (result.hasErrors()) {
+            return "author-form";
+        }
         authorService.save(author);
 
         return "redirect:/author";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         authorService.remove(id);
@@ -40,6 +48,7 @@ public class AuthorController {
         return "redirect:/author";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping
     public String getAll(Model model) {
         List<Author> authors = authorService.findAll();

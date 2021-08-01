@@ -2,6 +2,7 @@ package com.library.entity;
 
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements GrantedAuthority {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +23,8 @@ public class Role {
   @OneToMany(mappedBy = "role")
   private List<User> users;
 
+  @Override
+  public String getAuthority() {
+    return roleType.name();
+  }
 }

@@ -4,8 +4,11 @@ import com.library.entity.Author;
 import com.library.entity.Book;
 import com.library.service.AuthorService;
 import com.library.service.BookService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -25,6 +28,7 @@ public class BookController {
         this.authorService = authorService;
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/save")
     public String save(Model model) {
         Book book = new Book();
@@ -36,9 +40,14 @@ public class BookController {
         return "book-form";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/save")
-    public String save(@ModelAttribute Book book, @RequestParam(name = "author_id") Long id) {
-
+    public String save(@Validated @ModelAttribute Book book,
+                       BindingResult result,
+                       @RequestParam(name = "author_id") Long id) {
+        if (result.hasErrors()) {
+            return "book-form";
+        }
         book.setMainAuthor(authorService.findById(id));
 
         bookService.save(book);
@@ -46,6 +55,7 @@ public class BookController {
         return "redirect:/" + book.getId();
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/update/{id}")
     public String update(@PathVariable Long id, Model model) {
 
@@ -59,17 +69,24 @@ public class BookController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Book book, @RequestParam(name = "author_id") Long id) {
+    public String update(@Validated @ModelAttribute Book book,
+                         BindingResult result,
+                         @RequestParam(name = "author_id") Long id) {
         Book oldBook = bookService.findByIdFetchCoAuthors(id);
-
+        if (result.hasErrors()) {
+            book.setMainAuthor(authorService.findById(oldBook.getId()));
+            book.getCo_authors().addAll(oldBook.getCo_authors());
+            return "book-update";
+        }
         book.setMainAuthor(authorService.findById(id));
         book.getCo_authors().addAll(oldBook.getCo_authors());
 
         bookService.save(book);
 
-        return "redirect:/" + book.getId();
+        return "redirect:/";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/{id}/add")
     public String addCoAuthor(@PathVariable Long id, @RequestParam(name = "author_id") Long author_id) {
         Book book = bookService.findByIdFetchCoAuthors(id);
@@ -81,6 +98,7 @@ public class BookController {
         return "redirect:/" + id;
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/{id}/remove")
     public String removeCoAuthor(@PathVariable Long id, @RequestParam(name = "author_id") Long author_id) {
         Book book = bookService.findByIdFetchCoAuthors(id);
@@ -146,6 +164,7 @@ public class BookController {
         return "book-list";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         bookService.remove(id);

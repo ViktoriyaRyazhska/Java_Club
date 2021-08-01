@@ -6,13 +6,21 @@ import com.library.entity.User;
 import com.library.service.RentInfoService;
 import com.library.service.RoleService;
 import com.library.service.UserService;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -22,11 +30,13 @@ public class UserController {
     private final UserService userService;
     private final RoleService roleService;
     private final RentInfoService rentInfoService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, RoleService roleService, RentInfoService rentInfoService) {
+    public UserController(UserService userService, RoleService roleService, RentInfoService rentInfoService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.rentInfoService = rentInfoService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/create")
@@ -37,13 +47,18 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute User user) {
+    public String create(@Validated @ModelAttribute("user") User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user-form";
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(roleService.findById(1L));
         user.setCreationDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         userService.save(user);
         return "redirect:/user/" + user.getId();
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER') or hasAuthority('READER') and authentication.principal.id == #id")
     @GetMapping("/{id}")
     public String read(@PathVariable Long id, Model model) {
         User user = userService.findById(id);
@@ -66,6 +81,7 @@ public class UserController {
         return "user-info";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('READER') and authentication.principal.id == #id")
     @GetMapping("/update/{id}")
     public String update(@PathVariable Long id, Model model) {
         User user = userService.findById(id);
@@ -75,21 +91,52 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("user") User user,
+    public String update(@Validated @ModelAttribute("user") User user,
+                         BindingResult result, Model model,
+                         @RequestParam("oldPassword") String oldPassword,
                          @RequestParam(value = "roleId", required = false, defaultValue = "1") long roleId) {
         User oldUser = userService.findById(user.getId());
+        if (result.hasErrors()) {
+            user.setRole(oldUser.getRole());
+            model.addAttribute("roles", roleService.findAll());
+            return "user-update";
+        }
+        if (!passwordEncoder.matches(oldPassword, oldUser.getPassword())) {
+            result.addError(new FieldError("user", "password", "Invalid old password"));
+            user.setRole(oldUser.getRole());
+            model.addAttribute("roles", roleService.findAll());
+            return "user-update";
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setCreationDate(oldUser.getCreationDate());
         user.setRole(roleService.findById(roleId));
         userService.save(user);
         return "redirect:/user/";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('READER') and authentication.principal.id == #id")
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Long id, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        if (Objects.equals(user.getId(), id)) {
+            userService.remove(id);
+            SecurityContextHolder.clearContext();
+            return "redirect:/login";
+        }
         userService.remove(id);
-        return "redirect:/";
+        return "redirect:/user";
     }
 
+    @GetMapping("/cancel/{id}")
+    public String cancel(@PathVariable Long id, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        RentInfo rentInfo = rentInfoService.findById(id);
+        rentInfo.setRentStatus(RentStatus.CANCELED);
+        rentInfoService.update(rentInfo);
+        return "redirect:/user/" + user.getId();
+    }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/debtor")
     public String getAllWithExpiredStatus(Model model) {
         List<User> users = userService.findAllWithExpiredStatus();
@@ -97,6 +144,7 @@ public class UserController {
         return "debtor-list";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping
     public String getAll(Model model) {
         List<User> users = userService.findAll();

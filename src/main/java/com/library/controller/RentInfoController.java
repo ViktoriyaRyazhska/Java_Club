@@ -5,6 +5,7 @@ import com.library.entity.RentStatus;
 import com.library.service.BookService;
 import com.library.service.RentInfoService;
 import com.library.service.UserService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,10 +30,10 @@ public class RentInfoController {
         this.userService = userService;
     }
 
-    @GetMapping("/request/{id}")
-    public String create(@PathVariable Long id) {
+    @GetMapping("/request/{id}/{user_id}")
+    public String create(@PathVariable Long id, @PathVariable("user_id") Long userId) {
         RentInfo rentInfo = new RentInfo();
-        rentInfo.setUser(userService.findById(1L)); // principal.id
+        rentInfo.setUser(userService.findById(userId));
         rentInfo.setBook(bookService.findById(id));
         rentInfo.setRentStatus(RentStatus.REQUESTED);
         rentInfo.setRentDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
@@ -50,6 +51,7 @@ public class RentInfoController {
         return "redirect:/user/1"; // principal.id
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/give/{id}")
     public String give(@PathVariable Long id) {
         RentInfo rentInfo = rentInfoService.findById(id);
@@ -66,6 +68,7 @@ public class RentInfoController {
         return "redirect:/rent-info";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/status/{rent-status}")
     public String getAllByRentStatus(@PathVariable(name = "rent-status") String rentStatus, Model model) {
         List<RentInfo> rentInfoList =
@@ -74,12 +77,14 @@ public class RentInfoController {
         return "rent-list";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         rentInfoService.remove(id);
         return "redirect:/rent-info";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping
     public String getAll(Model model) {
         List<RentInfo> rentInfoList = rentInfoService.findAll();

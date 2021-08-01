@@ -4,9 +4,12 @@ import com.library.entity.RentStatus;
 import com.library.entity.User;
 import com.library.repository.UserRepository;
 import com.library.service.UserService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
+import javax.persistence.NoResultException;
 import java.util.List;
 import java.util.Optional;
 
@@ -72,5 +75,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllWithExpiredStatus() {
         return userRepository.findAllWithExpiredStatus();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        try {
+            return userRepository.getUserByUsername(s);
+        } catch (NoResultException e) {
+            throw new UsernameNotFoundException("User not found!");
+        }
     }
 }
