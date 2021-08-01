@@ -1,7 +1,7 @@
 package com.team4.thebest.config;
 
 import com.team4.thebest.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@AllArgsConstructor
 public class HibernateConfig {
 
-    @Autowired
     private ApplicationContext context;
 
     @Bean
