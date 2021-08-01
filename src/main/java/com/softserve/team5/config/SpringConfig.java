@@ -5,11 +5,13 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -23,6 +25,8 @@ import com.softserve.team5.dao.implementations.AuthorDaoImpl;
 import com.softserve.team5.dao.implementations.BookDaoImpl;
 import com.softserve.team5.dao.interfaces.AuthorDao;
 import com.softserve.team5.dao.interfaces.BookDao;
+
+import java.util.Properties;
 
 @Configuration
 @ComponentScan("com.softserve.team5")
@@ -62,16 +66,25 @@ public class SpringConfig implements WebMvcConfigurer {
 	}
 
 	@Bean(name = "dataSource")
-	public DataSource getDataSource() {
+	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/library");
 		dataSource.setUsername("root");
-		dataSource.setPassword("BoatDay159357");
-
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 
+
+	@Bean
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		sessionFactory.setDataSource(dataSource());
+		sessionFactory.setPackagesToScan("com.softserve.team5.entity");
+		sessionFactory.setHibernateProperties(hibernateProperties());
+		return sessionFactory;
+	}
+/*
 	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
@@ -79,13 +92,11 @@ public class SpringConfig implements WebMvcConfigurer {
 		sessionBuilder.scanPackages("com.softserve.team5");
 		return sessionBuilder.buildSessionFactory();
 	}
-
+*/
 	@Autowired
 	@Bean(name = "transactionManager")
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
-		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
-
-		return transactionManager;
+		return new HibernateTransactionManager(sessionFactory);
 	}
 	
 	@Autowired
@@ -98,6 +109,13 @@ public class SpringConfig implements WebMvcConfigurer {
 	@Bean(name = "authorDao")
 	public AuthorDao getAuthorDao(SessionFactory sessionFactory) {
 		return new AuthorDaoImpl(sessionFactory);
+	}
+
+	private Properties hibernateProperties() {
+		Properties hibernateProperties = new Properties();
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
+		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+		return hibernateProperties;
 	}
 	
 }

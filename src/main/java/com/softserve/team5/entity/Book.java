@@ -1,5 +1,6 @@
 package com.softserve.team5.entity;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 import javax.persistence.Column;
@@ -11,10 +12,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "book")
-public class Book {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class Book implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
 	@Column(name = "TITLE", nullable = false)
 	private String title;
@@ -22,42 +23,43 @@ public class Book {
 	@Column(name = "COPIES", nullable = false)
 	private Long copies;
 
-	@Column(name = "AVERENGE_READING_TIME", nullable = false)
-	private LocalTime averengeReadingTime;
 
-	public Book() {
-	}
+    @Column(name = "AVERENGE_READING_TIME", nullable = false)
+    private LocalTime averengeReadingTime;
 
-	public Long getId() {
-		return id;
-	}
+    public Book() {
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getCopies() {
-		return copies;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public LocalTime getAverangeReadingTime() {
-		return averengeReadingTime;
-	}
+    public Long getCopies() {
+        return copies;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public LocalTime getAverangeReadingTime() {
+        return averengeReadingTime;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setCopies(Long copies) {
-		this.copies = copies;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setAverangeReadingTime(LocalTime averengeReadingTime) {
-		this.averengeReadingTime = averengeReadingTime;
-	}
+    public void setCopies(Long copies) {
+        this.copies = copies;
+    }
+
+    public void setAverangeReadingTime(LocalTime averengeReadingTime) {
+        this.averengeReadingTime = averengeReadingTime;
+    }
 
 }

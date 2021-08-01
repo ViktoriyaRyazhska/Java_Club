@@ -16,7 +16,7 @@ import com.softserve.team5.entity.Book;
 @Transactional
 public class BookDaoImpl implements BookDao {
 
-	private SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 
 	public BookDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

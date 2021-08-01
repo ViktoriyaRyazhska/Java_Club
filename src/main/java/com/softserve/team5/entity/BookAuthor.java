@@ -1,26 +1,27 @@
 package com.softserve.team5.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "book_author")
-public class BookAuthor {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class BookAuthor implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "author_id", nullable = false)
-	private Author authorID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author authorID;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "book_id", nullable = false)
-	private Book bookID;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book bookID;
 
-	@Column(name = "AUTHOR_ROLE", nullable = false)
-	private Boolean authorRole;
+    @Column(name = "AUTHOR_ROLE", nullable = false)
+    private Boolean authorRole;
 
-	public BookAuthor() {
-	}
-	
+    public BookAuthor() {
+    }
+
 }
