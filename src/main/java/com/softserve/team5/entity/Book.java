@@ -16,10 +16,10 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(name = "TITLE", nullable = false)
 	private String title;
 
-	@Column(nullable = false)
+	@Column(name = "COPIES", nullable = false)
 	private Long copies;
 
 	@Column(name = "AVERENGE_READING_TIME", nullable = false)
