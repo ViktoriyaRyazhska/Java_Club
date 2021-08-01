@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<p>Book title:</p>
+	<p th:text="${book.getTitle()}" >value</p>
+	<br/>
+	<p>Amount of copies:</p>
+	<p th:text="${book.getCopies()}" >value</p>
+	<br/>
+	<p>Average time of reading:</p>
+	<p th:text="${book.getAverageReadingTime()}" >value</p>
+	<a th:href="allBooks">Return</a>
+</body>
+</html>

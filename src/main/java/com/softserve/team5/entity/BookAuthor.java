@@ -5,8 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "book_author")
 public class BookAuthor {
-
-	@Column(nullable = false)
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -23,13 +22,5 @@ public class BookAuthor {
 
 	public BookAuthor() {
 	}
-
-	@Id
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 }
