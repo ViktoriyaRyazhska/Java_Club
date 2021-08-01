@@ -1,7 +1,5 @@
 package com.softserve.team5.service.services;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +9,6 @@ import com.softserve.team5.entity.User;
 import com.softserve.team5.service.interfaces.UserService;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
 	private final UserDao userDao;
@@ -43,13 +40,6 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public User getById(Long id) {
 		return this.userDao.getById(id);
-	}
-
-	@Override
-	@Transactional
-	public LocalDate howLongIsClient(Long id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

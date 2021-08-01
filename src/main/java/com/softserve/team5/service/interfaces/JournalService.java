@@ -1,4 +1,6 @@
 package com.softserve.team5.service.interfaces;
 
-public interface JournalService extends DefaultServiceOperations{
+import com.softserve.team5.entity.Journal;
+
+public interface JournalService extends DefaultServiceOperations<Journal>{
 }
