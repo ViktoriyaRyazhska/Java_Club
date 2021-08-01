@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Add book</title>
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/save}"
+          th:object="${book}" method="POST">
+
+        <h2>Add book</h2>
+
+        <div class="input-group mb-3">
+
+            <span class="mx-1">
+                <input type="text" class="form-control" th:field="*{title}" placeholder="Title">
+                <span class="form-control is-invalid" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+            </span>
+            <span class="mx-1">
+                <input type="text" class="form-control" th:field="*{country}" placeholder="Country">
+                <span class="form-control is-invalid" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">
+            </span>
+            <span class="mx-1">
+                <input type="text" class="form-control" th:field="*{genre}" placeholder="Genre">
+                <span class="form-control is-invalid" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">
+            </span>
+            <span class="mx-1">
+                <input type="number" min="1" class="form-control" th:field="*{copies}" placeholder="Amount of copies">
+            </span>
+            <span class="mx-1">
+                <select name="author_id" class="form-select">
+                    <option disabled selected>Select author...</option>
+                    <option th:each="author : ${authors}" th:value="${author.id}"
+                            th:text="${author.firstName + ' ' + author.lastName}"></option>
+                </select>
+            </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <a onclick="history.back()" class="link-primary mt-2">Back</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

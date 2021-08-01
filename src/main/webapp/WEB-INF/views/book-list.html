@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Book list</title>
+</head>
+<body>
+<div class="container">
+    <div class="d-flex justify-content-start">
+        <form action="#" th:action="@{/findBook}" method="GET">
+            <input placeholder="Find book" type="search" name="findBook"/>
+            <button type="submit">Find</button>
+        </form>
+    </div>
+    <div class="d-flex justify-content-end">
+        <form th:action="@{/mostPopular}" method="post">
+            <input type="date" name="from">
+            <input type="date" name="to">
+            <input type="submit" value="Find most popular">
+        </form>
+    </div>
+    <div class="d-flex justify-content-end">
+        <form th:action="@{/mostUnpopular}" method="post">
+            <input type="date" name="from">
+            <input type="date" name="to">
+            <input type="submit" value="Find most unpopular">
+        </form>
+    </div>
+    <div class="d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">
+            <h4 class="mx-3"><a th:href="@{|/user/${#authentication.principal.id}|}"
+                                th:text="'Hello,' + ' ' + ${#authentication.getName()}"
+                                class="link-primary" style="text-decoration: none; "></a></h4>
+        </div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')" class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/user}" class="link-primary" style="text-decoration: none;">Users</a></h6>
+        </div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')" class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/rent-info}" class="link-primary" style="text-decoration: none;">Rent
+                Info</a></h6>
+        </div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')" class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/author}" class="link-primary" style="text-decoration: none;">Authors</a>
+            </h6>
+        </div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')" class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/save}" class="link-primary" style="text-decoration: none;">Add new book</a>
+            </h6>
+        </div>
+        <div sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')" class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/author/save}" class="link-primary" style="text-decoration: none;">Add new
+                author</a></h6>
+        </div>
+        <div class="p-2 bd-highlight">
+            <h6 class="mx-3"><a th:href="@{/logout}" class="link-primary" style="text-decoration: none;">LogOut</a></h6>
+        </div>
+
+    </div>
+    <table class="table table-hover" th:if="${books.size() != 0}">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Main Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td><a th:href="@{|/${book.id}|}" th:text="${book.title}"></a></td>
+            <td th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></td>
+            <td><a th:href="@{|/rent-info/request/${book.id}/${#authentication.principal.id}|}"
+                   th:text="${'Request Book'}"></a></td>
+            <span sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')">
+                <td><a th:href="@{|/update/${book.id}|}" th:text="Update"></a></td>
+                <td><a th:href="@{|/delete/${book.id}|}" th:text="Delete"></a></td>
+            </span>
+        </tr>
+        </tbody>
+    </table>
+
+    <span th:if="${books.size() == 0}">
+    <h1>No books found!</h1>
+</span>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
+
+
+
+
