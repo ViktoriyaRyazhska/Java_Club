@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,13 +18,16 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @NotBlank(message = "required")
+    @Column(nullable = false)
     private String title;
 
-    @Column
+    @NotBlank(message = "required")
+    @Column(nullable = false)
     private String country;
 
-    @Column
+    @NotBlank(message = "required")
+    @Column(nullable = false)
     private String genre;
 
     @Column
