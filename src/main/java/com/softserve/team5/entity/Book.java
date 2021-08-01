@@ -1,6 +1,13 @@
 package com.softserve.team5.entity;
 
-import javax.persistence.*;
+import java.time.LocalTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "book")
@@ -15,8 +22,8 @@ public class Book {
 	@Column(nullable = false)
 	private Long copies;
 
-	@Column(name = "AVERAGE_READING_TIME", nullable = false)
-	private Long averageReadingTime;
+	@Column(name = "AVERENGE_READING_TIME", nullable = false)
+	private LocalTime averengeReadingTime;
 
 	public Book() {
 	}
@@ -33,8 +40,8 @@ public class Book {
 		return copies;
 	}
 
-	public Long getAverageReadingTime() {
-		return averageReadingTime;
+	public LocalTime getAverangeReadingTime() {
+		return averengeReadingTime;
 	}
 
 	public void setId(Long id) {
@@ -49,9 +56,8 @@ public class Book {
 		this.copies = copies;
 	}
 
-	public void setAverageReadingTime(Long averageReadingTime) {
-		this.averageReadingTime = averageReadingTime;
+	public void setAverangeReadingTime(LocalTime averengeReadingTime) {
+		this.averengeReadingTime = averengeReadingTime;
 	}
 
-	
 }

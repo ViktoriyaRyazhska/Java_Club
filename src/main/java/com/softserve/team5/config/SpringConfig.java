@@ -19,7 +19,9 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
+import com.softserve.team5.dao.implementations.AuthorDaoImpl;
 import com.softserve.team5.dao.implementations.BookDaoImpl;
+import com.softserve.team5.dao.interfaces.AuthorDao;
 import com.softserve.team5.dao.interfaces.BookDao;
 
 @Configuration
@@ -90,6 +92,12 @@ public class SpringConfig implements WebMvcConfigurer {
 	@Bean(name = "bookDao")
 	public BookDao getBookDao(SessionFactory sessionFactory) {
 		return new BookDaoImpl(sessionFactory);
+	}
+
+	@Autowired
+	@Bean(name = "authorDao")
+	public AuthorDao getAuthorDao(SessionFactory sessionFactory) {
+		return new AuthorDaoImpl(sessionFactory);
 	}
 	
 }

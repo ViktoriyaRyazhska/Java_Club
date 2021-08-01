@@ -7,8 +7,12 @@ import com.softserve.team5.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@EnableTransactionManagement
+@Transactional
 public class UserDaoImpl implements UserDao {
 
 	private SessionFactory sessionFactory;

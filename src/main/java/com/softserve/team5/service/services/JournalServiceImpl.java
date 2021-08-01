@@ -1,12 +1,14 @@
 package com.softserve.team5.service.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.team5.entity.Journal;
 import com.softserve.team5.service.interfaces.JournalService;
 
 @Service
+@EnableTransactionManagement
 public class JournalServiceImpl implements JournalService {
 	
 	

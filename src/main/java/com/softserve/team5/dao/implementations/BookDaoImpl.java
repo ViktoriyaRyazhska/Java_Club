@@ -5,16 +5,18 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.team5.dao.interfaces.BookDao;
 import com.softserve.team5.entity.Book;
 
 @Repository
+@EnableTransactionManagement
+@Transactional
 public class BookDaoImpl implements BookDao {
 
 	private SessionFactory sessionFactory;
-
-	
 
 	public BookDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

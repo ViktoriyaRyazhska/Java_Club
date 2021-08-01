@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.team5.dao.interfaces.BookDao;
@@ -11,6 +12,7 @@ import com.softserve.team5.entity.Book;
 import com.softserve.team5.service.interfaces.BookService;
 
 @Service
+@EnableTransactionManagement
 public class BookServiceImpl implements BookService{
 
     private final BookDao bookDao;

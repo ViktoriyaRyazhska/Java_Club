@@ -2,6 +2,7 @@ package com.softserve.team5.service.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.team5.dao.interfaces.UserDao;
@@ -9,6 +10,7 @@ import com.softserve.team5.entity.User;
 import com.softserve.team5.service.interfaces.UserService;
 
 @Service
+@EnableTransactionManagement
 public class UserServiceImpl implements UserService {
 
 	private final UserDao userDao;
