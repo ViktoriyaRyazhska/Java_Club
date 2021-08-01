@@ -1,33 +1,39 @@
 package com.softserve.team5.controller;
 
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.softserve.team5.dao.interfaces.BookDao;
-import com.softserve.team5.entity.Book;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/books")
 public class BookController {
+
+	private final BookService bookService;
 	@Autowired
-	private BookDao bookDao;
+	public BookController(BookService bookService) {
+		this.bookService = bookService;
+	}
 
 	@GetMapping()
 	public String showAllBooks(Model model) {
-		model.addAttribute("books", bookDao.getAllBooks());
+		model.addAttribute("books", bookService.getAllBooks());
 		return "books/allBooks";
 	}
 
 	@GetMapping("/{id}")
 	public String showOneBook(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("book", bookDao.getById(id));
+		model.addAttribute("book", bookService.getById(id));
 		return "books/oneBook";
+	}
+
+	@DeleteMapping("/{id}")
+	public String deleteBook(@PathVariable("id") Long id, Model model) {
+		bookService.delete(id);
+		model.addAttribute("books", bookService.getAllBooks());
+		return "books/allBooks";
 	}
 
 	@GetMapping("/new")
@@ -37,7 +43,7 @@ public class BookController {
 
 	@PostMapping()
 	public String create(@ModelAttribute("book") Book book) {
-		bookDao.create(book);
+		bookService.create(book);
 		return "redirect:/books";
 	}
 }

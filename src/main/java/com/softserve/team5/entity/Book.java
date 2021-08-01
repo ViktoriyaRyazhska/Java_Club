@@ -1,14 +1,7 @@
 package com.softserve.team5.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalTime;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "book")
@@ -25,7 +18,7 @@ public class Book implements Serializable {
 
 
     @Column(name = "AVERENGE_READING_TIME", nullable = false)
-    private LocalTime averengeReadingTime;
+    private Long averageReadingHours;
 
     public Book() {
     }
@@ -42,9 +35,7 @@ public class Book implements Serializable {
         return copies;
     }
 
-    public LocalTime getAverangeReadingTime() {
-        return averengeReadingTime;
-    }
+
 
     public void setId(Long id) {
         this.id = id;
@@ -58,8 +49,13 @@ public class Book implements Serializable {
         this.copies = copies;
     }
 
-    public void setAverangeReadingTime(LocalTime averengeReadingTime) {
-        this.averengeReadingTime = averengeReadingTime;
+    public Long getAverageReadingHours() {
+        return averageReadingHours;
     }
+
+    public void setAverageReadingHours(Long averageReadingHours) {
+        this.averageReadingHours = averageReadingHours;
+    }
+
 
 }

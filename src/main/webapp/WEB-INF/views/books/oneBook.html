@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>About book</title>
 </head>
 <body>
-	<p>Title: </p>
-	<p th:text="${book.getTitle()}" >value</p>
-	<br/>
-	<p>Copies: </p>
-	<p th:text="${book.getCopies()}" >value</p>
-	<br/>
-	<p>Averenge reading time: </p>
-	<p th:text="${book.getAverengeReadingTime()}" >value</p>
-	<a th:href="allBooks">Return</a>
+<h5>Title: </h5>
+<h3 th:text="${book.getTitle()}"></h3>
+
+<h5>Copies: </h5>
+<h3 th:text="${book.getCopies()}"></h3>
+
+<h5>Averenge reading time: </h5>
+<h3 th:text="${book.getAverageReadingHours()}"> hours</h3>
+
+<br/>
+<form th:action="@{/books/{id}(id=${book.getId()})}" th:method="delete">
+    <button type="submit">Delete book</button>
+</form>
+
+
+
+<form th:action="@{/books}" id="butt">
+    <input type="submit" value="Return to library"/>
+</form>
+
+
+
 </body>
 </html>

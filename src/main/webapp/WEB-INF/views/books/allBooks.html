@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>Books</title>
+    <style>
+        div {
+            padding: 5px;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+    </style>
 </head>
 <body>
-	<div th:each="book : ${books}"> 
-		<a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}">book</a>
-	</div>
+<h2>Books available:</h2>
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}"></a>
+</div>
+
+<form th:action="@{/books/new}" >
+    <input type="submit" value="Add new book"/>
+</form>
+
 </body>
 </html>

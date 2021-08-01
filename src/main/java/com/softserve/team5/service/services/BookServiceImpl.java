@@ -1,15 +1,14 @@
 package com.softserve.team5.service.services;
 
-import java.util.List;
-
+import com.softserve.team5.dao.interfaces.BookDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softserve.team5.dao.interfaces.BookDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.service.interfaces.BookService;
+import java.util.List;
 
 @Service
 @EnableTransactionManagement
@@ -33,7 +32,6 @@ public class BookServiceImpl implements BookService{
 	@Transactional
 	public void update(Book entity) {
 		bookDao.update(entity);
-		
 	}
 
 	@Override
