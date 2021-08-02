@@ -28,6 +28,11 @@ public class RentInfoServiceImpl implements RentInfoService {
     }
 
     @Override
+    public void updateDebtors() {
+        rentInfoRepository.updateDebtors();
+    }
+
+    @Override
     public RentInfo findById(Long id) {
         return rentInfoRepository.findById(id);
     }

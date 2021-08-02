@@ -92,6 +92,18 @@ public class RentInfoRepositoryImpl implements RentInfoRepository {
                 .getResultList();
     }
 
+    @Override
+    public void updateDebtors() {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.createQuery("update RentInfo r set r.rentStatus=:expired " +
+                        "where r.requiredReturnDate < current_timestamp " +
+                        "and r.returnDate=null " +
+                        "and r.rentStatus!=:requested")
+                .setParameter("expired", EXPIRED)
+                .setParameter("requested", REQUESTED)
+                .executeUpdate();
+    }
 
     private void takeCopy(Session session, Long id) {
         session.createQuery("update Book b set b.copies = b.copies - 1 where b.id=:id")

@@ -144,6 +144,12 @@ public class UserController {
         return "debtor-list";
     }
 
+    @GetMapping("/debtor/update")
+    public String updateDebtors() {
+        rentInfoService.updateDebtors();
+        return "redirect:/user/debtor";
+    }
+
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping
     public String getAll(Model model) {

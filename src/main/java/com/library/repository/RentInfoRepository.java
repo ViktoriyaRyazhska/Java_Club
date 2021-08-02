@@ -20,4 +20,6 @@ public interface RentInfoRepository {
     List<RentInfo> findByUserId(Long id);
 
     RentInfo update(RentInfo rentInfo);
+
+    void updateDebtors();
 }

@@ -12,6 +12,7 @@
 </head>
 <body>
 <div class="container">
+    <a th:href="@{/user/debtor/update}" class="link-primary mb-3">Update debtors list</a>
     <h1>Debtors: </h1>
     <h1 th:if="${users.size() == 0}">There are no debtors</h1>
     <table class="table table-hover" th:if="${users.size() != 0}">
