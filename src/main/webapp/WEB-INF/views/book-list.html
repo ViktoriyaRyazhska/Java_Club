@@ -73,7 +73,8 @@
         <tbody>
         <tr th:each="book : ${books}">
             <td><a th:href="@{|/${book.id}|}" th:text="${book.title}"></a></td>
-            <td th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></td>
+            <td><a th:href="@{|/author/${book.mainAuthor.id}|}"
+                    th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></a></td>
             <td><a th:href="@{|/rent-info/request/${book.id}/${#authentication.principal.id}|}"
                    th:text="${'Request Book'}"></a></td>
             <span sec:authorize="hasAnyAuthority('ADMIN', 'MANAGER')">

@@ -22,7 +22,8 @@
         </thead>
         <tbody>
         <tr th:each="author : ${authors}">
-            <td th:text="${author.firstName + ' ' + author.lastName}"></td>
+            <td><a th:href="@{|/author/${author.id}|}"
+                   th:text="${author.firstName + ' ' + author.lastName}"></a></td>
             <td><a th:href="@{|/author/delete/${author.id}|}" th:text="Delete"></a></td>
         </tr>
         </tbody>

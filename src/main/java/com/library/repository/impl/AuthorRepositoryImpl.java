@@ -37,6 +37,16 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     }
 
     @Override
+    public Author findByIdFetchBooks(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.setDefaultReadOnly(true);
+
+        return session.createQuery("select a from Author a left join fetch a.books left join fetch a.coAuthorBooks where a.id=:id", Author.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+    @Override
     public List<Author> findAll() {
         Session session = sessionFactory.getCurrentSession();
         session.setDefaultReadOnly(true);

@@ -10,6 +10,8 @@ public interface AuthorRepository {
 
     Author findById(Long id);
 
+    Author findByIdFetchBooks(Long id);
+
     List<Author> findAll();
 
     Author remove(Long id);

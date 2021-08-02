@@ -40,6 +40,15 @@ public class AuthorController {
         return "redirect:/author";
     }
 
+    @GetMapping("/{id}")
+    public String read(@PathVariable Long id, Model model) {
+        Author author = authorService.findByIdFetchBooks(id);
+
+        model.addAttribute("author", author);
+
+        return "author-info";
+    }
+
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {

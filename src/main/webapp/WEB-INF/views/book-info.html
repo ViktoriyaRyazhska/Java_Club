@@ -29,7 +29,8 @@
             <td th:text="${book.title}"></td>
             <td th:text="${book.country}"></td>
             <td th:text="${book.genre}"></td>
-            <td th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></td>
+            <td><a th:href="@{|/author/${book.mainAuthor.id}|}"
+                   th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></a></td>
             <td th:text="${book.copies}"></td>
             <td th:text="${averageTimeOfReadingBook}"></td>
             <td><a th:href="@{|/rent-info/request/${book.id}|}" th:text="${'Request Book'}"></a></td>
@@ -45,7 +46,8 @@
             </thead>
             <tbody>
             <tr th:each="coAuthor : ${book.co_authors}">
-                <td th:text="${coAuthor.firstName + ' ' + coAuthor.lastName}"></td>
+                <td><a th:href="@{|/author/${coAuthor.id}|}"
+                       th:text="${coAuthor.firstName + ' ' + coAuthor.lastName}"></a></td>
             </tr>
             </tbody>
         </div>

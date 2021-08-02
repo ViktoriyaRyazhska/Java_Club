@@ -4,8 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -45,6 +47,6 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private List<Author> co_authors = new LinkedList<>();
+    private Set<Author> co_authors = new HashSet<>();
 
 }

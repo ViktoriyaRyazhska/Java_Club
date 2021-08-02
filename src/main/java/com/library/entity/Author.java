@@ -4,8 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -30,10 +32,10 @@ public class Author {
 
     @Setter(AccessLevel.PRIVATE)
     @OneToMany(mappedBy = "mainAuthor")
-    private List<Book> book = new LinkedList<>();
+    private Set<Book> books = new HashSet<>();
 
     @Setter(AccessLevel.PRIVATE)
     @ManyToMany(mappedBy = "co_authors")
-    private List<Book> coAuthorBooks = new LinkedList<>();
+    private Set<Book> coAuthorBooks = new HashSet<>();
 
 }
