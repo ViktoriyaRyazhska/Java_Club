@@ -1,5 +1,6 @@
 package com.team3.entity;
 
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,5 +35,6 @@ public class Book {
 
     @Column(name = "count")
     private int count;
+
 
 }
