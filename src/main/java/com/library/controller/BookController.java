@@ -5,6 +5,8 @@ import com.library.entity.Book;
 import com.library.service.AuthorService;
 import com.library.service.BookService;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -176,6 +178,14 @@ public class BookController {
         List<Book> books = bookService.findAll();
         model.addAttribute("books", books);
         return "book-list";
+    }
+
+    @GetMapping("/login")
+    public String getLoginForm() {
+        if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
+            return "redirect:/";
+        }
+        return "login";
     }
 
     private List<Author> findAllNotCoAuthor(Book book) {
