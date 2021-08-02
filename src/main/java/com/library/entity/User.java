@@ -14,7 +14,11 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-@Data
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@ToString(of = "id")
 @Entity
 @Table(name = "user")
 public class User implements UserDetails {

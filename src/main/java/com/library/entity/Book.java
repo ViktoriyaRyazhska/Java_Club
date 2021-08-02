@@ -1,15 +1,17 @@
 package com.library.entity;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.LinkedList;
 import java.util.List;
 
-@Data
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@ToString(of = "id")
 @Entity
 @Table(name = "book")
 public class Book {

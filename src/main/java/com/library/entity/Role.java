@@ -7,7 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@ToString(of = "id")
 @Entity
 @Table(name = "role")
 public class Role implements GrantedAuthority {

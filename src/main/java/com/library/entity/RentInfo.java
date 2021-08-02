@@ -1,12 +1,16 @@
 package com.library.entity;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@ToString(of = "id")
 @Entity
 @Table(name = "rent_info")
 public class RentInfo {
