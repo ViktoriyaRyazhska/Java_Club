@@ -81,7 +81,7 @@ public class UserController {
         return "user-info";
     }
 
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('READER') and authentication.principal.id == #id")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('READER', 'MANAGER') and authentication.principal.id == #id")
     @GetMapping("/update/{id}")
     public String update(@PathVariable Long id, Model model) {
         User user = userService.findById(id);
@@ -114,7 +114,7 @@ public class UserController {
         return "redirect:/user/";
     }
 
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('READER') and authentication.principal.id == #id")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('READER', 'MANAGER') and authentication.principal.id == #id")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, Authentication authentication) {
         User user = (User) authentication.getPrincipal();
