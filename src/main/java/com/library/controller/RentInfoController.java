@@ -2,10 +2,12 @@ package com.library.controller;
 
 import com.library.entity.RentInfo;
 import com.library.entity.RentStatus;
+import com.library.entity.User;
 import com.library.service.BookService;
 import com.library.service.RentInfoService;
 import com.library.service.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,12 +45,13 @@ public class RentInfoController {
     }
 
     @GetMapping("/return/{id}")
-    public String returnBook(@PathVariable Long id) {
+    public String returnBook(@PathVariable Long id, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
         RentInfo rentInfo = rentInfoService.findById(id);
         rentInfo.setReturnDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         rentInfo.setRentStatus(RentStatus.RETURNED);
         rentInfoService.update(rentInfo);
-        return "redirect:/user/1"; // principal.id
+        return "redirect:/user/" + user.getId();
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")

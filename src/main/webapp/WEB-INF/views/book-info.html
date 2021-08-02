@@ -33,7 +33,8 @@
                    th:text="${book.mainAuthor.firstName + ' ' + book.mainAuthor.lastName}"></a></td>
             <td th:text="${book.copies}"></td>
             <td th:text="${averageTimeOfReadingBook}"></td>
-            <td><a th:href="@{|/rent-info/request/${book.id}|}" th:text="${'Request Book'}"></a></td>
+            <td><a th:href="@{|/rent-info/request/${book.id}/${#authentication.principal.id}|}"
+                   th:text="${'Request Book'}"></a></td>
         </tr>
         </tbody>
     </table>
