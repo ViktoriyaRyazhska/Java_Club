@@ -7,6 +7,18 @@
     <groupId>groupId</groupId>
     <artifactId>Java_Club</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>13</source>
+                    <target>13</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <maven.compiler.source>14</maven.compiler.source>
@@ -17,6 +29,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>5.3.9</version>
+
         </dependency>
 
         <dependency>
@@ -33,32 +46,72 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
+
             <artifactId>spring-context</artifactId>
+
+            <artifactId>spring-expression</artifactId>
+
             <version>5.3.9</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
+
             <artifactId>spring-context-support</artifactId>
+
+            <artifactId>spring-beans</artifactId>
+
             <version>5.3.9</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
+
             <artifactId>spring-jdbc</artifactId>
+
+            <artifactId>spring-context</artifactId>
+
             <version>5.3.9</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
+
+            <artifactId>spring-context-support</artifactId>
+
             <version>5.3.9</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
+
+            <artifactId>spring-web</artifactId>
+
+            <artifactId>spring-jdbc</artifactId>
+
+            <version>5.3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+
+            <artifactId>spring-webmvc</artifactId>
+
+            <artifactId>spring-orm</artifactId>
+
+            <version>5.3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
+
+            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>5.3.9</version>
+
         </dependency>
 
         <dependency>
@@ -71,13 +124,13 @@
             <artifactId>log4j-core</artifactId>
             <version>2.14.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>3.6.3.Final</version>
         </dependency>
 
-        <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.12.1.GA</version>
@@ -136,5 +189,5 @@
         </dependency>
 
     </dependencies>
-    
+
 </project>
