@@ -53,4 +53,11 @@ public class AuthorServiceImpl implements AuthorService {
 		// find id in table and after add to list
 		return null;
 	}
+
+	@Override
+	@Transactional
+	public List<Author> getAllAuthors(){
+		// TODO Auto-generated method stub
+		return authorDao.getAllAuthors();
+	}
 }

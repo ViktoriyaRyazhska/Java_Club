@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface AuthorService extends DefaultServiceOperations<Author> {
     List<Book> findBooksByAuthor(Author author);
+
+    List<Author> getAllAuthors();
 }

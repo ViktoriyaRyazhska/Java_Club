@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors</title>
+    <style>
+        div {
+            padding: 5px;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+<h1>All authors</h1>
+<div th:each = "author : ${allAuthors}">
+    <p  th:text="${author.getName()}"></p>
+</div>
+</body>
+</html>

@@ -7,4 +7,6 @@ import com.softserve.team5.entity.Book;
 
 public interface AuthorDao extends DefaultDaoOpearations<Author>{
 	List<Book> getBooksByAuthor(Author author);
+
+	List<Author> getAllAuthors();
 }

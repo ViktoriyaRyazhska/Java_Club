@@ -55,4 +55,10 @@ public class AuthorDaoImpl implements AuthorDao {
         return null;
     }
 
+    @Override
+    public List<Author> getAllAuthors() {
+        Session session = sessionFactory.getCurrentSession();
+        return (List<Author>) session.createQuery("from Author").list();
+    }
+
 }
