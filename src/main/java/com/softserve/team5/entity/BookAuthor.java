@@ -24,4 +24,35 @@ public class BookAuthor implements Serializable {
     public BookAuthor() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Author getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(Author authorID) {
+        this.authorID = authorID;
+    }
+
+    public Book getBookID() {
+        return bookID;
+    }
+
+    public void setBookID(Book bookID) {
+        this.bookID = bookID;
+    }
+
+    public Boolean getAuthorRole() {
+        return authorRole;
+    }
+
+    public void setAuthorRole(Boolean authorRole) {
+        this.authorRole = authorRole;
+    }
 }

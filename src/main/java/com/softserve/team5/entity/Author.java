@@ -13,6 +13,9 @@ public class Author implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String surname;
+
     public Author() {
     }
 
@@ -32,5 +35,11 @@ public class Author implements Serializable {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }

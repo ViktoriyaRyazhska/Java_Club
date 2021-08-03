@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Authors</title>
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
     <style>
         div {
             padding: 5px;
@@ -15,7 +16,12 @@
 <body>
 <h1>All authors</h1>
 <div th:each = "author : ${allAuthors}">
-    <p  th:text="${author.getName()}"></p>
+    <a th:href="@{/author/{id}(id=${author.getId()})}"   th:text="${author.getName() + ' ' + author.getSurname()}"></a>
 </div>
+
+<form th:action="@{/books}" >
+    <input type="submit" value="Find by book"/>
+</form>
+
 </body>
 </html>

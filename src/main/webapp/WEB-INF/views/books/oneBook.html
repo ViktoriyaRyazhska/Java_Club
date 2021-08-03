@@ -13,7 +13,7 @@
 <h3 th:text="${book.getCopies()}"></h3>
 
 <h5>Averenge reading time: </h5>
-<h3 th:text="${book.getAverageReadingHours()}"> hours</h3>
+<h3 th:text="${book.getAverageReadingHours()} + ' hours'"></h3>
 
 <br/>
 <form th:action="@{/books/{id}(id=${book.getId()})}" th:method="delete">

@@ -8,11 +8,6 @@
         body {
             text-align: center;
         }
-
-        .butt {
-            align-self: center;
-            height: 40px;
-        }
     </style>
 </head>
 <body>
@@ -24,8 +19,11 @@
     providing you with the skills and tools to make the most of your time here pleasured.</h4>
 
 
-<form th:action="@{/books}" id="butt">
+<form th:action="@{/books}" >
     <input type="submit" value="Find books"/>
+</form>
+<form th:action="@{/author}" >
+    <input type="submit" value="Find authors"/>
 </form>
 
 </body>
