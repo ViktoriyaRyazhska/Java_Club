@@ -9,6 +9,8 @@ import com.softserve.team5.dao.interfaces.UserDao;
 import com.softserve.team5.entity.User;
 import com.softserve.team5.service.interfaces.UserService;
 
+import java.util.List;
+
 @Service
 @EnableTransactionManagement
 public class UserServiceImpl implements UserService {
@@ -23,25 +25,30 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public void create(User user) {
-		this.userDao.create(user);
+		userDao.create(user);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		this.userDao.delete(id);
+		userDao.delete(id);
 	}
 
 	@Override
 	@Transactional
 	public void update(User user) {
-		this.userDao.update(user);
+		userDao.update(user);
 	}
 
 	@Override
 	@Transactional
 	public User getById(Long id) {
-		return this.userDao.getById(id);
+		return userDao.getById(id);
+	}
+
+	@Override
+	public List<User> getAllEntities() {
+		return userDao.getAllEntities();
 	}
 
 	@Override

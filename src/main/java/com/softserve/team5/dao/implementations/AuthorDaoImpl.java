@@ -80,7 +80,7 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public List<Author> getAllAuthors() {
+    public List<Author> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
         return (List<Author>) session.createQuery("from Author").list();
     }

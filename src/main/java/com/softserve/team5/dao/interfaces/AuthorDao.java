@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface AuthorDao extends DefaultDaoOpearations<Author>{
 	List<Book> getBooksByAuthor(Long author_id);
-
-	List<Author> getAllAuthors();
 }

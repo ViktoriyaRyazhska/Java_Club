@@ -25,7 +25,6 @@ public class BookServiceImpl implements BookService{
 	@Transactional
 	public void create(Book entity) {
 		bookDao.create(entity);
-		
 	}
 
 	@Override
@@ -48,8 +47,8 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	@Transactional
-	public List<Book> getAllBooks() {
-		return bookDao.getAllBooks();
+	public List<Book> getAllEntities() {
+		return bookDao.getAllEntities();
 	}
 
 	@Override

@@ -5,9 +5,6 @@ import java.util.List;
 import com.softserve.team5.entity.Book;
 
 public interface BookDao extends DefaultDaoOpearations<Book> {
-
-	List<Book> getAllBooks();
-
 	boolean checkIsAvailable(Long id);
 
 	Book findByTitle(String title);

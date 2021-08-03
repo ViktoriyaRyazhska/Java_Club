@@ -19,7 +19,7 @@ public class BookController {
 
 	@GetMapping()
 	public String showAllBooks(Model model) {
-		model.addAttribute("books", bookService.getAllBooks());
+		model.addAttribute("books", bookService.getAllEntities());
 		return "books/allBooks";
 	}
 
@@ -32,7 +32,7 @@ public class BookController {
 	@DeleteMapping("/{id}")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
 		bookService.delete(id);
-		model.addAttribute("books", bookService.getAllBooks());
+		model.addAttribute("books", bookService.getAllEntities());
 		return "books/allBooks";
 	}
 

@@ -49,7 +49,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public List<Author> getAllAuthors(){
-		return authorDao.getAllAuthors();
+	public List<Author> getAllEntities(){
+		return authorDao.getAllEntities();
 	}
 }
