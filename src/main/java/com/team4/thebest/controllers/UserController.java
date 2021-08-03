@@ -30,8 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public String saveUser(@ModelAttribute("user") @Valid User user,
-                           BindingResult result, Model model) {
+    public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());

@@ -6,9 +6,9 @@ import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -31,7 +31,8 @@ public class UserDaoImpl implements UserDao {
         final Transaction transaction = session.beginTransaction();
 
         try {
-            final Query query = session.createQuery("from User");
+            @SuppressWarnings("unchecked")
+            final TypedQuery<User> query = session.createQuery("from User");
             return query.getResultList();
         } finally {
             transaction.commit();

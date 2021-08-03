@@ -3,13 +3,17 @@ package com.team4.thebest.models;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "TBL_USERS")
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class User {
 
     @Id
@@ -22,7 +26,7 @@ public class User {
     @NotEmpty(message = "Please enter your name")
     private String name;
 
-    @Column(name = "USER_EMAIL", unique = true)
+    @Column(name = "USER_EMAIL", unique = true) // Add exception handling for unique constraint
     @Email(message = "{user.email.invalid}")
     @NotEmpty(message = "Please enter your email")
     private String email;
