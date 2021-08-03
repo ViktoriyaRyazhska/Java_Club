@@ -2,6 +2,7 @@ package com.softserve.team5.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -24,7 +25,7 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "BIRTHDAY_DATE", nullable = false)
-    private LocalDate birthday;
+    private Date birthday;
 
     @Column(name = "REGISTRATION_DATE", nullable = false)
     private LocalDate registrationDate;
@@ -52,7 +53,7 @@ public class User implements Serializable {
         return password;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
@@ -80,7 +81,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

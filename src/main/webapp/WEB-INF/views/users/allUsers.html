@@ -8,5 +8,8 @@
 <div th:each="user : ${users}">
     <p th:text="${user.getName()}"></p>
 </div>
+<form th:action="@{/users/newUser}">
+    <input type="submit" value="Add new user">
+</form>
 </body>
 </html>
