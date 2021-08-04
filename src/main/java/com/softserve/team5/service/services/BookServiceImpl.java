@@ -36,7 +36,7 @@ public class BookServiceImpl implements BookService {
         bookDao.create(b);
 
         BookAuthor ba = new BookAuthor(authorDao.getById(bookDto.getAuthor_id()),
-                bookDao.findByTitle(bookDto.getTitle()), false);
+                bookDao.findByTitle(bookDto.getTitle()), true);
         bookAuthorDao.create(ba);
     }
 
