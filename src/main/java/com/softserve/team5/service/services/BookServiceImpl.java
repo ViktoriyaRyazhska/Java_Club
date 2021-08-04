@@ -1,7 +1,11 @@
 package com.softserve.team5.service.services;
 
+import com.softserve.team5.dao.interfaces.AuthorDao;
+import com.softserve.team5.dao.interfaces.BookAuthorDao;
 import com.softserve.team5.dao.interfaces.BookDao;
+import com.softserve.team5.dto.BookDto;
 import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.BookAuthor;
 import com.softserve.team5.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,75 +14,77 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 @EnableTransactionManagement
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
     private final BookDao bookDao;
+    private final AuthorDao authorDao;
+    private final BookAuthorDao bookAuthorDao;
 
     @Autowired
-    public BookServiceImpl(BookDao bookDao) {
+    public BookServiceImpl(BookDao bookDao, AuthorDao authorDao, BookAuthorDao bookAuthorDao) {
         this.bookDao = bookDao;
+        this.authorDao = authorDao;
+        this.bookAuthorDao = bookAuthorDao;
     }
 
-	@Override
-	@Transactional
-	public void create(Book entity) {
-		bookDao.create(entity);
-		
-	}
+    @Override
+    public void createFromDto(BookDto bookDto) {
+        Book b = new Book(bookDto.getTitle(), bookDto.getCopies(), bookDto.getAverageReadingHours());
+        bookDao.create(b);
 
-	@Override
-	@Transactional
-	public void update(Book entity) {
-		bookDao.update(entity);
-	}
+        BookAuthor ba = new BookAuthor(authorDao.getById(bookDto.getAuthor_id()),
+                bookDao.findByTitle(bookDto.getTitle()), false);
+        bookAuthorDao.create(ba);
+    }
 
-	@Override
-	@Transactional
-	public void delete(Long id) {
-		bookDao.delete(id);
-	}
+    @Override
+    public void create(Book entity) {
+    }
 
-	@Override
-	@Transactional
-	public Book getById(Long id) {
-		return bookDao.getById(id);
-	}
+    @Override
+    public void update(Book book) {
+        bookDao.update(book);
+    }
 
-	@Override
-	@Transactional
-	public List<Book> getAllBooks() {
-		return bookDao.getAllBooks();
-	}
+    @Override
+    public void delete(Long id) {
+        bookDao.delete(id);
+    }
 
-	@Override
-	@Transactional
-	public boolean checkIsAvailable(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public Book getById(Long id) {
+        return bookDao.getById(id);
+    }
 
-	@Override
-	@Transactional
-	public Book findByTitle(String title) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<Book> getAllBooks() {
+        return bookDao.getAllBooks();
+    }
 
-	@Override
-	@Transactional
-	public void deleteSomeCopies(Long id, int quantity) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public boolean checkIsAvailable(Long id) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	@Transactional
-	public void deleteOneCopy(Long id, int quantity) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public Book findByTitle(String title) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-    
+    @Override
+    public void deleteSomeCopies(Long id, int quantity) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void deleteOneCopy(Long id, int quantity) {
+        // TODO Auto-generated method stub
+    }
+
 }

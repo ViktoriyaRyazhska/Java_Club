@@ -61,7 +61,12 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book findByTitle(String title) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select b from Book b where b.title = :title"
+                , Book.class)
+                .setParameter("title", title)
+                .getSingleResult();
     }
 
     @Override

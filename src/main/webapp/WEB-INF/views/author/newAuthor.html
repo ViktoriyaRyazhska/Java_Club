@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>Add new</title>
+</head>
+<body>
+
+<h2>Author information</h2>
+<form th:method="POST" th:action="@{/author}" th:object="${author}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="surname">Enter copies: </label>
+    <input type="text" th:field="*{surname}" id="surname"/>
+    <br/>
+
+    <input type="submit" value="Create"/>
+</form>
+<br>
+<form th:action="@{/author}" id="butt">
+    <input type="submit" value="Cancel"/>
+</form>
+
+</body>
+</html>

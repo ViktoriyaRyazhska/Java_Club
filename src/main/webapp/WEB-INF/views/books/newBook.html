@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-	<link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
-<title>Add new</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>Add new</title>
 </head>
 <body>
+
+
 <h2>Book information</h2>
-	<form th:method="POST" th:action="@{/books}" th:object="${book}">
-		<label for="title">Enter name: </label> 
-		<input type="text" th:field="*{title}" id="title"/> 
-		<br/> 
-		<label for="copies">Enter copies: </label> 
-		<input type="number" th:field="*{copies}" id="copies"/> 
-		<br/>
-		<label for="avgTimeReading">Enter average reading hours: </label>
-		<input type="number" th:field="*{averageReadingHours}" id="avgTimeReading"/>
-		<br/>
-		<input type="submit" value="Create"/>
-	</form>
-	<br>
-	<form th:action="@{/books}" id="butt">
-		<input type="submit" value="Cancel"/>
-	</form>
+
+
+<form th:method="POST" th:action="@{/books}" th:object="${bookDto}">
+
+    <label for="title">Select author: </label>
+    <select id="author" name="author" th:field="*{author_id}">
+        <option th:each="auth : ${authors}"
+                th:value="${auth.getId()}"
+                th:text="${auth.getName() + ' ' + auth.getSurname()}">
+        </option>
+    </select>
+    <br/>
+
+    <label for="title">Enter title: </label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <br/>
+
+    <label for="copies">Enter copies: </label>
+    <input type="number" th:field="*{copies}" id="copies"/>
+    <br/>
+
+    <label for="avgTimeReading">Enter average reading hours: </label>
+    <input type="number" th:field="*{averageReadingHours}" id="avgTimeReading"/>
+    <br/>
+
+
+
+    <input type="submit" value="Create"/>
+</form>
+<br>
+<form th:action="@{/books}" id="butt">
+    <input type="submit" value="Cancel"/>
+</form>
 </body>
 </html>

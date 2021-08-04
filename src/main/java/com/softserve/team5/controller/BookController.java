@@ -1,6 +1,7 @@
 package com.softserve.team5.controller;
 
-import com.softserve.team5.entity.Book;
+import com.softserve.team5.dto.BookDto;
+import com.softserve.team5.service.interfaces.AuthorService;
 import com.softserve.team5.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
 
 	private final BookService bookService;
+	private final AuthorService authorService;
+
 	@Autowired
-	public BookController(BookService bookService) {
+	public BookController(BookService bookService, AuthorService authorService) {
 		this.bookService = bookService;
+		this.authorService = authorService;
 	}
 
 	@GetMapping()
@@ -37,13 +41,14 @@ public class BookController {
 	}
 
 	@GetMapping("/new")
-	public String newBook(@ModelAttribute("book") Book book) {
+	public String newBook(@ModelAttribute("bookDto") BookDto bookDto,Model model) {
+		model.addAttribute("authors", authorService.getAllAuthors());
 		return "books/newBook";
 	}
 
 	@PostMapping()
-	public String create(@ModelAttribute("book") Book book) {
-		bookService.create(book);
+	public String create(@ModelAttribute("bookDto") BookDto bookDto) {
+		bookService.createFromDto(bookDto);
 		return "redirect:/books";
 	}
 }

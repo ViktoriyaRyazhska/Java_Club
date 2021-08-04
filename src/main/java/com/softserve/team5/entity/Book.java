@@ -10,15 +10,15 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-	@Column(name = "TITLE", nullable = false)
-	private String title;
+    @Column(name = "TITLE", nullable = false)
+    private String title;
 
-	@Column(name = "COPIES", nullable = false)
-	private Long copies;
-
+    @Column(name = "COPIES", nullable = false)
+    private Long copies;
 
     @Column(name = "AVERENGE_READING_TIME", nullable = false)
     private Long averageReadingHours;
+
 
     public Book() {
     }
@@ -34,8 +34,6 @@ public class Book implements Serializable {
     public Long getCopies() {
         return copies;
     }
-
-
 
     public void setId(Long id) {
         this.id = id;
@@ -57,5 +55,9 @@ public class Book implements Serializable {
         this.averageReadingHours = averageReadingHours;
     }
 
-
+    public Book(String title, Long copies, Long averageReadingHours) {
+        this.title = title;
+        this.copies = copies;
+        this.averageReadingHours = averageReadingHours;
+    }
 }

@@ -10,11 +10,11 @@ public class BookAuthor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade=CascadeType.REMOVE)
     @JoinColumn(name = "author_id", nullable = false)
     private Author authorID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade=CascadeType.REMOVE)
     @JoinColumn(name = "book_id", nullable = false)
     private Book bookID;
 
@@ -53,6 +53,12 @@ public class BookAuthor implements Serializable {
     }
 
     public void setAuthorRole(Boolean authorRole) {
+        this.authorRole = authorRole;
+    }
+
+    public BookAuthor(Author authorID, Book bookID, Boolean authorRole) {
+        this.authorID = authorID;
+        this.bookID = bookID;
         this.authorRole = authorRole;
     }
 }
