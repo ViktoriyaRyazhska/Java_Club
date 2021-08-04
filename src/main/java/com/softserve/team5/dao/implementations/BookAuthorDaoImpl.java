@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @EnableTransactionManagement
 @Transactional
@@ -40,6 +42,11 @@ public class BookAuthorDaoImpl implements BookAuthorDao {
 
     @Override
     public BookAuthor getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<BookAuthor> getAllEntities() {
         return null;
     }
 }

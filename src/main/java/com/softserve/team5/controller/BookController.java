@@ -42,7 +42,7 @@ public class BookController {
 
 	@GetMapping("/new")
 	public String newBook(@ModelAttribute("bookDto") BookDto bookDto,Model model) {
-		model.addAttribute("authors", authorService.getAllAuthors());
+		model.addAttribute("authors", authorService.getAllEntities());
 		return "books/newBook";
 	}
 
