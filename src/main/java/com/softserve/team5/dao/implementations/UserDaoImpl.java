@@ -1,6 +1,7 @@
 package com.softserve.team5.dao.implementations;
 
 import com.softserve.team5.dao.interfaces.UserDao;
+import com.softserve.team5.entity.Book;
 import com.softserve.team5.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Repository
 @EnableTransactionManagement
@@ -26,7 +28,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void create(User entity) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(entity);
+        session.saveOrUpdate(entity);
     }
 
     @Override
@@ -50,7 +52,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public List<User> getAllEntities() {
+        Session session = sessionFactory.getCurrentSession();
+      return (List<User>) session.createQuery("from User").list();
+    }
+
+    @Override
     public double getAverageUsersAge() {
         return 0;
     }
+
 }

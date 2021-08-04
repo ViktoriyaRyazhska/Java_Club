@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.softserve.team5.entity.Journal;
 import com.softserve.team5.service.interfaces.JournalService;
 
+import java.util.List;
+
 @Service
 @EnableTransactionManagement
 public class JournalServiceImpl implements JournalService {
@@ -33,6 +35,11 @@ public class JournalServiceImpl implements JournalService {
     @Override
     @Transactional
     public Journal getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Journal> getAllEntities() {
         return null;
     }
 }

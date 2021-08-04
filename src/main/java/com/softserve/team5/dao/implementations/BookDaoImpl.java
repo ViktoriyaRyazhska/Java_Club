@@ -49,7 +49,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getAllBooks() {
+    public List<Book> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
         return (List<Book>) session.createQuery("from Book").list();
     }
