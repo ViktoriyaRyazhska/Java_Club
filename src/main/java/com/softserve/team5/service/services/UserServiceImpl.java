@@ -54,7 +54,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public double getAverengeUsersAge() {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.getAverageUsersAge();
 	}
 }

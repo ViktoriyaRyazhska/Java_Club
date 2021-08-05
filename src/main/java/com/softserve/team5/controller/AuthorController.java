@@ -46,7 +46,6 @@ public class AuthorController {
 
     @GetMapping("/new")
     public String newAuthor(@ModelAttribute("author") Author author){
-    	
         return "author/newAuthor";
     }
 

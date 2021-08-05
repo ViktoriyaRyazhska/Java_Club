@@ -52,7 +52,8 @@ public class UserDaoImpl implements UserDao {
         return session.get(User.class, id);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<User> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
         return (List<User>) session.createQuery("from User").list();
@@ -60,7 +61,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public double getAverageUsersAge() {
-        return 0;
+    	Session session = sessionFactory.getCurrentSession();
+        return (double) session.createQuery("select avg(year(sysdate())-year(u.birthday)) from User u").getSingleResult();
     }
 
 }
