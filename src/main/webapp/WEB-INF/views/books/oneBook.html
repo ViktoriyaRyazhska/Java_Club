@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
-    <title>About book</title>
+    <title th:text="${book.getTitle()}"></title>
 </head>
 <body>
 <h5>Title: </h5>
 <h3 th:text="${book.getTitle()}"></h3>
 
-<h5>Copies: </h5>
+<h5>Author: </h5>
+<h3>
+    <a th:href="@{/author/{id}(id=${author.getId()})}"
+       th:text="${author.getName() + ' ' + author.getSurname()}"></a>
+</h3>
+<h5>Co-authors: </h5>
+<h4>
+    <div th:if="${coAuthors}!=null" th:each="author : ${coAuthors}">
+        <a th:href="@{/author/{id}(id=${author.getId()})}"
+           th:text="${author.getName() + ' ' + author.getSurname()}"></a>
+    </div>
+</h4>
+
+<h5>Copies available: </h5>
 <h3 th:text="${book.getCopies()}"></h3>
 
 <h5>Average reading time: </h5>
@@ -21,11 +34,9 @@
 </form>
 
 
-
 <form th:action="@{/books}" id="butt">
     <input type="submit" value="Return to library"/>
 </form>
-
 
 
 </body>

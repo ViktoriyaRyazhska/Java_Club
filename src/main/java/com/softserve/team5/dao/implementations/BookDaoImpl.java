@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import com.softserve.team5.dao.interfaces.BookDao;
+import com.softserve.team5.entity.Author;
+import com.softserve.team5.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +14,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softserve.team5.dao.interfaces.BookDao;
-import com.softserve.team5.entity.Book;
 
 @Repository
 @EnableTransactionManagement
@@ -84,6 +85,26 @@ public class BookDaoImpl implements BookDao {
     @Override
     public void deleteOneCopy(Long id, int quantity) {
 
+    }
+
+    @Override
+    public Author getMainAuthorByBookId(Long bookId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select a from Author a inner join BookAuthor ba on a.id = ba.authorID.id where (ba.bookID.id = :bookId) and (ba.authorRole = true)"
+                , Author.class)
+                .setParameter("bookId", bookId)
+                .getSingleResult();
+    }
+
+    @Override
+    public List<Author> getCoAuthorsByBookId(Long bookId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select a from Author a inner join BookAuthor ba on a.id = ba.authorID.id where (ba.bookID.id = :bookId) and (ba.authorRole = false)"
+                , Author.class)
+                .setParameter("bookId", bookId)
+                .getResultList();
     }
 
 }
