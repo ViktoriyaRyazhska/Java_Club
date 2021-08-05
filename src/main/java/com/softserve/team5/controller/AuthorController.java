@@ -41,7 +41,6 @@ public class AuthorController {
     public String getById(@PathVariable("id") Long id, Model model){
         model.addAttribute("books",authorService.getBooksByAuthor(id));
         model.addAttribute("author",authorService.getById(id));
-        System.out.println(authorService.getBooksByAuthor(id));
         return "author/oneAuthor";
     }
 
