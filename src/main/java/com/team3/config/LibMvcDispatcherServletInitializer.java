@@ -1,7 +1,10 @@
 package com.team3.config;
 
-import org.springframework.lang.NonNull;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 public class LibMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -16,8 +19,18 @@ public class LibMvcDispatcherServletInitializer extends AbstractAnnotationConfig
     }
 
     @Override
-    @NonNull
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    public void onStartup(ServletContext aServletContext) throws ServletException {
+        super.onStartup(aServletContext);
+        registerHiddenFieldFilter(aServletContext);
+    }
+
+    private void registerHiddenFieldFilter(ServletContext aContext) {
+        aContext.addFilter("hiddenHttpMethodFilter",
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }
