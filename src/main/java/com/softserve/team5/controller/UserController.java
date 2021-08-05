@@ -6,11 +6,9 @@ import com.softserve.team5.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Controller
@@ -30,6 +28,19 @@ public class UserController {
         return "users/allUsers";
     }
 
+    @GetMapping("/{id}")
+    public String showOneUser(@PathVariable("id")Long id,Model model){
+        model.addAttribute("user",userService.getById(id));
+        return "/users/oneUser";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id,Model model){
+        userService.delete(id);
+        model.addAttribute("users",userService.getAllEntities());
+        return "/users/allUsers";
+    }
+
     @GetMapping("/newUser")
     public String newUser(@ModelAttribute("user") User user){
         return "users/newUser";
@@ -39,7 +50,7 @@ public class UserController {
     public String create(@ModelAttribute("user") User user) {
 
         user.setRole(Role.USER);
-        user.setRegistrationDate(LocalDate.now());
+        user.setRegistrationDate(Date.valueOf(LocalDate.now()));
         userService.create(user);
         return "redirect:/users";
     }

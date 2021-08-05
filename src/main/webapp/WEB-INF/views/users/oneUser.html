@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>Information about one user</title>
+</head>
+<body>
+
+<h4>Password</h4>
+<p th:text ="${user.getPassword()}"></p>
+
+<h4>Name</h4>
+<p th:text="${user.getName()}"></p>
+
+<h4>Email</h4>
+<p th:text="${user.getEmail()}"></p>
+
+<h4>Birthday</h4>
+<p th:text="${user.getBirthday}"></p>
+
+<form th:action="@{/users/{id}(id=${user.getId()})}" th:method="delete">
+    <button type="submit">Delete user</button>
+</form>
+
+<form th:action="@{/users}">
+    <input type="submit" value="Back to ">
+</form>
+
+
+</body>
+</html>

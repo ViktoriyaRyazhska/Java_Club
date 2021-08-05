@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void update(User user) {
         Session session = sessionFactory.getCurrentSession();
-        user.setRegistrationDate(LocalDate.now());
+        user.setRegistrationDate(Date.valueOf(LocalDate.now()));
         session.update(user);
     }
 
@@ -54,7 +55,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
-      return (List<User>) session.createQuery("from User").list();
+        return (List<User>) session.createQuery("from User").list();
     }
 
     @Override

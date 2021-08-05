@@ -21,14 +21,14 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password",nullable = false)
     private String password;
 
     @Column(name = "BIRTHDAY_DATE", nullable = false)
     private Date birthday;
 
     @Column(name = "REGISTRATION_DATE", nullable = false)
-    private LocalDate registrationDate;
+    private Date registrationDate;
 
     public User() {
     }
@@ -57,7 +57,7 @@ public class User implements Serializable {
         return birthday;
     }
 
-    public LocalDate getRegistrationDate() {
+    public Date getRegistrationDate() {
         return registrationDate;
     }
 
@@ -85,7 +85,7 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public void setRegistrationDate(LocalDate registrationDate) {
+    public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
 
