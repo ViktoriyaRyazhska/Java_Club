@@ -4,6 +4,7 @@ import com.softserve.team5.dao.interfaces.AuthorDao;
 import com.softserve.team5.dao.interfaces.BookAuthorDao;
 import com.softserve.team5.dao.interfaces.BookDao;
 import com.softserve.team5.dto.BookDto;
+import com.softserve.team5.entity.Author;
 import com.softserve.team5.entity.Book;
 import com.softserve.team5.entity.BookAuthor;
 import com.softserve.team5.service.interfaces.BookService;
@@ -86,6 +87,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public void deleteOneCopy(Long id, int quantity) {
         // TODO Auto-generated method stub
+    }
+
+    @Override
+    public Author getMainAuthorByBookId(Long bookId) {
+        return bookDao.getMainAuthorByBookId(bookId);
     }
 
 }

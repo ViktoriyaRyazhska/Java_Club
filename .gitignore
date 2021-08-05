@@ -6,3 +6,5 @@ mvnw
 /.project
 /bin/
 /.settings/
+SpringConfig
+src/main/java/com/softserve/team5/config/SpringConfig.java

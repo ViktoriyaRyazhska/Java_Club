@@ -1,21 +1,15 @@
 package com.softserve.team5.controller;
 
-import javax.validation.Valid;
-
+import com.softserve.team5.dto.BookDto;
+import com.softserve.team5.service.interfaces.AuthorService;
+import com.softserve.team5.service.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import com.softserve.team5.dto.BookDto;
-import com.softserve.team5.service.interfaces.AuthorService;
-import com.softserve.team5.service.interfaces.BookService;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/books")
@@ -39,6 +33,7 @@ public class BookController {
 	@GetMapping("/{id}")
 	public String showOneBook(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("book", bookService.getById(id));
+		model.addAttribute("author", bookService.getMainAuthorByBookId(id));
 		return "books/oneBook";
 	}
 

@@ -1,6 +1,7 @@
 package com.softserve.team5.dao.implementations;
 
 import com.softserve.team5.dao.interfaces.BookDao;
+import com.softserve.team5.entity.Author;
 import com.softserve.team5.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -77,6 +78,16 @@ public class BookDaoImpl implements BookDao {
     @Override
     public void deleteOneCopy(Long id, int quantity) {
 
+    }
+
+    @Override
+    public Author getMainAuthorByBookId(Long bookId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select a from Author a inner join BookAuthor ba on a.id = ba.authorID.id where (ba.bookID.id = :bookId) and (ba.authorRole = true)"
+                , Author.class)
+                .setParameter("bookId", bookId)
+                .getSingleResult();
     }
 
 }

@@ -19,6 +19,10 @@
     <a th:href="@{/author/{id}(id=${author.getId()})}"   th:text="${author.getName() + ' ' + author.getSurname()}"></a>
 </div>
 
+<form th:action="@{/author/new}" >
+    <input type="submit" value="Add author"/>
+</form>
+
 <form th:action="@{/books}" >
     <input type="submit" value="Find by book"/>
 </form>
