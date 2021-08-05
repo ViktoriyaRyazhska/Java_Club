@@ -94,4 +94,9 @@ public class BookServiceImpl implements BookService {
         return bookDao.getMainAuthorByBookId(bookId);
     }
 
+    @Override
+    public List<Author> getCoAuthorsByBookId(Long bookId) {
+        return bookDao.getCoAuthorsByBookId(bookId);
+    }
+
 }

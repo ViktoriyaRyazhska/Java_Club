@@ -13,7 +13,7 @@
 
 <form th:method="POST" th:action="@{/books}" th:object="${bookDto}">
 
-    <label for="title">Select author: </label>
+    <label for="title">Select main author: </label>
     <select id="author" name="author" th:field="*{author_id}">
         <option th:each="auth : ${authors}"
                 th:value="${auth.getId()}"

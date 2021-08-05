@@ -34,6 +34,7 @@ public class BookController {
 	public String showOneBook(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("book", bookService.getById(id));
 		model.addAttribute("author", bookService.getMainAuthorByBookId(id));
+		model.addAttribute("coAuthors", bookService.getCoAuthorsByBookId(id));
 		return "books/oneBook";
 	}
 

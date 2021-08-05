@@ -90,4 +90,14 @@ public class BookDaoImpl implements BookDao {
                 .getSingleResult();
     }
 
+    @Override
+    public List<Author> getCoAuthorsByBookId(Long bookId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery(
+                "select a from Author a inner join BookAuthor ba on a.id = ba.authorID.id where (ba.bookID.id = :bookId) and (ba.authorRole = false)"
+                , Author.class)
+                .setParameter("bookId", bookId)
+                .getResultList();
+    }
+
 }

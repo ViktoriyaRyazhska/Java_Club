@@ -4,6 +4,8 @@ import com.softserve.team5.dto.BookDto;
 import com.softserve.team5.entity.Author;
 import com.softserve.team5.entity.Book;
 
+import java.util.List;
+
 public interface BookService extends DefaultServiceOperations<Book>{
 
 	void createFromDto(BookDto bookDto);
@@ -17,4 +19,6 @@ public interface BookService extends DefaultServiceOperations<Book>{
 	void deleteOneCopy(Long id, int quantity);
 
 	Author getMainAuthorByBookId(Long bookId);
+
+	List<Author> getCoAuthorsByBookId(Long bookId);
 }
