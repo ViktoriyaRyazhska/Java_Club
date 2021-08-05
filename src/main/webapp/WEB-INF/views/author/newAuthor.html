@@ -11,9 +11,11 @@
 <form th:method="POST" th:action="@{/author}" th:object="${author}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors=*{name}>Error</div>
     <br/>
     <label for="surname">Enter copies: </label>
     <input type="text" th:field="*{surname}" id="surname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors=*{surname}>Error</div>
     <br/>
 
     <input type="submit" value="Create"/>

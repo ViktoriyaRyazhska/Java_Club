@@ -9,15 +9,19 @@
 <form th:method="POST" th:action="@{/users}" th:object="${user}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors=*{name}>Error</div>
     <br/>
     <label for="email">Enter email: </label>
     <input type="text" th:field="*{email}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors=*{email}>Error</div>
     <br/>
     <label for="password">Enter your password: </label>
     <input type="password" th:field="*{password}" id="password"/>
+    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors=*{password}>Error</div>
     <br/>
     <label for="birthdayDay">Enter your birthday: </label>
     <input type="date" th:field="*{birthday}" id="birthdayDay"/>
+    <div style="color:red" th:if="${#fields.hasErrors('birthday')}" th:errors=*{birthday}>Error</div>
     <br/>
     <input type="submit" value="Create"/>
 </form>

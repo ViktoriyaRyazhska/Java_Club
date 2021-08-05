@@ -1,18 +1,20 @@
 package com.softserve.team5.controller;
 
-import com.softserve.team5.entity.Author;
-import com.softserve.team5.service.interfaces.AuthorService;
-import com.softserve.team5.service.interfaces.BookService;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.softserve.team5.entity.Author;
+import com.softserve.team5.service.interfaces.AuthorService;
+import com.softserve.team5.service.interfaces.BookService;
 
 
 @Controller
@@ -45,11 +47,15 @@ public class AuthorController {
 
     @GetMapping("/new")
     public String newAuthor(@ModelAttribute("author") Author author){
+    	
         return "author/newAuthor";
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("author") Author author) {
+    public String create(@ModelAttribute("author") @Valid Author author, BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			return "author/newAuthor";
+    	}
         authorService.create(author);
         return "redirect:/author";
     }

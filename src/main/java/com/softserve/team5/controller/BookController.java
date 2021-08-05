@@ -1,12 +1,21 @@
 package com.softserve.team5.controller;
 
-import com.softserve.team5.dto.BookDto;
-import com.softserve.team5.service.interfaces.AuthorService;
-import com.softserve.team5.service.interfaces.BookService;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.softserve.team5.dto.BookDto;
+import com.softserve.team5.service.interfaces.AuthorService;
+import com.softserve.team5.service.interfaces.BookService;
 
 @Controller
 @RequestMapping("/books")
@@ -41,13 +50,17 @@ public class BookController {
 	}
 
 	@GetMapping("/new")
-	public String newBook(@ModelAttribute("bookDto") BookDto bookDto,Model model) {
+	public String newBook(@ModelAttribute("bookDto") BookDto bookDto, Model model) {
 		model.addAttribute("authors", authorService.getAllEntities());
 		return "books/newBook";
 	}
 
 	@PostMapping()
-	public String create(@ModelAttribute("bookDto") BookDto bookDto) {
+	public String create(@ModelAttribute("bookDto") @Valid BookDto bookDto, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("authors", authorService.getAllEntities());
+			return "books/newBook";
+		}
 		bookService.createFromDto(bookDto);
 		return "redirect:/books";
 	}

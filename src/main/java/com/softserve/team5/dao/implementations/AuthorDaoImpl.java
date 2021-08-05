@@ -17,52 +17,52 @@ import java.util.List;
 @Transactional
 public class AuthorDaoImpl implements AuthorDao {
 
-    private final SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 
-    @Autowired
-    public AuthorDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+	@Autowired
+	public AuthorDaoImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 
-    @Override
-    public void create(Author author) {
-        Session session = sessionFactory.getCurrentSession();
-        session.persist(author);
-    }
+	@Override
+	public void create(Author author) {
+		Session session = sessionFactory.getCurrentSession();
+		session.persist(author);
+	}
 
-    @Override
-    public void update(Author author) {
-        // TODO Auto-generated method stub
+	@Override
+	public void update(Author author) {
+		// TODO Auto-generated method stub
 
-    }
+	}
 
-    @Override
-    public void delete(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        Author author = getById(id);
-        if (author != null) session.delete(author);
-    }
+	@Override
+	public void delete(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		Author author = getById(id);
+		if (author != null)
+			session.delete(author);
+	}
 
-    @Override
-    public Author getById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        return session.get(Author.class, id);
-    }
+	@Override
+	public Author getById(Long id) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Author.class, id);
+	}
 
-    @Override
-    public List<Book> getBooksByAuthor(Long author_id) {
-        Session session = sessionFactory.getCurrentSession();
-        return session.createQuery(
-                "select b from Book b inner join BookAuthor ba on ba.bookID.id=b.id where ba.authorID.id = :aid"
-                , Book.class)
-                .setParameter("aid", author_id)
-                .getResultList();
-    }
+	@Override
+	public List<Book> getBooksByAuthor(Long author_id) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery(
+				"select b from Book b inner join BookAuthor ba on ba.bookID.id=b.id where ba.authorID.id = :aid",
+				Book.class).setParameter("aid", author_id).getResultList();
+	}
 
-    @Override
-    public List<Author> getAllEntities() {
-        Session session = sessionFactory.getCurrentSession();
-        return (List<Author>) session.createQuery("from Author").list();
-    }
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Author> getAllEntities() {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("from Author").getResultList();
+	}
 
 }
