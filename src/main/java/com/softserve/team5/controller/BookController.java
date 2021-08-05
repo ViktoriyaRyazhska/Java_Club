@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.softserve.team5.dto.BookDto;
+import com.softserve.team5.entity.Book;
 import com.softserve.team5.service.interfaces.AuthorService;
 import com.softserve.team5.service.interfaces.BookService;
 
@@ -42,6 +44,16 @@ public class BookController {
 		return "books/oneBook";
 	}
 
+	@GetMapping("/findBookByTitle")
+	public String findBookByTitle(@RequestParam(value = "title") String title, Model model) {
+		Book book = bookService.findByTitle(title);
+		if(book == null) {
+			model.addAttribute("bookNotFound", "Book not found");
+			return "forward:/books";
+		}
+		return "redirect:/books/"+book.getId();
+	}
+
 	@DeleteMapping("/{id}")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
 		bookService.delete(id);
@@ -57,7 +69,7 @@ public class BookController {
 
 	@PostMapping()
 	public String create(@ModelAttribute("bookDto") @Valid BookDto bookDto, BindingResult bindingResult, Model model) {
-		if(bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("authors", authorService.getAllEntities());
 			return "books/newBook";
 		}

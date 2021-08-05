@@ -14,11 +14,17 @@
     </style>
 </head>
 <body>
+<h1 style="color:red" th:text="${bookNotFound}"></h1>
 <h2>Books available:</h2>
 <div th:each="book : ${books}">
     <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}"></a>
 </div>
 
+
+<form th:action="@{/books/findBookByTitle}">
+	<input type="text" th:name="title">
+    <input type="submit" value="Find book"/>
+</form>
 <form th:action="@{/books/new}" >
     <input type="submit" value="Add new book"/>
 </form>

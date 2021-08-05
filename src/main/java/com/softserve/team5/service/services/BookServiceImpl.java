@@ -42,6 +42,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void create(Book entity) {
+    	throw new UnsupportedOperationException("Use createFromDto instead this method");
     }
 
     @Override
@@ -73,8 +74,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findByTitle(String title) {
-        // TODO Auto-generated method stub
-        return null;
+    	return bookDao.findByTitle(title);
     }
 
     @Override

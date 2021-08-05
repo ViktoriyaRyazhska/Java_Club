@@ -1,7 +1,9 @@
 package com.softserve.team5.dao.implementations;
 
-import com.softserve.team5.dao.interfaces.BookDao;
-import com.softserve.team5.entity.Book;
+import java.util.List;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.softserve.team5.dao.interfaces.BookDao;
+import com.softserve.team5.entity.Book;
 
 @Repository
 @EnableTransactionManagement
@@ -62,11 +65,15 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Book findByTitle(String title) {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery(
-                "select b from Book b where b.title = :title"
-                , Book.class)
-                .setParameter("title", title)
-                .getSingleResult();
+        try {
+        	return session.createQuery(
+                    "select b from Book b where b.title = :title"
+                    , Book.class)
+                    .setParameter("title", title)
+                    .getSingleResult();
+        } catch (NoResultException ex) {
+        	return null;
+        }
     }
 
     @Override
