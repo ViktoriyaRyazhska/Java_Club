@@ -5,6 +5,8 @@ import com.team3.entity.Order;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class OrderDaoImpl implements OrderDao {
 
@@ -29,4 +31,10 @@ public class OrderDaoImpl implements OrderDao {
     public Order findOrderById(Long id) {
         return sessionFactory.getCurrentSession().get(Order.class, id);
     }
+
+    @Override
+    public List<Order> findAllOrders() {
+        return sessionFactory.getCurrentSession().createQuery("SELECT a from Order a",Order.class).getResultList();
+    }
+
 }
