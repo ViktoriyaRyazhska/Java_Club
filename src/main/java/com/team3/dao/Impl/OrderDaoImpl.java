@@ -3,13 +3,30 @@ package com.team3.dao.Impl;
 import com.team3.dao.OrderDao;
 import com.team3.entity.Order;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrderDaoImpl implements OrderDao {
-    @Autowired
-    private SessionFactory sessionFactory;
+
+    private final SessionFactory sessionFactory;
+
+    public OrderDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
     @Override
     public void addOrder(Order order) {
         sessionFactory.getCurrentSession().save(order);
+    }
+
+    @Override
+    public void deleteOrder(Long id) {
+        Order order = findOrderById(id);
+        sessionFactory.getCurrentSession().remove(order);
+    }
+
+    @Override
+    public Order findOrderById(Long id) {
+        return sessionFactory.getCurrentSession().get(Order.class, id);
     }
 }
