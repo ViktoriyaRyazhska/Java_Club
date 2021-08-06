@@ -34,7 +34,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public void update(Book book) {
+    public void update(Book book,Long id) {
         Session session = sessionFactory.getCurrentSession();
         session.update(book);
     }

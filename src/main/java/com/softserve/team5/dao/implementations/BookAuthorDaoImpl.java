@@ -31,7 +31,7 @@ public class BookAuthorDaoImpl implements BookAuthorDao {
     }
 
     @Override
-    public void update(BookAuthor entity) {
+    public void update(BookAuthor entity,Long id) {
 
     }
 

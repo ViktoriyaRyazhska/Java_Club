@@ -29,8 +29,8 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public void update(Author entity) {
-		authorDao.update(entity);
+	public void update(Author entity,Long id) {
+		authorDao.update(entity,id);
 	}
 
 	@Override

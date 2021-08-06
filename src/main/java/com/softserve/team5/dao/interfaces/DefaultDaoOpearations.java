@@ -12,7 +12,7 @@ import java.util.List;
 public interface DefaultDaoOpearations<T> {
 	void create(T entity);
 
-	void update(T entity);
+	void update(T entity,Long id);
 
 	void delete(Long id);
 

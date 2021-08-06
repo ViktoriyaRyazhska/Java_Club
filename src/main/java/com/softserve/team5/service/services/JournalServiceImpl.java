@@ -22,7 +22,7 @@ public class JournalServiceImpl implements JournalService {
 
     @Override
     @Transactional
-    public void update(Journal entity) {
+    public void update(Journal entity,Long id) {
 
     }
 

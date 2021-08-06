@@ -33,10 +33,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void update(User user) {
-        Session session = sessionFactory.getCurrentSession();
+    public void update(User user,Long id) {
+        User userToBeUpdated = getById(id);
+        userToBeUpdated.setName(user.getName());
+        userToBeUpdated.setEmail(user.getEmail());
+        userToBeUpdated.setBirthday(user.getBirthday());
+        userToBeUpdated.setPassword(user.getPassword());
+        /*Session session = sessionFactory.getCurrentSession();
         user.setRegistrationDate(Date.valueOf(LocalDate.now()));
-        session.update(user);
+        session.update(user);*/
     }
 
     @Override
@@ -59,10 +64,11 @@ public class UserDaoImpl implements UserDao {
         return (List<User>) session.createQuery("from User").list();
     }
 
+
     @Override
     public double getAverageUsersAge() {
     	Session session = sessionFactory.getCurrentSession();
-        return (double) session.createQuery("select avg(year(sysdate())-year(u.birthday)) from User u").getSingleResult();
+        return (double) session.createQuery("select avg(year(current_date)-year(u.birthday)) from User u").getSingleResult();
     }
 
 }
