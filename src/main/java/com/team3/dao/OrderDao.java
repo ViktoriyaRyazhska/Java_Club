@@ -4,4 +4,6 @@ import com.team3.entity.Order;
 
 public interface OrderDao {
     void addOrder(Order order);
+    void deleteOrder(Long id);
+    Order findOrderById(Long id);
 }
