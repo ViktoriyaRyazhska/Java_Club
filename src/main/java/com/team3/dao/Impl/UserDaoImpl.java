@@ -3,15 +3,18 @@ package com.team3.dao.Impl;
 import com.team3.dao.UserDao;
 import com.team3.entity.User;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Autowired
-    private SessionFactory sessionFactory;
+
+    private final SessionFactory sessionFactory;
+
+    public UserDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void addUser(User user) {
@@ -19,11 +22,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserById(Long id) {return (User) sessionFactory.getCurrentSession().get(User.class, id);}
+    public User getUserById(Long id) {return sessionFactory.getCurrentSession().get(User.class, id);}
 
-    @SuppressWarnings("unchecked")
     @Override
-    public List getAllUsers() {
+    public List<User> getAllUsers() {
         return sessionFactory.getCurrentSession().createQuery("select a from User a",User.class).getResultList();
     }
+
 }
