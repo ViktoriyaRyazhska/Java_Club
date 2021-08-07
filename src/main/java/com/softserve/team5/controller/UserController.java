@@ -1,17 +1,25 @@
 package com.softserve.team5.controller;
 
-import com.softserve.team5.entity.Role;
-import com.softserve.team5.entity.User;
-import com.softserve.team5.service.interfaces.UserService;
+import java.sql.Date;
+import java.time.LocalDate;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
-import java.sql.Date;
-import java.time.LocalDate;
+import com.softserve.team5.entity.Role;
+import com.softserve.team5.entity.User;
+import com.softserve.team5.service.interfaces.UserService;
 
 @Controller
 @RequestMapping("/users")
@@ -46,7 +54,7 @@ public class UserController {
 	@GetMapping("/{id}/edit")
 	public String editUser(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("user", userService.getById(id));
-		return "editUser";
+		return "users/editUser";
 	}
 
 	@PatchMapping("/{id}")
