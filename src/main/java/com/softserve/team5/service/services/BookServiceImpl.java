@@ -42,6 +42,29 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void editFromDto(BookDto bookDto, Long bookId) {
+        Book b = getById(bookId);
+
+        if (bookDto.getTitle() != null) {
+            b.setTitle(bookDto.getTitle());
+        }
+
+        if (bookDto.getAverageReadingHours() != null){
+            b.setAverageReadingHours(bookDto.getAverageReadingHours());
+        }
+
+        if (bookDto.getCo_authors_id() != null){
+            for (Long aid : bookDto.getCo_authors_id()){
+                if (!bookAuthorDao.isAuthor(aid, bookId)){
+                    BookAuthor ba = new BookAuthor(authorDao.getById(aid),
+                            bookDao.getById(bookId), false);
+                    bookAuthorDao.create(ba);
+                }
+            }
+        }
+    }
+
+    @Override
     public void create(Book entity) {
     	throw new UnsupportedOperationException("Use createFromDto instead this method");
     }

@@ -31,13 +31,11 @@ public class BookAuthorDaoImpl implements BookAuthorDao {
     }
 
     @Override
-    public void update(BookAuthor entity,Long id) {
-
+    public void update(BookAuthor entity, Long id) {
     }
 
     @Override
     public void delete(Long id) {
-
     }
 
     @Override
@@ -48,5 +46,33 @@ public class BookAuthorDaoImpl implements BookAuthorDao {
     @Override
     public List<BookAuthor> getAllEntities() {
         return null;
+    }
+
+    @Override
+    public Boolean isAuthor(Long author_id, Long book_id) {
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            BookAuthor ba = session.createQuery(
+                    "select ba from BookAuthor ba where (ba.bookID.id = :book_id) and (ba.authorID.id = :author_id)"
+                    , BookAuthor.class)
+                    .setParameter("book_id", book_id)
+                    .setParameter("author_id", author_id)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void deleteAuthor(Long book_id, Long author_id) {
+        Session session = sessionFactory.getCurrentSession();
+        BookAuthor ba = session.createQuery(
+                "select ba from BookAuthor ba where (ba.bookID.id = :book_id) and (ba.authorID.id = :author_id)"
+                , BookAuthor.class)
+                .setParameter("book_id", book_id)
+                .setParameter("author_id", author_id)
+                .getSingleResult();
+        if (ba != null) session.delete(ba);
     }
 }

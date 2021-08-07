@@ -10,6 +10,8 @@ public interface BookService extends DefaultServiceOperations<Book>{
 
 	void createFromDto(BookDto bookDto);
 
+	void editFromDto(BookDto bookDto, Long id);
+
 	boolean checkIsAvailable(Long id);
 
 	Book findByTitle(String title);

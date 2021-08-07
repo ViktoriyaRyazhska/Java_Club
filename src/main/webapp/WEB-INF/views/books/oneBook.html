@@ -19,6 +19,11 @@
     <div th:if="${coAuthors}!=null" th:each="author : ${coAuthors}">
         <a th:href="@{/author/{id}(id=${author.getId()})}"
            th:text="${author.getName() + ' ' + author.getSurname()}"></a>
+
+        <form th:action="@{'/books/' + ${book.getId()} + '/' + ${author.getId()} }"
+              th:method="delete">
+            <input type="submit" value="Remove"/>
+        </form>
     </div>
 </h4>
 
@@ -33,8 +38,11 @@
     <button type="submit">Delete book</button>
 </form>
 
+<form th:action="@{/books/{id}/edit(id=${book.getId()})}">
+    <button type="submit">Edit book</button>
+</form>
 
-<form th:action="@{/books}" id="butt">
+<form th:action="@{/books}">
     <input type="submit" value="Return to library"/>
 </form>
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title th:text="${book.getTitle()}"></title>
+</head>
+<body>
+
+
+<form th:method="POST" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${bookDto}">
+    <label for="title">Edit title: </label>
+    <input type="text" id="title" name="title" th:value="${book.getTitle()}">
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors=*{title}>Error</div>
+    <br/>
+
+    <label for="copies">Edit copies: </label>
+    <input type="number" id="copies" name="copies" th:value="${book.getCopies()}"/>
+    <div style="color:red" th:if="${#fields.hasErrors('copies')}" th:errors=*{copies}>Error</div>
+    <br/>
+
+    <label for="avgTimeReading">Edit average reading hours: </label>
+    <input type="number" id="avgTimeReading" name="averageReadingHours" th:value="${book.getAverageReadingHours()}" />
+    <div style="color:red" th:if="${#fields.hasErrors('averageReadingHours')}" th:errors=*{averageReadingHours}>Error
+    </div>
+    <br/>
+
+    <h3 th:text="${'Main author: ' + mainAuthor.getName()}"></h3>
+
+    <label for="title">Add co-author: </label>
+    <select th:field="*{co_authors_id}">
+        <option th:value="null" th:text="'- -'" ></option>
+        <option th:each="auth : ${authors}"
+                th:if="${auth.getId()} != ${mainAuthor.getId()}"
+                th:value="${auth.getId()}"
+                th:text="${auth.getName() + ' ' + auth.getSurname()}">
+        </option>
+    </select>
+    <br/>
+
+
+    <input type="submit" value="Update!"/>
+</form>
+
+
+</body>
+</html>
