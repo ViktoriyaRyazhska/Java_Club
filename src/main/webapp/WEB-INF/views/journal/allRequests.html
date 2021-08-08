@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<style type="text/css">
+	.tg  {border-collapse:collapse;border-spacing:0;}
+	.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	  overflow:hidden;padding:10px 5px;word-break:normal;}
+	.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+	.tg .tg-73oq{border-color:#000000;text-align:left;vertical-align:top}
+	.tg .tg-0lax{text-align:left;vertical-align:top}
+	</style>
+<title>Title</title>
+</head>
+<body>
+
+
+	<table class="tg">
+		<thead>
+			<tr>
+				<th class="tg-73oq">ID</th>
+				<th class="tg-0lax">User</th>
+				<th class="tg-0lax">Book</th>
+				<th class="tg-0lax">Day of the rent</th>
+				<th class="tg-0lax">Expected return date</th>
+				<th class="tg-0lax">Book return date</th>
+				<th class="tg-0lax">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${requests.isEmpty()}">
+				<td colspan="7">Journal is empty</td>
+			</tr>
+			<tr th:each="request : ${requests}">
+				<td class="tg-0lax"><span th:text="${request.getId()}">ID</span></td>
+				<td class="tg-0lax"><span th:text="${request.getUserID().getName()}">User</span></td>
+				<td class="tg-0lax"><span th:text="${request.getBookID().getTitle()}">Book</span></td>
+				<td class="tg-0lax"><span th:text="${request.getRentDate()}">Day of the rent</span></td>
+				<td class="tg-0lax"><span th:text="${request.getExpectedReturnDate()}">Expected return date</span></td>
+				<td class="tg-0lax"><span th:text="${request.getBookReturnDate()}">Book return date</span></td>
+				<td class="tg-0lax"><span th:text="${request.getStatus()}">Status</span></td>
+				<td class="tg-0lax" th:if="${request.getStatus()==T(com.softserve.team5.entity.JournalStatus).REQUESTED}">
+					<form th:method="PATCH" th:action="@{/journal/giveBook/{id}(id=${request.getId()})}">
+	    				<input type="submit" value="Give book" />
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

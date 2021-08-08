@@ -7,77 +7,87 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "journal")
 public class Journal implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade=CascadeType.REMOVE)
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private User userID;
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "USER_ID", nullable = false)
+	private User userID;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false,cascade=CascadeType.REMOVE)
-    @JoinColumn(name = "BOOK_ID", nullable = false)
-    private Book bookID;
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "BOOK_ID", nullable = false)
+	private Book bookID;
 
-    @Column(name = "DATE_OF_RENT", nullable = false)
-    private LocalDate rentDate;
+	@Column(name = "DATE_OF_RENT")
+	private LocalDate rentDate;
 
-    @Column(name = "EXPECTED_RETURN_DATE", nullable = false)
-    private LocalDate expectedReturnDate;
+	@Column(name = "EXPECTED_RETURN_DATE")
+	private LocalDate expectedReturnDate;
 
-    @Column(name = "BOOK_RETURN_DATE", nullable = false)
-    private LocalDate bookReturnDate;
+	@Column(name = "BOOK_RETURN_DATE")
+	private LocalDate bookReturnDate;
 
-    public Journal() {
-    }
+	@Enumerated(EnumType.STRING)
+	private JournalStatus status;
 
-    public Long getId() {
-        return id;
-    }
+	public Journal() {
+	}
 
-    public User getUserID() {
-        return userID;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Book getBookID() {
-        return bookID;
-    }
+	public User getUserID() {
+		return userID;
+	}
 
-    public LocalDate getRentDate() {
-        return rentDate;
-    }
+	public Book getBookID() {
+		return bookID;
+	}
 
-    public LocalDate getExpectedReturnDate() {
-        return expectedReturnDate;
-    }
+	public LocalDate getRentDate() {
+		return rentDate;
+	}
 
-    public LocalDate getBookReturnDate() {
-        return bookReturnDate;
-    }
+	public LocalDate getExpectedReturnDate() {
+		return expectedReturnDate;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public LocalDate getBookReturnDate() {
+		return bookReturnDate;
+	}
 
-    public void setUserID(User userID) {
-        this.userID = userID;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setBookID(Book bookID) {
-        this.bookID = bookID;
-    }
+	public void setUserID(User userID) {
+		this.userID = userID;
+	}
 
-    public void setRentDate(LocalDate rentDate) {
-        this.rentDate = rentDate;
-    }
+	public void setBookID(Book bookID) {
+		this.bookID = bookID;
+	}
 
-    public void setExpectedReturnDate(LocalDate expectedReturnDate) {
-        this.expectedReturnDate = expectedReturnDate;
-    }
+	public void setRentDate(LocalDate rentDate) {
+		this.rentDate = rentDate;
+	}
 
-    public void setBookReturnDate(LocalDate bookReturnDate) {
-        this.bookReturnDate = bookReturnDate;
-    }
+	public void setExpectedReturnDate(LocalDate expectedReturnDate) {
+		this.expectedReturnDate = expectedReturnDate;
+	}
 
+	public void setBookReturnDate(LocalDate bookReturnDate) {
+		this.bookReturnDate = bookReturnDate;
+	}
+
+	public JournalStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(JournalStatus status) {
+		this.status = status;
+	}
 
 }

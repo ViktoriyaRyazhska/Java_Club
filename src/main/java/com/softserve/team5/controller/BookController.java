@@ -35,8 +35,7 @@ public class BookController {
 	}
 
 	@PostMapping()
-	public String create(@ModelAttribute("bookDto") @Valid BookDto bookDto,
-						 BindingResult bindingResult, Model model) {
+	public String create(@ModelAttribute("bookDto") @Valid BookDto bookDto, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("authors", authorService.getAllEntities());
 			return "books/newBook";
@@ -64,9 +63,8 @@ public class BookController {
 	}
 
 	@PostMapping("/{id}")
-	public String editBook(@PathVariable("id") Long id,
-						   @ModelAttribute("bookDto") @Valid BookDto bookDto,
-						   BindingResult bindingResult, Model model) {
+	public String editBook(@PathVariable("id") Long id, @ModelAttribute("bookDto") @Valid BookDto bookDto,
+			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("book", bookService.getById(id));
 			model.addAttribute("mainAuthor", bookService.getMainAuthorByBookId(id));
@@ -89,9 +87,7 @@ public class BookController {
 	}
 
 	@DeleteMapping("/{id}/{authorId}")
-	public String deleteAuthor(@PathVariable("id") Long id,
-							   @PathVariable("authorId") Long authorId,
-							   Model model) {
+	public String deleteAuthor(@PathVariable("id") Long id, @PathVariable("authorId") Long authorId, Model model) {
 		bookAuthorService.deleteAuthor(id, authorId);
 
 		model.addAttribute("book", bookService.getById(id));
@@ -100,11 +96,8 @@ public class BookController {
 		return "books/oneBook";
 	}
 
-
 	@GetMapping("/{id}/edit")
-	public String editBookShow(@PathVariable("id") Long id,
-							   @ModelAttribute("bookDto") BookDto bookDto,
-							   Model model) {
+	public String editBookShow(@PathVariable("id") Long id, @ModelAttribute("bookDto") BookDto bookDto, Model model) {
 		model.addAttribute("book", bookService.getById(id));
 		model.addAttribute("mainAuthor", bookService.getMainAuthorByBookId(id));
 		model.addAttribute("authors", authorService.getAllEntities());
