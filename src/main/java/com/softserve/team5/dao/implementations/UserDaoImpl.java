@@ -39,9 +39,6 @@ public class UserDaoImpl implements UserDao {
         userToBeUpdated.setEmail(user.getEmail());
         userToBeUpdated.setBirthday(user.getBirthday());
         userToBeUpdated.setPassword(user.getPassword());
-        /*Session session = sessionFactory.getCurrentSession();
-        user.setRegistrationDate(Date.valueOf(LocalDate.now()));
-        session.update(user);*/
     }
 
     @Override

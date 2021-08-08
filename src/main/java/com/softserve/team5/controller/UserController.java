@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -58,7 +59,14 @@ public class UserController {
 	}
 
 	@PatchMapping("/{id}")
-	public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @PathVariable("id") Long id) {
+	public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
+			@PathVariable("id") Long id) {
+		if (user.getBirthday() == null) {
+			bindingResult.addError(new FieldError("user", "birthday", "Enter the full date"));
+		}
+		if (bindingResult.hasErrors()) {
+			return "users/newUser";
+		}
 		userService.update(user, id);
 		return "redirect:/users";
 	}
@@ -69,12 +77,13 @@ public class UserController {
 	}
 
 	@PostMapping()
-	public String create(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
-		/*
-		 * if (bindingResult.hasErrors()){
-		 * model.addAttribute("user",userService.getAllEntities()); return
-		 * "users/newUser"; }
-		 */
+	public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+		if (user.getBirthday() == null) {
+			bindingResult.addError(new FieldError("user", "birthday", "Enter the full date"));
+		}
+		if (bindingResult.hasErrors()) {
+			return "users/newUser";
+		}
 		user.setRole(Role.USER);
 		user.setRegistrationDate(Date.valueOf(LocalDate.now()));
 		userService.create(user);

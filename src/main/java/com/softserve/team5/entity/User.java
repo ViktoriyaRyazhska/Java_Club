@@ -45,7 +45,7 @@ public class User implements Serializable {
 	private String password;
 
 	@Past(message = "Enter right birthday date")
-	@DateTimeFormat(pattern = "yyyy.MM.dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "BIRTHDAY_DATE", nullable = false)
 	private Date birthday;
 
