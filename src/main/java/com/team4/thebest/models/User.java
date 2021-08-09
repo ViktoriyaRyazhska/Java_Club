@@ -1,4 +1,4 @@
-package com.team4.thebest.security;
+package com.team4.thebest.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -15,7 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan(basePackageClasses = WebAuthenticationProvider.class)
+@ComponentScan(basePackages = {"com.team4.thebest.services.impl", "com.team4.thebest.dao.impl",
+        "com.team4.thebest.security"})
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     private AuthenticationProvider authenticationProvider;

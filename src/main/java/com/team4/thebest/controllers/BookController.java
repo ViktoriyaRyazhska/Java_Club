@@ -3,6 +3,7 @@ package com.team4.thebest.controllers;
 import com.team4.thebest.models.Book;
 import com.team4.thebest.services.BookService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

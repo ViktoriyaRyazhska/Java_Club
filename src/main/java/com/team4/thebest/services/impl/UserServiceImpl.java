@@ -1,15 +1,18 @@
-package com.team4.thebest.security;
+package com.team4.thebest.services.impl;
 
+import com.team4.thebest.models.Role;
+import com.team4.thebest.models.User;
+import com.team4.thebest.services.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
-public class UserService implements UserDetailsService {
+@Service
+public class UserServiceImpl implements UserService {
 
     private List<User> users = Arrays.asList(
             new User(1L, "mike",

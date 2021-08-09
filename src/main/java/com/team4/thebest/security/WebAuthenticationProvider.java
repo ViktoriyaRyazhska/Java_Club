@@ -1,7 +1,8 @@
 package com.team4.thebest.security;
 
+import com.team4.thebest.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -13,12 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebAuthenticationProvider implements AuthenticationProvider {
 
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public WebAuthenticationProvider(UserService userService, PasswordEncoder passwordEncoder) {
-        this.userService = userService;
+    public WebAuthenticationProvider(UserServiceImpl userServiceImpl, PasswordEncoder passwordEncoder) {
+        this.userServiceImpl = userServiceImpl;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -27,11 +28,9 @@ public class WebAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        UserDetails userDetails = userService.loadUserByUsername(username);
-        System.out.println("OKKKKKKKKKKKKK");
+        UserDetails userDetails = userServiceImpl.loadUserByUsername(username);
 
         if (passwordEncoder.matches(password, userDetails.getPassword())) {
-            System.out.println("In if statement");
             return new UsernamePasswordAuthenticationToken(
                     userDetails,
                     userDetails.getPassword(),
