@@ -1,6 +1,6 @@
 package com.team4.thebest.config;
 
-import com.team4.thebest.models.User;
+import com.team4.thebest.models.Book;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ public class HibernateConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
-        sessionFactory.setAnnotatedClasses(User.class);
+        sessionFactory.setAnnotatedClasses(Book.class);
         return sessionFactory;
     }
 

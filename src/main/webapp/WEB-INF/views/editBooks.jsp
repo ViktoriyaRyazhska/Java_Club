@@ -24,7 +24,7 @@
 </head>
 <body>
 <h1>Input Form</h1>
-<form:form action="addUser" method="post" modelAttribute="user">
+<form:form action="addBook" method="post" modelAttribute="book">
     <table>
         <tr>
             <td>Name</td>
@@ -34,10 +34,10 @@
             </td>
         </tr>
         <tr>
-            <td>Email</td>
+            <td>Author</td>
             <td>
-                <form:input path="email" /> <br />
-                <form:errors path="email" cssClass="error" />
+                <form:input path="author" /> <br />
+                <form:errors path="author" cssClass="error" />
             </td>
         </tr>
         <tr>
@@ -46,16 +46,16 @@
     </table>
 </form:form>
 
-<h2>Users List</h2>
+<h2>Books List</h2>
 <table>
     <tr>
         <td><strong>Name</strong></td>
-        <td><strong>Email</strong></td>
+        <td><strong>Author</strong></td>
     </tr>
-    <c:forEach items="${users}" var="user">
+    <c:forEach items="${books}" var="book">
         <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
+            <td>${book.name}</td>
+            <td>${book.author}</td>
         </tr>
     </c:forEach>
 </table>

@@ -1,11 +1,12 @@
 package com.team4.thebest.config;
 
+import com.team4.thebest.security.WebSecurityConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{HibernateConfig.class};
+        return new Class[]{HibernateConfig.class, WebSecurityConfigurer.class};
     }
 
     @Override
