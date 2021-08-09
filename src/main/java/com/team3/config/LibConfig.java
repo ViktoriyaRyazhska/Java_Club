@@ -62,7 +62,6 @@ public class LibConfig implements WebMvcConfigurer {
         dataSource.setUrl("jdbc:mysql://localhost:3306/mydb?useSSL=false");
         dataSource.setUsername("root");
         dataSource.setPassword("1234");
-
         return dataSource;
     }
 
@@ -70,7 +69,7 @@ public class LibConfig implements WebMvcConfigurer {
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan("com.team3");
+        sessionFactory.setPackagesToScan("com.team3.entity");
 
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");

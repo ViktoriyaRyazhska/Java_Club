@@ -1,16 +1,12 @@
 package com.team3.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldNameConstants;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 @NoArgsConstructor
 @Table(name = "book")
 public class Book {
@@ -18,14 +14,15 @@ public class Book {
     @Id
     @Column(name = "book_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int book_id;
+    private int bookId;
 
     @Column(name = "authorId")
-    private int author_id;
+    private int authorId;
 
     @Column(name = "title")
     private String title;
 
+    @ToString.Exclude
     @Column(name = "description")
     private String description;
 
@@ -34,6 +31,15 @@ public class Book {
 
     @Column(name = "count")
     private int count;
+
+    @Override
+    public String toString (){
+        return getDescription();
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "authorId")
+    private Author author;
 
 
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -13,7 +14,7 @@ import javax.persistence.*;
 public class Author {
 
     @Id
-    @Column(name="author_id")
+    @Column(name = "author_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -23,5 +24,10 @@ public class Author {
 
     @Column(name = "surname")
     private String surname;
+
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Book book;
 
 }
