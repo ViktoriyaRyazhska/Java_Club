@@ -13,7 +13,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-@PersistenceContext(unitName = "authorPersistence")
 public class AuthorDaoImpl implements AuthorDao {
 
     private final SessionFactory sessionFactory;
@@ -26,7 +25,7 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public Author save(Author author) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(author);
+        session.save(author);
         return author;
     }
 

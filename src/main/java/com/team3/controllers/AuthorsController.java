@@ -2,34 +2,48 @@ package com.team3.controllers;
 
 
 import com.team3.dao.AuthorDao;
+import com.team3.entity.Author;
+import com.team3.service.AuthorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/author")
+@RequestMapping("/author")
 public class AuthorsController {
 
-    private final AuthorDao authorDao;
+    private final AuthorsService authorsService;
 
     @Autowired
-    public AuthorsController(AuthorDao authorDao) {
-        this.authorDao = authorDao;
+    public AuthorsController(AuthorsService authorsService) {
+        this.authorsService = authorsService;
     }
 
+
     @GetMapping("/show")
-    public String showAuthors(Model model){
-        model.addAttribute("authors", authorDao.findAll());
-        return "authorsAll";
+    public String showAllAuthors(Model model) {
+        model.addAttribute("authors", authorsService.findAll());
+        return "author/authorAll";
     }
 
     @GetMapping("/{id}")
-    public String showAuthorsById(@PathVariable("id")int id, Model model){
-        model.addAttribute("author",authorDao.findById(id));
-        return "show_author";
+    public String showAuthorsById(@PathVariable("id") int id, Model model) {
+        Author author = authorsService.findById(id);
+        model.addAttribute("author",author);
+        return "author/authorShowById";
     }
+
+    @GetMapping("/add")
+    public String newAuthor(Model model){
+        model.addAttribute("author", new Author());
+        return "author/authorAdd";
+    }
+
+    @PostMapping("/add")
+    public String create(@ModelAttribute("author") Author author){
+        authorsService.save(author);
+        return "redirect: show";
+     }
 
 }
