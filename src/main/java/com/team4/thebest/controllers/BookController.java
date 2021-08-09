@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class BookController {
 
-    private BookService bookService;
+    private final BookService bookService;
 
     @GetMapping("/")
     public String bookForm(Model model) {

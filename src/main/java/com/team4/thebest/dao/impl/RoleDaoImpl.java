@@ -1,7 +1,7 @@
 package com.team4.thebest.dao.impl;
 
-import com.team4.thebest.dao.BookDao;
-import com.team4.thebest.models.Book;
+import com.team4.thebest.dao.RoleDao;
+import com.team4.thebest.models.Role;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,22 +14,16 @@ import java.util.List;
 @Repository
 @Transactional
 @AllArgsConstructor
-public class BookDaoImpl implements BookDao {
+public class RoleDaoImpl implements RoleDao {
 
-    private SessionFactory sessionFactory;
-
-    @Override
-    public void save(Book book) {
-        final Session session = sessionFactory.getCurrentSession();
-        session.save(book);
-    }
+    private final SessionFactory sessionFactory;
 
     @Override
-    public List<Book> list() {
+    public List<Role> list() {
         final Session session = sessionFactory.getCurrentSession();
 
         @SuppressWarnings("unchecked")
-        final TypedQuery<Book> query = session.createQuery("from Book");
+        final TypedQuery<Role> query = session.createQuery("from Role");
         return query.getResultList();
     }
 }

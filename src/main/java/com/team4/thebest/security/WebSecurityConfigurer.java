@@ -2,7 +2,6 @@ package com.team4.thebest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,11 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan(basePackages = {"com.team4.thebest.services.impl", "com.team4.thebest.dao.impl",
-        "com.team4.thebest.security"})
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    private AuthenticationProvider authenticationProvider;
+    private final AuthenticationProvider authenticationProvider;
 
     @Autowired
     public WebSecurityConfigurer(@Lazy AuthenticationProvider authenticationProvider) {
