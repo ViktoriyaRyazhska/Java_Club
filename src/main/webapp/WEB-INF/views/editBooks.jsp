@@ -59,5 +59,8 @@
         </tr>
     </c:forEach>
 </table>
+<form:form action="/logout" method="POST">
+    <br> <button type="submit">Logout</button>
+</form:form>
 </body>
 </html>
