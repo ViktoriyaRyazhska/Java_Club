@@ -26,4 +26,7 @@ public class Book {
     @Column(name = "author")
     @NotEmpty(message = "Please enter book author")
     private String author;
+
+    @Column(name = "co_author")
+    private String coAuthor;
 }

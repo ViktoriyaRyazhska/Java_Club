@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Spring5 MVC Hibernate Demo</title>
+    <title>Books</title>
     <style type="text/css">
         .error {
             color: red;
@@ -18,12 +18,12 @@
         }
         table td {
             border: 1px solid #565454;
-            padding: 20px;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-<h1>Input Form</h1>
+<h2>Create book</h2>
 <form:form action="addBook" method="post" modelAttribute="book">
     <table>
         <tr>
@@ -41,6 +41,13 @@
             </td>
         </tr>
         <tr>
+            <td>Co-author</td>
+            <td>
+                <form:input path="coAuthor" /> <br />
+                <form:errors path="coAuthor" cssClass="error" />
+            </td>
+        </tr>
+        <tr>
             <td colspan="2"><button type="submit">Submit</button></td>
         </tr>
     </table>
@@ -51,11 +58,13 @@
     <tr>
         <td><strong>Name</strong></td>
         <td><strong>Author</strong></td>
+        <td><strong>Co-author</strong></td>
     </tr>
     <c:forEach items="${books}" var="book">
         <tr>
             <td>${book.name}</td>
             <td>${book.author}</td>
+            <td>${book.coAuthor}</td>
         </tr>
     </c:forEach>
 </table>
