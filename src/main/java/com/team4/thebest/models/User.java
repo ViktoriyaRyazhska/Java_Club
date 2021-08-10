@@ -12,10 +12,9 @@ import java.util.Collections;
 @EqualsAndHashCode(of = "id")
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "user")
-public class User implements UserDetails { // TODO: Make User an entity, create DAO for it and read credentials from there
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -66,5 +65,14 @@ public class User implements UserDetails { // TODO: Make User an entity, create 
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", role=" + role.getAuthority() +
+                '}';
     }
 }

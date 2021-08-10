@@ -23,12 +23,8 @@ public class Role implements GrantedAuthority {
     @Column(name = "role_type", nullable = false)
     private RoleType roleType;
 
-//    @OneToMany(mappedBy = "role")
-//    private List<User> users;
-
-    public Role(RoleType roleType) {
-        this.roleType = roleType;
-    }
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
 
     @Override
     public String getAuthority() {
