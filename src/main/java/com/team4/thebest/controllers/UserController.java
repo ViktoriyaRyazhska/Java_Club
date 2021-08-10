@@ -13,7 +13,7 @@ public class UserController {
 
     private final UserService userService;
 
-//    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/user")
     public String userForm(Model model) {
         model.addAttribute("users", userService.list());

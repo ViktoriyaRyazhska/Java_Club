@@ -13,7 +13,7 @@ public class RoleController {
 
     private final RoleService roleService;
 
-//    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/role")
     public String roleForm(Model model) {
         model.addAttribute("roles", roleService.list());
