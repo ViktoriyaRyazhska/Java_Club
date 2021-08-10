@@ -1,6 +1,7 @@
 package com.team4.thebest.services.impl;
 
 import com.team4.thebest.models.Role;
+import com.team4.thebest.models.RoleType;
 import com.team4.thebest.models.User;
 import com.team4.thebest.services.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,9 +16,9 @@ public class UserServiceImpl implements UserService {
 
     private List<User> users = Arrays.asList(
             new User(1L, "mike",
-                    "$2a$12$EXSY2a2Hf8/tYxjQawAtUOUMyPhl7T.tWkUtr6JpcctZ7sG1Lbt76", new Role("ROLE_WRITER")),
+                    "$2a$12$EXSY2a2Hf8/tYxjQawAtUOUMyPhl7T.tWkUtr6JpcctZ7sG1Lbt76", new Role(RoleType.ADMIN)),
             new User(2L, "nick",
-                    "$2a$12$dOfSpIm8NvUr04WLXiErzuA5T0UhHx/7bmk/Yykur4bL3jUCnUm8.", new Role("ROLE_READER"))
+                    "$2a$12$dOfSpIm8NvUr04WLXiErzuA5T0UhHx/7bmk/Yykur4bL3jUCnUm8.", new Role(RoleType.MANAGER))
     );
 
     @Override

@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-public class User implements UserDetails {
+public class User implements UserDetails { // TODO: Make User an entity, create DAO for it and read credentials from there
 
     private Long id;
     private String username;
