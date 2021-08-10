@@ -1,10 +1,10 @@
 package com.softserve.team5.dao.implementations;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Map;
-
+import com.softserve.team5.dao.interfaces.JournalDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
+import com.softserve.team5.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softserve.team5.dao.interfaces.JournalDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.entity.Journal;
-import com.softserve.team5.entity.JournalStatus;
-import com.softserve.team5.entity.User;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 @EnableTransactionManagement
@@ -43,26 +42,29 @@ public class JournalDaoImpl implements JournalDao {
 		request.setBookID(book);
 		request.setUserID(user);
 		request.setStatus(JournalStatus.REQUESTED);
-		
 		session.persist(request);
 	}
 
 	@Override
 	public void giveBook(Long id) {
+		Session session = sessionFactory.getCurrentSession();
 		Journal toBeUpdated = getById(id);
-		toBeUpdated.setStatus(JournalStatus.GIVED);
+		toBeUpdated.setStatus(JournalStatus.GIVEN);
 		toBeUpdated.setRentDate(LocalDate.now());
 		toBeUpdated.setExpectedReturnDate(LocalDate.now().plusDays(14));
+		session.update(toBeUpdated);
 	}
 
 	@Override
 	public void returnBook(Long id) {
+		Session session = sessionFactory.getCurrentSession();
 		Journal toBeUpdated = getById(id);
 		toBeUpdated.setStatus(JournalStatus.RETURNED);
 		toBeUpdated.setBookReturnDate(LocalDate.now());
+		session.update(toBeUpdated);
 	}
 	
-	@SuppressWarnings("unchecked")
+
 	@Override
 	public List<Journal> getAllRequests() {
 		Session session = sessionFactory.getCurrentSession();
@@ -79,7 +81,7 @@ public class JournalDaoImpl implements JournalDao {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Map<Book, Integer>> list = session.createQuery(
-				"select new map(b, count(b)) from book b inner join journal j on b.id=j.bookID.id where j.rentDate between :stDate and :enDate grpou by b.title")
+				"select new map(b, count(b)) from Book b inner join Journal j on b.id=j.bookID.id where j.rentDate between :stDate and :enDate group by b.title")
 				.setParameter("stDate", periodStart.format(DateTimeFormatter.ISO_DATE))
 				.setParameter("enDate", periodEnd.format(DateTimeFormatter.ISO_DATE)).getResultList();
 		return list;
