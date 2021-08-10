@@ -1,16 +1,29 @@
 package com.team4.thebest.models;
 
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "user")
 public class User implements UserDetails { // TODO: Make User an entity, create DAO for it and read credentials from there
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
     private Role role;
 
     public User(Long id, String username, String password, Role role) {

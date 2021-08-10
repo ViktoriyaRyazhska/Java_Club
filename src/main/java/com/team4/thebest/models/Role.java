@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -21,6 +22,9 @@ public class Role implements GrantedAuthority {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_type", nullable = false)
     private RoleType roleType;
+
+//    @OneToMany(mappedBy = "role")
+//    private List<User> users;
 
     public Role(RoleType roleType) {
         this.roleType = roleType;

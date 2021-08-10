@@ -1,36 +1,33 @@
 package com.team4.thebest.services.impl;
 
-import com.team4.thebest.models.Role;
-import com.team4.thebest.models.RoleType;
+import com.team4.thebest.dao.UserDao;
 import com.team4.thebest.models.User;
 import com.team4.thebest.services.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private List<User> users = Arrays.asList(
-            new User(1L, "mike",
-                    "$2a$12$EXSY2a2Hf8/tYxjQawAtUOUMyPhl7T.tWkUtr6JpcctZ7sG1Lbt76", new Role(RoleType.ADMIN)),
-            new User(2L, "nick",
-                    "$2a$12$dOfSpIm8NvUr04WLXiErzuA5T0UhHx/7bmk/Yykur4bL3jUCnUm8.", new Role(RoleType.MANAGER))
-    );
+    private final UserDao userDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        User user = users.stream()
-                .filter(u -> u.getUsername().equals(username))
-                .findFirst().orElse(null);
-
-        if (user == null) {
+        try {
+            return userDao.getUserByUsername(username);
+        } catch (NoResultException e) {
             throw new UsernameNotFoundException("User not found!");
         }
-        return user;
+    }
+
+    @Override
+    public List<User> list() {
+        return userDao.list();
     }
 }
