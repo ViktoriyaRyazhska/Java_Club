@@ -33,6 +33,12 @@ public class BookController {
 		model.addAttribute("books", bookService.getAllEntities());
 		return "books/allBooks";
 	}
+	
+	@GetMapping("/new")
+	public String newBook(@ModelAttribute("bookDto") BookDto bookDto, Model model) {
+		model.addAttribute("authors", authorService.getAllEntities());
+		return "books/newBook";
+	}
 
 	@PostMapping()
 	public String create(@ModelAttribute("bookDto") @Valid BookDto bookDto, BindingResult bindingResult, Model model) {
@@ -104,10 +110,6 @@ public class BookController {
 		return "books/editBook";
 	}
 
-	@GetMapping("/new")
-	public String newBook(@ModelAttribute("bookDto") BookDto bookDto, Model model) {
-		model.addAttribute("authors", authorService.getAllEntities());
-		return "books/newBook";
-	}
+	
 
 }

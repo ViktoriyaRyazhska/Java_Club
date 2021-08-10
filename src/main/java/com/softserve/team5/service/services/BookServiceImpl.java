@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void createFromDto(BookDto bookDto) {
-        Book b = new Book(bookDto.getTitle(), bookDto.getCopies(), bookDto.getAverageReadingHours());
+        Book b = new Book(bookDto.getTitle(), bookDto.getCopies(), bookDto.getAverageReadingHours(), true);
         bookDao.create(b);
 
         BookAuthor ba = new BookAuthor(authorDao.getById(bookDto.getAuthor_id()),

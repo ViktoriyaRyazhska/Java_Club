@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "book")
@@ -25,6 +24,9 @@ public class Book implements Serializable {
 
 	@Column(name = "AVERENGE_READING_TIME", nullable = false)
 	private Long averageReadingHours;
+	
+	@Column(name = "IS_AVAILABLE", nullable = false, columnDefinition = "TINYINT(1)")
+	private Boolean isAvailable;
 
 	public Book() {
 	}
@@ -61,9 +63,21 @@ public class Book implements Serializable {
 		this.averageReadingHours = averageReadingHours;
 	}
 
-	public Book(String title, Long copies, Long averageReadingHours) {
+	public Boolean getIsAvailable() {
+		return isAvailable;
+	}
+
+	public void setIsAvailable(Boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
+	public Book(String title, Long copies, Long averageReadingHours, Boolean isAvailable) {
+		super();
 		this.title = title;
 		this.copies = copies;
 		this.averageReadingHours = averageReadingHours;
+		this.isAvailable = isAvailable;
 	}
+
+	
 }
