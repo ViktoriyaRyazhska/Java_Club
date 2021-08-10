@@ -50,6 +50,10 @@ public class JournalDaoImpl implements JournalDao {
 	public void giveBook(Long id) {
 		Session session = sessionFactory.getCurrentSession();
 		Journal toBeUpdated = getById(id);
+		toBeUpdated.getBookID().setCopies(toBeUpdated.getBookID().getCopies() - 1);
+		if (toBeUpdated.getBookID().getCopies() == 0) {
+			toBeUpdated.getBookID().setIsAvailable(false);
+		}
 		toBeUpdated.setStatus(JournalStatus.GIVEN);
 		toBeUpdated.setRentDate(LocalDate.now());
 		toBeUpdated.setExpectedReturnDate(LocalDate.now().plusDays(14));
@@ -60,11 +64,14 @@ public class JournalDaoImpl implements JournalDao {
 	public void returnBook(Long id) {
 		Session session = sessionFactory.getCurrentSession();
 		Journal toBeUpdated = getById(id);
+		if (toBeUpdated.getBookID().getCopies() == 0) {
+			toBeUpdated.getBookID().setIsAvailable(true);
+		}
+		toBeUpdated.getBookID().setCopies(toBeUpdated.getBookID().getCopies() + 1);
 		toBeUpdated.setStatus(JournalStatus.RETURNED);
 		toBeUpdated.setBookReturnDate(LocalDate.now());
 		session.update(toBeUpdated);
 	}
-	
 
 	@Override
 	public List<Journal> getAllRequests() {
@@ -74,11 +81,12 @@ public class JournalDaoImpl implements JournalDao {
 
 	@Override
 	public List<Book> getMostPopularBooks(LocalDate periodStart, LocalDate periodEnd) {
-		
+
 		return null;
 	}
-	//work in progress
-	public List<Map<Book, Integer>> bookInSelectedPeriod(LocalDate periodStart, LocalDate periodEnd) {
+
+	// work in progress
+	private List<Map<Book, Integer>> bookInSelectedPeriod(LocalDate periodStart, LocalDate periodEnd) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<Map<Book, Integer>> list = session.createQuery(
@@ -99,16 +107,12 @@ public class JournalDaoImpl implements JournalDao {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			return session.createQuery(
-					"select b from Book b inner join Journal j on b.id = j.bookID.id where j.userID.id = :user_id and j.status= :status"
-					, Book.class)
-					.setParameter("user_id", userId)
-					.setParameter("status", status)
-					.getResultList();
+					"select b from Book b inner join Journal j on b.id = j.bookID.id where j.userID.id = :user_id and j.status= :status",
+					Book.class).setParameter("user_id", userId).setParameter("status", status).getResultList();
 		} catch (NoResultException ex) {
 			return null;
 		}
 	}
-
 
 	@Override
 	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {
@@ -121,7 +125,5 @@ public class JournalDaoImpl implements JournalDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }
