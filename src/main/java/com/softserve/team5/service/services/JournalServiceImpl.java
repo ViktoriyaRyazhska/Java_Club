@@ -1,18 +1,18 @@
 package com.softserve.team5.service.services;
 
-import java.time.LocalDate;
-import java.util.List;
-
+import com.softserve.team5.dao.interfaces.JournalDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
+import com.softserve.team5.entity.User;
+import com.softserve.team5.service.interfaces.JournalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softserve.team5.dao.interfaces.JournalDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.entity.Journal;
-import com.softserve.team5.entity.User;
-import com.softserve.team5.service.interfaces.JournalService;
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @EnableTransactionManagement
@@ -64,15 +64,8 @@ public class JournalServiceImpl implements JournalService {
 	}
 
 	@Override
-	public List<Book> getReadedBooksByUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Book> getBooksReadingNowByUser(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Book> getBooksByUser(Long userId, JournalStatus status) {
+		return journalDao.getBooksByUser(userId, status);
 	}
 
 	@Override

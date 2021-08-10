@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -94,16 +95,20 @@ public class JournalDaoImpl implements JournalDao {
 	}
 
 	@Override
-	public List<Book> getReadedBooksByUser(Long userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Book> getBooksByUser(Long userId, JournalStatus status) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			return session.createQuery(
+					"select b from Book b inner join Journal j on b.id = j.bookID.id where j.userID.id = :user_id and j.status= :status"
+					, Book.class)
+					.setParameter("user_id", userId)
+					.setParameter("status", status)
+					.getResultList();
+		} catch (NoResultException ex) {
+			return null;
+		}
 	}
 
-	@Override
-	public List<Book> getBooksReadingNowByUser(int userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {

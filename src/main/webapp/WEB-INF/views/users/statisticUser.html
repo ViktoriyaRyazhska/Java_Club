@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title th:text="${user.getName()+' statistics'}"></title>
+</head>
+<body>
+<h2 th:text="${user.getName()+' statistics'}"></h2>
+
+<h4>You are reading:</h4>
+<div th:if="${currReading.isEmpty()}">
+    <h5>Books not found</h5>
+    <form th:action="@{/books}">
+        <input type="submit" value="Find books to read">
+    </form>
+</div>
+<div th:each="book : ${currReading}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}"></a>
+</div>
+
+<h4>You have already read:</h4>
+<div th:if="${hasRead.isEmpty()}">
+    <h5>Books not found</h5>
+</div>
+<div th:each="book : ${hasRead}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}"></a>
+</div>
+
+<h4 th:text="${' You are our client for ' + clientFor + ' years'}"></h4>
+
+
+</body>
+</html>

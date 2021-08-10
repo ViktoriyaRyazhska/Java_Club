@@ -57,4 +57,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.getAverageUsersAge();
 	}
 
+	@Override
+	public int isClientFor(Long user_id) {
+		return userDao.isClientFor(user_id);
+	}
+
 }

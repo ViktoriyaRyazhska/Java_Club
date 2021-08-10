@@ -19,16 +19,23 @@
 <h4>Birthday</h4>
 <p th:text="${user.getBirthday}"></p>
 
+
+
+<form th:action="@{/users/{id}/edit(id = ${user.getId()})}" >
+    <button type="submit">Edit user</button>
+</form>
+
+<form th:action="@{/users/{id}/statistics(id = ${user.getId()})}" >
+    <button type="submit">Get statistics</button>
+</form>
+
 <form th:action="@{/users/{id}(id=${user.getId()})}" th:method="delete">
     <button type="submit">Delete user</button>
 </form>
 
+<br>
 <form th:action="@{/users}">
-    <input type="submit" value="Back to ">
-</form>
-
-<form th:action="@{/users/{id}/edit(id = ${user.getId()})}" >
-    <input type="submit" value="Edit">
+    <input type="submit" value="All users">
 </form>
 
 </body>

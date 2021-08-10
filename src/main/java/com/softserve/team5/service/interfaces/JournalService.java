@@ -1,11 +1,12 @@
 package com.softserve.team5.service.interfaces;
 
-import java.time.LocalDate;
-import java.util.List;
-
 import com.softserve.team5.entity.Book;
 import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
 import com.softserve.team5.entity.User;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public interface JournalService {
 	void addRequest(User user, Book book);
@@ -22,9 +23,7 @@ public interface JournalService {
 
 	List<Book> getMostUnPopularBooks(LocalDate periodStart, LocalDate periodEnd);
 
-	List<Book> getReadedBooksByUser(Long userId);
-
-	List<Book> getBooksReadingNowByUser(int userId);
+	List<Book> getBooksByUser(Long userId, JournalStatus status);
 
 	double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end);
 

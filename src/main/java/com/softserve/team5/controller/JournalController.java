@@ -49,10 +49,17 @@ public class JournalController {
 		journalService.addRequest(userService.getById(userId), bookService.getById(bookId));
 		return "redirect:/journal";
 	}
+
 	
 	@PatchMapping("/giveBook/{id}")
 	public String giveBook(@PathVariable("id") Long id) {
 		journalService.giveBook(id);
+		return "redirect:/journal";
+	}
+
+	@PatchMapping("/returnBook/{id}")
+	public String returnBook(@PathVariable("id") Long id) {
+		journalService.returnBook(id);
 		return "redirect:/journal";
 	}
 

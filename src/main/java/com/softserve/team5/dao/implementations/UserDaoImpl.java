@@ -1,7 +1,6 @@
 package com.softserve.team5.dao.implementations;
 
 import com.softserve.team5.dao.interfaces.UserDao;
-import com.softserve.team5.entity.Book;
 import com.softserve.team5.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.List;
 
 @Repository
@@ -54,7 +54,7 @@ public class UserDaoImpl implements UserDao {
         return session.get(User.class, id);
     }
 
-    @SuppressWarnings("unchecked")
+
 	@Override
     public List<User> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
@@ -67,5 +67,17 @@ public class UserDaoImpl implements UserDao {
     	Session session = sessionFactory.getCurrentSession();
         return (double) session.createQuery("select avg(year(current_date)-year(u.birthday)) from User u").getSingleResult();
     }
+
+    @Override
+    public int isClientFor(Long user_id) {
+        Session session = sessionFactory.getCurrentSession();
+        User u = getById(user_id);
+        return Period.between(
+                u.getRegistrationDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                , LocalDate.now())
+                .getYears();
+
+    }
+
 
 }
