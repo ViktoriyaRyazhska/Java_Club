@@ -25,4 +25,8 @@ public interface JournalDao {
 	List<Book> getBooksByUser(Long userId, JournalStatus status);
 
 	List<Journal> usersWhoDidNoReturnBookOnTime();
+	
+	long numberOfBookGivedInPeriod(LocalDate start, LocalDate end);
+	
+	double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end);
 }

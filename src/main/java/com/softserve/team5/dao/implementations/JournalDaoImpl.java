@@ -1,10 +1,12 @@
 package com.softserve.team5.dao.implementations;
 
-import com.softserve.team5.dao.interfaces.JournalDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.entity.Journal;
-import com.softserve.team5.entity.JournalStatus;
-import com.softserve.team5.entity.User;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.NoResultException;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.softserve.team5.dao.interfaces.JournalDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
+import com.softserve.team5.entity.User;
 
 @Repository
 @EnableTransactionManagement
@@ -118,6 +120,22 @@ public class JournalDaoImpl implements JournalDao {
 		} catch (NoResultException ex) {
 			return null;
 		}
+	}
+
+	@Override
+	public long numberOfBookGivedInPeriod(LocalDate start, LocalDate end) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery(
+				"select j from Journal j where j.status = :given or j.status = :returned and j.rentDate between :stDate and :enDate")
+				.setParameter("given", JournalStatus.GIVEN).setParameter("returned", JournalStatus.RETURNED)
+				.setParameter("stDate", start).setParameter("enDate", end).getResultList().size();
+	}
+
+	@Override
+	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("select j from Journal j where j.rentDate between :stDate and :enDate")
+				.setParameter("stDate", start).setParameter("enDate", end).getResultList().size();
 	}
 
 }

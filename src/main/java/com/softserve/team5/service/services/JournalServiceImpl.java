@@ -56,7 +56,6 @@ public class JournalServiceImpl implements JournalService {
 
 	@Override
 	public List<Journal> getAllRequests() {
-
 		return journalDao.getAllRequests();
 	}
 
@@ -91,14 +90,19 @@ public class JournalServiceImpl implements JournalService {
 
 	@Override
 	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {
-		double requestsInPeriod = journalDao.booksInSelectedPeriod(start, end).size();
+		double requestsInPeriod = journalDao.averengeNumberOfRequestsInPeriod(start, end);
 		double daysInPeriod = ChronoUnit.DAYS.between(start, end);
-		return requestsInPeriod / daysInPeriod;
+		return requestsInPeriod/daysInPeriod;
 	}
 
 	@Override
 	public List<Journal> usersWhoDidNoReturnBookOnTime() {
 		return journalDao.usersWhoDidNoReturnBookOnTime();
+	}
+
+	@Override
+	public long numberOfBookGivedInPeriod(LocalDate start, LocalDate end) {
+		return journalDao.numberOfBookGivedInPeriod(start, end);
 	}
 
 }

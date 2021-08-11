@@ -18,11 +18,22 @@ Enter start and end of period:
 	<form th:action="@{/journal/avgNumberOfRequestsInPeriod}">
 		<input type="date" th:name="start"> 
 		<input type="date" th:name="end">
-		<input type="submit" value="Find books">
+		<input type="submit" value="Get number">
 	</form>
 Average number of requests to Library in selected period, by days: <span th:text="${avgNumberOfRequests}"></span>
 	<h4 style="color: red" th:text="${dateIsEmptyError}">Error</h4>
 	<h4 style="color: red" th:text="${startIsAfterEndError}">Error</h4>
+	
+Enter start and end of period:
+	<form th:action="@{/journal/numberOfBooks}">
+		<input type="date" th:name="start"> 
+		<input type="date" th:name="end">
+		<input type="submit" value="Get number">
+	</form>
+Number of given books in period: <span th:text="${numberOfGivedBooks}"></span>
+	<h4 style="color: red" th:text="${dateIsEmptyErrorInNumberMethod}">Error</h4>
+	<h4 style="color: red" th:text="${startIsAfterEndErrorInNumberMethod}">Error</h4>
+	
 Average age of the users: <p th:text="${avgUsersAge}"></p>
 
 </body>
