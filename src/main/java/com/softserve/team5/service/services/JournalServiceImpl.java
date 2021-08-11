@@ -1,6 +1,7 @@
 package com.softserve.team5.service.services;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class JournalServiceImpl implements JournalService {
 
 	@Override
 	public List<Journal> getAllRequests() {
-		
+
 		return journalDao.getAllRequests();
 	}
 
@@ -89,8 +90,9 @@ public class JournalServiceImpl implements JournalService {
 
 	@Override
 	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {
-		// TODO Auto-generated method stub
-		return 0;
+		double requestsInPeriod = journalDao.booksInSelectedPeriod(start, end).size();
+		double daysInPeriod = ChronoUnit.DAYS.between(start, end);
+		return requestsInPeriod / daysInPeriod;
 	}
 
 	@Override

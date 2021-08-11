@@ -113,12 +113,6 @@ public class JournalDaoImpl implements JournalDao {
 	}
 
 	@Override
-	public double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public List<User> usersWhoDidNoReturnBookOnTime() {
 		// TODO Auto-generated method stub
 		return null;

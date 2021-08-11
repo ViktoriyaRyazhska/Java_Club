@@ -67,11 +67,27 @@ public class JournalController {
 		journalService.returnBook(id);
 		return "redirect:/journal";
 	}
+	
+	@GetMapping("/avgNumberOfRequestsInPeriod")
+	public String numberOfRequestsInPeriod(@RequestParam(value = "start") String start,
+			@RequestParam(value = "end") String end, Model model) {
+		if (start.isEmpty() || end.isEmpty()) {
+			model.addAttribute("dateIsEmptyError", "Dates cant be emty");
+			return "forward:/manager";
+		}
+		LocalDate s = LocalDate.parse(start, DateTimeFormatter.ISO_DATE);
+		LocalDate e = LocalDate.parse(end, DateTimeFormatter.ISO_DATE);
+		if (s.isAfter(e)) {
+			model.addAttribute("startIsAfterEndError", "Start date must be before end date");
+			return "forward:/manager";
+		}
+		model.addAttribute("avgNumberOfRequests", journalService.averengeNumberOfRequestsInPeriod(s, e));
+		return "forward:/manager";
+	}
 
 	@GetMapping("/booksInPeriod")
 	public String booksInPeriod(@RequestParam(value = "start") String start, @RequestParam(value = "end") String end,
 			@RequestParam(value = "mostPopular") boolean isMostPopularSelected, Model model) {
-
 		if (start.isEmpty() || end.isEmpty()) {
 			model.addAttribute("dateIsEmptyError", "Dates cant be emty");
 			return "forward:/books";
@@ -89,4 +105,7 @@ public class JournalController {
 		model.addAttribute("books", journalService.getMostUnPopularBooks(s, e));
 		return "journal/booksInPeriod";
 	}
+
+	
+
 }
