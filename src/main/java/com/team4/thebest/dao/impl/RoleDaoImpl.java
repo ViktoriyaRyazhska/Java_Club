@@ -26,4 +26,12 @@ public class RoleDaoImpl implements RoleDao {
         final TypedQuery<Role> query = session.createQuery("from Role");
         return query.getResultList();
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Role findById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.get(Role.class, id);
+    }
 }

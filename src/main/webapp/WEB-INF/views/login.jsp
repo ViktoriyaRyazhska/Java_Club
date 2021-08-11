@@ -17,6 +17,10 @@
         </p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+    <form action="/create">
+        Don't have an account? <br>
+        <button type="submit">Sing up</button>
+    </form>
 </div>
 </body>
 </html>

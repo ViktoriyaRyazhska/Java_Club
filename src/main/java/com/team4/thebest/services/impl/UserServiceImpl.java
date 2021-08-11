@@ -6,6 +6,7 @@ import com.team4.thebest.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
@@ -24,6 +25,11 @@ public class UserServiceImpl implements UserService {
         } catch (NoResultException e) {
             throw new UsernameNotFoundException("User not found!");
         }
+    }
+
+    @Override
+    public void save(User user) {
+        userDao.save(user);
     }
 
     @Override

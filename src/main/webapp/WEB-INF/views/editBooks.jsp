@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+         pageEncoding="ISO-8859-1" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,13 @@
         .error {
             color: red;
         }
+
         table {
             width: 50%;
             border-collapse: collapse;
             border-spacing: 0px;
         }
+
         table td {
             border: 1px solid #565454;
             padding: 10px;
@@ -29,26 +31,28 @@
         <tr>
             <td>Name</td>
             <td>
-                <form:input path="name" /> <br />
-                <form:errors path="name" cssClass="error" />
+                <form:input path="name"/> <br/>
+                <form:errors path="name" cssClass="error"/>
             </td>
         </tr>
         <tr>
             <td>Author</td>
             <td>
-                <form:input path="author" /> <br />
-                <form:errors path="author" cssClass="error" />
+                <form:input path="author"/> <br/>
+                <form:errors path="author" cssClass="error"/>
             </td>
         </tr>
         <tr>
             <td>Co-author</td>
             <td>
-                <form:input path="coAuthor" /> <br />
-                <form:errors path="coAuthor" cssClass="error" />
+                <form:input path="coAuthor"/> <br/>
+                <form:errors path="coAuthor" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td colspan="2"><button type="submit">Submit</button></td>
+            <td colspan="2">
+                <button type="submit">Submit</button>
+            </td>
         </tr>
     </table>
 </form:form>
@@ -69,7 +73,8 @@
     </c:forEach>
 </table>
 <form:form action="/logout" method="POST">
-    <br> <button type="submit">Logout</button>
+    <br>
+    <button type="submit">Logout</button>
 </form:form>
 </body>
 </html>

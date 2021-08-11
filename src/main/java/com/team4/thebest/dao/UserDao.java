@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.List;
 
 public interface UserDao {
+    void save(User user);
+
     List<User> list();
 
     UserDetails getUserByUsername(String username);
