@@ -17,7 +17,7 @@
             <tr>
                 <td>${user.id}</td>
                 <td>${user.username}</td>
-                <td>${user.authorities}</td>
+                <td>${user.role.roleType}</td>
             </tr>
         </c:forEach>
     </table>

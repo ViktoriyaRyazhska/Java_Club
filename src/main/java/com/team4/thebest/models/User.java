@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -24,6 +26,10 @@ public class User implements UserDetails {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+    @Setter(AccessLevel.PRIVATE)
+    @OneToMany(mappedBy = "user")
+    private List<RentInfo> rentInfoList = new LinkedList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -22,7 +22,7 @@
         <tr>
             <td>${user.id}</td>
             <td>${user.username}</td>
-            <td>${user.role.authority}</td>
+            <td>${user.role.roleType}</td>
             <td><a href="edit-user/${user.id}">Edit</a></td>
             <td><a href="delete-user/${user.id}">Delete</a></td>
         </tr>
