@@ -18,7 +18,7 @@ public class BookController {
 
     @GetMapping("/")
     public String getHomePage() {
-        return "book/home";
+        return "home";
     }
 
     @GetMapping("/book-form")

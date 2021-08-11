@@ -7,4 +7,16 @@ import java.util.List;
 
 public interface UserDao {
     UserDetails getUserByUsername(String username);
+
+    void save(User user);
+
+    List<User> getAllUsers();
+
+    User getUserById(Long id);
+
+    void update(User user);
+
+    void delete(Long id);
+
+    List<User> findUserByUserName(String keyword);
 }

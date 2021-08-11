@@ -1,22 +1,73 @@
 package com.team4.thebest.controllers;
 
+import com.team4.thebest.models.Role;
+import com.team4.thebest.models.RoleType;
+import com.team4.thebest.models.User;
 import com.team4.thebest.models.User;
 import com.team4.thebest.services.RoleService;
 import com.team4.thebest.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
 public class UserController {
 
     private final UserService userService;
+    private final RoleService roleService;
+    private final PasswordEncoder encoder;
+
+    @GetMapping("/user-form")
+    public String showForm(Model model) {
+        model.addAttribute("user", new User());
+        return "user/userform";
+    }
+
+    @PostMapping("user/save")
+    public String save(@ModelAttribute("user") User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
+        user.setRole(roleService.findById(1L));
+        userService.save(user);
+        return "redirect:/view-users";
+    }
+
+    @GetMapping("/view-users")
+    public String viewUsers(Model model) {
+        model.addAttribute("users", userService.getAllUsers());
+        return "user/viewusers";
+    }
+
+    @GetMapping("/edit-user/{id}")
+    public String edit(@PathVariable Long id, Model model) {
+        model.addAttribute("user", userService.getUserById(id));
+        return "user/usereditform";
+    }
+
+    @PostMapping("/edit-savee")
+    public String editSave(@ModelAttribute("user") User user) {
+        user.setRole(roleService.getByRoleType(user.getRole().getRoleType()));
+        userService.update(user);
+        return "redirect:/view-users";
+    }
+
+    @GetMapping("/delete-user/{id}")
+    public String delete(@PathVariable Long id) {
+        userService.delete(id);
+        return "redirect:/view-users";
+    }
+
+    @GetMapping("user/search")
+    public ModelAndView search(@RequestParam String keyword) {
+        List<User> result = userService.search(keyword);
+        ModelAndView modelAndView = new ModelAndView("user/search");
+        modelAndView.addObject("result", result);
+        return modelAndView;
+    }
 }

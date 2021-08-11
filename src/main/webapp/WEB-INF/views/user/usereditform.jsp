@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Edit Book</h1>
-<form:form method="POST" action="/edit-save" modelAttribute="book">
+<h1>Edit User</h1>
+<form:form method="POST" action="/edit-savee" modelAttribute="user">
     <table>
         <tr>
             <td></td>
@@ -14,17 +14,16 @@
         </tr>
         <tr>
             <td>Name :</td>
-            <td><form:input path="name"/></td>
+            <td><form:input path="username"/></td>
         </tr>
         <tr>
-            <td>Author :</td>
-            <td><form:input path="author"/></td>
+            <td></td>
+            <td><form:hidden path="password"/></td>
         </tr>
         <tr>
-            <td>Co-author :</td>
-            <td><form:input path="coAuthor"/></td>
+            <td>Role :</td>
+            <td><form:input path="role.roleType"/></td>
         </tr>
-
         <tr>
             <td></td>
             <td><input type="submit" value="Edit Save"/></td>
