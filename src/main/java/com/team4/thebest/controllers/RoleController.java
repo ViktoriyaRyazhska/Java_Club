@@ -12,11 +12,4 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoleController {
 
     private final RoleService roleService;
-
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
-    @GetMapping("/role")
-    public String roleForm(Model model) {
-        model.addAttribute("roles", roleService.list());
-        return "displayRoles";
-    }
 }

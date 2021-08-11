@@ -19,36 +19,4 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
-    private final RoleService roleService;
-
-    @GetMapping("/create")
-    public String userForm() {
-        return "editUsers";
-    }
-
-    @ModelAttribute("user")
-    public User formBackingObject() {
-        return new User();
-    }
-
-    @PostMapping("/create/addUser")
-    public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
-
-        if (result.hasErrors()) {
-            model.addAttribute("users", userService.list());
-            return "editUsers";
-        }
-
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(roleService.findById(1L));
-
-        userService.save(user);
-        return "success";
-    }
-
-    @GetMapping("/success")
-    public String getSuccessPage() {
-        return "success";
-    }
 }

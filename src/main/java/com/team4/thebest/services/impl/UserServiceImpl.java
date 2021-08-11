@@ -26,14 +26,4 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("User not found!");
         }
     }
-
-    @Override
-    public void save(User user) {
-        userDao.save(user);
-    }
-
-    @Override
-    public List<User> list() {
-        return userDao.list();
-    }
 }

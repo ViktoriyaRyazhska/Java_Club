@@ -17,21 +17,4 @@ import java.util.List;
 public class RoleDaoImpl implements RoleDao {
 
     private final SessionFactory sessionFactory;
-
-    @Override
-    public List<Role> list() {
-        final Session session = sessionFactory.getCurrentSession();
-
-        @SuppressWarnings("unchecked")
-        final TypedQuery<Role> query = session.createQuery("from Role");
-        return query.getResultList();
-    }
-
-    @Transactional(readOnly = true)
-    @Override
-    public Role findById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-
-        return session.get(Role.class, id);
-    }
 }

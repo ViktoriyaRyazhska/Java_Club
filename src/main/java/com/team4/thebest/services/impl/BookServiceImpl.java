@@ -6,7 +6,6 @@ import com.team4.thebest.services.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -21,7 +20,29 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> list() {
-        return bookDao.list();
+    public List<Book> getAllBooks() {
+        return bookDao.getAllBooks();
     }
+
+    @Override
+    public Book getBookById(Long id) {
+        return bookDao.getBookById(id);
+    }
+
+    @Override
+    public void update(Book book) {
+        bookDao.update(book);
+    }
+
+    @Override
+    public void delete(Long id) {
+        bookDao.delete(id);
+    }
+
+    @Override
+    public List<Book> search(String keyword) {
+        return bookDao.findBookByNameOrAuthor(keyword);
+    }
+
+
 }

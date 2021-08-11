@@ -13,13 +13,4 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
     private final RoleDao roleDao;
 
-    @Override
-    public List<Role> list() {
-        return roleDao.list();
-    }
-
-    @Override
-    public Role findById(Long id) {
-        return roleDao.findById(id);
-    }
 }
