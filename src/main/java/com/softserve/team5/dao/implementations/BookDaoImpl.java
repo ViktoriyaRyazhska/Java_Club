@@ -40,7 +40,6 @@ public class BookDaoImpl implements BookDao {
 
 	@Override
 	public void delete(Long id) {
-		Session session = sessionFactory.getCurrentSession();
 		Book book = getById(id);
 		if (book != null) {
 			book.setIsAvailable(false);
@@ -54,6 +53,7 @@ public class BookDaoImpl implements BookDao {
 		return session.get(Book.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Book> getAllEntities() {
 		Session session = sessionFactory.getCurrentSession();

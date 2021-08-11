@@ -1,15 +1,10 @@
 package com.softserve.team5.dao.implementations;
 
-import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import javax.persistence.NoResultException;
-
-import org.hibernate.Criteria;
+import com.softserve.team5.dao.interfaces.JournalDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
+import com.softserve.team5.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +12,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softserve.team5.dao.interfaces.BookDao;
-import com.softserve.team5.dao.interfaces.JournalDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.entity.Journal;
-import com.softserve.team5.entity.JournalStatus;
-import com.softserve.team5.entity.User;
+import javax.persistence.NoResultException;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 @EnableTransactionManagement
@@ -83,7 +77,8 @@ public class JournalDaoImpl implements JournalDao {
 	@Override
 	public List<Journal> getAllRequests() {
 		Session session = sessionFactory.getCurrentSession();
-		return session.createQuery("select j from Journal j join fetch j.bookID b join fetch j.userID u").getResultList();
+		return session.createQuery("select j from Journal j join fetch j.bookID b join fetch j.userID u order by j.id")
+				.getResultList();
 	}
 
 	@Override
@@ -94,8 +89,8 @@ public class JournalDaoImpl implements JournalDao {
 				"select b.id, count(b) from Book b inner join Journal j on b.id=j.bookID.id where j.rentDate between :stDate and :enDate group by b.title")
 				.setParameter("stDate", periodStart).setParameter("enDate", periodEnd).getResultList();
 		Map<Long, Long> map = new HashMap<>();
-		for(Object[] obj : list) {
-			map.put((Long)obj[0], (Long)obj[1]);
+		for (Object[] obj : list) {
+			map.put((Long) obj[0], (Long) obj[1]);
 		}
 		return map;
 	}
@@ -112,10 +107,17 @@ public class JournalDaoImpl implements JournalDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> usersWhoDidNoReturnBookOnTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Journal> usersWhoDidNoReturnBookOnTime() {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			return session.createQuery(
+					"select j from Journal j join fetch j.bookID b join fetch j.userID u where ((j.bookReturnDate is null) and (j.expectedReturnDate <= current_date))")
+					.getResultList();
+		} catch (NoResultException ex) {
+			return null;
+		}
 	}
 
 }

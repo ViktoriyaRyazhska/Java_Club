@@ -1,13 +1,13 @@
 package com.softserve.team5.dao.interfaces;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
-
 import com.softserve.team5.entity.Book;
 import com.softserve.team5.entity.Journal;
 import com.softserve.team5.entity.JournalStatus;
 import com.softserve.team5.entity.User;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 public interface JournalDao {
 	void addRequest(User user, Book book);
@@ -24,5 +24,5 @@ public interface JournalDao {
 
 	List<Book> getBooksByUser(Long userId, JournalStatus status);
 
-	List<User> usersWhoDidNoReturnBookOnTime();
+	List<Journal> usersWhoDidNoReturnBookOnTime();
 }

@@ -59,7 +59,8 @@ public class AuthorDaoImpl implements AuthorDao {
                 .getResultList();
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<Author> getAllEntities() {
         Session session = sessionFactory.getCurrentSession();
         return (List<Author>) session.createQuery("from Author").list();

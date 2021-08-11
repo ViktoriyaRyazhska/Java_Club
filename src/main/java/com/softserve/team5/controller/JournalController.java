@@ -4,11 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -26,48 +23,43 @@ import com.softserve.team5.service.interfaces.UserService;
 @RequestMapping("/journal")
 public class JournalController {
 
-	private final JournalService journalService;
-	private final UserService userService;
-	private final BookService bookService;
+    private final JournalService journalService;
+    private final UserService userService;
+    private final BookService bookService;
 
-	@Autowired
-	public JournalController(JournalService journalService, UserService userService, BookService bookService) {
-		this.journalService = journalService;
-		this.userService = userService;
-		this.bookService = bookService;
-	}
+    @Autowired
+    public JournalController(JournalService journalService, UserService userService, BookService bookService) {
+        this.journalService = journalService;
+        this.userService = userService;
+        this.bookService = bookService;
+    }
 
-	@GetMapping
-	public String fullJournal(Model model) {
-		model.addAttribute("requests", journalService.getAllRequests());
-		return "journal/allRequests";
-	}
+    @GetMapping
+    public String fullJournal(Model model) {
+        model.addAttribute("requests", journalService.getAllRequests());
+        return "journal/allRequests";
+    }
 
-	@GetMapping("/add")
-	public String addRequest(@ModelAttribute("journal") Journal journal, Model model) {
-		model.addAttribute("users", userService.getAllEntities());
-		model.addAttribute("books", bookService.getAllEntities());
-		return "journal/addRequest";
-	}
+    @GetMapping("/debt")
+    public String noReturnBook(Model model) {
+        model.addAttribute("list", journalService.usersWhoDidNoReturnBookOnTime());
+        return "journal/noReturnBook";
+    }
 
-	@PostMapping
-	public String add(@RequestParam(value = "user") Long userId, @RequestParam(value = "book") Long bookId) {
-		journalService.addRequest(userService.getById(userId), bookService.getById(bookId));
-		return "redirect:/journal";
-	}
+    @GetMapping("/add")
+    public String addRequest(@ModelAttribute("journal") Journal journal, Model model) {
+        model.addAttribute("users", userService.getAllEntities());
+        model.addAttribute("books", bookService.getAllEntities());
+        return "journal/addRequest";
+    }
 
-	@PatchMapping("/giveBook/{id}")
-	public String giveBook(@PathVariable("id") Long id) {
-		journalService.giveBook(id);
-		return "redirect:/journal";
-	}
+    @PostMapping
+    public String add(@RequestParam(value = "user") Long userId,
+                      @RequestParam(value = "book") Long bookId) {
+        journalService.addRequest(userService.getById(userId), bookService.getById(bookId));
+        return "redirect:/journal";
+    }
 
-	@PatchMapping("/returnBook/{id}")
-	public String returnBook(@PathVariable("id") Long id) {
-		journalService.returnBook(id);
-		return "redirect:/journal";
-	}
-	
 	@GetMapping("/avgNumberOfRequestsInPeriod")
 	public String numberOfRequestsInPeriod(@RequestParam(value = "start") String start,
 			@RequestParam(value = "end") String end, Model model) {
@@ -84,6 +76,18 @@ public class JournalController {
 		model.addAttribute("avgNumberOfRequests", journalService.averengeNumberOfRequestsInPeriod(s, e));
 		return "forward:/manager";
 	}
+	
+    @PatchMapping("/giveBook/{id}")
+    public String giveBook(@PathVariable("id") Long id) {
+        journalService.giveBook(id);
+        return "redirect:/journal";
+    }
+
+    @PatchMapping("/returnBook/{id}")
+    public String returnBook(@PathVariable("id") Long id) {
+        journalService.returnBook(id);
+        return "redirect:/journal";
+    }
 
 	@GetMapping("/booksInPeriod")
 	public String booksInPeriod(@RequestParam(value = "start") String start, @RequestParam(value = "end") String end,
@@ -105,7 +109,5 @@ public class JournalController {
 		model.addAttribute("books", journalService.getMostUnPopularBooks(s, e));
 		return "journal/booksInPeriod";
 	}
-
-	
 
 }

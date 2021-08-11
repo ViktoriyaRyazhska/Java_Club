@@ -19,6 +19,7 @@ import com.softserve.team5.entity.JournalStatus;
 import com.softserve.team5.entity.User;
 import com.softserve.team5.service.interfaces.JournalService;
 
+
 @Service
 @EnableTransactionManagement
 @Transactional
@@ -96,9 +97,8 @@ public class JournalServiceImpl implements JournalService {
 	}
 
 	@Override
-	public List<User> usersWhoDidNoReturnBookOnTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Journal> usersWhoDidNoReturnBookOnTime() {
+		return journalDao.usersWhoDidNoReturnBookOnTime();
 	}
 
 }
