@@ -28,5 +28,5 @@ public interface JournalService {
 
 	double averengeNumberOfRequestsInPeriod(LocalDate start, LocalDate end);
 
-	List<User> usersWhoDidNoReturnBookOnTime();
+	List<Journal> usersWhoDidNoReturnBookOnTime();
 }

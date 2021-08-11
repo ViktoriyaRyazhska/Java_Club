@@ -1,15 +1,5 @@
 package com.softserve.team5.service.services;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.softserve.team5.dao.interfaces.BookDao;
 import com.softserve.team5.dao.interfaces.JournalDao;
 import com.softserve.team5.entity.Book;
@@ -17,6 +7,15 @@ import com.softserve.team5.entity.Journal;
 import com.softserve.team5.entity.JournalStatus;
 import com.softserve.team5.entity.User;
 import com.softserve.team5.service.interfaces.JournalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @EnableTransactionManagement
@@ -94,9 +93,8 @@ public class JournalServiceImpl implements JournalService {
 	}
 
 	@Override
-	public List<User> usersWhoDidNoReturnBookOnTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Journal> usersWhoDidNoReturnBookOnTime() {
+		return journalDao.usersWhoDidNoReturnBookOnTime();
 	}
 
 }

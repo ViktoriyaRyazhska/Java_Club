@@ -76,8 +76,19 @@
                 <input type="submit" value="Give book"/>
             </form>
         </td>
+        <td class="tg-0lax" th:if="${request.getStatus()==T(com.softserve.team5.entity.JournalStatus).GIVEN}">
+            <form th:method="PATCH" th:action="@{/journal/returnBook/{id}(id=${request.getId()})}">
+                <input type="submit" value="Return book"/>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
+
+<br>
+<form th:action="@{/journal/debt}">
+    <input type="submit" value="See who not returned in time"/>
+</form>
+
 </body>
 </html>

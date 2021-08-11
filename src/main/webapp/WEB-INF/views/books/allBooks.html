@@ -14,6 +14,7 @@ div {
 </style>
 </head>
 <body>
+
 	<h1 style="color: red" th:text="${bookNotFound}"></h1>
 	<h3>Enter start and end of period:</h3>
 	<form th:action="@{/journal/booksInPeriod}">
@@ -45,8 +46,11 @@ div {
 		<input type="submit" value="Find by author" />
 	</form>
 
-	<form th:action="@{users}">
-		<input type="submit" value="All users">
-	</form>
+
+<form th:action="@{/}">
+    <input type="submit" value="Back to main page">
+</form>
+
+
 </body>
 </html>

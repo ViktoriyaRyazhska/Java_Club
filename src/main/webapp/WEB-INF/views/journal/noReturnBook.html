@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon"
-          href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/29/29302.png">
+    <title>Not returned in time</title>
+
     <style type="text/css">
         .tg {
             border-collapse: collapse;
@@ -33,35 +34,30 @@
             word-break: normal;
         }
 
-        .tg .tg-73oq {
-            border-color: #000000;
-            text-align: left;
-            vertical-align: top
-        }
-
-        .tg .tg-0pky {
-            border-color: inherit;
+        .tg .tg-0lax {
             text-align: left;
             vertical-align: top
         }
     </style>
-    <title>Books in period</title>
 </head>
 <body>
+
 <table class="tg">
     <thead>
     <tr>
-        <th class="tg-73oq">Book title</th>
-        <th class="tg-0pky">Number of requests</th>
+        <th class="tg-0lax">User</th>
+        <th class="tg-0lax">Book</th>
+        <th class="tg-0lax">Expected return date</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${books == null}">
-        <td colspan="2">Journal is empty</td>
+    <tr th:if="${list.isEmpty()}">
+        <td colspan="7">All books are returned in time!</td>
     </tr>
-    <tr th:each="book : ${books}">
-        <td class="tg-0pky"><span th:text="${book.key.getTitle()}"></span></td>
-        <td class="tg-0pky"><span th:text="${book.value}"></span></td>
+    <tr th:each="l : ${list}">
+        <td class="tg-0lax"><span th:text="${l.getUserID().getName()}">User</span></td>
+        <td class="tg-0lax"><span th:text="${l.getBookID().getTitle()}">Book</span></td>
+        <td class="tg-0lax"><span th:text="${l.getExpectedReturnDate()}">Expected return date</span></td>
     </tr>
     </tbody>
 </table>
