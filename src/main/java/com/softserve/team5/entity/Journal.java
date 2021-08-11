@@ -11,11 +11,11 @@ public class Journal implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "USER_ID", nullable = false)
 	private User userID;
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.REMOVE)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "BOOK_ID", nullable = false)
 	private Book bookID;
 

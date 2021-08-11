@@ -72,7 +72,6 @@ public class Book implements Serializable {
 	}
 
 	public Book(String title, Long copies, Long averageReadingHours, Boolean isAvailable) {
-		super();
 		this.title = title;
 		this.copies = copies;
 		this.averageReadingHours = averageReadingHours;

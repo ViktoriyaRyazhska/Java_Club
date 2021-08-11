@@ -54,6 +54,7 @@ public class JournalServiceImpl implements JournalService {
 
 	@Override
 	public List<Journal> getAllRequests() {
+		
 		return journalDao.getAllRequests();
 	}
 
