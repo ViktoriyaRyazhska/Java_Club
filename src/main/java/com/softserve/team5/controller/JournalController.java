@@ -1,6 +1,10 @@
 package com.softserve.team5.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,12 +49,11 @@ public class JournalController {
 	}
 
 	@PostMapping
-	public String add(@RequestParam(value="user") Long userId, @RequestParam(value="book") Long bookId) {
+	public String add(@RequestParam(value = "user") Long userId, @RequestParam(value = "book") Long bookId) {
 		journalService.addRequest(userService.getById(userId), bookService.getById(bookId));
 		return "redirect:/journal";
 	}
 
-	
 	@PatchMapping("/giveBook/{id}")
 	public String giveBook(@PathVariable("id") Long id) {
 		journalService.giveBook(id);
@@ -63,4 +66,17 @@ public class JournalController {
 		return "redirect:/journal";
 	}
 
+	@GetMapping("/booksInPeriod")
+	public String booksInPeriod(@RequestParam(value = "start") String start,
+			@RequestParam(value = "end") String end,
+			@RequestParam(value = "mostPopular") boolean isMostPopularSelected, Model model) {
+		LocalDate s = LocalDate.parse(start, DateTimeFormatter.ISO_DATE);
+		LocalDate e = LocalDate.parse(end, DateTimeFormatter.ISO_DATE);
+		if (isMostPopularSelected) {
+			model.addAttribute("books", journalService.getMostPopularBooks(s, e));
+			return "journal/booksInPeriod";
+		}
+		model.addAttribute("books", journalService.getMostUnPopularBooks(s, e));
+		return "journal/booksInPeriod";
+	}
 }

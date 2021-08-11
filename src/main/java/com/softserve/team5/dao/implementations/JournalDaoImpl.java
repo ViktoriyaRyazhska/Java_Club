@@ -1,10 +1,14 @@
 package com.softserve.team5.dao.implementations;
 
-import com.softserve.team5.dao.interfaces.JournalDao;
-import com.softserve.team5.entity.Book;
-import com.softserve.team5.entity.Journal;
-import com.softserve.team5.entity.JournalStatus;
-import com.softserve.team5.entity.User;
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +16,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.NoResultException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Map;
+import com.softserve.team5.dao.interfaces.JournalDao;
+import com.softserve.team5.entity.Book;
+import com.softserve.team5.entity.Journal;
+import com.softserve.team5.entity.JournalStatus;
+import com.softserve.team5.entity.User;
 
 @Repository
 @EnableTransactionManagement
@@ -80,26 +84,17 @@ public class JournalDaoImpl implements JournalDao {
 	}
 
 	@Override
-	public List<Book> getMostPopularBooks(LocalDate periodStart, LocalDate periodEnd) {
-
-		return null;
-	}
-
-	// work in progress
-	private List<Map<Book, Integer>> bookInSelectedPeriod(LocalDate periodStart, LocalDate periodEnd) {
+	public Map<Long, Long> booksInSelectedPeriod(LocalDate periodStart, LocalDate periodEnd) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<Map<Book, Integer>> list = session.createQuery(
-				"select new map(b, count(b)) from Book b inner join Journal j on b.id=j.bookID.id where j.rentDate between :stDate and :enDate group by b.title")
-				.setParameter("stDate", periodStart.format(DateTimeFormatter.ISO_DATE))
-				.setParameter("enDate", periodEnd.format(DateTimeFormatter.ISO_DATE)).getResultList();
-		return list;
-	}
-
-	@Override
-	public List<Book> getMostUnPopularBooks(LocalDate periodStart, LocalDate periodEnd) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Object[]> list = session.createQuery(
+				"select b.id, count(b) from Book b inner join Journal j on b.id=j.bookID.id where j.rentDate between :stDate and :enDate group by b.title")
+				.setParameter("stDate", periodStart).setParameter("enDate", periodEnd).getResultList();
+		Map<Long, Long> map = new HashMap<>();
+		for(Object[] obj : list) {
+			map.put((Long)obj[0], (Long)obj[1]);
+		}
+		return map;
 	}
 
 	@Override

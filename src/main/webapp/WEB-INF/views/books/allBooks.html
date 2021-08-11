@@ -15,6 +15,20 @@
 </head>
 <body>
 <h1 style="color:red" th:text="${bookNotFound}"></h1>
+<h3>Enter start and end of period:</h3>
+<form th:action="@{/journal/booksInPeriod}">
+	<input type="date" th:name="start">
+	<input type="date" th:name="end">
+	<select id="most" th:name="mostPopular">
+        <option th:value="${true}">
+        Most popular
+        </option>
+        <option th:value="${false}">
+        Most unpopular
+        </option>
+    </select>
+	<input type="submit" value="Find books">
+</form>
 <h2>Books available:</h2>
 <div th:each="book : ${books}">
     <a th:if="${book.getIsAvailable()}" th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getTitle()}"></a>
