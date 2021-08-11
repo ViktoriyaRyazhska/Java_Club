@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -67,11 +69,19 @@ public class JournalController {
 	}
 
 	@GetMapping("/booksInPeriod")
-	public String booksInPeriod(@RequestParam(value = "start") String start,
-			@RequestParam(value = "end") String end,
+	public String booksInPeriod(@RequestParam(value = "start") String start, @RequestParam(value = "end") String end,
 			@RequestParam(value = "mostPopular") boolean isMostPopularSelected, Model model) {
+
+		if (start.isEmpty() || end.isEmpty()) {
+			model.addAttribute("dateIsEmptyError", "Dates cant be emty");
+			return "forward:/books";
+		}
 		LocalDate s = LocalDate.parse(start, DateTimeFormatter.ISO_DATE);
 		LocalDate e = LocalDate.parse(end, DateTimeFormatter.ISO_DATE);
+		if (s.isAfter(e)) {
+			model.addAttribute("startIsAfterEndError", "Start date must be before end date");
+			return "forward:/books";
+		}
 		if (isMostPopularSelected) {
 			model.addAttribute("books", journalService.getMostPopularBooks(s, e));
 			return "journal/booksInPeriod";
