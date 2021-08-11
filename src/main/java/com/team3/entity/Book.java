@@ -37,9 +37,9 @@ public class Book {
         return getDescription();
     }
 
-    @ManyToOne
-    @JoinColumn(name = "authorId")
-    private Author author;
+   // @ManyToOne
+    //@JoinColumn(name = "authorId")
+   // private Author author;
 
 
 }

@@ -2,6 +2,7 @@ package com.team3.controllers;
 
 import com.team3.entity.User;
 import com.team3.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(value = "/users")
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping()
     public String getAllUsers(Model model){
