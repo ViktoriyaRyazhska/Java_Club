@@ -71,4 +71,13 @@ public class BookDaoImpl implements BookDao {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Book.class, id);
     }
+
+    @Override
+    public Integer getCountOfCopiesByBookId(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select b.copies from Book b where b.id=:bookId", Integer.class)
+                .setParameter("bookId", id)
+                .getSingleResult();
+    }
 }

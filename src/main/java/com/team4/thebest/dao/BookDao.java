@@ -18,4 +18,6 @@ public interface BookDao {
     List<Book> findBookByNameOrAuthor(String keyword);
 
     Book findById(Long id);
+
+    Integer getCountOfCopiesByBookId(Long id);
 }

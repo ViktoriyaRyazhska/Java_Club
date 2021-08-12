@@ -1,5 +1,6 @@
 package com.team4.thebest.services.impl;
 
+import com.team4.thebest.dao.BookDao;
 import com.team4.thebest.dao.RentInfoDao;
 import com.team4.thebest.models.RentInfo;
 import com.team4.thebest.services.RentInfoService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class RentInfoServiceImpl implements RentInfoService {
 
     private final RentInfoDao rentInfoDao;
+    private final BookDao bookDao;
 
     @Override
     public RentInfo findById(Long id) {
@@ -19,7 +21,9 @@ public class RentInfoServiceImpl implements RentInfoService {
 
     @Override
     public void save(RentInfo rentInfo) {
-        rentInfoDao.save(rentInfo);
+        if (bookDao.getCountOfCopiesByBookId(rentInfo.getBook().getId()) >= 1) {
+            rentInfoDao.save(rentInfo);
+        }
     }
 
     @Override
