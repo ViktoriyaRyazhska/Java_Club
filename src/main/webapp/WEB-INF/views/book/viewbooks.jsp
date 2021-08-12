@@ -21,6 +21,7 @@
         <th>Edit</th>
         <th>Delete</th>
         <th>Rent</th>
+        <th>Return</th>
     </tr>
     <c:forEach var="book" items="${books}">
         <sec:authentication var="principal" property="principal" />
@@ -33,6 +34,7 @@
             <td><a href="edit-book/${book.id}">Edit</a></td>
             <td><a href="delete-book/${book.id}">Delete</a></td>
             <td><a href="/rent-info/request/${book.id}/${principal.id}">Rent</a></td>
+            <td><a href="/rent-info/return/${book.id}/${principal.id}">Return</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -10,4 +10,8 @@ public interface RentInfoDao {
     void deleteRentByBookId(Long bookId);
 
     void deleteRentByUserId(Long userId);
+
+    void update(RentInfo rentInfo);
+
+    RentInfo findByBookIdAndUserId(Long bookId, Long userId);
 }

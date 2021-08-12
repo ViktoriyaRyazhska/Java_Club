@@ -21,4 +21,15 @@ public class RentInfoServiceImpl implements RentInfoService {
     public void save(RentInfo rentInfo) {
         rentInfoDao.save(rentInfo);
     }
+
+    @Override
+    public void update(RentInfo rentInfo) {
+        rentInfoDao.update(rentInfo);
+    }
+
+    @Override
+    public RentInfo findByBookIdAndUserId(Long id, Long userId) {
+        return rentInfoDao.findByBookIdAndUserId(id, userId);
+
+    }
 }

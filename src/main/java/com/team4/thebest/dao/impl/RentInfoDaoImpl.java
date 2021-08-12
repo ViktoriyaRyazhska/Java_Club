@@ -2,6 +2,7 @@ package com.team4.thebest.dao.impl;
 
 import com.team4.thebest.dao.RentInfoDao;
 import com.team4.thebest.models.RentInfo;
+import com.team4.thebest.models.RentStatus;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -44,11 +45,48 @@ public class RentInfoDaoImpl implements RentInfoDao {
                 .executeUpdate();
     }
 
+    @Override
+    public void update(RentInfo rentInfo) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.saveOrUpdate(rentInfo);
+
+        if (rentInfo.getRentStatus() == RentStatus.CANCELED || rentInfo.getRentStatus() == RentStatus.RETURNED) {
+            returnCopy(session, rentInfo.getBook().getId());
+        }
+    }
+
+    @Override
+    public RentInfo findByBookIdAndUserId(Long bookId, Long userId) {
+        Session session = sessionFactory.getCurrentSession();
+
+        Long countOfNotReturnedBookWithSpecifiedBookIdAndUserId = session.createQuery("select count(r) from RentInfo r " +
+                        "where r.book.id=:bookId and r.user.id=:userId and r.returnDate is null", Long.class)
+                .setParameter("bookId", bookId)
+                .setParameter("userId", userId)
+                .getSingleResult();
+
+        if (countOfNotReturnedBookWithSpecifiedBookIdAndUserId >= 1) {
+            return session.createQuery("select r from RentInfo r where r.book.id=:bookId and r.user.id=:userId and " +
+                            "r.id=(select min(rent.id) from RentInfo rent where rent.book.id=:bookId and " +
+                            "rent.user.id=:userId and rent.returnDate is null)", RentInfo.class)
+                    .setParameter("bookId", bookId)
+                    .setParameter("userId", userId)
+                    .getSingleResult();
+        }
+
+        return null;
+    }
+
     private void takeCopy(Session session, Long id) {
         session.createQuery("update Book b set b.copies = b.copies - 1 where b.id=:id")
                 .setParameter("id", id)
                 .executeUpdate();
     }
 
-
+    private void returnCopy(Session session, Long id) {
+        session.createQuery("update Book b set b.copies = b.copies + 1 where b.id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
 }
