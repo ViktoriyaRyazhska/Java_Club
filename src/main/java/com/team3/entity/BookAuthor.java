@@ -4,24 +4,27 @@ package com.team3.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.security.SecureRandomParameters;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table (name = "books_authors")
-public class BookAuthor {
+@Transactional
+@Table(name = "books_authors")
+public class BookAuthor implements Serializable {
+    @Id
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id")
+    Book book;
 
     @Id
-    @Column(name = "book_id")
-    int book_id;
-
-    @Column(name = "author_id")
-    int author_id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "author_id")
+    Author author;
 
     @Column(name = "is_main")
     boolean is_main;

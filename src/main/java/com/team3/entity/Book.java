@@ -1,9 +1,11 @@
 package com.team3.entity;
 
 import lombok.*;
-import lombok.experimental.FieldNameConstants;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -12,17 +14,16 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @Column(name = "book_id")
+    @Column(name = "book_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
 
-    @Column(name = "authorId")
+    @Column(name = "author_id")
     private int authorId;
 
     @Column(name = "title")
     private String title;
 
-    @ToString.Exclude
     @Column(name = "description")
     private String description;
 
@@ -32,14 +33,17 @@ public class Book {
     @Column(name = "count")
     private int count;
 
-    @Override
-    public String toString (){
-        return getDescription();
-    }
 
-    @ManyToOne
-    @JoinColumn(name = "authorId")
-    private Author author;
+//    @ManyToMany
+//    @JoinTable(name = "books_authors",
+//            joinColumns = @JoinColumn(name = "book_id"),
+//            inverseJoinColumns = @JoinColumn(name = "author_id"))
+//    Set<Author> authors = new HashSet<>();
 
-
+//    @ManyToOne(optional = false)
+//    @JoinColumn(name = "author_id", referencedColumnName = "author_id", insertable = false, updatable = false)
+//    private Author author;
+    @Transient
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    Set<BookAuthor> authors = new HashSet<>();
 }

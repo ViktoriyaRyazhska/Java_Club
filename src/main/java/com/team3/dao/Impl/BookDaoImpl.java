@@ -41,8 +41,6 @@ public class BookDaoImpl implements BookDao {
     @Override
     public List<Book> findAll() {
         Session session = sessionFactory.getCurrentSession();
-
-
         return session.createQuery("select a from Book a").getResultList();
     }
 }
