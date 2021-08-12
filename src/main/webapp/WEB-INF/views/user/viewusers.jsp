@@ -26,12 +26,13 @@
             <td>${user.role.roleType}</td>
             <td><a href="edit-user/${user.id}">Edit</a></td>
             <td><a href="delete-user/${user.id}">Delete</a></td>
-            <td><a href="user/${user.id}">Statistic</a></td>
+            <td><a href="/user/${user.id}">Statistic</a></td>
         </tr>
     </c:forEach>
 </table>
 <br/>
 <a href="user-form">Add New User</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/view-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/">Home</a>
 </body>
 </html>

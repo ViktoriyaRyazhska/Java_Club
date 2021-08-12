@@ -8,6 +8,5 @@
 Amount of readers: ${amountOfReaders} <br>
 Amount of users reading this book now: ${amountOfBooksBookIsReading} <br>
 Sum of book reading time (in days): ${sumOfBookReadingTime} <br>
-<%--Time ${user.username} is our client (in days): ${daysClient}--%>
 </body>
 </html>

@@ -71,11 +71,11 @@ public class BookController {
         return "redirect:/modify-books";
     }
 
-    @GetMapping("/search")
+    @GetMapping("/book/search")
     public ModelAndView search(@RequestParam String keyword) {
         List<Book> result = bookService.search(keyword);
-        ModelAndView modelAndView = new ModelAndView("book/search");
-        modelAndView.addObject("result", result);
+        ModelAndView modelAndView = new ModelAndView("book/viewbooks");
+        modelAndView.addObject("books", result);
         return modelAndView;
     }
 

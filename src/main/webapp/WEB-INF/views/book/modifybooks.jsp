@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Book List</h1>
-<form method="get" action="search">
+<form method="get" action="/book/search">
     <input type="text" name="keyword" />
     <input type="submit" value="Search" />
 </form>
@@ -32,12 +32,13 @@
             <td>${book.copies}</td>
             <td><a href="edit-book/${book.id}">Edit</a></td>
             <td><a href="delete-book/${book.id}">Delete</a></td>
-            <td><a href="book/${book.id}">Statistic</a></td>
+            <td><a href="/book/${book.id}">Statistic</a></td>
         </tr>
     </c:forEach>
 </table>
 <br/>
 <a href="book-form">Add New Book</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/view-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/">Home</a>
 </body>
 </html>
