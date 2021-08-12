@@ -34,9 +34,9 @@ public class Author {
 //        book.setAuthor(this);
 //        books.add(book);
 //    }
-
-//    @ManyToMany(mappedBy = "authors")
-//    private Set<Book> books = new HashSet<>();
+//        @Transient
+//        @ManyToMany(mappedBy = "authors")
+//        private Set<Book> books = new HashSet<>();
     @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     Set<BookAuthor> books = new HashSet<>();

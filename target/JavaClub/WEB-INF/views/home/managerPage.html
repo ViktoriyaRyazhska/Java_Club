@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Page</title>
+</head>
+<body>
+<div align="center" >
+    <h2> Library home</h2>
+    <a th:href="@{/author/add}">Add author</a>
+    <br/>
+    <a th:href="@{/book/add}">Add book</a>
+    <br/>
+    <a th:href="@{/}">Delete book</a>
+    <br/>
+    <a th:href="@{/}">Show all users</a>
+    <br/>
+    <a th:href="@{/}">Add user </a>
+    <br/>
+    <button type="button" onclick="window.history.go(-1);">Back</button>
+</div>
+</body>
+</html>

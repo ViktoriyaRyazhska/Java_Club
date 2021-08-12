@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
-
-
     @GetMapping()
-    public String showHomePage(){
+    public String showHomePage() {
         return "home/homePage";
     }
-
+    @GetMapping("/manager")
+    public String showManagerPage() {
+        return "home/managerPage";
+    }
 }

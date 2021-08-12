@@ -16,13 +16,17 @@ import java.security.SecureRandomParameters;
 @Transactional
 @Table(name = "books_authors")
 public class BookAuthor implements Serializable {
+
     @Id
-    @ManyToOne(fetch = FetchType.EAGER)
+    @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int Id;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
     Book book;
 
-    @Id
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     Author author;
 

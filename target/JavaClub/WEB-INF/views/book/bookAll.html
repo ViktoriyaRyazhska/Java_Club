@@ -19,21 +19,17 @@
     <th:block th:each="book:${books} ">
         <tr>
             <td th:text="${book.getBookId}"></td>
+            <td th:text="${book.getAuthorId}"></td>
             <td th:text="${book.getTitle}"></td>
             <td th:text="${book.getDescription}"></td>
             <td th:text="${book.getGenre}"></td>
             <td th:text="${book.getCount}"></td>
         </tr>
-
-
     </th:block>
 
-    <th:block th:each="author:${@book.getAuthors}">
-        <p th:text="${author.getName}"></p>
-        <p th:text="${author.getSurname}"></p>
-    </th:block>
 
 </table>
+<button type="button" onclick="window.history.go(-1);">Back</button>
 
 
 </body>

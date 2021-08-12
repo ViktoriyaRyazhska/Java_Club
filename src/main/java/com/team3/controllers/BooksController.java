@@ -32,29 +32,25 @@ public class BooksController {
     public String showAllBooks(Model model) {
         model.addAttribute("books", bookService.findAll());
         System.out.println("Hello");
-        List<Book> books = bookService.findAll();
-
-        for (Book book : books) {
-            System.out.println(book.toString());
-            book.getAuthors().toString();
-            for (BookAuthor author : book.getAuthors()) {
-
-            }
-        }
         return "/book/bookAll";
+    }
+
+    @PostMapping("/show")
+    public String showSortedBook(){
+
     }
 
     @GetMapping("/add")
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
-        model.addAttribute("author", new Author());
+        model.addAttribute("author", authorsService.findAll());
         return "book/bookAdd";
     }
 
     @PostMapping("/add")
-    public String createBook(@ModelAttribute("book") Book book,
-                             @ModelAttribute("author") Author author, Model Model) {
-
+    public String createBook(@ModelAttribute("book") Book book, Model Model) {
+        bookService.save(book);
+        return "redirect: show";
     }
 
 

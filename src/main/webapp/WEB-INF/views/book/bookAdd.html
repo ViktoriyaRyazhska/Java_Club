@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
 </head>
 <body>
+<div align="center">
+    <form action="#" th:method="post" th:action="@{/book/add}" th:object="${book}">
+        <label for="description">Input description</label>
+        <input type="text" th:field="*{description}" id="description"/>
+        <br/>
+        <label for="genre">Input genre</label>
+        <input type="text" th:field="*{genre}" id="genre"/>
+        <br/>
+        <label for="count">Input amount of book</label>
+        <input type="number" th:field="*{count}" id="count"/>
+        <br/>
+        <input type="submit" value="Add"/>
+    </form>
 
+</div>
+<div align="center">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+        </tr>
+
+        <th:block th:each="author: ${authors}">
+            <tr>
+                <td th:text="${author.getId}">id</td>
+                <td th:text="${author.getName}">name</td>
+                <td th:text="${author.getSurname}">surname</td>
+            </tr>
+
+        </th:block>
+
+    </table>
+    <button type="button" onclick="window.history.go(-1);">Back</button>
+</div>
 </body>
 </html>

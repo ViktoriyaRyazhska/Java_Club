@@ -34,15 +34,15 @@ public class Book {
     private int count;
 
 
-//    @ManyToMany
+//    @ManyToMany(cascade = CascadeType.ALL)
 //    @JoinTable(name = "books_authors",
 //            joinColumns = @JoinColumn(name = "book_id"),
 //            inverseJoinColumns = @JoinColumn(name = "author_id"))
 //    Set<Author> authors = new HashSet<>();
 
-//    @ManyToOne(optional = false)
-//    @JoinColumn(name = "author_id", referencedColumnName = "author_id", insertable = false, updatable = false)
-//    private Author author;
+    //        @ManyToOne(optional = false)
+//        @JoinColumn(name = "author_id", referencedColumnName = "author_id", insertable = false, updatable = false)
+//        private Author author;
     @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
     Set<BookAuthor> authors = new HashSet<>();
