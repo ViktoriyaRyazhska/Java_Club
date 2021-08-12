@@ -16,4 +16,6 @@ public interface BookDao {
     void delete(Long id);
 
     List<Book> findBookByNameOrAuthor(String keyword);
+
+    Book findById(Long id);
 }

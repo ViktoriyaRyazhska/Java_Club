@@ -19,4 +19,6 @@ public interface UserDao {
     void delete(Long id);
 
     List<User> findUserByUserName(String keyword);
+
+    User findById(Long userId);
 }

@@ -44,5 +44,10 @@ public class BookServiceImpl implements BookService {
         return bookDao.findBookByNameOrAuthor(keyword);
     }
 
+    @Override
+    public Book findById(Long id) {
+        return bookDao.findById(id);
+    }
+
 
 }

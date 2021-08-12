@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,8 +19,10 @@
         <th>Co-author</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Rent</th>
     </tr>
     <c:forEach var="book" items="${books}">
+        <sec:authentication var="principal" property="principal" />
         <tr>
             <td>${book.id}</td>
             <td>${book.name}</td>
@@ -27,6 +30,7 @@
             <td>${book.coAuthor}</td>
             <td><a href="edit-book/${book.id}">Edit</a></td>
             <td><a href="delete-book/${book.id}">Delete</a></td>
+            <td><a href="/rent-info/request/${book.id}/${principal.id}">Rent</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -65,4 +65,10 @@ public class BookDaoImpl implements BookDao {
                 .setParameter("keyword", searchKeyword)
                 .getResultList();
     }
+
+    @Override
+    public Book findById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Book.class, id);
+    }
 }

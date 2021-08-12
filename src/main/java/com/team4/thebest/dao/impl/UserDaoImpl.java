@@ -74,4 +74,10 @@ public class UserDaoImpl implements UserDao {
                 .setParameter("keyword", searchKeyword)
                 .getResultList();
     }
+
+    @Override
+    public User findById(Long userId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, userId);
+    }
 }

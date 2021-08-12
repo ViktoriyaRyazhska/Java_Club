@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService {
     public List<User> search(String keyword) {
         return userDao.findUserByUserName(keyword);
     }
+
+    @Override
+    public User findById(Long userId) {
+        return userDao.findById(userId);
+    }
 }

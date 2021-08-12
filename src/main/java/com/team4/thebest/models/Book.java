@@ -29,4 +29,7 @@ public class Book {
 
     @Column(name = "co_author")
     private String coAuthor;
+
+    @Column
+    private Integer copies;
 }

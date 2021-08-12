@@ -18,4 +18,6 @@ public interface UserService extends UserDetailsService {
     void delete(Long id);
 
     List<User> search(String keyword);
+
+    User findById(Long userId);
 }
