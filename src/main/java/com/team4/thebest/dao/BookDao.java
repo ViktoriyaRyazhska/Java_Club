@@ -27,4 +27,8 @@ public interface BookDao {
     Integer amountOfUsersReadingBookNow(Long id);
 
     Optional<Long> sumOfBookReadingTime(Long id);
+
+    Book getTheMostPopular();
+
+    Book getTheMostUnpopular();
 }

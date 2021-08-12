@@ -68,5 +68,15 @@ public class BookServiceImpl implements BookService {
         return bookDao.sumOfBookReadingTime(id);
     }
 
+    @Override
+    public Book getTheMostPopular() {
+        return bookDao.getTheMostPopular();
+    }
+
+    @Override
+    public Book getTheMostUnpopular() {
+        return bookDao.getTheMostUnpopular();
+    }
+
 
 }

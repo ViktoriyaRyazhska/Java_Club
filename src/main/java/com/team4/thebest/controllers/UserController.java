@@ -100,4 +100,12 @@ public class UserController {
 
         return "user/userinfo";
     }
+
+    @GetMapping("debtors")
+    public ModelAndView getDebtors() {
+        List<User> debtors = userService.getDebtors();
+        ModelAndView modelAndView = new ModelAndView("user/viewusers");
+        modelAndView.addObject("users", debtors);
+        return modelAndView;
+    }
 }

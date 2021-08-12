@@ -114,4 +114,22 @@ public class BookDaoImpl implements BookDao {
                 .setParameter("id", id)
                 .getSingleResult());
     }
+
+    @Override
+    public Book getTheMostPopular() {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select r.book from RentInfo r group by r.book.id order by count(r.book.id) desc", Book.class)
+                .setMaxResults(1)
+                .getSingleResult();
+    }
+
+    @Override
+    public Book getTheMostUnpopular() {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select r.book from RentInfo r group by r.book.id order by count(r.book.id)", Book.class)
+                .setMaxResults(1)
+                .getSingleResult();
+    }
 }

@@ -30,4 +30,6 @@ public interface UserDao {
     Integer daysOurClient(Long id);
 
     Integer amountOfBooksUserIsReading(Long id);
+
+    List<User> getDebtors();
 }

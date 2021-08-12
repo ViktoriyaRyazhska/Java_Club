@@ -84,4 +84,9 @@ public class UserServiceImpl implements UserService {
     public Integer amountOfBooksUserIsReading(Long id) {
         return userDao.amountOfBooksUserIsReading(id);
     }
+
+    @Override
+    public List<User> getDebtors() {
+        return userDao.getDebtors();
+    }
 }

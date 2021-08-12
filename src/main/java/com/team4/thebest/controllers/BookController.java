@@ -86,6 +86,8 @@ public class BookController {
         Integer amountOfReaders = bookService.amountOfReaders(id);
         Integer amountOfUsersReadingBookNow = bookService.amountOfUsersReadingBookNow(id);
         Optional<Long> sumOfBookReadingTime = bookService.sumOfBookReadingTime(id);
+        Book theMostPopular = bookService.getTheMostPopular();
+        Book theMostUnpopular = bookService.getTheMostUnpopular();
 
 
         model.addAttribute("book", book);
@@ -93,6 +95,8 @@ public class BookController {
         model.addAttribute("amountOfBooksBookIsReading", amountOfUsersReadingBookNow);
         sumOfBookReadingTime
                 .ifPresent(t -> model.addAttribute("sumOfBookReadingTime", t));
+        model.addAttribute("theMostPopular", theMostPopular);
+        model.addAttribute("theMostUnpopular", theMostUnpopular);
 
         return "book/bookinfo";
     }

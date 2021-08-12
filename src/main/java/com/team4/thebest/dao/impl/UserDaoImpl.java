@@ -126,4 +126,13 @@ public class UserDaoImpl implements UserDao {
                 .getSingleResult()
                 .intValue();
     }
+
+    @Override
+    public List<User> getDebtors() {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select u from User u left join RentInfo r on u.id = r.user.id " +
+                        "where r.returnDate > r.requiredReturnDate", User.class)
+                .getResultList();
+    }
 }

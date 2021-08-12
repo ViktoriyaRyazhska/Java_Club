@@ -29,4 +29,6 @@ public interface UserService extends UserDetailsService {
     Integer daysOurClient(Long id);
 
     Integer amountOfBooksUserIsReading(Long id);
+
+    List<User> getDebtors();
 }
