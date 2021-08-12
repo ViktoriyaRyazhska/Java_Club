@@ -28,9 +28,27 @@ public class RentInfoDaoImpl implements RentInfoDao {
         takeCopy(session, rentInfo.getBook().getId());
     }
 
+    @Override
+    public void deleteRentByBookId(Long userId) {
+        Session session = sessionFactory.getCurrentSession();
+        session.createQuery("delete from RentInfo where book.id=:userId")
+                .setParameter("userId", userId)
+                .executeUpdate();
+    }
+
+    @Override
+    public void deleteRentByUserId(Long userId) {
+        Session session = sessionFactory.getCurrentSession();
+        session.createQuery("delete from RentInfo where user.id=:userId")
+                .setParameter("userId", userId)
+                .executeUpdate();
+    }
+
     private void takeCopy(Session session, Long id) {
         session.createQuery("update Book b set b.copies = b.copies - 1 where b.id=:id")
                 .setParameter("id", id)
                 .executeUpdate();
     }
+
+
 }

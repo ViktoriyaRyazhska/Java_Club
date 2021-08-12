@@ -1,6 +1,7 @@
 package com.team4.thebest.services.impl;
 
 import com.team4.thebest.dao.BookDao;
+import com.team4.thebest.dao.RentInfoDao;
 import com.team4.thebest.models.Book;
 import com.team4.thebest.services.BookService;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 
     private final BookDao bookDao;
+    private final RentInfoDao rentInfoDao;
 
     @Override
     public void save(Book book) {
@@ -36,6 +38,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(Long id) {
+        rentInfoDao.deleteRentByBookId(id);
         bookDao.delete(id);
     }
 

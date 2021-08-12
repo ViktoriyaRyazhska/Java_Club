@@ -32,6 +32,6 @@ public class RentInfoController {
         rentInfo.setRentDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         rentInfo.setRequiredReturnDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")).plusDays(30));
         rentInfoService.save(rentInfo);
-        return "redirect:/";
+        return "redirect:/view-books";
     }
 }

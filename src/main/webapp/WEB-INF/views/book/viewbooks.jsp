@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Author</th>
         <th>Co-author</th>
+        <th>Copies</th>
         <th>Edit</th>
         <th>Delete</th>
         <th>Rent</th>
@@ -28,6 +29,7 @@
             <td>${book.name}</td>
             <td>${book.author}</td>
             <td>${book.coAuthor}</td>
+            <td>${book.copies}</td>
             <td><a href="edit-book/${book.id}">Edit</a></td>
             <td><a href="delete-book/${book.id}">Delete</a></td>
             <td><a href="/rent-info/request/${book.id}/${principal.id}">Rent</a></td>

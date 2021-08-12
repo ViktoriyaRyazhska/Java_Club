@@ -13,6 +13,7 @@
             <th>Name</th>
             <th>Author</th>
             <th>Co-author</th>
+            <th>Copies</th>
         </tr>
         <c:forEach items="${result}" var="book">
             <tr>
@@ -20,9 +21,11 @@
                 <td>${book.name}</td>
                 <td>${book.author}</td>
                 <td>${book.coAuthor}</td>
+                <td>${book.copies}</td>
             </tr>
         </c:forEach>
     </table>
+    <br>
     <a href="/">Home</a>
 </div>
 </body>

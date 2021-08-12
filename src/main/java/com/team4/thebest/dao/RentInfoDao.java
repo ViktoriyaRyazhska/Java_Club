@@ -6,4 +6,8 @@ public interface RentInfoDao {
     RentInfo findById(Long id);
 
     void save(RentInfo rentInfo);
+
+    void deleteRentByBookId(Long bookId);
+
+    void deleteRentByUserId(Long userId);
 }

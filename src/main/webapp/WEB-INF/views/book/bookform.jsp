@@ -21,6 +21,10 @@
             <td><form:input path="coAuthor"/></td>
         </tr>
         <tr>
+            <td>Copies :</td>
+            <td><form:input path="copies"/></td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" value="Save"/></td>
         </tr>

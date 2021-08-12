@@ -1,5 +1,6 @@
 package com.team4.thebest.services.impl;
 
+import com.team4.thebest.dao.RentInfoDao;
 import com.team4.thebest.dao.UserDao;
 import com.team4.thebest.models.User;
 import com.team4.thebest.services.UserService;
@@ -16,6 +17,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserDao userDao;
+    private final RentInfoDao rentInfoDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -48,6 +50,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long id) {
+        rentInfoDao.deleteRentByUserId(id);
         userDao.delete(id);
     }
 
