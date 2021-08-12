@@ -2,15 +2,17 @@ package com.team4.thebest.dao.impl;
 
 import com.team4.thebest.dao.BookDao;
 import com.team4.thebest.models.Book;
-import com.team4.thebest.models.User;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
-import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Repository
 @Transactional
@@ -29,8 +31,7 @@ public class BookDaoImpl implements BookDao {
     public List<Book> getAllBooks() {
         final Session session = sessionFactory.getCurrentSession();
 
-        @SuppressWarnings("unchecked")
-        final TypedQuery<Book> query = session.createQuery("from Book");
+        @SuppressWarnings("unchecked") final TypedQuery<Book> query = session.createQuery("from Book");
         return query.getResultList();
     }
 
@@ -61,7 +62,7 @@ public class BookDaoImpl implements BookDao {
 
         String searchKeyword = "%" + keyword + "%";
         return session.createQuery("select b from Book b where lower(b.author) like :keyword or " +
-                "lower(b.name) like :keyword", Book.class)
+                        "lower(b.name) like :keyword", Book.class)
                 .setParameter("keyword", searchKeyword)
                 .getResultList();
     }
@@ -79,5 +80,38 @@ public class BookDaoImpl implements BookDao {
         return session.createQuery("select b.copies from Book b where b.id=:bookId", Integer.class)
                 .setParameter("bookId", id)
                 .getSingleResult();
+    }
+
+    @Override
+    public Integer amountOfReaders(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select count(distinct r.book.name) " +
+                        "from RentInfo r where r.book.id=:id and r.returnDate is not null", Long.class)
+                .setParameter("id", id)
+                .getSingleResult()
+                .intValue();
+    }
+
+    @Override
+    public Integer amountOfUsersReadingBookNow(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select count(distinct r.book.name) " +
+                        "from RentInfo r where r.book.id=:id and r.returnDate is null", Long.class)
+                .setParameter("id", id)
+                .getSingleResult()
+                .intValue();
+    }
+
+    @Override
+    public Optional<Long> sumOfBookReadingTime(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return ofNullable(session.createQuery(
+                        "select round(sum(datediff(r.returnDate, r.rentDate))) " +
+                                "from RentInfo r where r.book.id=:id and r.returnDate is not null", Long.class)
+                .setParameter("id", id)
+                .getSingleResult());
     }
 }

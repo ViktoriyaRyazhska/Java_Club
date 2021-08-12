@@ -20,6 +20,7 @@
         <th>Copies</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Statistic</th>
     </tr>
     <c:forEach var="book" items="${books}">
         <sec:authentication var="principal" property="principal" />
@@ -31,6 +32,7 @@
             <td>${book.copies}</td>
             <td><a href="edit-book/${book.id}">Edit</a></td>
             <td><a href="delete-book/${book.id}">Delete</a></td>
+            <td><a href="book/${book.id}">Statistic</a></td>
         </tr>
     </c:forEach>
 </table>

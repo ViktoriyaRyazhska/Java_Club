@@ -3,6 +3,7 @@ package com.team4.thebest.services;
 import com.team4.thebest.models.Book;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookService {
     void save(Book book);
@@ -18,4 +19,10 @@ public interface BookService {
     List<Book> search(String keyword);
 
     Book findById(Long id);
+
+    Integer amountOfReaders(Long id);
+
+    Integer amountOfUsersReadingBookNow(Long id);
+
+    Optional<Long> sumOfBookReadingTime(Long id);
 }

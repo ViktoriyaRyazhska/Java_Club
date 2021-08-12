@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -76,5 +77,23 @@ public class BookController {
         ModelAndView modelAndView = new ModelAndView("book/search");
         modelAndView.addObject("result", result);
         return modelAndView;
+    }
+
+    @GetMapping("book/{id}")
+    public String read(@PathVariable Long id, Model model) {
+        Book book = bookService.findById(id);
+
+        Integer amountOfReaders = bookService.amountOfReaders(id);
+        Integer amountOfUsersReadingBookNow = bookService.amountOfUsersReadingBookNow(id);
+        Optional<Long> sumOfBookReadingTime = bookService.sumOfBookReadingTime(id);
+
+
+        model.addAttribute("book", book);
+        model.addAttribute("amountOfReaders", amountOfReaders);
+        model.addAttribute("amountOfBooksBookIsReading", amountOfUsersReadingBookNow);
+        sumOfBookReadingTime
+                .ifPresent(t -> model.addAttribute("sumOfBookReadingTime", t));
+
+        return "book/bookinfo";
     }
 }

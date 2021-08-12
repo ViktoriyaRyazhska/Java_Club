@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -50,6 +51,21 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findById(Long id) {
         return bookDao.findById(id);
+    }
+
+    @Override
+    public Integer amountOfReaders(Long id) {
+        return bookDao.amountOfReaders(id);
+    }
+
+    @Override
+    public Integer amountOfUsersReadingBookNow(Long id) {
+        return bookDao.amountOfUsersReadingBookNow(id);
+    }
+
+    @Override
+    public Optional<Long> sumOfBookReadingTime(Long id) {
+        return bookDao.sumOfBookReadingTime(id);
     }
 
 

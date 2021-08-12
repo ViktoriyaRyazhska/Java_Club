@@ -20,6 +20,7 @@
         <th>Copies</th>
         <th>Rent</th>
         <th>Return</th>
+        <th>Statistic</th>
     </tr>
     <c:forEach var="book" items="${books}">
         <sec:authentication var="principal" property="principal" />
@@ -31,6 +32,7 @@
             <td>${book.copies}</td>
             <td><a href="/rent-info/request/${book.id}/${principal.id}">Rent</a></td>
             <td><a href="/rent-info/return/${book.id}/${principal.id}">Return</a></td>
+            <td><a href="book/${book.id}">Statistic</a></td>
         </tr>
     </c:forEach>
 </table>

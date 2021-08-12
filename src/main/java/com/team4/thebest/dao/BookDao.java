@@ -3,6 +3,7 @@ package com.team4.thebest.dao;
 import com.team4.thebest.models.Book;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookDao {
     void save(Book book);
@@ -20,4 +21,10 @@ public interface BookDao {
     Book findById(Long id);
 
     Integer getCountOfCopiesByBookId(Long id);
+
+    Integer amountOfReaders(Long id);
+
+    Integer amountOfUsersReadingBookNow(Long id);
+
+    Optional<Long> sumOfBookReadingTime(Long id);
 }
