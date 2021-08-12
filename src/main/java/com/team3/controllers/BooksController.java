@@ -31,13 +31,13 @@ public class BooksController {
     @GetMapping("/show")
     public String showAllBooks(Model model) {
         model.addAttribute("books", bookService.findAll());
-        System.out.println("Hello");
         return "/book/bookAll";
     }
 
     @PostMapping("/show")
-    public String showSortedBook(){
-
+    public String showSortedBook(@RequestParam(value = "name")String name, Model model){
+        model.addAttribute("books",bookService.findBooksByAuthor(name));
+        return "/book/bookAll";
     }
 
     @GetMapping("/add")

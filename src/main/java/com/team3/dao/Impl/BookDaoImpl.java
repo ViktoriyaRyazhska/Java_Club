@@ -5,9 +5,11 @@ import com.team3.entity.Author;
 import com.team3.entity.Book;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
@@ -42,5 +44,19 @@ public class BookDaoImpl implements BookDao {
     public List<Book> findAll() {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("select a from Book a").getResultList();
+    }
+    @Override
+    public List<Book> findBooksByTitle(String title){
+        Query query= sessionFactory.getCurrentSession().createQuery("from Book where title like :title",Book.class);
+        query.setParameter("title",title);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Book> findBooksByAuthor(String name) {
+        Query q= sessionFactory.getCurrentSession()
+                .createQuery("select Book.bookId,Book.title,Book.description,Book.genre,Book.count,Author.name,Author.surname FROM Author ,BookAuthor ,Book WHERE Author.id=BookAuthor.author.id AND Book.bookId=BookAuthor.book.id AND Author.name=:name ");
+        q.setParameter("name",name);
+        return q.getResultList();
     }
 }

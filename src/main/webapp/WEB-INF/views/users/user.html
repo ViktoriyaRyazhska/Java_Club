@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>USER</title>
 </head>
 <body>
-
+<a href="/users">BACK</a>
+<p th:text="${user.getId()}">VALUE</p>
+<p th:text="${user.getName() + '' + user.getSurname()}">VALUE</p>
+<p th:text="${'Email: ' + user.getEmail()}">VALUE</p>
+<p th:text="${'Birthday: ' + user.getBirthday()}">VALUE</p>
+<p th:text="${'Password: ' + user.getPassword()}">VALUE</p>
+<p th:text="${'Registration date: ' + user.getRegistrationDate()}">VALUE</p>
+<p th:text="${'Registration date: ' + user.getRegistrationDate()}">VALUE</p>
+<p th:text="${'Spezialization: ' + user.getSpecialization()}">VALUE</p>
 </body>
 </html>

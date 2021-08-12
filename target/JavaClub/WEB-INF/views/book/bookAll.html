@@ -5,32 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Author N</th>
-        <th>Author S</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Genre</th>
-        <th>Count</th>
-    </tr>
-
-    <th:block th:each="book:${books} ">
+<div>
+    <table>
         <tr>
-            <td th:text="${book.getBookId}"></td>
-            <td th:text="${book.getAuthorId}"></td>
-            <td th:text="${book.getTitle}"></td>
-            <td th:text="${book.getDescription}"></td>
-            <td th:text="${book.getGenre}"></td>
-            <td th:text="${book.getCount}"></td>
+            <th>Id</th>
+            <th>Author N</th>
+            <th>Author S</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Genre</th>
+            <th>Count</th>
         </tr>
-    </th:block>
+
+        <th:block th:each="book:${books} ">
+            <tr>
+                <td th:text="${book.getBookId}"></td>
+                <td th:text="${book.getAuthorId}"></td>
+                <td th:text="${book.getTitle}"></td>
+                <td th:text="${book.getDescription}"></td>
+                <td th:text="${book.getGenre}"></td>
+                <td th:text="${book.getCount}"></td>
+            </tr>
+        </th:block>
 
 
-</table>
-<button type="button" onclick="window.history.go(-1);">Back</button>
-
+    </table>
+    <button type="button" onclick="window.history.go(-1);">Back</button>
+</div>
+<div>
+    <form action="#" th:method="post" th:action="@{/book/show}">
+        <label for="name">Input description</label>
+        <input type="text" th:field="name" id="name"/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
 
 </body>
 </html>

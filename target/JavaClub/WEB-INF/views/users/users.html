@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<table>
+    <caption>USERS</caption>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Password</th>
+        <th scope="col">Registration date</th>
+        <th scope="col">Specialisation</th>
+    </tr>
+    <th:block th:each="user: ${users}">
+        <tr>
+            <td><a th:text="${user.getId}" th:href="@{/users/{id}(id=${user.getId()})}">id</a></td>
+            <td th:text="${user.getName}">name</td>
+            <td th:text="${user.getSurname}">surname</td>
+            <td th:text="${user.getEmail}">email</td>
+            <td th:text="${user.getBirthday}">birthday</td>
+            <td th:text="${user.getPassword}">password</td>
+            <td th:text="${user.getRegistrationDate()}">registration date</td>
+            <td th:text="${user.getSpecialization()}">specialisation</td>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>

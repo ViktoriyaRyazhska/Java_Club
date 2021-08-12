@@ -27,6 +27,7 @@ public class Author {
     @Column(name = "surname")
     private String surname;
 
+
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
 //    private List<Book> books = new ArrayList<>();
 
@@ -40,4 +41,9 @@ public class Author {
     @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     Set<BookAuthor> books = new HashSet<>();
+
+   // @ManyToOne
+   // @JoinColumn(name = "author_id")
+   // private Book book;
+
 }

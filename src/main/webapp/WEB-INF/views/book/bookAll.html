@@ -33,8 +33,11 @@
     <button type="button" onclick="window.history.go(-1);">Back</button>
 </div>
 <div>
-
-
+    <form action="#" th:method="post" th:action="@{/book/show}">
+        <label for="name">Input description</label>
+        <input type="text" th:field="name" id="name"/>
+        <input type="submit" value="Search"/>
+    </form>
 </div>
 
 </body>
