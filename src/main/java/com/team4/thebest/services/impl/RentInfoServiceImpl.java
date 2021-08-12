@@ -7,6 +7,8 @@ import com.team4.thebest.services.RentInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class RentInfoServiceImpl implements RentInfoService {

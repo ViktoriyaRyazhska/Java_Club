@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Repository
 @Transactional
@@ -79,5 +82,48 @@ public class UserDaoImpl implements UserDao {
     public User findById(Long userId) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(User.class, userId);
+    }
+
+    @Override
+    public Integer amountReadBooks(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select count(distinct r.book.name) " +
+                        "from RentInfo r where r.user.id=:id and r.returnDate is not null", Long.class)
+                .setParameter("id", id)
+                .getSingleResult()
+                .intValue();
+    }
+
+    @Override
+    public Optional<Double> readingTimeOfBooks(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return ofNullable((Double) session.createQuery(
+                        "select round(avg(datediff(r.returnDate, r.rentDate))) " +
+                                "from RentInfo r where r.user.id=:id and r.returnDate is not null")
+                .setParameter("id", id)
+                .getSingleResult());
+    }
+
+    @Override
+    public Integer daysOurClient(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return (Integer) session.createQuery("select datediff(current_timestamp, u.creationDate) " +
+                        "from User u where u.id=:id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+    @Override
+    public Integer amountOfBooksUserIsReading(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select count(distinct r.book.name) " +
+                        "from RentInfo r where r.user.id=:id and r.returnDate is null", Long.class)
+                .setParameter("id", id)
+                .getSingleResult()
+                .intValue();
     }
 }

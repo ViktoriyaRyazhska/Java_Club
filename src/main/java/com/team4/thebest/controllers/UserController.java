@@ -1,6 +1,8 @@
 package com.team4.thebest.controllers;
 
+import com.team4.thebest.models.RentInfo;
 import com.team4.thebest.models.User;
+import com.team4.thebest.services.RentInfoService;
 import com.team4.thebest.services.RoleService;
 import com.team4.thebest.services.UserService;
 import lombok.AllArgsConstructor;
@@ -11,7 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -20,6 +25,7 @@ public class UserController {
     private final UserService userService;
     private final RoleService roleService;
     private final PasswordEncoder encoder;
+    private final RentInfoService rentInfoService;
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/user-form")
@@ -33,6 +39,7 @@ public class UserController {
     public String save(@ModelAttribute("user") User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         user.setRole(roleService.findById(1L));
+        user.setCreationDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         userService.save(user);
         return "redirect:/view-users";
     }
@@ -71,5 +78,26 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("user/search");
         modelAndView.addObject("result", result);
         return modelAndView;
+    }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @GetMapping("user/{id}")
+    public String read(@PathVariable Long id, Model model) {
+        User user = userService.findById(id);
+
+        Integer amountReadBooks = userService.amountReadBooks(id);
+        Integer amountOfBooksUserIsReading = userService.amountOfBooksUserIsReading(id);
+        Optional<Double> averageReadingTimeReturnedBooks = userService.readingTimeOfBooks(id);
+        Integer daysClient = userService.daysOurClient(id);
+
+
+        model.addAttribute("user", user);
+        model.addAttribute("amountReadBooks", amountReadBooks);
+        model.addAttribute("amountOfBooksUserIsReading", amountOfBooksUserIsReading);
+        averageReadingTimeReturnedBooks
+                .ifPresent(t -> model.addAttribute("averageReadingTimeReturnedBooks", t));
+        model.addAttribute("daysClient", daysClient);
+
+        return "user/userinfo";
     }
 }

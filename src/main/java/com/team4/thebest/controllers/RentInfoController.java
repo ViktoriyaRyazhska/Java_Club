@@ -1,7 +1,6 @@
 package com.team4.thebest.controllers;
 
 import com.team4.thebest.models.RentInfo;
-import com.team4.thebest.models.RentStatus;
 import com.team4.thebest.services.BookService;
 import com.team4.thebest.services.RentInfoService;
 import com.team4.thebest.services.UserService;
@@ -28,7 +27,6 @@ public class RentInfoController {
         RentInfo rentInfo = new RentInfo();
         rentInfo.setUser(userService.findById(userId));
         rentInfo.setBook(bookService.findById(id));
-        rentInfo.setRentStatus(RentStatus.REQUESTED);
         rentInfo.setRentDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         rentInfo.setRequiredReturnDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")).plusDays(30));
         rentInfoService.save(rentInfo);
@@ -40,7 +38,6 @@ public class RentInfoController {
         RentInfo rentInfo = rentInfoService.findByBookIdAndUserId(id, userId);
         if (rentInfo != null) {
             rentInfo.setReturnDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
-            rentInfo.setRentStatus(RentStatus.RETURNED);
             rentInfoService.update(rentInfo);
         }
         return "redirect:/view-books";

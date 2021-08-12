@@ -17,6 +17,7 @@
         <th>Role</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Statistic</th>
     </tr>
     <c:forEach var="user" items="${users}">
         <tr>
@@ -25,6 +26,7 @@
             <td>${user.role.roleType}</td>
             <td><a href="edit-user/${user.id}">Edit</a></td>
             <td><a href="delete-user/${user.id}">Delete</a></td>
+            <td><a href="user/${user.id}">Statistic</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -62,5 +63,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long userId) {
         return userDao.findById(userId);
+    }
+
+    @Override
+    public Integer amountReadBooks(Long id) {
+        return userDao.amountReadBooks(id);
+    }
+
+    @Override
+    public Optional<Double> readingTimeOfBooks(Long id) {
+        return userDao.readingTimeOfBooks(id);
+    }
+
+    @Override
+    public Integer daysOurClient(Long id) {
+        return userDao.daysOurClient(id);
+    }
+
+    @Override
+    public Integer amountOfBooksUserIsReading(Long id) {
+        return userDao.amountOfBooksUserIsReading(id);
     }
 }

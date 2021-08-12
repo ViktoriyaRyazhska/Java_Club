@@ -2,12 +2,12 @@ package com.team4.thebest.dao.impl;
 
 import com.team4.thebest.dao.RentInfoDao;
 import com.team4.thebest.models.RentInfo;
-import com.team4.thebest.models.RentStatus;
 import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 
 @Repository
 @Transactional
@@ -48,12 +48,8 @@ public class RentInfoDaoImpl implements RentInfoDao {
     @Override
     public void update(RentInfo rentInfo) {
         Session session = sessionFactory.getCurrentSession();
-
         session.saveOrUpdate(rentInfo);
-
-        if (rentInfo.getRentStatus() == RentStatus.CANCELED || rentInfo.getRentStatus() == RentStatus.RETURNED) {
-            returnCopy(session, rentInfo.getBook().getId());
-        }
+        returnCopy(session, rentInfo.getBook().getId());
     }
 
     @Override

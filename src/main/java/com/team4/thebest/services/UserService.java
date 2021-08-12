@@ -4,6 +4,7 @@ import com.team4.thebest.models.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService extends UserDetailsService {
 
@@ -20,4 +21,12 @@ public interface UserService extends UserDetailsService {
     List<User> search(String keyword);
 
     User findById(Long userId);
+
+    Integer amountReadBooks(Long id);
+
+    Optional<Double> readingTimeOfBooks(Long id);
+
+    Integer daysOurClient(Long id);
+
+    Integer amountOfBooksUserIsReading(Long id);
 }

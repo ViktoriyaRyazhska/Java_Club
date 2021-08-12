@@ -19,10 +19,6 @@ public class RentInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "rent_status", nullable = false)
-    private RentStatus rentStatus;
-
     @Column(name = "rent_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime rentDate;
