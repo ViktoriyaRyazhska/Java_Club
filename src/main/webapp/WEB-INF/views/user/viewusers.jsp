@@ -32,7 +32,7 @@
 </table>
 <br/>
 <a href="user-form">Add New User</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/view-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/view-users">All users</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/">Home</a>
 </body>
 </html>
