@@ -3,6 +3,7 @@ package com.team4.thebest.controllers;
 import com.team4.thebest.models.Book;
 import com.team4.thebest.services.BookService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +22,18 @@ public class BookController {
         return "home";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/book-form")
     public String showForm(Model model) {
         model.addAttribute("book", new Book());
         return "book/bookform";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/save")
     public String save(@ModelAttribute("book") Book book) {
         bookService.save(book);
-        return "redirect:/view-books";
+        return "redirect:/modify-books";
     }
 
     @GetMapping("/view-books")
@@ -39,22 +42,32 @@ public class BookController {
         return "book/viewbooks";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
+    @GetMapping("/modify-books")
+    public String modifyBooks(Model model) {
+        model.addAttribute("books", bookService.getAllBooks());
+        return "book/modifybooks";
+    }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/edit-book/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("book", bookService.getBookById(id));
         return "book/bookeditform";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/edit-save")
     public String editSave(@ModelAttribute("book") Book book) {
         bookService.update(book);
-        return "redirect:/view-books";
+        return "redirect:/modify-books";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @GetMapping("/delete-book/{id}")
     public String delete(@PathVariable Long id) {
         bookService.delete(id);
-        return "redirect:/view-books";
+        return "redirect:/modify-books";
     }
 
     @GetMapping("/search")

@@ -18,8 +18,8 @@
         <th>Author</th>
         <th>Co-author</th>
         <th>Copies</th>
-        <th>Rent</th>
-        <th>Return</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <c:forEach var="book" items="${books}">
         <sec:authentication var="principal" property="principal" />
@@ -29,12 +29,13 @@
             <td>${book.author}</td>
             <td>${book.coAuthor}</td>
             <td>${book.copies}</td>
-            <td><a href="/rent-info/request/${book.id}/${principal.id}">Rent</a></td>
-            <td><a href="/rent-info/return/${book.id}/${principal.id}">Return</a></td>
+            <td><a href="edit-book/${book.id}">Edit</a></td>
+            <td><a href="delete-book/${book.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
 <br/>
+<a href="book-form">Add New Book</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/">Home</a>
 </body>
 </html>
