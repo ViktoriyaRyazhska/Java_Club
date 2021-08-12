@@ -13,4 +13,8 @@ public interface BookService {
     Book remove(int id);
 
     List<Book> findAll();
+
+    List<Book> findBooksByTitle(String title);
+
+    List<Book>findBooksByAuthor(String name);
 }
