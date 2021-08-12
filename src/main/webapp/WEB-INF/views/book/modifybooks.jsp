@@ -38,7 +38,7 @@
 </table>
 <br/>
 <a href="book-form">Add New Book</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/view-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/">Home</a>
+<a href="modify-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </body>
 </html>
