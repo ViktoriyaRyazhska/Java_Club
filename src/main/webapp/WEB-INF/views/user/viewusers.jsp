@@ -29,6 +29,7 @@
     </c:forEach>
 </table>
 <br/>
-<a href="user-form">Add New User</a>
+<a href="user-form">Add New User</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/">Home</a>
 </body>
 </html>
