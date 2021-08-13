@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -43,12 +44,21 @@ public class User {
     @Column(name = "specialization")
     private String specialization;
 
-//    @ManyToMany(fetch=FetchType.EAGER,
-//            cascade= {CascadeType.MERGE,
-//                    CascadeType.PERSIST, CascadeType.REFRESH})
-//    @JoinTable(
-//            name="users_roles",
-//            joinColumns=@JoinColumn(name="user_id"),
-//            inverseJoinColumns=@JoinColumn(name="role_id"))
-//    private Set<Role> roles=new ;
+    @ManyToMany(fetch=FetchType.EAGER,
+            cascade= {CascadeType.MERGE,
+                    CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name="users_roles",
+            joinColumns=@JoinColumn(name="user_id"),
+            inverseJoinColumns=@JoinColumn(name="role_id"))
+    private Set<Role> roles=new HashSet<>();
+
+    public void addRole(Role role){
+
+        if (roles == null){
+            roles = new HashSet<>();
+        }
+
+        roles.add(role);
+    }
 }
