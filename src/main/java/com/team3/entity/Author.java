@@ -28,8 +28,8 @@ public class Author {
     private String surname;
 
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-//    private List<Book> books = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
 
     //    public void addBook(Book book){
 //        book.setAuthor(this);
@@ -38,9 +38,9 @@ public class Author {
 //        @Transient
 //        @ManyToMany(mappedBy = "authors")
 //        private Set<Book> books = new HashSet<>();
-    @Transient
+   /* @Transient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
-    Set<BookAuthor> books = new HashSet<>();
+    Set<BookAuthor> books = new HashSet<>();*/
 
    // @ManyToOne
    // @JoinColumn(name = "author_id")

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.security.SecureRandomParameters;
-
+/*
 @Entity
 @Data
 @NoArgsConstructor
@@ -32,4 +32,4 @@ public class BookAuthor implements Serializable {
 
     @Column(name = "is_main")
     boolean is_main;
-}
+}*/

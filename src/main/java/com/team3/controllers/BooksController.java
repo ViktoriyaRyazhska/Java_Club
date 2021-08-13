@@ -3,7 +3,6 @@ package com.team3.controllers;
 
 import com.team3.entity.Author;
 import com.team3.entity.Book;
-import com.team3.entity.BookAuthor;
 import com.team3.service.AuthorsService;
 import com.team3.service.BookService;
 import net.bytebuddy.matcher.StringMatcher;

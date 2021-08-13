@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -20,7 +20,8 @@
         <th:block th:each="book:${books} ">
             <tr>
                 <td th:text="${book.getBookId}"></td>
-                <td th:text="${book.getAuthorId}"></td>
+                <td th:text="${book.getAuthor.getName}"></td>
+                <td th:text="${book.getAuthor.getSurname()}"></td>
                 <td th:text="${book.getTitle}"></td>
                 <td th:text="${book.getDescription}"></td>
                 <td th:text="${book.getGenre}"></td>
