@@ -3,6 +3,11 @@
 <html>
 <head>
     <title>Title</title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Edit User</h1>
@@ -13,8 +18,12 @@
             <td><form:hidden path="id"/></td>
         </tr>
         <tr>
-            <td>Name :</td>
-            <td><form:input path="username"/></td>
+            <td>Username :</td>
+            <td>
+                <form:input path="username"/> <br>
+                <form:errors path="username" cssClass="error"/>
+                <div class="error"> ${notUnique} </div>
+            </td>
         </tr>
         <tr>
             <td></td>

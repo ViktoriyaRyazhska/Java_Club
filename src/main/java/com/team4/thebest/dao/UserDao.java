@@ -32,4 +32,6 @@ public interface UserDao {
     Integer amountOfBooksUserIsReading(Long id);
 
     List<User> getDebtors();
+
+    Optional<User> findByUsername(String username);
 }

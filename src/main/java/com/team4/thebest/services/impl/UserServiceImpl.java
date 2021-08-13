@@ -89,4 +89,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getDebtors() {
         return userDao.getDebtors();
     }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userDao.findByUsername(username);
+    }
 }

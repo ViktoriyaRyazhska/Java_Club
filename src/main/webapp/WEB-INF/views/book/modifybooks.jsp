@@ -37,8 +37,8 @@
     </c:forEach>
 </table>
 <br/>
-<a href="book-form">Add New Book</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="book-form">Add book</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="modify-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </body>
 </html>

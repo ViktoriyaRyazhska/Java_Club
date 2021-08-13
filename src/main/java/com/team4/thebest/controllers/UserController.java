@@ -10,9 +10,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
@@ -36,7 +38,14 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("user/save")
-    public String save(@ModelAttribute("user") User user) {
+    public String save(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "user/userform";
+        }
+        if (userService.findByUsername(user.getUsername()).isPresent()) {
+            model.addAttribute("notUnique", "Username taken");
+            return "user/userform";
+        }
         user.setPassword(encoder.encode(user.getPassword()));
         user.setRole(roleService.findById(1L));
         user.setCreationDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
@@ -60,7 +69,10 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/edit-savee")
-    public String editSave(@ModelAttribute("user") User user) {
+    public String editSave(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "user/usereditform";
+        }
         user.setRole(roleService.getByRoleType(user.getRole().getRoleType()));
         userService.update(user);
         return "redirect:/view-users";

@@ -15,13 +15,18 @@
     <table>
         <tr>
             <td>Username :</td>
-            <td><form:input path="username"/></td>
-            <form:errors path="username" cssClass="error"/>
+            <td>
+                <form:input path="username"/> <br>
+                <form:errors path="username" cssClass="error"/>
+                <div class="error"> ${notUnique} </div>
+            </td>
         </tr>
         <tr>
             <td>Password :</td>
-            <td><form:password path="password"/></td>
-            <form:errors path="password" cssClass="error"/>
+            <td>
+                <form:password path="password"/> <br>
+                <form:errors path="password" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td></td>

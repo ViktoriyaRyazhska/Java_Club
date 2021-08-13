@@ -3,6 +3,11 @@
 <html>
 <head>
     <title>Title</title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Add New Book</h1>
@@ -10,11 +15,17 @@
     <table>
         <tr>
             <td>Name :</td>
-            <td><form:input path="name"/></td>
+            <td>
+                <form:input path="name"/> <br>
+                <form:errors path="name" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td>Author :</td>
-            <td><form:input path="author"/></td>
+            <td>
+                <form:input path="author"/> <br>
+                <form:errors path="author" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td>Co-author :</td>
@@ -22,7 +33,10 @@
         </tr>
         <tr>
             <td>Copies :</td>
-            <td><form:input path="copies"/></td>
+            <td>
+                <form:input path="copies"/> <br>
+                <form:errors path="copies" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td></td>

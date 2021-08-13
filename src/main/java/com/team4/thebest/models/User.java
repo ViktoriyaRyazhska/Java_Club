@@ -1,10 +1,12 @@
 package com.team4.thebest.models;
 
 import lombok.*;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,7 +14,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
 @Getter
 @Setter
 @Entity
@@ -23,8 +24,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Required")
     private String username;
 
+    @NotEmpty(message = "Required")
     private String password;
 
     @Column(name = "creation_date")
@@ -32,6 +35,7 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
+//    @NotEmpty(message = "Required")
     private Role role;
 
     @Setter(AccessLevel.PRIVATE)

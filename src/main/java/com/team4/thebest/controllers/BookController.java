@@ -6,9 +6,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +34,10 @@ public class BookController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/save")
-    public String save(@ModelAttribute("book") Book book) {
+    public String save(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "book/bookform";
+        }
         bookService.save(book);
         return "redirect:/modify-books";
     }
@@ -59,7 +64,10 @@ public class BookController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'MANAGER')")
     @PostMapping("/edit-save")
-    public String editSave(@ModelAttribute("book") Book book) {
+    public String editSave(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "book/bookeditform";
+        }
         bookService.update(book);
         return "redirect:/modify-books";
     }

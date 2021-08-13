@@ -135,4 +135,13 @@ public class UserDaoImpl implements UserDao {
                         "where r.returnDate > r.requiredReturnDate", User.class)
                 .getResultList();
     }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select u from User u where u.username=:username", User.class)
+                .setParameter("username", username)
+                .stream().findFirst();
+    }
 }
