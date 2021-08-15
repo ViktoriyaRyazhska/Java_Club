@@ -31,7 +31,13 @@
         </tr>
         <tr>
             <td>Role :</td>
-            <td><form:input path="role.roleType"/></td>
+            <td>
+                <form:select path="role.roleType">
+                    <form:option value="USER">USER</form:option>
+                    <form:option value="ADMIN">ADMIN</form:option>
+                    <form:option value="MANAGER">MANAGER</form:option>
+                </form:select>
+            </td>
         </tr>
         <tr>
             <td></td>

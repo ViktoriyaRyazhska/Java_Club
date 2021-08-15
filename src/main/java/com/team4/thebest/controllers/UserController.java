@@ -47,7 +47,7 @@ public class UserController {
             return "user/userform";
         }
         user.setPassword(encoder.encode(user.getPassword()));
-        user.setRole(roleService.findById(1L));
+        user.setRole(roleService.getByRoleType(user.getRole().getRoleType()));
         user.setCreationDate(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         userService.save(user);
         return "redirect:/view-users";

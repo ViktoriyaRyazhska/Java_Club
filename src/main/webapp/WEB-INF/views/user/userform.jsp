@@ -29,6 +29,17 @@
             </td>
         </tr>
         <tr>
+            <td>Role :</td>
+            <td>
+                <form:select path="role.roleType">
+                    <form:option value="USER">USER</form:option>
+                    <form:option value="ADMIN">ADMIN</form:option>
+                    <form:option value="MANAGER">MANAGER</form:option>
+                </form:select></td>
+            <br>
+            </td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" value="Save"/></td>
         </tr>
