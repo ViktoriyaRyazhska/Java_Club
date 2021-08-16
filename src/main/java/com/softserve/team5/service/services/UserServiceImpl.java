@@ -1,6 +1,10 @@
 package com.softserve.team5.service.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,8 +16,9 @@ import com.softserve.team5.service.interfaces.UserService;
 import java.util.List;
 
 @Service
+@Component
 @EnableTransactionManagement
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 
 	private final UserDao userDao;
 
@@ -60,6 +65,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int isClientFor(Long user_id) {
 		return userDao.isClientFor(user_id);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userDao.loadUserByUsername(username);
+		if(user == null) {
+			throw new UsernameNotFoundException("User '" + username + "' not found.");
+		}
+		return user;
 	}
 
 }

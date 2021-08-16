@@ -6,4 +6,6 @@ public interface UserDao extends DefaultDaoOpearations<User> {
 	double getAverageUsersAge();
 
 	int isClientFor(Long user_id);
+	
+	User loadUserByUsername(String username);
 }
