@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -131,5 +132,15 @@ public class BookDaoImpl implements BookDao {
         return session.createQuery("select r.book from RentInfo r group by r.book.id order by count(r.book.id)", Book.class)
                 .setMaxResults(1)
                 .getSingleResult();
+    }
+
+    @Override
+    public List<Book> timeSearch(LocalDateTime from, LocalDateTime to) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery("select b from Book b where b.published between :from and :to", Book.class)
+                .setParameter("from", from)
+                .setParameter("to", to)
+                .getResultList();
     }
 }

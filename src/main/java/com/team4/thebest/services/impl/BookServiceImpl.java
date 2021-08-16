@@ -7,6 +7,7 @@ import com.team4.thebest.services.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,6 +77,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book getTheMostUnpopular() {
         return bookDao.getTheMostUnpopular();
+    }
+
+    @Override
+    public List<Book> timeSearch(LocalDateTime from, LocalDateTime to) {
+        return bookDao.timeSearch(from, to);
     }
 
 

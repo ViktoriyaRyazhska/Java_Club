@@ -37,7 +37,7 @@
     </c:forEach>
 </table>
 <br/>
-<a href="/view-books">All books</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/view-books">Clear search</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </body>
 </html>

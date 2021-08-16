@@ -2,6 +2,7 @@ package com.team4.thebest.dao;
 
 import com.team4.thebest.models.Book;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,4 +32,6 @@ public interface BookDao {
     Book getTheMostPopular();
 
     Book getTheMostUnpopular();
+
+    List<Book> timeSearch(LocalDateTime from, LocalDateTime to);
 }

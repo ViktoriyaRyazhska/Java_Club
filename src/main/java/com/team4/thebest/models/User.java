@@ -35,7 +35,6 @@ public class User implements UserDetails {
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-//    @NotEmpty(message = "Required")
     private Role role;
 
     @Setter(AccessLevel.PRIVATE)

@@ -2,6 +2,7 @@ package com.team4.thebest.services;
 
 import com.team4.thebest.models.Book;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,4 +30,6 @@ public interface BookService {
     Book getTheMostPopular();
 
     Book getTheMostUnpopular();
+
+    List<Book> timeSearch(LocalDateTime from, LocalDateTime to);
 }

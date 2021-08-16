@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "books")
 @NoArgsConstructor
@@ -34,4 +36,7 @@ public class Book {
     @Column
     @NotNull(message = "Required")
     private Integer copies;
+
+    @Column(name = "published")
+    private LocalDateTime published;
 }

@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +42,7 @@ public class BookController {
         if (result.hasErrors()) {
             return "book/bookform";
         }
+        book.setPublished(LocalDateTime.now(ZoneId.of("Europe/Kiev")));
         bookService.save(book);
         return "redirect:/modify-books";
     }
@@ -83,6 +88,17 @@ public class BookController {
     public ModelAndView search(@RequestParam String keyword) {
         List<Book> result = bookService.search(keyword);
         ModelAndView modelAndView = new ModelAndView("book/viewbooks");
+        modelAndView.addObject("books", result);
+        return modelAndView;
+    }
+
+    @GetMapping("/book/time-search")
+    public ModelAndView timeSearch(@RequestParam String from, @RequestParam String to) {
+        List<Book> result = bookService.timeSearch(
+                LocalDate.parse(from).atTime(LocalTime.MIN),
+                LocalDate.parse(to).atTime(LocalTime.MAX)
+        );
+        ModelAndView modelAndView = new ModelAndView("book/modifybooks");
         modelAndView.addObject("books", result);
         return modelAndView;
     }
