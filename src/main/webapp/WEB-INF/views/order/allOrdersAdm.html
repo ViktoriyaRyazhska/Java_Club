@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/debtors}" method="GET">
+    <button type="submit" >Debtors</button>
+</form>
+<h3>All orders</h3>
+<div th:each="order : ${orders}">
+    <p>User name</p>
+    <p th:text="${order.user.firstName + ' ' + order.user.lastName}"></p>
+    <p>Book title</p>
+    <p th:text="${order.book.title}"></p>
+    <p>Rent date</p>
+    <p th:text="${order.rentDate}"></p>
+    <p>Need to return</p>
+    <p th:text="${order.requiredReturnDate}"></p>
+    <p>Return date</p>
+    <p th:text="${order.returnDate}"></p>
+    <hr>
+</div>
+</body>
+</html>

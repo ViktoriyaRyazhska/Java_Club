@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org>" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<h1>Add new book</h1>
+
+<form action="#" th:action="@{/create}"
+      th:object="${book}" method="POST">
+    <input type="text" th:field="*{title}" placeholder="Title">
+    <input type="text" th:field="*{genre}" placeholder="Genre">
+    <input type="text" th:field="*{copies}" placeholder="Copies">
+
+    <select name="id">
+        <option disabled selected>Add main author</option>
+        <option th:each="author : ${authors}" th:value="${author.id}"
+                th:text="${author.firstName + ' ' + author.lastName}"></option>
+    </select>
+    <button type="submit" >Save</button>
+</form>
+</body>
+</html>

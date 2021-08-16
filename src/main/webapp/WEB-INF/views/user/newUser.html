@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Registration</title>
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/user/newUser}"
+          th:object="${user}" method="POST">
+
+        <h2>Registration</h2>
+        <div>
+            <label for="name">Enter name</label>
+              <input type="text" th:field="*{firstName}" id="name">
+              <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</div>
+              <br>
+              <label for="surname">Enter surname</label>
+              <input type="text" th:field="*{lastName}" id="surname">
+              <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
+              <br>
+              <label for="age">Enter age</label>
+              <input type="number" th:field="*{age}" id="age">
+              <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error</div>
+              <br>
+              <label for="email">Enter email</label>
+              <input type="text" th:field="*{email}" id="email">
+              <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
+              <br>
+              <label for="username">Enter username</label>
+              <input type="text" th:field="*{username}" id="username">
+              <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</div>
+              <br>
+              <label for="password">Enter password</label>
+              <input type="password" th:field="*{password}" id="password">
+              <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+              <br>
+        </div>
+        <button type="submit">Create</button>
+    </form>
+    <form th:action="@{/logout}">
+        <input type="submit" value="Logout">
+    </form>
+</div>
+</body>
+</html>

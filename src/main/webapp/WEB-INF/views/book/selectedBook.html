@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org>" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>Selected book</title>
+</head>
+<body>
+<h1>Your book:</h1>
+<p>Title:</p>
+<p th:text="${book.getTitle}"></p>
+<hr>
+<p>Genre:</p>
+<p th:text="${book.getGenre}"></p>
+<hr>
+<p>Copies:</p>
+<p th:text="${book.getCopies}"></p>
+<hr>
+<p>Main author:</p>
+<p th:text="${book.author.firstName + ' ' + book.author.lastName}"></p>
+<hr>
+<p>Coauthors:</p>
+<tr th:each="coAuthor : ${bookAuthors.authors}">
+    <td th:text="${coAuthor.firstName + ' ' + coAuthor.lastName}"></td>
+</tr>
+<hr>
+<a th:href="@{|/give/${book.id}/${#authentication.principal.id}|}"
+   th:text="${'Take book'}"></a>
+<hr>
+<div sec:authorize="hasAnyAuthority('ADMIN')">
+<form th:action="@{'/book/'+${book.id}+'/add/'}" method="get">
+    <select  name="co_id">
+        <option disabled selected>Select coauthor</option>
+        <option th:each="author : ${coAuthors}" th:value="${author.id}"
+                th:text="${author.firstName + ' ' + author.lastName}"></option>
+        <input type="submit" value="Add">
+    </select>
+</form>
+</div>
+<hr>
+<div sec:authorize="hasAnyAuthority('ADMIN')">
+    <a th:href="@{|/book/${book.id}/edit/|}" th:text="Edit"></a>
+    <a th:href="@{|/book/${book.id}/delete/|}" th:text="Delete"></a>
+</div>
+</body>
+</html>

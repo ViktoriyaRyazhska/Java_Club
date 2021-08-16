@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org>" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>Author</title>
+</head>
+<body>
+<h1>Your author:</h1>
+<p>Name:</p>
+<p th:text="${author.getFirstName}"></p>
+<hr>
+<p>Surname:</p>
+<p th:text="${author.getLastName}"></p>
+<hr>
+<p>Books:</p>
+<tr th:each="book : ${authorBooks.books}">
+  <td th:text="${book.title}"></td>
+</tr>
+<hr>
+<div sec:authorize="hasAnyAuthority('ADMIN')">
+    <a th:href="@{|/author/${author.id}/delete/|}" th:text="Delete"></a>
+</div>
+</body>
+</html>

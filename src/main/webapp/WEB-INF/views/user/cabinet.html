@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabinet</title>
+</head>
+<body>
+<h1>Cabinet</h1>
+<p>Name</p>
+<p th:text="${user.firstName}"></p>
+<p>Surname</p>
+<p th:text="${user.lastName}"></p>
+<p>Username</p>
+<p th:text="${user.username}"></p>
+<p>Email</p>
+<p th:text="${user.email}"></p>
+<p>Age</p>
+<p th:text="${user.age}"></p>
+<p>Created at</p>
+<p th:text="${user.createdAt}"></p>
+<p>Days our client</p>
+<p th:text="${totalDays}"></p>
+<p>Numbers of books read</p>
+<p th:text="${numberOfBooksRead}"></p>
+<p>Reading time</p>
+<p th:text="${readingTime}"></p>
+<form th:action="@{/user/update/{id}(id = ${user.getId()})}" >
+    <button type="submit">Edit</button>
+</form>
+<form th:action="@{/user/delete/{id}(id=${user.getId()})}" th:method="delete">
+    <button type="submit">Delete</button>
+</form>
+<hr>
+<h3>Your books</h3>
+<div th:each="order : ${orders}">
+    <p>Book title</p>
+    <p th:text="${order.book.title}"></p>
+    <p>Need to return</p>
+    <p th:text="${order.requiredReturnDate}"></p>
+    <span th:if="${order.returnDate == null}">
+        <form th:method="PATCH"  th:action="@{/order/return/{id}(id = ${order.getId()})}" >
+    <button type="submit">Return</button>
+        </form>
+    </span>
+    <hr>
+</div>
+</body>
+</html>

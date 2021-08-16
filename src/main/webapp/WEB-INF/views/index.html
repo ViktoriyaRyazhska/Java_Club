@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org>"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+
+<tr>
+    <th>Most popular book for the week: </th>
+</tr>
+
+<tbody>
+    <tr th:each="book : ${books}">
+        <a th:href="@{/book/{id}(id=${book.getId()})}" th:text="${book.title}"></a>
+    </tr>
+</tbody>
+
+<form action="#" th:action="@{/getAllBooks}" method="GET">
+    <button type="submit">Get all books</button>
+</form>
+
+<form action="#" th:action="@{/findBookByTitle}" method="GET">
+    <input placeholder="Find book by title" type="search" name="findBookByTitle"/>
+    <button type="submit">Find</button>
+</form>
+
+<form action="#" th:action="@{/getAllAuthors}" method="GET">
+    <button type="submit">Get all authors</button>
+</form>
+
+<form action="#" th:action="@{/user}" method="GET">
+    <button type="submit" >My cabinet</button>
+</form>
+
+<form th:action="@{/logout}">
+    <input type="submit" value="Logout">
+</form>
+<hr>
+<span sec:authorize="hasAnyAuthority('ADMIN')">
+    <form action="#" th:action="@{/user/allUsers}" method="GET">
+        <button type="submit" >All users</button>
+    </form>
+    <form action="#" th:action="@{/order/getAll}" method="GET">
+        <button type="submit" >All orders</button>
+    </form>
+    <form action="#" th:action="@{/user/getStatistic}" method="GET">
+        <button type="submit" >Statistic</button>
+    </form>
+</span>
+</body>
+</html>

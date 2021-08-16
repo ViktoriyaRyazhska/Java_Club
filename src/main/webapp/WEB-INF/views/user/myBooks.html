@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org>" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<head>
+    <meta charset="UTF-8">
+    <title>My books</title>
+</head>
+<body>
+<h1>Your books: </h1>
+
+<div th:each="book : ${orders}">
+    <a th:href="@{/book/{id}(id=${book.getId()})}" th:text="${book.title}"></a>
+</div>
+</body>
+</html>
