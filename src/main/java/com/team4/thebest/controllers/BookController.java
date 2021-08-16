@@ -94,11 +94,15 @@ public class BookController {
 
     @GetMapping("/book/time-search")
     public ModelAndView timeSearch(@RequestParam String from, @RequestParam String to) {
-        List<Book> result = bookService.timeSearch(
-                LocalDate.parse(from).atTime(LocalTime.MIN),
-                LocalDate.parse(to).atTime(LocalTime.MAX)
-        );
+        LocalDateTime fromParsed = LocalDate.parse(from).atTime(LocalTime.MIN);
+        LocalDateTime toParsed = LocalDate.parse(to).atTime(LocalTime.MAX);
         ModelAndView modelAndView = new ModelAndView("book/modifybooks");
+        if (fromParsed.isAfter(toParsed)) {
+            modelAndView.addObject("wrongInput", "Wrong date range");
+            modelAndView.addObject("books", bookService.getAllBooks());
+            return modelAndView;
+        }
+        List<Book> result = bookService.timeSearch(fromParsed, toParsed);
         modelAndView.addObject("books", result);
         return modelAndView;
     }

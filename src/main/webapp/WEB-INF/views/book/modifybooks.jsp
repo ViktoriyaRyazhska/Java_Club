@@ -5,6 +5,11 @@
 <html>
 <head>
     <title>Title</title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Book List</h1>
@@ -16,6 +21,7 @@
     <input type="date" name="from"/>
     <input type="date" name="to"/>
     <input type="submit" value="Search">
+    <div class="error"> ${wrongInput} </div>
 </form>
 <table border="2" width="70%" cellpadding="2">
     <tr>
