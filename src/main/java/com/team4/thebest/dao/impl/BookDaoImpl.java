@@ -87,7 +87,7 @@ public class BookDaoImpl implements BookDao {
     public Integer amountOfReaders(Long id) {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select count(distinct r.book.name) " +
+        return session.createQuery("select count(distinct r.user.id) " +
                         "from RentInfo r where r.book.id=:id and r.returnDate is not null", Long.class)
                 .setParameter("id", id)
                 .getSingleResult()
@@ -98,7 +98,7 @@ public class BookDaoImpl implements BookDao {
     public Integer amountOfUsersReadingBookNow(Long id) {
         Session session = sessionFactory.getCurrentSession();
 
-        return session.createQuery("select count(distinct r.book.name) " +
+        return session.createQuery("select count(distinct r.user.id) " +
                         "from RentInfo r where r.book.id=:id and r.returnDate is null", Long.class)
                 .setParameter("id", id)
                 .getSingleResult()

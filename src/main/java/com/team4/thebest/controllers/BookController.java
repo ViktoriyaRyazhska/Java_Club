@@ -94,9 +94,14 @@ public class BookController {
 
     @GetMapping("/book/time-search")
     public ModelAndView timeSearch(@RequestParam String from, @RequestParam String to) {
+        ModelAndView modelAndView = new ModelAndView("book/modifybooks");
+        if (from.isBlank() || to.isBlank()) {
+            modelAndView.addObject("wrongInput", "Pass required date");
+            modelAndView.addObject("books", bookService.getAllBooks());
+            return modelAndView;
+        }
         LocalDateTime fromParsed = LocalDate.parse(from).atTime(LocalTime.MIN);
         LocalDateTime toParsed = LocalDate.parse(to).atTime(LocalTime.MAX);
-        ModelAndView modelAndView = new ModelAndView("book/modifybooks");
         if (fromParsed.isAfter(toParsed)) {
             modelAndView.addObject("wrongInput", "Wrong date range");
             modelAndView.addObject("books", bookService.getAllBooks());
