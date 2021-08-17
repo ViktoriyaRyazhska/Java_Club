@@ -13,17 +13,18 @@
     <input type="text" th:field="*{surname}" id="surname"/>
     <br/>
     <label for="email">Enter email: </label>
-    <input type="text" th:field="*{email}" id="email"/>
-    <br/>
-    <label for="birthday">Enter birthday: </label>
-    <input type="date" th:field="*{birthday}" id="birthday"/>
+    <input type="email" th:field="*{email}" id="email"/>
     <br/>
     <label for="password">Enter password: </label>
     <input type="text" th:field="*{password}" id="password"/>
     <br/>
+    <label for="birthday">Enter birthday: </label>
+    <input type="date" th:field="*{birthday}" id="birthday"/>
+    <br/>
     <label for="specialisation">Enter specialisation: </label>
     <input type="text" th:field="*{specialization}" id="specialisation"/>
     <br/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
     <input type="submit" value="Create!"/>
 </form>
 </body>
