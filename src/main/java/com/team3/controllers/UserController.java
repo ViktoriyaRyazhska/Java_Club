@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(value = "/users")
 public class UserController {
+
     private final UserService userService;
     @Autowired
     public UserController(UserService userService) {
@@ -27,7 +28,8 @@ public class UserController {
         return "users/user";
     }
     @GetMapping("/new")
-    public String addUser(@ModelAttribute("user")User user){
+    public String addUser(Model model){
+        model.addAttribute("user",new User());
         return "users/addUser";
     }
     @PostMapping()
