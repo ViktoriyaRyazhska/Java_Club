@@ -5,7 +5,7 @@
     <title>Add User</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
+<form th:method="POST" th:action="@{/registration}" th:object="${user}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
     <br/>
@@ -16,7 +16,10 @@
     <input type="email" th:field="*{email}" id="email"/>
     <br/>
     <label for="password">Enter password: </label>
-    <input type="text" th:field="*{password}" id="password"/>
+    <input type="password" th:field="*{password}" id="password"/>
+    <br/>
+   <label for="passwordConfirm">Confirm password: </label>
+    <input type="password" th:field="*{passwordConfirm}" id="passwordConfirm"/>
     <br/>
     <label for="birthday">Enter birthday: </label>
     <input type="date" th:field="*{birthday}" id="birthday"/>

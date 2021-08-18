@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOG IN</title>
+</head>
+<body>
+<form class="form-signin" method="POST" th:action="@{/login}">
+    <h2 class="form-heading">Log in</h2>
+
+    <div class="form-group">
+
+        <label>
+            <input name="email" type="text" class="form-control" placeholder="Email"
+                   autofocus="true"/>
+        </label>
+
+        <label>
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
+        </label>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+        <h4 class="text-center"><a href="/registration">Create an account</a></h4>
+    </div>
+</form>
+</body>
+</html>

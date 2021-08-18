@@ -5,6 +5,8 @@ import com.team3.dao.UserDao;
 import com.team3.entity.Role;
 import com.team3.entity.User;
 import com.team3.service.UserService;
+import org.hibernate.internal.build.AllowPrintStacktrace;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,29 +17,37 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 @Transactional
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final RoleDao roleDao;
     private final UserDao userDao;
-    //BCryptPasswordEncoder bCryptPasswordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserServiceImpl(RoleDao roleDao, UserDao userDao) {
+    @Autowired
+    public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder1, RoleDao roleDao, UserDao userDao) {
         this.roleDao = roleDao;
         this.userDao = userDao;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder1;
     }
 
     @Override
-    public void addUser(User user) {
-        Set<Role> roles=new HashSet<>();
+    public boolean addUser(User user) {
+        User userFromDb = userDao.findUserByEmail(user.getEmail());
+        if (userFromDb != null) {
+            return false;
+        }
+        Set<Role> roles = new HashSet<>();
         roles.add(roleDao.getById(1L));
         user.setRoles(roles);
-        long millis=System.currentTimeMillis();
-        java.sql.Date date=new java.sql.Date(millis);
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
         user.setRegistrationDate(date);
-        //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userDao.addUser(user);
+        return true;
     }
 
     @Transactional

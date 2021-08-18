@@ -41,6 +41,9 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Transient
+    private String passwordConfirm;
+
     @Column(name = "registrationDate")
     private Date registrationDate;
 

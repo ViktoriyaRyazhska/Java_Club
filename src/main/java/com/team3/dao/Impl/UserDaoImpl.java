@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import java.util.List;
+
 @Transactional
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -21,27 +22,29 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void addUser(User user) {
-        Session session=sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         session.save(user);
     }
 
     @Override
-    public User getUserById(Long id) {return sessionFactory.getCurrentSession().get(User.class, id);}
+    public User getUserById(Long id) {
+        return sessionFactory.getCurrentSession().get(User.class, id);
+    }
 
     @Override
     public List<User> getAllUsers() {
-        return sessionFactory.getCurrentSession().createQuery("select a from User a",User.class).getResultList();
+        return sessionFactory.getCurrentSession().createQuery("select a from User a", User.class).getResultList();
     }
 
     @Override
     public User findUserByEmail(String email) {
         User user;
         try {
-           user = sessionFactory.getCurrentSession().createQuery("from User a where a.email=:email",User.class)
-                    .setParameter("email",email)
+            user = sessionFactory.getCurrentSession().createQuery("from User a where a.email=:email", User.class)
+                    .setParameter("email", email)
                     .getSingleResult();
-        }catch (NoResultException e){
-            user=null;
+        } catch (NoResultException e) {
+            user = null;
         }
         return user;
     }
