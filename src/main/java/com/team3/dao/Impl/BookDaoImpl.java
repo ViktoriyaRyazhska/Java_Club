@@ -47,18 +47,19 @@ public class BookDaoImpl implements BookDao {
 
         return session.createQuery("select a from Book a").getResultList();
     }
+
     @Override
-    public List<Book> findBooksByTitle(String title){
-        Query query= sessionFactory.getCurrentSession().createQuery("from Book where title like :title",Book.class);
-        query.setParameter("title",title);
+    public List<Book> findBooksByTitle(String title) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Book where title like :title", Book.class);
+        query.setParameter("title", title);
         return query.getResultList();
     }
 
     @Override
     public List<Book> findBooksByAuthor(String name) {
-        Query q= sessionFactory.getCurrentSession()
+        Query q = sessionFactory.getCurrentSession()
                 .createQuery("select Book.bookId,Book.title,Book.description,Book.genre,Book.count,Author.name,Author.surname FROM Author ,BookAuthor ,Book WHERE Author.id=BookAuthor.author_id AND Book.bookId=BookAuthor.book_id AND Author.name=:name ");
-        q.setParameter("name",name);
+        q.setParameter("name", name);
         return q.getResultList();
     }
 }

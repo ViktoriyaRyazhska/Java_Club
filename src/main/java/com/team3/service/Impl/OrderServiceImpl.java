@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
+
     //TODO: add implementation to methods
     @Override
     public void getTheMostPopularBook() {
@@ -49,6 +50,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public List<Order> findAllOrders() {
-       return orderDao.findAllOrders();
+        return orderDao.findAllOrders();
     }
 }

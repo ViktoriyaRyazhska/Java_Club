@@ -47,6 +47,6 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     public List<Author> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select a from Author a",Author.class).getResultList();
+        return session.createQuery("select a from Author a", Author.class).getResultList();
     }
 }

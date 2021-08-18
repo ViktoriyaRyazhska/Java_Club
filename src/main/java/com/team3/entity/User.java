@@ -4,22 +4,25 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
 @NoArgsConstructor
 @Table(name = "user")
-public class User {
+public class User implements UserDetails {
     @Id
     @Column(name = "user_id")
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "name")
@@ -32,10 +35,14 @@ public class User {
     private String email;
 
     @Column(name = "birthday")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     @Column(name = "password")
     private String password;
+
+    @Transient
+    private String passwordConfirm;
 
     @Column(name = "registrationDate")
     private Date registrationDate;
@@ -43,12 +50,40 @@ public class User {
     @Column(name = "specialization")
     private String specialization;
 
-//    @ManyToMany(fetch=FetchType.EAGER,
-//            cascade= {CascadeType.MERGE,
-//                    CascadeType.PERSIST, CascadeType.REFRESH})
-//    @JoinTable(
-//            name="users_roles",
-//            joinColumns=@JoinColumn(name="user_id"),
-//            inverseJoinColumns=@JoinColumn(name="role_id"))
-//    private Set<Role> roles=new ;
+    @Transient
+    @ManyToMany
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private transient Set<Role> roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

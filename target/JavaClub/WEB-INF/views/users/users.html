@@ -21,13 +21,12 @@
         <tr>
             <td><a th:text="${user.getId}" th:href="@{/users/{id}(id=${user.getId()})}">id</a></td>
             <td th:text="${user.getName}">name</td>
-            <td th:text="${user.getSurname}">surname</td>
+            <td th:text="${user.getSurname()}">surname</td>
             <td th:text="${user.getEmail}">email</td>
-            <td th:text="${user.getBirthday}">birthday</td>
+            <td th:text="${#dates.format(user.getBirthday,'dd-MMM-yyyy')}">birthday</td>
             <td th:text="${user.getPassword}">password</td>
-            <td th:text="${user.getRegistrationDate()}">registration date</td>
+            <td th:text="${#dates.format(user.getRegistrationDate(),'dd-MMM-yyyy')}">registration date</td>
             <td th:text="${user.getSpecialization()}">specialisation</td>
-            <td th:text="${user.getRoles()}">specialisation</td>
         </tr>
     </th:block>
 </table>

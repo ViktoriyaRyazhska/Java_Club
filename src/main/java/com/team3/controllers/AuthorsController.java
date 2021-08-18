@@ -30,20 +30,20 @@ public class AuthorsController {
     @GetMapping("/{id}")
     public String showAuthorsById(@PathVariable("id") int id, Model model) {
         Author author = authorsService.findById(id);
-        model.addAttribute("author",author);
+        model.addAttribute("author", author);
         return "author/authorShowById";
     }
 
     @GetMapping("/add")
-    public String newAuthor(Model model){
+    public String newAuthor(Model model) {
         model.addAttribute("author", new Author());
         return "author/authorAdd";
     }
 
     @PostMapping("/add")
-    public String create(@ModelAttribute("author") Author author){
+    public String create(@ModelAttribute("author") Author author) {
         authorsService.save(author);
         return "redirect: show";
-     }
+    }
 
 }

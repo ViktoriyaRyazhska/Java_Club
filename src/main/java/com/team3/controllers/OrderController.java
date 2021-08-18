@@ -18,14 +18,14 @@ public class OrderController {
     }
 
     @GetMapping("/")
-    public String getAllOrders(Model model){
-        model.addAttribute("orders",orderService.findAllOrders());
+    public String getAllOrders(Model model) {
+        model.addAttribute("orders", orderService.findAllOrders());
         return "orders/orders";
     }
 
     @GetMapping("/{id}")
-    public String findById(@PathVariable("id") Long id, Model model){
-        model.addAttribute("order",orderService.findByOrderId(id));
+    public String findById(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("order", orderService.findByOrderId(id));
         return "orders/order";
     }
 }

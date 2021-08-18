@@ -34,7 +34,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<Order> findAllOrders() {
-        return sessionFactory.getCurrentSession().createQuery("SELECT a from Order a",Order.class).getResultList();
+        return sessionFactory.getCurrentSession().createQuery("SELECT a from Order a", Order.class).getResultList();
     }
 
 }

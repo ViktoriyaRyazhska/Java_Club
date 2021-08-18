@@ -33,13 +33,13 @@ public class Book {
     private int count;
 
     @Override
-    public String toString (){
+    public String toString() {
         return getDescription();
     }
 
-   // @ManyToOne
+    // @ManyToOne
     //@JoinColumn(name = "authorId")
-   // private Author author;
+    // private Author author;
 
 
 }
