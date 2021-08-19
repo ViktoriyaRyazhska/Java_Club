@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>LOG IN</title>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
 </head>
 <body>
-<form class="form-signin" method="POST" th:action="@{/login}">
-    <h2 class="form-heading">Log in</h2>
-
-    <div class="form-group">
-
-        <label>
-            <input name="email" type="text" class="form-control" placeholder="Email"
-                   autofocus="true"/>
-        </label>
-
-        <label>
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-        </label>
-
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-        <h4 class="text-center"><a href="/registration">Create an account</a></h4>
-    </div>
+<div th:if="${#authentication == null}"></div>
+<form th:method="POST" th:action="@{/login}">
+    <label for="username">Enter email:</label>
+    <input type="email" name="username" id="username"/>
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="password" name="password" id="password"/>
+    <br/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Login!"/>
 </form>
+
 </body>
 </html>
