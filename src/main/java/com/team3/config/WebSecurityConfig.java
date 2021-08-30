@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
+      /*  httpSecurity
                 .csrf()
                 .disable()
                 .authorizeRequests()
@@ -41,12 +41,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/book")
+                .failureUrl("/login?error=true")
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/");*/
+        httpSecurity.authorizeRequests()
+                .antMatchers("/login")
+                .permitAll()
+                .antMatchers("/**")
+                .hasAnyRole("ADMIN", "USER")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .usernameParameter("email")
+                .defaultSuccessUrl("/book")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login?logout=true")
+                .invalidateHttpSession(true)
+                .permitAll()
+                .and()
+                .csrf()
+                .disable();
     }
 
     @Autowired
