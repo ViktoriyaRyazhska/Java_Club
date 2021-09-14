@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class BookDaoImpl implements BookDao {
-    SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public BookDaoImpl(SessionFactory sessionFactory) {
@@ -42,10 +42,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findAll() {
-        Session session = sessionFactory.getCurrentSession();
-
-
-        return session.createQuery("select a from Book a").getResultList();
+        return sessionFactory.getCurrentSession().createQuery("select a from Book a join fetch a.authors",Book.class).getResultList();
     }
 
     @Override
@@ -57,9 +54,10 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> findBooksByAuthor(String name) {
-        Query q = sessionFactory.getCurrentSession()
+       /* Query q = sessionFactory.getCurrentSession()
                 .createQuery("select Book.bookId,Book.title,Book.description,Book.genre,Book.count,Author.name,Author.surname FROM Author ,BookAuthor ,Book WHERE Author.id=BookAuthor.author_id AND Book.bookId=BookAuthor.book_id AND Author.name=:name ");
         q.setParameter("name", name);
-        return q.getResultList();
+        return q.getResultList();*/
+        return null;
     }
 }

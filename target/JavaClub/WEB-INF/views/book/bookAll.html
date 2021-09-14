@@ -1,37 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books</title>
 </head>
 <body>
     <table>
+        <caption>BOOKS</caption>
         <tr>
-            <th>Id</th>
-            <th>Author Name</th>
-            <th>Author Surname</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Genre</th>
-            <th>Count</th>
+            <th scope="col">Id</th>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Count</th>
         </tr>
 
         <th:block th:each="book:${books}">
-            <tr>
-                <td th:text ="${book.getBookId}"></td>
-                <td th:text = "${book.getAuthor().getName();}"></td>
-                <td th:text = "${book.getAuthor().getSurname();}"></td>
-                <td th:text = "${book.getTitle}"></td>
-                <td th:text = "${book.toString}"></td>
-                <td th:text = "${book.getGenre}"></td>
-                <td th:text = "${book.getCount}"></td>
-
+            <tr th:each="author:${book.authors}">
+                <td th:text ="${book.getBookId}">id</td>
+                <td th:text ="${author.name && author.surname}">name</td>
+                <td th:text = "${book.getTitle}">title</td>
+                <td th:text = "${book.getDescription}">description</td>
+                <td th:text = "${book.getGenre}">genre</td>
+                <td th:text = "${book.getCount}">count</td>
             </tr>
         </th:block>
-
-
     </table>
-
-
 </body>
 </html>
