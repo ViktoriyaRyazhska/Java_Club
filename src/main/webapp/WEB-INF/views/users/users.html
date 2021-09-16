@@ -16,9 +16,10 @@
         <th scope="col">Password</th>
         <th scope="col">Registration date</th>
         <th scope="col">Specialisation</th>
+        <th scope="col">Role</th>
     </tr>
     <th:block th:each="user: ${users}">
-        <tr>
+        <tr th:each="role:${user.roles}">
             <td><a th:text="${user.getId}" th:href="@{/users/{id}(id=${user.getId()})}">id</a></td>
             <td th:text="${user.getName}">name</td>
             <td th:text="${user.getSurname()}">surname</td>
@@ -27,6 +28,7 @@
             <td th:text="${user.getPassword}">password</td>
             <td th:text="${#dates.format(user.getRegistrationDate(),'dd-MMM-yyyy')}">registration date</td>
             <td th:text="${user.getSpecialization()}">specialisation</td>
+            <td th:text="${role.name}">role</td>
         </tr>
     </th:block>
 </table>

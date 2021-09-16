@@ -1,12 +1,15 @@
 package com.team3.entity;
 
 import lombok.*;
-import lombok.experimental.FieldNameConstants;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "book")
 public class Book {
@@ -16,13 +19,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
 
-    @Column(name = "authorId")
-    private int authorId;
-
     @Column(name = "title")
     private String title;
 
-    @ToString.Exclude
     @Column(name = "description")
     private String description;
 
@@ -32,14 +31,37 @@ public class Book {
     @Column(name = "count")
     private int count;
 
-    @Override
-    public String toString() {
-        return getDescription();
+    public Book(String title, String description, String genre, int count) {
+        this.title = title;
+        this.description = description;
+        this.genre = genre;
+        this.count = count;
     }
 
-    // @ManyToOne
-    //@JoinColumn(name = "authorId")
-    // private Author author;
+    public Book(String title, String description, String genre, int count, Set<Author> authors) {
+        this.title = title;
+        this.description = description;
+        this.genre = genre;
+        this.count = count;
+        this.authors = authors;
+    }
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "books_authors",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    private Set<Author> authors;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Book book = (Book) o;
+        return Objects.equals(bookId, book.bookId);
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

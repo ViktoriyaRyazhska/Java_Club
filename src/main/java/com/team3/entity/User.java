@@ -50,12 +50,12 @@ public class User implements UserDetails {
     @Column(name = "specialization")
     private String specialization;
 
-    @Transient
+
     @ManyToMany
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private transient Set<Role> roles;
+    private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

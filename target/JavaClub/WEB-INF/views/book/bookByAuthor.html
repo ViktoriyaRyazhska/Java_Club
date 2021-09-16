@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books</title>
 </head>
 <body>
+<a href="/books/show">Show all</a>
 
+
+<form th:action="@{search}" method="get">
+    <label for="name">Author name</label>
+    <input type="text" name="name" id="name" th:value="${name}"/>
+    <input type="submit" value="Search"/>
+    <table>
+        <caption>RESULTS</caption>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Count</th>
+        </tr>
+
+        <th:block th:each="book:${list}">
+            <tr th:each="author:${book.authors}">
+                <td th:text ="${book.getBookId}">id</td>
+                <td th:text ="${author.name+author.surname}">name</td>
+                <td th:text = "${book.getTitle}">title</td>
+                <td th:text = "${book.getDescription}">description</td>
+                <td th:text = "${book.getGenre}">genre</td>
+                <td th:text = "${book.getCount}">count</td>
+            </tr>
+        </th:block>
+    </table>
+</form>
 </body>
 </html>

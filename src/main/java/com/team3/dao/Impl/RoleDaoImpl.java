@@ -19,7 +19,7 @@ public class RoleDaoImpl implements RoleDao {
     public Role getById(Long id) {
         Role role;
         try {
-            role = sessionFactory.getCurrentSession().createQuery("from Role r where r.id=:id", Role.class)
+            role = sessionFactory.getCurrentSession().createQuery("from Role r  where r.id=:id", Role.class)
                     .setParameter("id", id)
                     .getSingleResult();
         } catch (NoResultException noResultException) {
