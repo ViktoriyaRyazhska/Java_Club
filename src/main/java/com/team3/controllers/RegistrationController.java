@@ -23,16 +23,18 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    /* @GetMapping()
-     public String getAllUsers(Model model){
-         model.addAttribute("users",userService.getAllUsers());
-         return "users/users";
-     }
-     @GetMapping("/{id}")
-     public String getUserById(@PathVariable Long id,Model model){
-         model.addAttribute("user",userService.getUserById(id));
-         return "users/user";
-     }*/
+    @GetMapping()
+    public String getAllUsers(Model model) {
+        model.addAttribute("users", userService.getAllUsers());
+        return "users/users";
+    }
+
+    /*
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable Long id,Model model){
+        model.addAttribute("user",userService.getUserById(id));
+        return "users/user";
+    }*/
     @GetMapping("/new")
     public String addUser(Model model) {
         model.addAttribute("user", new User());

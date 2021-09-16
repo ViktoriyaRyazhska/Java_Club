@@ -47,9 +47,9 @@ public class Book {
     }
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="books_authors",
-            joinColumns =@JoinColumn(name = "book_id"),
-    inverseJoinColumns = @JoinColumn(name = "author_id"))
+    @JoinTable(name = "books_authors",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
     @Override

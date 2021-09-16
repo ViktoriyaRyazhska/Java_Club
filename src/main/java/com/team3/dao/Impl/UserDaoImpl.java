@@ -33,14 +33,14 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        return sessionFactory.getCurrentSession().createQuery("select a from User a", User.class).getResultList();
+        return sessionFactory.getCurrentSession().createQuery("select a from User a join fetch a.roles", User.class).getResultList();
     }
 
     @Override
     public User findUserByEmail(String email) {
         User user;
         try {
-            user = sessionFactory.getCurrentSession().createQuery("from User a where a.email=:email", User.class)
+            user = sessionFactory.getCurrentSession().createQuery("from User a join fetch a.roles where a.email=:email", User.class)
                     .setParameter("email", email)
                     .getSingleResult();
         } catch (NoResultException e) {
