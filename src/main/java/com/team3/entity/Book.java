@@ -17,7 +17,7 @@ public class Book {
     @Id
     @Column(name = "book_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bookId;
+    private Long bookId;
 
     @Column(name = "title")
     private String title;
@@ -30,6 +30,9 @@ public class Book {
 
     @Column(name = "count")
     private int count;
+
+    @OneToOne(mappedBy = "book")
+    private Order order;
 
     public Book(String title, String description, String genre, int count) {
         this.title = title;
