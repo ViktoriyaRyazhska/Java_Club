@@ -3,6 +3,7 @@ package com.team3.service.Impl;
 import com.team3.dao.OrderDao;
 import com.team3.entity.Order;
 import com.team3.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,12 @@ import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-    private OrderDao orderDao;
+    private final OrderDao orderDao;
+
+    @Autowired
+    public OrderServiceImpl(OrderDao orderDao) {
+        this.orderDao = orderDao;
+    }
 
     //TODO: add implementation to methods
     @Override

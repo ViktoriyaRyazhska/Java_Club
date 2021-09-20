@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,9 +40,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if (userFromDb != null) {
             return false;
         }
-        Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.getById(1L));
-        user.setRoles(roles);
+        user.setRoles(Collections.singleton(new Role(1L,"ROLE_USER")));
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);
         user.setRegistrationDate(date);

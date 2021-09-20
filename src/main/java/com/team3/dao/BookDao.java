@@ -8,7 +8,7 @@ public interface BookDao {
 
     Book save(Book book);
 
-    Book findById(int id);
+    Book findById(Long id);
 
     Book remove(int id);
 
