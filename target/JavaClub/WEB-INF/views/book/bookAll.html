@@ -5,9 +5,8 @@
     <title>Books</title>
 </head>
 <body>
-
 <form th:action="@{search}" method="get">
-    <label for="name">Author name</label>
+    <label for="name">Search book:</label>
     <input type="text" name="name" id="name" th:value="${name}"/>
     <input type="submit" value="Search"/>
 </form>
@@ -17,17 +16,14 @@
             <th scope="col">Id</th>
             <th scope="col">Author</th>
             <th scope="col">Title</th>
-            <th scope="col">Description</th>
             <th scope="col">Genre</th>
             <th scope="col">Count</th>
         </tr>
 
         <th:block th:each="book:${books}">
             <tr th:each="author:${book.authors}">
-                <td th:text ="${book.getBookId}">id</td>
-                <td th:text ="${author.name+author.surname}">name</td>
+                <td><a th:text="${book.getBookId()}" th:href="@{/books/{id}(id=${book.getBookId()})}">id</a></td>                <td th:text ="${author.name+author.surname}">name</td>
                 <td th:text = "${book.getTitle}">title</td>
-                <td th:text = "${book.getDescription}">description</td>
                 <td th:text = "${book.getGenre}">genre</td>
                 <td th:text = "${book.getCount}">count</td>
             </tr>

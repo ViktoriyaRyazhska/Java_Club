@@ -6,10 +6,8 @@
 </head>
 <body>
 <a href="/books/show">Show all</a>
-
-
 <form th:action="@{search}" method="get">
-    <label for="name">Author name</label>
+    <label for="name">Search book:</label>
     <input type="text" name="name" id="name" th:value="${name}"/>
     <input type="submit" value="Search"/>
     <table>
