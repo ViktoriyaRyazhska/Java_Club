@@ -24,10 +24,10 @@ public class BookController {
     private final UserService userService;
 
     @Autowired
-    public BookController(BookService bookService,OrderService orderService,UserService userService) {
+    public BookController(BookService bookService, OrderService orderService, UserService userService) {
         this.bookService = bookService;
-        this.orderService= orderService;
-        this.userService=userService;
+        this.orderService = orderService;
+        this.userService = userService;
     }
 
     @GetMapping("/show")
@@ -37,8 +37,8 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public String getBookById(@PathVariable Long id, Model model){
-        model.addAttribute("book",bookService.findById(id));
+    public String getBookById(@PathVariable Long id, Model model) {
+        model.addAttribute("book", bookService.findById(id));
         return "book/bookById";
     }
 
@@ -49,27 +49,28 @@ public class BookController {
         mav.addObject("list", list);
         return mav;
     }
+
     @PostMapping("/{id}/reserveBook")
-    public String reserveBooks(@PathVariable("id") Long id,Model model,Order order,Authentication authentication){
-        Book book=bookService.findById(id);
-        User user=userService.getUserByEmail(authentication.getName());
-        if (!orderService.reserveBook(order,user,book)){
+    public String reserveBooks(@PathVariable("id") Long id, Order order, Authentication authentication) {
+        Book book = bookService.findById(id);
+        User user = userService.getUserByEmail(authentication.getName());
+        if (!orderService.reserveBook(order, user, book)) {
             return "orders/failConfirm";
-        }
-        else {
+        } else {
             return "redirect:/books/successOrderCreation";
         }
     }
+
     @GetMapping("/{id}/reserveBook")
-    public String reserveSuccess(@PathVariable("id") Long id, Model model){
-        Book book=bookService.findById(id);
-        model.addAttribute("book",book);
-        model.addAttribute("order",new Order());
+    public String reserveSuccess(@PathVariable("id") Long id, Model model) {
+        Book book = bookService.findById(id);
+        model.addAttribute("book", book);
+        model.addAttribute("order", new Order());
         return "orders/confirmation";
     }
 
     @GetMapping("/successOrderCreation")
-    public String successOrder(){
-        return "orders/takeBook";
+    public String successOrder() {
+        return "orders/reserveBook";
     }
 }
