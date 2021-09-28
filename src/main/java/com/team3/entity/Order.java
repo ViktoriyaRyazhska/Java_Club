@@ -16,17 +16,20 @@ import java.util.Objects;
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bookId")
     private Book book;
+
+    @Column(name = "reserveDate")
+    private Date reserveDate;
 
     @Column(name = "takeBook")
     private Date takeBook;
@@ -37,16 +40,20 @@ public class Order {
     @Column(name = "isReturned")
     private boolean isReturned;
 
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(id, order.id);
+        return isReturned == order.isReturned && Objects.equals(id, order.id) && Objects.equals(user, order.user) && Objects.equals(book, order.book) && Objects.equals(reserveDate, order.reserveDate) && Objects.equals(takeBook, order.takeBook) && Objects.equals(returnBook, order.returnBook) && orderStatus == order.orderStatus;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return Objects.hash(id, user, book, reserveDate, takeBook, returnBook, isReturned, orderStatus);
     }
 }
