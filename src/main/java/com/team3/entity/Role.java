@@ -27,22 +27,26 @@ public class Role implements GrantedAuthority {
     @ManyToMany(mappedBy = "roles")
     private transient Set<User> users;
 
+    public Role(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Role role = (Role) o;
-
-        return Objects.equals(id, role.id);
+        return Objects.equals(id, role.id) && Objects.equals(name, role.name) && Objects.equals(users, role.users);
     }
 
     @Override
     public int hashCode() {
-        return 1179619963;
+        return Objects.hash(id, name, users);
     }
 
     @Override
     public String getAuthority() {
-        return null;
+        return getName();
     }
 }

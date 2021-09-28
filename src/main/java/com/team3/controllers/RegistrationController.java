@@ -23,36 +23,25 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    @GetMapping()
-    public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "users/users";
-    }
 
-    /*
-    @GetMapping("/{id}")
-    public String getUserById(@PathVariable Long id,Model model){
-        model.addAttribute("user",userService.getUserById(id));
-        return "users/user";
-    }*/
-    @GetMapping("/new")
+    @GetMapping()
     public String addUser(Model model) {
         model.addAttribute("user", new User());
-        return "users/addUser";
+        return "users/registration";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "users/addUser";
+            return "users/registration";
         }
         if (!user.getPassword().equals(user.getPasswordConfirm())) {
             model.addAttribute("passwordError", "Password is not equals!");
-            return "users/addUser";
+            return "users/registration";
         }
         if (!userService.addUser(user)) {
             model.addAttribute("emailError", "User already exist!");
-            return "users/addUser";
+            return "users/registration";
         }
         return "redirect:/login";
     }

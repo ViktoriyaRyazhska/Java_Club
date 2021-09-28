@@ -1,35 +1,27 @@
 package com.team3.service.Impl;
 
-import com.team3.dao.RoleDao;
 import com.team3.dao.UserDao;
 import com.team3.entity.Role;
 import com.team3.entity.User;
 import com.team3.service.UserService;
-import org.hibernate.internal.build.AllowPrintStacktrace;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Transactional
 @Service
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UserService {
 
-    private final RoleDao roleDao;
     private final UserDao userDao;
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    PasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(BCryptPasswordEncoder bCryptPasswordEncoder1, RoleDao roleDao, UserDao userDao) {
-        this.roleDao = roleDao;
+    public UserServiceImpl(PasswordEncoder bCryptPasswordEncoder1, UserDao userDao) {
         this.userDao = userDao;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder1;
     }
@@ -40,7 +32,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if (userFromDb != null) {
             return false;
         }
-        user.setRoles(Collections.singleton(new Role(1L,"ROLE_USER")));
+        user.setRoles(Collections.singleton(new Role(1L, "USER")));
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);
         user.setRegistrationDate(date);
@@ -60,20 +52,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
-
+    @Transactional
     @Override
-    public User findUserByEmail(String email) {
+    public User getUserByEmail(String email){
         return userDao.findUserByEmail(email);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userDao.findUserByEmail(s);
-
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-
-        return user;
     }
 }

@@ -5,11 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/books">BACK</a>
+<a href="/books/show">BACK</a>
 <p th:text="'ID:'+${book.getBookId()}">VALUE</p>
 <h1 th:text="${book.getTitle()}">VALUE</h1>
 <p th:text="${book.getDescription()}">VALUE</p>
 <p th:text="${book.getGenre()}">VALUE</p>
 <p th:text="${book.getCount()}">VALUE</p>
+
+<form>
+
+</form>
 </body>
 </html>
