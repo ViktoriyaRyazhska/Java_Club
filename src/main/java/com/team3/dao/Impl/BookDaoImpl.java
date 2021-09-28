@@ -29,8 +29,8 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Book findById(int id) {
-        return null;
+    public Book findById(Long id) {
+        return sessionFactory.getCurrentSession().get(Book.class,id);
     }
 
     @Override
