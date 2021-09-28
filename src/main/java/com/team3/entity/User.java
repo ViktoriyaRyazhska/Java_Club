@@ -1,16 +1,13 @@
 package com.team3.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,10 +15,10 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Table(name = "user")
-public class User implements UserDetails {
+public class User {
+
     @Id
     @Column(name = "user_id")
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -50,6 +47,10 @@ public class User implements UserDetails {
     @Column(name = "specialization")
     private String specialization;
 
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
 
     @ManyToMany
     @JoinTable(name = "users_roles",
@@ -57,36 +58,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "user")
-    private Order order;
+    @OneToMany(mappedBy = "user")
+    private List<Order> order;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

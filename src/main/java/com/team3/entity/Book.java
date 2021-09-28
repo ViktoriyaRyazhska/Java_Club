@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,8 +32,8 @@ public class Book {
     @Column(name = "count")
     private int count;
 
-    @OneToOne(mappedBy = "book")
-    private Order order;
+    @OneToMany(mappedBy = "book")
+    private List<Order> order;
 
     public Book(String title, String description, String genre, int count) {
         this.title = title;
