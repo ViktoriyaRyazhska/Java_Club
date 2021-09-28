@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -73,5 +75,21 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public List<Order> findAllOrders() {
         return orderDao.findAllOrders();
+    }
+
+    @Override
+    @Transactional
+    public void borrowBook(Long id){
+        Order order=orderDao.findOrderById(id);
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        order.setTakeBook(date);
+        Calendar calendar= Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH,1);
+        date=new Date(calendar.getTimeInMillis());
+        order.setReturnBook(date);
+        order.setOrderStatus(OrderStatus.BORROWED);
+        orderDao.addOrder(order);
     }
 }

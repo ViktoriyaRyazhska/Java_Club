@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>ORDERS</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <table>
@@ -11,17 +16,29 @@
         <th scope="col">Order Id</th>
         <th scope="col">User</th>
         <th scope="col">Book</th>
+        <th scope="col">Reserve Date</th>
         <th scope="col">Request Date</th>
         <th scope="col">Return Date</th>
         <th scope="col">Is Returned</th>
+        <th scope="col">Order Status</th>
+        <th scope="col">Take Book to User</th>
     </tr>
-    <th:block th:each="order:${orders}" >
-        <td th:text="${order.getId()}">orderId</td>
-        <td th:text="${order.getUser()}">user</td>
-        <td th:text="${order.getBook()}">book</td>
-        <td th:text="${order.getTakeBook()}">requestTime</td>
-        <td th:text="${order.getReturnBook()}">returnTime</td>
-        <td th:text="${order.isReturned()}">isReturned</td>
+    <th:block th:each="order:${orders}">
+        <tr>
+            <td th:text="${order.getId()}">orderId</td>
+            <td th:text="${order.getUser().getId()}">user</td>
+            <td th:text="${order.getBook().getBookId()}">book</td>
+            <td th:text="${#dates.format(order.getReserveDate(),'dd-MMM-yyyy')}">book</td>
+            <td th:text="${#dates.format(order.getTakeBook(),'dd-MMM-yyyy')}">requestTime</td>
+            <td th:text="${#dates.format(order.getReturnBook(),'dd-MMM-yyyy')}">returnTime</td>
+            <td th:text="${order.isReturned()}">isReturned</td>
+            <td th:text="${order.getOrderStatus()}">OrderStatus</td>
+            <td>
+                <form th:action="@{/orders/{id}(id=${order.getId()})}" method="post">
+                    <input type="submit" value="Borrow">
+                </form>
+            </td>
+        </tr>
     </th:block>
 </table>
 </body>

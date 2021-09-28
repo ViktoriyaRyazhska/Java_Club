@@ -22,4 +22,6 @@ public interface OrderService {
     Order findByOrderId(Long id);
 
     List<Order> findAllOrders();
+
+    void borrowBook(Long id);
 }

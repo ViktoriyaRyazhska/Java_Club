@@ -39,10 +39,10 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public int getCountOfRepeatedOrders(Long user, Long book){
-        Query query=sessionFactory.getCurrentSession().createQuery("select a from Order a WHERE a.user.id=:user and a.book.bookId=:book");
-        query.setParameter("user",user)
-                .setParameter("book",book);
+    public int getCountOfRepeatedOrders(Long user, Long book) {
+        Query<Order> query = sessionFactory.getCurrentSession().createQuery("select a from Order a WHERE a.user.id=:user and a.book.bookId=:book");
+        query.setParameter("user", user)
+                .setParameter("book", book);
         return query.getResultList().size();
     }
 }
