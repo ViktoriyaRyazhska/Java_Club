@@ -3,6 +3,7 @@ package com.team3.dao.Impl;
 import com.team3.dao.OrderDao;
 import com.team3.entity.Order;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,5 +36,13 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public List<Order> findAllOrders() {
         return sessionFactory.getCurrentSession().createQuery("select a from Order a", Order.class).getResultList();
+    }
+
+    @Override
+    public int getCountOfRepeatedOrders(Long user, Long book){
+        Query query=sessionFactory.getCurrentSession().createQuery("select a from Order a WHERE a.user.id=:user and a.book.bookId=:book");
+        query.setParameter("user",user)
+                .setParameter("book",book);
+        return query.getResultList().size();
     }
 }
