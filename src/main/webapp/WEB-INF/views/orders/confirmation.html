@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+<body>
+<form th:action="@{/books/{id}/reserveBook(id=${book.bookId})}" method="post">
+<h6>Please confirm your order:</h6>
+<p th:text="${book.getTitle()}">book</p>
+    <h6>After confirm you need to take your book in 2 days. Else your order will be canceled.</h6>
+    <input type="submit" value="CONFIRM">
+</form>
+</body>
+</html>
