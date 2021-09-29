@@ -1,4 +1,4 @@
-package com.team3.dao.Impl;
+package com.team3.dao.impl;
 
 import com.team3.dao.AuthorDao;
 import com.team3.entity.Author;
@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 

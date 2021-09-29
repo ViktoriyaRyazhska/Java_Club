@@ -1,4 +1,4 @@
-package com.team3.dao.Impl;
+package com.team3.dao.impl;
 
 import com.team3.dao.OrderDao;
 import com.team3.entity.Order;
@@ -45,4 +45,5 @@ public class OrderDaoImpl implements OrderDao {
                 .setParameter("book", book);
         return query.getResultList().size();
     }
+
 }

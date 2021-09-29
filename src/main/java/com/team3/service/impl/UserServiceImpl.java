@@ -1,11 +1,10 @@
-package com.team3.service.Impl;
+package com.team3.service.impl;
 
 import com.team3.dao.UserDao;
 import com.team3.entity.Role;
 import com.team3.entity.User;
 import com.team3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

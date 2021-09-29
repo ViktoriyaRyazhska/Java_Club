@@ -1,4 +1,4 @@
-package com.team3.dao.Impl;
+package com.team3.dao.impl;
 
 import com.team3.dao.UserDao;
 import com.team3.entity.User;
