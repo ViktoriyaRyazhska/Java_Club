@@ -34,7 +34,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void getHowManyBooksWereBeenReadByUser(Long id) {
+    @Transactional
+    public int getHowManyBooksWereBeenReadByUser(String email) {
+        return orderDao.getHowManyBooksWereBeenReadByUser(email);
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface OrderService {
 
     void getTheMostUnpopularBook();
 
-    void getHowManyBooksWereBeenReadByUser(Long id);
+    int getHowManyBooksWereBeenReadByUser(String email);
 
     void getHowManyBooksWereGivingInSelectedPeriod();
 

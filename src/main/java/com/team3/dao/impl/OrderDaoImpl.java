@@ -46,4 +46,13 @@ public class OrderDaoImpl implements OrderDao {
         return query.getResultList().size();
     }
 
+    @Override
+    public int getHowManyBooksWereBeenReadByUser(String email){
+        Query query=sessionFactory.getCurrentSession().createQuery(
+                "select a from Order a where a.user.email=:email " +
+                        "and a.orderStatus<>'RESERVED' " +
+                        "and a.orderStatus<>'CANCELED'");
+        query.setParameter("email",email);
+        return query.getResultList().size();
+    }
 }
