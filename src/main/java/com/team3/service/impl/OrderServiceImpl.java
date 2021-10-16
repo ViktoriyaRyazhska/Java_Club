@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -18,6 +19,10 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderDao orderDao;
+
+    private final long millis = System.currentTimeMillis();
+    private final java.sql.Date date = new java.sql.Date(millis);
+
 
     @Autowired
     public OrderServiceImpl(OrderDao orderDao) {
@@ -36,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public int getHowManyBooksWereBeenReadByUser(String email) {
-        return orderDao.getHowManyBooksWereBeenReadByUser(email);
+        return orderDao.getHowManyBooksWereBeenReadByUser(email).size();
     }
 
     @Override
@@ -46,14 +51,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public boolean reserveBook(Order order, User user, Book book) {
-        if (orderDao.getCountOfRepeatedOrders(user.getId(),book.getBookId())>=1){
+        int repeatedOrders = orderDao.getUsersRepeatedOrders(user.getId(), book.getBookId()).size();
+        if (repeatedOrders >= 1) {
             return false;
-        }
-        else {
+        } else {
             order.setUser(user);
             order.setBook(book);
-            long millis = System.currentTimeMillis();
-            java.sql.Date date = new java.sql.Date(millis);
             order.setReserveDate(date);
             order.setOrderStatus(OrderStatus.RESERVED);
             orderDao.addOrder(order);
@@ -81,17 +84,46 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void borrowBook(Long id){
-        Order order=orderDao.findOrderById(id);
-        long millis = System.currentTimeMillis();
-        java.sql.Date date = new java.sql.Date(millis);
-        order.setTakeBook(date);
-        Calendar calendar= Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.MONTH,1);
-        date=new Date(calendar.getTimeInMillis());
-        order.setReturnBook(date);
+    public void borrowBook(Long id) {
+        java.sql.Date borrowDate = new java.sql.Date(millis);
+        Order order = orderDao.findOrderById(id);
+        order.setTakeBook(borrowDate);
+
+        java.sql.Date deadlineDate = addOneMonth(borrowDate);
+        order.setDeadline(deadlineDate);
+
         order.setOrderStatus(OrderStatus.BORROWED);
         orderDao.addOrder(order);
+    }
+
+    private Date addOneMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH, 1);
+        return new Date(calendar.getTimeInMillis());
+    }
+
+    @Override
+    @Transactional
+    public int getAverageReadingTimeOfUser(String user) {
+        List<Order> orders = orderDao.getHowManyBooksWereBeenReadByUser(user);
+        int time = 0;
+        int toHour = 3600000;
+        for (Order order : orders) {
+            time += millis - order.getTakeBook().getTime();
+        }
+        time = time / toHour;
+        return time;
+    }
+
+    @Override
+    @Transactional
+    public List<String> getBooksThatUserReading(String email){
+        List<Order>orders=orderDao.getHowManyBooksWereBeenReadByUser(email);
+        List<String>books=new ArrayList<>();
+        for (Order o:orders) {
+            books.add(o.getBook().getTitle());
+        }
+        return books;
     }
 }

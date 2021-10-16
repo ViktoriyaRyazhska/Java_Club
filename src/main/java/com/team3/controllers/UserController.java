@@ -26,6 +26,8 @@ public class UserController {
     public String getStatistic(Authentication authentication, Model model) {
         String user = authentication.getName();
         model.addAttribute("bookCount", orderService.getHowManyBooksWereBeenReadByUser(user));
+        model.addAttribute("averageReadingTime",orderService.getAverageReadingTimeOfUser(user));
+        model.addAttribute("readingNow",orderService.getBooksThatUserReading(user));
         return "users/userStatistic";
     }
 }

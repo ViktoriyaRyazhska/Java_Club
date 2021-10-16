@@ -24,4 +24,8 @@ public interface OrderService {
     List<Order> findAllOrders();
 
     void borrowBook(Long id);
+
+    int getAverageReadingTimeOfUser(String user);
+
+    List<String> getBooksThatUserReading(String email);
 }

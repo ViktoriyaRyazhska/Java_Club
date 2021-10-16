@@ -12,20 +12,25 @@
 <body>
 <table>
     <caption>YOUR STATISTIC</caption>
-    <th:block th:each="statistic:${bookCount}">
-        <tr>
-            <th>Books Read:</th>
-            <td th:text="${bookCount}"></td>
-        </tr>
-        <tr>
-            <th></th>
-            <td></td>
-        </tr>
-        <tr>
-            <th></th>
-            <td></td>
-        </tr>
-    </th:block>
+
+    <tr>
+        <th scope="col">Books Read</th>
+        <td th:text="${bookCount}">count</td>
+    </tr>
+    <tr>
+        <th scope="col">Average Time Of Reading(hours)</th>
+        <td th:text="${averageReadingTime}">time</td>
+    </tr>
+    <tr>
+        <th scope="col">Reading now</th>
+
+        <td>
+            <th:block th:each="book:${readingNow}">
+                <p th:text="${book}">book</p>
+            </th:block>
+        </td>
+
+    </tr>
 </table>
 </body>
 </html>
