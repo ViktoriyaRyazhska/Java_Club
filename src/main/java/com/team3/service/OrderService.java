@@ -28,4 +28,7 @@ public interface OrderService {
     int getAverageReadingTimeOfUser(String user);
 
     List<String> getBooksThatUserReading(String email);
+
+    void returnBook(Long id);
+
 }

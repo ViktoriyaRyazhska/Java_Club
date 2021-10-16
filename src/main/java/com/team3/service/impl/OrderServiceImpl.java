@@ -96,6 +96,18 @@ public class OrderServiceImpl implements OrderService {
         orderDao.addOrder(order);
     }
 
+    @Override
+    @Transactional
+    public void returnBook(Long id) {
+        java.sql.Date returnDate = new java.sql.Date(millis);
+        Order order = orderDao.findOrderById(id);
+
+        order.setReturnBook(returnDate);
+        order.setReturned(true);
+        order.setOrderStatus(OrderStatus.CLOSED);
+        orderDao.addOrder(order);
+    }
+
     private Date addOneMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -118,10 +130,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public List<String> getBooksThatUserReading(String email){
-        List<Order>orders=orderDao.getHowManyBooksWereBeenReadByUser(email);
-        List<String>books=new ArrayList<>();
-        for (Order o:orders) {
+    public List<String> getBooksThatUserReading(String email) {
+        List<Order> orders = orderDao.getHowManyBooksWereBeenReadByUser(email);
+        List<String> books = new ArrayList<>();
+        for (Order o : orders) {
             books.add(o.getBook().getTitle());
         }
         return books;

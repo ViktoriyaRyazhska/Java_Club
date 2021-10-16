@@ -39,6 +39,10 @@
                 <form th:action="@{/orders/{id}(id=${order.getId()})}" method="post">
                     <input type="submit" value="Borrow">
                 </form>
+                <td th:if="${order.getOrderStatus().name().equals('BORROWED')}">
+            <form th:action="@{/orders/return/{id}(id=${order.getId()})}" method="post">
+                <input type="submit" value="Return">
+            </form>
             </td>
         </tr>
     </th:block>

@@ -34,10 +34,18 @@ public class OrderController {
         model.addAttribute("order", orderService.findByOrderId(id));
         return "orders/order";
     }
+
     @PostMapping("/{id}")
     @PreAuthorize(value = "hasAuthority('MANAGER')")
-    public String borrowBookToUser(@PathVariable Long id){
+    public String borrowBookToUser(@PathVariable Long id) {
         orderService.borrowBook(id);
+        return "redirect:/orders";
+    }
+
+    @PostMapping("/return/{id}")
+    @PreAuthorize(value = "hasAnyAuthority('MANAGER')")
+    public String returnBookToLibrary(@PathVariable Long id) {
+        orderService.returnBook(id);
         return "redirect:/orders";
     }
 }
