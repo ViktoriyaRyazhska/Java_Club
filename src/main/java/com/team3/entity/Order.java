@@ -3,7 +3,6 @@ package com.team3.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -37,6 +36,9 @@ public class Order {
     @Column(name = "returnBook")
     private Date returnBook;
 
+    @Column(name = "deadline")
+    private Date deadline;
+
     @Column(name = "isReturned")
     private boolean isReturned;
 
@@ -49,11 +51,11 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return isReturned == order.isReturned && Objects.equals(id, order.id) && Objects.equals(user, order.user) && Objects.equals(book, order.book) && Objects.equals(reserveDate, order.reserveDate) && Objects.equals(takeBook, order.takeBook) && Objects.equals(returnBook, order.returnBook) && orderStatus == order.orderStatus;
+        return isReturned == order.isReturned && Objects.equals(id, order.id) && Objects.equals(user, order.user) && Objects.equals(book, order.book) && Objects.equals(reserveDate, order.reserveDate) && Objects.equals(takeBook, order.takeBook) && Objects.equals(returnBook, order.returnBook) && Objects.equals(deadline, order.deadline) && orderStatus == order.orderStatus;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, book, reserveDate, takeBook, returnBook, isReturned, orderStatus);
+        return Objects.hash(id, user, book, reserveDate, takeBook, returnBook, deadline, isReturned, orderStatus);
     }
 }

@@ -18,6 +18,7 @@
         <th scope="col">Book</th>
         <th scope="col">Reserve Date</th>
         <th scope="col">Request Date</th>
+        <th scope="col">DeadLine Date</th>
         <th scope="col">Return Date</th>
         <th scope="col">Is Returned</th>
         <th scope="col">Order Status</th>
@@ -30,10 +31,11 @@
             <td th:text="${order.getBook().getBookId()}">book</td>
             <td th:text="${#dates.format(order.getReserveDate(),'dd-MMM-yyyy')}">book</td>
             <td th:text="${#dates.format(order.getTakeBook(),'dd-MMM-yyyy')}">requestTime</td>
+            <td th:text="${#dates.format(order.getDeadline(),'dd-MMM-yyyy')}">deadline</td>
             <td th:text="${#dates.format(order.getReturnBook(),'dd-MMM-yyyy')}">returnTime</td>
             <td th:text="${order.isReturned()}">isReturned</td>
             <td th:text="${order.getOrderStatus()}">OrderStatus</td>
-            <td>
+            <td th:if="${order.getOrderStatus().name().equals('RESERVED')}">
                 <form th:action="@{/orders/{id}(id=${order.getId()})}" method="post">
                     <input type="submit" value="Borrow">
                 </form>
