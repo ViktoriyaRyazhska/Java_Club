@@ -3,7 +3,6 @@ package com.team3.dao.impl;
 import com.team3.dao.OrderDao;
 import com.team3.entity.Order;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -39,20 +38,21 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public int getCountOfRepeatedOrders(Long user, Long book) {
-        Query<Order> query = sessionFactory.getCurrentSession().createQuery("select a from Order a WHERE a.user.id=:user and a.book.bookId=:book");
-        query.setParameter("user", user)
-                .setParameter("book", book);
-        return query.getResultList().size();
+    public List<Order> getUsersRepeatedOrders(Long user, Long book) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("select a from Order a WHERE a.user.id=:user and a.book.bookId=:book",Order.class)
+                .setParameter("user", user)
+                .setParameter("book", book)
+                .getResultList();
     }
 
     @Override
-    public int getHowManyBooksWereBeenReadByUser(String email){
-        Query query=sessionFactory.getCurrentSession().createQuery(
+    public List<Order> getHowManyBooksWereBeenReadByUser(String email) {
+        return sessionFactory.getCurrentSession().createQuery(
                 "select a from Order a where a.user.email=:email " +
                         "and a.orderStatus<>'RESERVED' " +
-                        "and a.orderStatus<>'CANCELED'");
-        query.setParameter("email",email);
-        return query.getResultList().size();
+                        "and a.orderStatus<>'CANCELED'",Order.class)
+                .setParameter("email", email)
+                .getResultList();
     }
 }

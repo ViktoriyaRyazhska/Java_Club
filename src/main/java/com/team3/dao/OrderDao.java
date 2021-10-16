@@ -13,7 +13,8 @@ public interface OrderDao {
 
     List<Order> findAllOrders();
 
-    int getCountOfRepeatedOrders(Long user, Long book);
+    List<Order> getUsersRepeatedOrders(Long user, Long book);
 
-    int getHowManyBooksWereBeenReadByUser(String email);
+    List<Order> getHowManyBooksWereBeenReadByUser(String email);
+
 }
